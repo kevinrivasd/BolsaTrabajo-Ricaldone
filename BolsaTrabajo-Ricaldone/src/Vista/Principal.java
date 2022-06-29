@@ -67,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnMenu.setBackground(new java.awt.Color(133, 175, 75));
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenu.setText("Menu");
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Menu Menu.png"))); // NOI18N
         btnMenu.setBorder(null);
         btnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -85,20 +85,23 @@ public class Principal extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 92, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         btnUsuarioGrafi.setBackground(new java.awt.Color(133, 175, 75));
+        btnUsuarioGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnUsuarioGrafi.setForeground(new java.awt.Color(255, 255, 255));
+        btnUsuarioGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User menu.png"))); // NOI18N
         btnUsuarioGrafi.setText("Usuario");
+        btnUsuarioGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 85));
         btnUsuarioGrafi.setBorderPainted(false);
         btnUsuarioGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,8 +110,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnEstadisticasGrafi.setBackground(new java.awt.Color(133, 175, 75));
+        btnEstadisticasGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEstadisticasGrafi.setForeground(new java.awt.Color(255, 255, 255));
+        btnEstadisticasGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Estadisticas menu.png"))); // NOI18N
         btnEstadisticasGrafi.setText("Estadisticas");
+        btnEstadisticasGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 55));
         btnEstadisticasGrafi.setBorderPainted(false);
         btnEstadisticasGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,8 +123,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnPostulantesGrafi.setBackground(new java.awt.Color(133, 175, 75));
+        btnPostulantesGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPostulantesGrafi.setForeground(new java.awt.Color(255, 255, 255));
+        btnPostulantesGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/CV Menu.png"))); // NOI18N
         btnPostulantesGrafi.setText("Postulantes");
+        btnPostulantesGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 45));
         btnPostulantesGrafi.setBorderPainted(false);
         btnPostulantesGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,8 +136,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnNotificacionesGrafi.setBackground(new java.awt.Color(133, 175, 75));
+        btnNotificacionesGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnNotificacionesGrafi.setForeground(new java.awt.Color(255, 255, 255));
+        btnNotificacionesGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/NotificacionesMenu.png"))); // NOI18N
         btnNotificacionesGrafi.setText("Notificaciones");
+        btnNotificacionesGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 35));
         btnNotificacionesGrafi.setBorderPainted(false);
         btnNotificacionesGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,8 +149,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnConfiguracionGrafi.setBackground(new java.awt.Color(133, 175, 75));
+        btnConfiguracionGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConfiguracionGrafi.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfiguracionGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Configuracion Menu.png"))); // NOI18N
         btnConfiguracionGrafi.setText("Configuracion");
+        btnConfiguracionGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 35));
         btnConfiguracionGrafi.setBorderPainted(false);
         btnConfiguracionGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +161,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnSalirPostu.setText("Salir");
+        btnSalirPostu.setBackground(new java.awt.Color(133, 175, 75));
+        btnSalirPostu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Cerrar sesion menu.png"))); // NOI18N
         btnSalirPostu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirPostuActionPerformed(evt);
@@ -158,22 +174,15 @@ public class Principal extends javax.swing.JFrame {
         PanelMenuLayout.setHorizontalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMenuLayout.createSequentialGroup()
-                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelMenuLayout.createSequentialGroup()
-                        .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnNotificacionesGrafi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                                .addComponent(btnEstadisticasGrafi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPostulantesGrafi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnConfiguracionGrafi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMenuLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUsuarioGrafi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSalirPostu, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSalirPostu)
                 .addContainerGap())
+            .addComponent(btnConfiguracionGrafi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPostulantesGrafi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnEstadisticasGrafi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnUsuarioGrafi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnNotificacionesGrafi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelMenuLayout.setVerticalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +194,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(btnNotificacionesGrafi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEstadisticasGrafi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPostulantesGrafi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnConfiguracionGrafi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,7 +217,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +267,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1023, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,14 +294,14 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 37, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -322,9 +331,9 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

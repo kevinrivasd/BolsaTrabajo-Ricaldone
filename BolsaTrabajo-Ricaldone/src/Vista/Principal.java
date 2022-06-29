@@ -43,6 +43,7 @@ public class Principal extends javax.swing.JFrame {
         PanelMenu = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         btnMenu = new javax.swing.JButton();
+        btnMenu1 = new javax.swing.JButton();
         btnUsuarioGrafi = new javax.swing.JButton();
         btnEstadisticasGrafi = new javax.swing.JButton();
         btnPostulantesGrafi = new javax.swing.JButton();
@@ -80,20 +81,40 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        btnMenu1.setBackground(new java.awt.Color(133, 175, 75));
+        btnMenu1.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Logo Menu.png"))); // NOI18N
+        btnMenu1.setBorder(null);
+        btnMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMenu1MouseClicked(evt);
+            }
+        });
+        btnMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenu1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMenu1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMenu)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         btnUsuarioGrafi.setBackground(new java.awt.Color(133, 175, 75));
@@ -163,6 +184,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnSalirPostu.setBackground(new java.awt.Color(133, 175, 75));
         btnSalirPostu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Cerrar sesion menu.png"))); // NOI18N
+        btnSalirPostu.setBorderPainted(false);
         btnSalirPostu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirPostuActionPerformed(evt);
@@ -302,7 +324,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 37, Short.MAX_VALUE))
+                .addGap(0, 29, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,6 +414,14 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMenuMouseClicked
 
+    private void btnMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenu1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenu1MouseClicked
+
+    private void btnMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenu1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -432,6 +462,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnConfiguracionGrafi;
     private javax.swing.JButton btnEstadisticasGrafi;
     private javax.swing.JButton btnMenu;
+    private javax.swing.JButton btnMenu1;
     private javax.swing.JButton btnNotificacionesGrafi;
     private javax.swing.JButton btnPostulantesGrafi;
     private javax.swing.JButton btnSalirPostu;

@@ -453,8 +453,13 @@ public class Usuarios extends javax.swing.JFrame {
         HashMap<String,String> datos = new HashMap<>();
         datos = CollectData();
         
-        try {        
-            int res = Controlador.ControladorUsuario.AgregarUsuario(datos);
+        int res;
+        try {
+            if (!Controlador.Utils.emptyFields(datos)) {                
+                 res = Controlador.ControladorUsuario.AgregarUsuario(datos);
+            }else{
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+            }
         } catch (Exception ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Kevin Rivas
@@ -486,9 +489,13 @@ public class Postulantes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnUsuarioPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioPostuActionPerformed
-        Usuarios newfrm = new Usuarios();
-        newfrm.setVisible(true);
-        this.dispose();
+        try {
+            Usuarios newfrm = new Usuarios();
+            newfrm.setVisible(true);
+            this.dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(Postulantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnUsuarioPostuActionPerformed
 
     private void btnNotificacionesPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificacionesPostuActionPerformed

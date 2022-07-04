@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Kevin Rivas
@@ -338,7 +341,12 @@ public class Configuracion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnUsuarioConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioConfiActionPerformed
-        Usuarios newfrm = new Usuarios();
+        Usuarios newfrm = null;
+        try {
+            newfrm = new Usuarios();
+        } catch (Exception ex) {
+            Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         newfrm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnUsuarioConfiActionPerformed

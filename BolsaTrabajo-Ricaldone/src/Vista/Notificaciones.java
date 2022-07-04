@@ -5,6 +5,9 @@
 
 package Vista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Kevin Rivas
@@ -612,9 +615,13 @@ public class Notificaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEstadisticasNotiActionPerformed
 
     private void btnUsuarioNotiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioNotiActionPerformed
-        Usuarios newfrm = new Usuarios();
-        newfrm.setVisible(true);
-        this.dispose();
+        try {
+            Usuarios newfrm = new Usuarios();
+            newfrm.setVisible(true);
+            this.dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(Notificaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnUsuarioNotiActionPerformed
 
     private void btnNotificacionesNotiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificacionesNotiActionPerformed

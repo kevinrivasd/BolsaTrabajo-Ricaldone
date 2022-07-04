@@ -8,6 +8,8 @@ package Vista;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import desplazable.Desface;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -371,9 +373,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnUsuarioGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioGrafiActionPerformed
-        Usuarios newfrm = new Usuarios();
-        newfrm.setVisible(true);
-        this.dispose();
+        try {
+            Usuarios newfrm = new Usuarios();
+            newfrm.setVisible(true);
+            this.dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnUsuarioGrafiActionPerformed
 
     private void btnNotificacionesGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificacionesGrafiActionPerformed

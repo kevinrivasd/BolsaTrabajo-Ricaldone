@@ -10,12 +10,8 @@ package Controlador;
  */
 public class ControladorLogin {
     public static int Login(String user, char[] password) throws Exception{
-        String baseString = "";        
-        for (char c : password) {
-            baseString += c+3;
-        }
         
-        //juanromero
-        return Modelo.ModeloLogin.Login(user,baseString);        
+        return Modelo.ModeloLogin.Login(user, Utils.encrypt(password));        
+    
     }
 }

@@ -12,12 +12,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 /**
  *
  * @author hello
  */
 public class ModeloUtils {
+    
+    //specific field
     public static List<String> getData(String sqlTable, String campoString) throws SQLException, Exception{        
         List<String> data = new ArrayList<>();
         
@@ -32,5 +33,18 @@ public class ModeloUtils {
             data.add(res.getString(campoString));            
         }
         return data;
+    }
+    
+    //whole table
+    public static ResultSet getTable(String sqlTable) throws SQLException, Exception{
+        
+        Connection sql = ControladorConexion.getConection();
+        
+        String squery = "SELECT * FROM "+sqlTable ;
+        PreparedStatement consult = sql.prepareStatement(squery);
+
+        ResultSet res = consult.executeQuery();
+        
+        return res;
     }
 }

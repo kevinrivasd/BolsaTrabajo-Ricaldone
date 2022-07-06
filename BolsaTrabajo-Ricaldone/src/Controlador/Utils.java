@@ -4,9 +4,15 @@
  */
 package Controlador;
 
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -45,5 +51,39 @@ public class Utils {
         
         return baseString;
     }
+
+   public static DefaultTableModel rtrnTqble(String sqlTable) throws Exception{
+      
+       ResultSet rs = Modelo.ModeloUtils.getTable(sqlTable);
+       DefaultTableModel table = buildTableModel(rs);
+      
+      return table;
+    }    
+    
+public static DefaultTableModel buildTableModel(ResultSet rs)
+        throws SQLException {
+
+    ResultSetMetaData metaData = rs.getMetaData();
+
+    // names of columns
+    Vector<String> columnNames = new Vector<>();
+    int columnCount = metaData.getColumnCount();
+    for (int column = 1; column <= columnCount; column++) {
+                columnNames.add(metaData.getColumnName(column));
+    }
+
+    // data of the table
+    Vector<Vector<Object>> data = new Vector<>();
+    while (rs.next()) {
+        Vector<Object> vector = new Vector<>();
+        for (int columnIndex = 1; columnCount > columnIndex; columnIndex++) {
+            vector.add(rs.getObject(columnIndex));
+        }
+        data.add(vector);
+    }
+
+    return new DefaultTableModel(data, columnNames);
+
+}
     
 }

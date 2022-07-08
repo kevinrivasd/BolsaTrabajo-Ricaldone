@@ -540,6 +540,7 @@ public class Postulantes extends javax.swing.JFrame {
         PostulanteCRUD next = new PostulanteCRUD();
         next.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
 
     /**

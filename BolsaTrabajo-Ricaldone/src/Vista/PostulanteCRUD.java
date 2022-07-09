@@ -5,16 +5,26 @@
 package Vista;
 
 import Controlador.Utils;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,10 +43,55 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         setTitle("Gestion de postulantes");
         
         List<String> dataGender = Controlador.Utils.getDataCmb("Genders","Gender");        
-       
-       for(int k = 0; k<dataGender.size();k++){
+        for(int k = 0; k<dataGender.size();k++){
            cmbGenero.addItem(dataGender.get(k));
        }
+        List<String> datapreflaboral = Controlador.Utils.getDataCmb("WorkPreference","WPreference");        
+        for(int k = 0; k<datapreflaboral.size();k++){
+           cmbPrefLaboral.addItem(datapreflaboral.get(k));
+        }
+        
+        List<String> dataStatus = Controlador.Utils.getDataCmb("States","States");        
+        for(int k = 0; k<dataStatus.size();k++){
+           cmbEstadoPost.addItem(dataStatus.get(k));
+        }
+        
+        List<String> dptoPreferencia = Controlador.Utils.getDataCmb("Departments","Department");        
+        for(int k = 0; k<dptoPreferencia.size();k++){
+           cmbDepartPreferencia.addItem(dptoPreferencia.get(k));
+        }
+        
+        List<String> dptoReside = Controlador.Utils.getDataCmb("Departments","Department");        
+        for(int k = 0; k<dptoReside.size();k++){
+           cmbDepartReside.addItem(dptoReside.get(k));
+        }
+        
+        List<String> EstadoTrabajo = Controlador.Utils.getDataCmb("WorkState","WorkState");        
+        for(int k = 0; k<EstadoTrabajo.size();k++){
+           cmbEstadoTrabajo.addItem(EstadoTrabajo.get(k));
+        }
+        
+        List<String> TContrato = Controlador.Utils.getDataCmb("ContractType","WType");        
+        for(int k = 0; k<TContrato.size();k++){
+           cmbTipoContrato.addItem(TContrato.get(k));
+        }
+        
+        List<String> TTrabajo = Controlador.Utils.getDataCmb("workSubjects","WorkSubject");        
+        for(int k = 0; k<TTrabajo.size();k++){
+           cmbTipoTrabajo.addItem(TTrabajo.get(k));
+        }
+        
+        List<String> salario = Controlador.Utils.getDataCmb("SalaryState","Salary");        
+        for(int k = 0; k<salario.size();k++){
+           cmbSalario.addItem(salario.get(k));
+        }
+        
+        List<String> nivelEstudio = Controlador.Utils.getDataCmb("StudyLevels","studyLevel");        
+        for(int k = 0; k<nivelEstudio.size();k++){
+           cmbNivelEstudio.addItem(nivelEstudio.get(k));
+        }
+        
+        
     }
 
     /**
@@ -59,7 +114,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtContraseñaPost = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtCorreoPost = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        BtnImageAdd = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         cmbGenero = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -88,7 +143,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtRama = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtHabilidadAdicional = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        CheckAlumni = new javax.swing.JCheckBox();
+        lblImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
@@ -105,13 +161,13 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jPanel1.add(BtnRegresarPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         BtnLimpiarCampos.setText("Limpiar Campos");
-        jPanel1.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 124, 34));
+        jPanel1.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 124, 34));
 
         BtnAgregar.setText("Agregar");
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 124, 32));
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 124, 32));
 
         BtnActualizar.setText("Actualizar");
-        jPanel1.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 124, 33));
+        jPanel1.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 124, 33));
         jPanel1.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 176, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -131,47 +187,48 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 91, -1));
         jPanel1.add(txtCorreoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 176, -1));
 
-        jButton2.setText("Foto");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 168, 202));
+        BtnImageAdd.setText("Agregar imagen");
+        BtnImageAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnImageAddActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Genero");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
 
-        jPanel1.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 100, -1));
+        jPanel1.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 140, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Estado");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
-        cmbEstadoPost.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbEstadoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 100, -1));
+        jPanel1.add(cmbEstadoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Departamento en donde reside");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
 
-        cmbDepartReside.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 100, -1));
+        jPanel1.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 140, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Departamento de preferencia");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
 
-        cmbDepartPreferencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 100, -1));
+        jPanel1.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nivel de estudio");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
-        cmbPrefLaboral.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 100, -1));
+        jPanel1.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -182,63 +239,68 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Habilidad general");
+        jLabel10.setEnabled(false);
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
 
-        cmbSalario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 100, -1));
+        jPanel1.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 140, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Estado de trabajo");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
-        cmbTipoTrabajo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbTipoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 100, -1));
+        jPanel1.add(cmbTipoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 160, -1));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Tipo de trabajo");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
 
-        cmbEstadoTrabajo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbEstadoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 100, -1));
+        jPanel1.add(cmbEstadoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 190, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Tipo de contrato");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
 
-        cmbTipoContrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 100, -1));
+        jPanel1.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 140, -1));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Preferencias laborales");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
 
-        cmbNivelEstudio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbNivelEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 100, -1));
+        jPanel1.add(cmbNivelEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 140, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Salario");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, -1, -1));
+
+        txtHabilidadGeneral.setEnabled(false);
         jPanel1.add(txtHabilidadGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 170, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Rama perteneciente");
+        jLabel17.setEnabled(false);
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+
+        txtRama.setEnabled(false);
         jPanel1.add(txtRama, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 170, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Habilidad adicional");
+        jLabel18.setEnabled(false);
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, -1, -1));
+
+        txtHabilidadAdicional.setEnabled(false);
         jPanel1.add(txtHabilidadAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 170, -1));
 
-        jCheckBox1.setText("Ex-alumno");
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 110, 30));
+        CheckAlumni.setText("Ex-alumno");
+        jPanel1.add(CheckAlumni, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 110, 30));
+        jPanel1.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 110, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -260,6 +322,52 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         newfrm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnRegresarPostActionPerformed
+
+    
+    
+    private String S;
+    
+    private void BtnImageAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImageAddActionPerformed
+        // TODO add your handling code here:
+        JFileChooser browseImageFile = new JFileChooser();        //Filter image extensions
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(fnef);
+        int num = browseImageFile.showOpenDialog(null);
+
+        if (num == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            //Display image on jlable
+            ImageIcon ii = new ImageIcon(selectedImagePath);
+//            Resize image to fit jlabel
+            Image image = ii.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+
+            try {
+                BufferedImage image1 = ImageIO.read(selectedImageFile);
+
+                byte[] immAsBytes;
+                //use another encoding if JPG is innappropriate for you
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    //use another encoding if JPG is innappropriate for you
+                    ImageIO.write(image1, "jpg", baos );
+                    baos.flush();
+                    immAsBytes = baos.toByteArray();
+
+                }
+                try {
+                    S = Base64.getEncoder().encodeToString(immAsBytes);
+                    
+                } catch (Exception e) {
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            lblImage.setIcon(new ImageIcon(image));
+
+        }
+    }//GEN-LAST:event_BtnImageAddActionPerformed
 
     
     /**
@@ -304,8 +412,10 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnActualizar;
     private javax.swing.JButton BtnAgregar;
+    private javax.swing.JButton BtnImageAdd;
     private javax.swing.JButton BtnLimpiarCampos;
     private javax.swing.JButton BtnRegresarPost;
+    private javax.swing.JCheckBox CheckAlumni;
     private javax.swing.JComboBox<String> cmbDepartPreferencia;
     private javax.swing.JComboBox<String> cmbDepartReside;
     private javax.swing.JComboBox<String> cmbEstadoPost;
@@ -316,8 +426,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbSalario;
     private javax.swing.JComboBox<String> cmbTipoContrato;
     private javax.swing.JComboBox<String> cmbTipoTrabajo;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -336,6 +444,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblImage;
     private javax.swing.JTextField txtApellidoPost;
     private javax.swing.JTextField txtContraseñaPost;
     private javax.swing.JTextField txtCorreoPost;

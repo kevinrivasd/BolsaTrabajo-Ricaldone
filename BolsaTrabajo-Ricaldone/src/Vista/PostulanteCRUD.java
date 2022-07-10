@@ -121,7 +121,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        lblAddPDF = new javax.swing.JPanel();
         BtnRegresarPost = new javax.swing.JButton();
         BtnLimpiarCampos = new javax.swing.JButton();
         BtnAgregar = new javax.swing.JButton();
@@ -167,13 +167,14 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtContraseñaPost = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
         cmbNivelEstudio = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        BtnAddPDF = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
 
-        jPanel1.setBackground(new java.awt.Color(239, 245, 213));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        lblAddPDF.setBackground(new java.awt.Color(239, 245, 213));
+        lblAddPDF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnRegresarPost.setText("Regresar");
         BtnRegresarPost.addActionListener(new java.awt.event.ActionListener() {
@@ -181,10 +182,10 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnRegresarPostActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnRegresarPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        lblAddPDF.add(BtnRegresarPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         BtnLimpiarCampos.setText("Limpiar Campos");
-        jPanel1.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 124, 34));
+        lblAddPDF.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 124, 34));
 
         BtnAgregar.setText("Agregar");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -192,27 +193,27 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 124, 32));
+        lblAddPDF.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 124, 32));
 
         BtnActualizar.setText("Actualizar");
-        jPanel1.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, 124, 33));
-        jPanel1.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 176, -1));
+        lblAddPDF.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 124, 33));
+        lblAddPDF.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 176, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombres del postulante");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        lblAddPDF.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Correo del postulante");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        lblAddPDF.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 91, -1));
-        jPanel1.add(txtCorreoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 176, -1));
+        lblAddPDF.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 91, -1));
+        lblAddPDF.add(txtCorreoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 176, -1));
 
         BtnImageAdd.setText("Agregar imagen");
         BtnImageAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -220,143 +221,149 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnImageAddActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 80, 30));
+        lblAddPDF.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Genero");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
+        lblAddPDF.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
 
-        jPanel1.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 140, -1));
+        lblAddPDF.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 140, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Estado");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
+        lblAddPDF.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
-        jPanel1.add(cmbEstadoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 140, -1));
+        lblAddPDF.add(cmbEstadoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Departamento en donde reside");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
+        lblAddPDF.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
 
-        jPanel1.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 140, -1));
+        lblAddPDF.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 140, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Departamento de preferencia");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
+        lblAddPDF.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
 
-        jPanel1.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 140, -1));
+        lblAddPDF.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Progreso");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
+        lblAddPDF.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
 
-        jPanel1.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, -1));
+        lblAddPDF.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Apellidos del postulante");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-        jPanel1.add(txtApellidoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 176, -1));
+        lblAddPDF.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        lblAddPDF.add(txtApellidoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 176, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Habilidad general");
         jLabel10.setEnabled(false);
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
+        lblAddPDF.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
 
-        jPanel1.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 140, -1));
+        lblAddPDF.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 140, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Estado de trabajo");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
+        lblAddPDF.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
-        jPanel1.add(cmbTipoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 160, -1));
+        lblAddPDF.add(cmbTipoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 160, -1));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Tipo de trabajo");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
+        lblAddPDF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
 
-        jPanel1.add(cmbEstadoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 190, -1));
+        lblAddPDF.add(cmbEstadoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 190, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Tipo de contrato");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
+        lblAddPDF.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
 
-        jPanel1.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 140, -1));
+        lblAddPDF.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 140, -1));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Preferencias laborales");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
+        lblAddPDF.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
 
-        jPanel1.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 140, -1));
+        lblAddPDF.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 140, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Nivel universitario:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
+        lblAddPDF.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
         txtHabilidadGeneral.setEnabled(false);
-        jPanel1.add(txtHabilidadGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 170, -1));
+        lblAddPDF.add(txtHabilidadGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 170, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Rama perteneciente");
         jLabel17.setEnabled(false);
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
+        lblAddPDF.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
         txtRama.setEnabled(false);
-        jPanel1.add(txtRama, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 170, -1));
+        lblAddPDF.add(txtRama, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 170, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Habilidad adicional");
         jLabel18.setEnabled(false);
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
+        lblAddPDF.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
 
         txtHabilidadAdicional.setEnabled(false);
-        jPanel1.add(txtHabilidadAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 170, -1));
+        lblAddPDF.add(txtHabilidadAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 170, -1));
 
         CheckAlumni.setText("Ex-alumno");
-        jPanel1.add(CheckAlumni, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 30));
-        jPanel1.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 110, 100));
+        lblAddPDF.add(CheckAlumni, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 30));
+        lblAddPDF.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 110, 100));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Salario");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
+        lblAddPDF.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
-        jPanel1.add(cmbHighType, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 140, -1));
-        jPanel1.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, -1));
+        lblAddPDF.add(cmbHighType, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 140, -1));
+        lblAddPDF.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, -1));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Nivel de estudio");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
+        lblAddPDF.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
 
-        jPanel1.add(cmbNivelEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 140, -1));
+        lblAddPDF.add(cmbNivelEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 140, -1));
 
-        jButton1.setText("Añadir PDF");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 124, 33));
+        BtnAddPDF.setText("Añadir PDF");
+        BtnAddPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddPDFActionPerformed(evt);
+            }
+        });
+        lblAddPDF.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 124, 33));
+        lblAddPDF.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
+            .addComponent(lblAddPDF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -435,6 +442,48 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnAgregarActionPerformed
+
+    private void BtnAddPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddPDFActionPerformed
+        // TODO add your handling code here:
+//        JFileChooser browseImageFile = new JFileChooser();        //Filter image extensions
+//        FileNameExtensionFilter fnef = new FileNameExtensionFilter("PDF", "pdf");
+//        browseImageFile.addChoosableFileFilter(fnef);
+//        int num = browseImageFile.showOpenDialog(null);
+//
+//        if (num == JFileChooser.APPROVE_OPTION) {
+//            File selectedImageFile = browseImageFile.getSelectedFile();
+//            String selectedImagePath = selectedImageFile.getAbsolutePath();
+//            //Display image on jlable
+//            ImageIcon ii = new ImageIcon(selectedImagePath);
+////            Resize image to fit jlabel
+//            Image image = ii.getImage().getScaledInstance(lblAddPDF.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+//
+//            try {
+//                BufferedImage image1 = ImageIO.read(selectedImageFile);
+//
+//                byte[] immAsBytes;
+//                //use another encoding if JPG is innappropriate for you
+//                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+//                    //use another encoding if JPG is innappropriate for you
+//                    ImageIO.write(image1, "pdf", baos );
+//                    baos.flush();
+//                    immAsBytes = baos.toByteArray();
+//
+//                }
+//                try {
+//                    S = Base64.getEncoder().encodeToString(immAsBytes);
+//                    
+//                } catch (Exception e) {
+//                }
+//
+//            } catch (IOException ex) {
+//                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//            lblAddPDF.setIcon(new ImageIcon(image));
+//
+//        }
+    }//GEN-LAST:event_BtnAddPDFActionPerformed
 
     private HashMap<String,String> CollectAll() {             
         HashMap<String,String> data =  new HashMap<>();
@@ -533,6 +582,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnActualizar;
+    private javax.swing.JButton BtnAddPDF;
     private javax.swing.JButton BtnAgregar;
     private javax.swing.JButton BtnImageAdd;
     private javax.swing.JButton BtnLimpiarCampos;
@@ -550,7 +600,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbSalario;
     private javax.swing.JComboBox<String> cmbTipoContrato;
     private javax.swing.JComboBox<String> cmbTipoTrabajo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -563,6 +612,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -570,7 +620,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel lblAddPDF;
     private javax.swing.JLabel lblImage;
     private javax.swing.JTextField txtApellidoPost;
     private javax.swing.JPasswordField txtContraseñaPost;

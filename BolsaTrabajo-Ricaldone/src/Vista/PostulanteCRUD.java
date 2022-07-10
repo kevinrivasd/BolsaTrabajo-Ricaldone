@@ -167,6 +167,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtContraseñaPost = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
         cmbNivelEstudio = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
@@ -183,7 +184,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jPanel1.add(BtnRegresarPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         BtnLimpiarCampos.setText("Limpiar Campos");
-        jPanel1.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 124, 34));
+        jPanel1.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 124, 34));
 
         BtnAgregar.setText("Agregar");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -191,10 +192,10 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 124, 32));
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 124, 32));
 
         BtnActualizar.setText("Actualizar");
-        jPanel1.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 124, 33));
+        jPanel1.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, 124, 33));
         jPanel1.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 176, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -343,6 +344,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         jPanel1.add(cmbNivelEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 140, -1));
 
+        jButton1.setText("Añadir PDF");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 124, 33));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -351,7 +355,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -421,7 +427,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         try {
             if (!Controlador.Utils.emptyFields(Required)) {                
                  res = Controlador.ControladorPostulante.AgreparPostulante(All);
-                 JOptionPane.showInternalMessageDialog(null, "Usuario Agregado Correctamente.", "Confirmacion", 1);
+                 JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
             }else{
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
@@ -544,6 +550,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbSalario;
     private javax.swing.JComboBox<String> cmbTipoContrato;
     private javax.swing.JComboBox<String> cmbTipoTrabajo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -334,7 +334,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         jPanel1.add(cmbHighType, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 140, -1));
-        jPanel1.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, 20));
+        jPanel1.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, -1));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));

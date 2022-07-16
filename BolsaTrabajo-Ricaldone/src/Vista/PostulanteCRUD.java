@@ -112,6 +112,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         for(int k = 0; k<nlEstudio.size();k++){
            cmbNivelEstudio.addItem(nlEstudio.get(k));
         }
+        
         JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
         
     }
@@ -520,29 +521,29 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void JTPostulantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPostulantesMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount()==1) {
-            JTable Table = (JTable) evt.getSource();
-            txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
-            txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString());
-            txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
-            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
-            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
-            cmbGenero.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),8).toString());
-            cmbEstadoPost.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),9).toString());
-            CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(),10).toString());
-            cmbDepartPreferencia.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),11).toString());
-            cmbDepartReside.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),12).toString());
-            cmbTipoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),13).toString());
-            cmbProgreso.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),14).toString());
-            cmbSalario.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),15).toString());
-            cmbHighType.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),16).toString());
-            cmbTipoContrato.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),17).toString());
-            cmbPrefLaboral.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),18).toString());
-            cmbNivelEstudio.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),19).toString());
-            cmbEstadoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),20).toString());
-            txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),21).toString());
-            
-        }
+//        if (evt.getClickCount()==1) {
+//            JTable Table = (JTable) evt.getSource();
+//            txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
+//            txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString());
+//            txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
+//            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
+//            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
+//            cmbGenero.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),8).toString());
+//            cmbEstadoPost.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),9).toString());
+//            CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(),10).toString());
+//            cmbDepartPreferencia.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),11).toString());
+//            cmbDepartReside.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),12).toString());
+//            cmbTipoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),13).toString());
+//            cmbProgreso.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),14).toString());
+//            cmbSalario.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),15).toString());
+//            cmbHighType.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),16).toString());
+//            cmbTipoContrato.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),17).toString());
+//            cmbPrefLaboral.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),18).toString());
+//            cmbNivelEstudio.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),19).toString());
+//            cmbEstadoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),20).toString());
+//            txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),21).toString());
+//            
+//        }
     }//GEN-LAST:event_JTPostulantesMouseClicked
 
     private HashMap<String,String> CollectAll() {             

@@ -7,6 +7,7 @@ package Modelo;
 import Controlador.ControladorConexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.HashMap;
@@ -15,6 +16,7 @@ import java.util.HashMap;
  *
  * @author Jonathan
  */
+import javax.swing.JOptionPane;
 public class ModeloPostulante {
 
     public static int AgregarPostulante(HashMap<String, String> dataMap) throws Exception, Exception {
@@ -49,5 +51,21 @@ public class ModeloPostulante {
         boolean res = consult.execute();
 
         return res ? 1 : 0;
+    }
+    
+    public static ResultSet MostrarTablaPostulantes() throws Exception,Exception{
+        Connection sql;
+        try {
+            sql = ControladorConexion.getConection();
+        String query = "SELECT * FORM Postulants";
+        PreparedStatement ps = sql.prepareStatement(query);
+         ResultSet rs = ps.executeQuery();
+        return rs;  
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+        
+        
     }
 }

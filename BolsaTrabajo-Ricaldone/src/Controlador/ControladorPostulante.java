@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import java.sql.ResultSet;
 import java.util.HashMap;
 
 /**
@@ -14,4 +15,8 @@ public class ControladorPostulante {
     public static int AgreparPostulante(HashMap<String,String> dataMap) throws Exception{
         return Modelo.ModeloPostulante.AgregarPostulante(dataMap);
     }
+    
+//    public ResultSet CargarTablaPostulanteSet(){
+//        return Modelo.ModeloPostulante.MostrarTablaPostulantes(ControladorConexion.getConection());
+//    }
 }

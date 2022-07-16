@@ -16,7 +16,7 @@ public class ControladorPostulante {
         return Modelo.ModeloPostulante.AgregarPostulante(dataMap);
     }
     
-//    public ResultSet CargarTablaPostulanteSet(){
-//        return Modelo.ModeloPostulante.MostrarTablaPostulantes(ControladorConexion.getConection());
-//    }
+    public ResultSet CargarTablaPostulanteSet() throws Exception{
+        return Modelo.ModeloPostulante.MostrarTablaPostulantes();
+    }
 }

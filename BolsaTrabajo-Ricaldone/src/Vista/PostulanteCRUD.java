@@ -37,8 +37,12 @@ public class PostulanteCRUD extends javax.swing.JFrame {
      * Creates new form PostulanteCRUD
      */
     private static int inti;
+    DefaultTableModel base;
     public PostulanteCRUD(int add) throws Exception {
         initComponents();
+        txtID.setVisible(false);
+        lblID.setVisible(false);
+        
         inti = add;
         if (inti == 1) {
             BtnActualizar.setVisible(false);
@@ -108,7 +112,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         for(int k = 0; k<nlEstudio.size();k++){
            cmbNivelEstudio.addItem(nlEstudio.get(k));
         }
-        
+        JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
         
     }
 
@@ -169,6 +173,10 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         cmbNivelEstudio = new javax.swing.JComboBox<>();
         BtnAddPDF = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTPostulantes = new javax.swing.JTable();
+        txtID = new javax.swing.JTextField();
+        lblID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
@@ -354,11 +362,38 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 124, 33));
         lblAddPDF.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, -1, -1));
 
+        JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JTPostulantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTPostulantesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(JTPostulantes);
+
+        lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, 940, -1));
+        lblAddPDF.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 90, -1));
+
+        lblID.setForeground(new java.awt.Color(0, 0, 0));
+        lblID.setText("ID:");
+        lblAddPDF.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblAddPDF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 1725, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,6 +520,35 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_BtnAddPDFActionPerformed
 
+    private void JTPostulantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPostulantesMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount()==1) {
+            JTable Table = (JTable) evt.getSource();
+            txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
+            txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString());
+            txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
+            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
+            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
+            cmbGenero.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),8).toString());
+            cmbEstadoPost.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),9).toString());
+            CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(),10).toString());
+            cmbDepartPreferencia.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),11).toString());
+            cmbDepartReside.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),12).toString());
+            cmbTipoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),13).toString());
+            cmbProgreso.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),14).toString());
+            cmbSalario.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),15).toString());
+            cmbHighType.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),16).toString());
+            cmbTipoContrato.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),17).toString());
+            cmbPrefLaboral.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),18).toString());
+            cmbNivelEstudio.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),19).toString());
+            cmbEstadoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),20).toString());
+            txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),21).toString());
+            
+
+
+        }
+    }//GEN-LAST:event_JTPostulantesMouseClicked
+
     private HashMap<String,String> CollectAll() {             
         HashMap<String,String> data =  new HashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
@@ -499,8 +563,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
         data.put("Alumni", CheckAlumni.isSelected() ? "1" : "0");
-        data.put("RDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
-        data.put("IDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
+        data.put("RDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
+        data.put("IDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
         data.put("Progress",String.valueOf(cmbProgreso.getSelectedIndex() + 1));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
@@ -588,6 +652,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JButton BtnLimpiarCampos;
     private javax.swing.JButton BtnRegresarPost;
     private javax.swing.JCheckBox CheckAlumni;
+    private javax.swing.JTable JTPostulantes;
     private javax.swing.JComboBox<String> cmbDepartPreferencia;
     private javax.swing.JComboBox<String> cmbDepartReside;
     private javax.swing.JComboBox<String> cmbEstadoPost;
@@ -620,13 +685,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel lblAddPDF;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblImage;
     private javax.swing.JTextField txtApellidoPost;
     private javax.swing.JPasswordField txtContraseñaPost;
     private javax.swing.JTextField txtCorreoPost;
     private javax.swing.JTextField txtHabilidadAdicional;
     private javax.swing.JTextField txtHabilidadGeneral;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombrePost;
     private javax.swing.JTextField txtRama;
     // End of variables declaration//GEN-END:variables

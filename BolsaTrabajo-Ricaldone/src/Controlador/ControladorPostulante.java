@@ -16,7 +16,5 @@ public class ControladorPostulante {
         return Modelo.ModeloPostulante.AgregarPostulante(dataMap);
     }
     
-    public ResultSet CargarTablaPostulanteSet() throws Exception{
-        return Modelo.ModeloPostulante.MostrarTablaPostulantes();
-    }
+
 }

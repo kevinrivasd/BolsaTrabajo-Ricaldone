@@ -380,7 +380,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTPostulantes);
 
-        lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 1100, 460));
+        lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 1120, 460));
         lblAddPDF.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 90, -1));
 
         lblID.setForeground(new java.awt.Color(0, 0, 0));
@@ -550,7 +550,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         char[] pword = txtContraseñaPost.getPassword();
         
         data.put("namePostulant", txtNombrePost.getText());        
-        data.put("mailpostulant", txtCorreoPost.getText());
+        data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
         data.put("imgByte", S);
         data.put("resumePDF", "");
@@ -580,7 +580,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         char[] pword = txtContraseñaPost.getPassword();
         
         data.put("namePostulant", txtNombrePost.getText());        
-        data.put("mailpostulant", txtCorreoPost.getText());
+        data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
 //        data.put("imgByte", S);        
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));

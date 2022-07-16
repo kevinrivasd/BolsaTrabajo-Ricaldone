@@ -52,21 +52,6 @@ public class ModeloPostulante {
 
         return res ? 1 : 0;
     }
-    
-    public static ResultSet MostrarTablaPostulantes() throws Exception,Exception{
-        Connection sql;
-        try {
-            sql = ControladorConexion.getConection();
-        String query = "SELECT * FORM Postulants";
-        PreparedStatement ps = sql.prepareStatement(query);
-         ResultSet rs = ps.executeQuery();
-        return rs;  
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-            return null;
-        }
-        
-        
-    }
+
 
 }

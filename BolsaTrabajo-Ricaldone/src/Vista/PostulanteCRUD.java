@@ -380,7 +380,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTPostulantes);
 
-        lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, 940, -1));
+        lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 1100, 460));
         lblAddPDF.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 90, -1));
 
         lblID.setForeground(new java.awt.Color(0, 0, 0));
@@ -391,9 +391,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 1725, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(lblAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 1914, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -544,8 +542,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             cmbEstadoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),20).toString());
             txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),21).toString());
             
-
-
         }
     }//GEN-LAST:event_JTPostulantesMouseClicked
 

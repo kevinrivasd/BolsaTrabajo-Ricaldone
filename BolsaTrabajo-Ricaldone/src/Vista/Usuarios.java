@@ -512,11 +512,7 @@ public class Usuarios extends javax.swing.JFrame {
     //Collect data from the view and append all into a HashMap
     private HashMap<String,String> CollectData() {             
         HashMap<String,String> data =  new HashMap<>();
-        char[] pword = txtContra.getPassword();
-        
-        if (pword.length > 6) {
-            JOptionPane.showMessageDialog(null, "Por favor, revisa que tu contrasena sea de 6 caracteres o menos");            
-        }else{        
+        char[] pword = txtContra.getPassword();     
             data.put("Usuario", txtUsuario.getText());        
             data.put("Contrasena", Utils.encrypt(pword));
             data.put("Correo", txtCorreo.getText());
@@ -524,7 +520,6 @@ public class Usuarios extends javax.swing.JFrame {
             data.put("Rol", String.valueOf(cmbRol.getSelectedIndex() + 1));
             data.put("Estado", String.valueOf(cmbEstado.getSelectedIndex() + 1));
             data.put("Genero", String.valueOf(cmbGenero.getSelectedIndex() + 1));
-        }
         return data;
     }
     /**

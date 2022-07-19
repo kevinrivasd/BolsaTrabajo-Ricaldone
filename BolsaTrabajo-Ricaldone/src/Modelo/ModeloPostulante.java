@@ -52,6 +52,10 @@ public class ModeloPostulante {
 
         return res ? 1 : 0;
     }
+    
+//    public static int ActualizarPostulante(HashMap<String,String> dataMap) throws Exception,Exception{
+//        
+//    }
 
 
 }

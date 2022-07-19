@@ -25,6 +25,10 @@ public class Utils {
     public static List<String> getDataCmb(String cmbString, String campoString) throws Exception{
         return Modelo.ModeloUtils.getData(cmbString, campoString);               
     }
+
+    public static HashMap<Integer,String> getDataTable(String cmbString) throws Exception{
+        return Modelo.ModeloUtils.getTableHM(cmbString);
+    }
     
     //check if any element on the hashmap is empyt or null
     //the hashmap comes as a parameter.

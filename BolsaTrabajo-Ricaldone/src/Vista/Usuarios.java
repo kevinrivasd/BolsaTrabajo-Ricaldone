@@ -27,6 +27,10 @@ public class Usuarios extends javax.swing.JFrame {
     /**
      * Creates new form Usuarios
      */
+    public HashMap<Integer,String> dataGender;
+    public HashMap<Integer,String> dataRols;
+    public HashMap<Integer,String> dataState;
+    
     public Usuarios() throws Exception {
         initComponents();
         
@@ -34,29 +38,25 @@ public class Usuarios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         
        //Getting data from database Gender
-       List<String> dataGender = Controlador.Utils.getDataCmb("Genders","Gender");        
+       dataGender = Controlador.Utils.getDataTable("Genders");        
        
-       for(int k = 0; k<dataGender.size();k++){
+       for(int k = 1; k<=dataGender.size();k++){
            cmbGenero.addItem(dataGender.get(k));
        }
              
        
        //Getting data from database rols
-       List<String> dataRols = Controlador.Utils.getDataCmb("Rols", "Rol");               
-        
-       for(int k = 0; k<dataRols.size();k++){           
+       dataRols = Controlador.Utils.getDataTable("Rols");                      
+       for(int k = 1; k<=dataRols.size();k++){           
           cmbRol.addItem(dataRols.get(k));
        }       
        
        //Getting data from database rols
-       List<String> dataState = Controlador.Utils.getDataCmb("States", "States");               
-        
-       for(int k = 0; k<dataState.size();k++){           
+       dataState = Controlador.Utils.getDataTable("States");               
+       for(int k = 1; k<=dataState.size();k++){           
           cmbEstado.addItem(dataState.get(k));
-       }
-       
+       }      
        dgvUsers.setModel(Controlador.Utils.rtrnTqble("UserSystems"));
-       
        
        
     }

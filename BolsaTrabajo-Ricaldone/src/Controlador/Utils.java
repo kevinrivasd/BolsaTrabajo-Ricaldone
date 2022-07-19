@@ -76,8 +76,7 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
     Vector<Vector<Object>> data = new Vector<>();
     while (rs.next()) {
         Vector<Object> vector = new Vector<>();
-        //getting the data
-        for (int columnIndex = 1; columnCount >= columnIndex; columnIndex++) {
+        for (int columnIndex = 1; columnCount > columnIndex; columnIndex++) {
             vector.add(rs.getObject(columnIndex));
         }
         data.add(vector);

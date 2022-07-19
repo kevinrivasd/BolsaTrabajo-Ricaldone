@@ -7,7 +7,6 @@ package Vista;
 import Controlador.Utils;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +55,8 @@ public class Usuarios extends javax.swing.JFrame {
        }
        
        dgvUsers.setModel(Controlador.Utils.rtrnTqble("UserSystems"));
-          
+       
+       
        
     }
 
@@ -254,7 +254,7 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel1.setText("Usuario ");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jLabel5.setText("Contraseña (6 caracteres)");
+        jLabel5.setText("Contraseña");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jLabel6.setText("Número Telefónico");
@@ -271,12 +271,6 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jLabel10.setText("Género");
 
-        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtContraKeyTyped(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -286,6 +280,10 @@ public class Usuarios extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(126, 126, 126)
+                                .addComponent(txtContra))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
@@ -296,20 +294,14 @@ public class Usuarios extends javax.swing.JFrame {
                                     .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel6)
-                                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel1)))
-                                .addGap(126, 126, 126)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(txtContra))))
+                                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(73, 73, 73))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(236, 236, 236))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,10 +314,13 @@ public class Usuarios extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel5))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -489,8 +484,6 @@ public class Usuarios extends javax.swing.JFrame {
             if (!Controlador.Utils.emptyFields(datos)) {                
                  res = Controlador.ControladorUsuario.AgregarUsuario(datos);
                  JOptionPane.showInternalMessageDialog(null, "Usuario Agregado Correctamente.", "Confirmacion", 1);
-                dgvUsers.setModel(Controlador.Utils.rtrnTqble("UserSystems"));
-                 
             }else{
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
@@ -499,27 +492,20 @@ public class Usuarios extends javax.swing.JFrame {
         }
                
     }//GEN-LAST:event_btnAgregarUsuarioActionPerformed
-
-    private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
-           char[] txt = txtContra.getPassword();
-           if (txt.length == 6) {
-                txt = Arrays.copyOf(txt, txt.length - 1);
-        }
-           txtContra.setText(String.valueOf(txt));
-           JOptionPane.showMessageDialog(null, String.valueOf(txt));
-    }//GEN-LAST:event_txtContraKeyTyped
     
     //Collect data from the view and append all into a HashMap
     private HashMap<String,String> CollectData() {             
         HashMap<String,String> data =  new HashMap<>();
-        char[] pword = txtContra.getPassword();     
-            data.put("Usuario", txtUsuario.getText());        
-            data.put("Contrasena", Utils.encrypt(pword));
-            data.put("Correo", txtCorreo.getText());
-            data.put("Numero", txtNumero.getText());        
-            data.put("Rol", String.valueOf(cmbRol.getSelectedIndex() + 1));
-            data.put("Estado", String.valueOf(cmbEstado.getSelectedIndex() + 1));
-            data.put("Genero", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        char[] pword = txtContra.getPassword();
+        
+        data.put("Usuario", txtUsuario.getText());        
+        data.put("Contrasena", Utils.encrypt(pword));
+        data.put("Correo", txtCorreo.getText());
+        data.put("Numero", txtNumero.getText());        
+        data.put("Rol", String.valueOf(cmbRol.getSelectedIndex() + 1));
+        data.put("Estado", String.valueOf(cmbEstado.getSelectedIndex() + 1));
+        data.put("Genero", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        
         return data;
     }
     /**

@@ -55,7 +55,7 @@ public class ModeloPostulante {
     
     public static int ActualizarPostulante(HashMap<String,String> dataMap) throws Exception,Exception{
         Connection sql = ControladorConexion.getConection();
-        String query = "UPDATE Postulants SET ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+        String query = "UPDATE Postulants SET ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? WHERE id";
         
         byte[] decode = Base64.getDecoder().decode(dataMap.get("imgByte"));
         byte[] decode2 = Base64.getDecoder().decode(dataMap.get("resumePDF"));

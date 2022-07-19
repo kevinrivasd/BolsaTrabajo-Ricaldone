@@ -15,6 +15,9 @@ public class ControladorPostulante {
     public static int AgreparPostulante(HashMap<String,String> dataMap) throws Exception{
         return Modelo.ModeloPostulante.AgregarPostulante(dataMap);
     }
-    
+
+    public static int ActualizarPostulante(HashMap<String,String> dataMap) throws Exception{
+        return Modelo.ModeloPostulante.ActualizarPostulante(dataMap);
+    }
 
 }

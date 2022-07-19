@@ -11,6 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
+import org.xml.sax.Attributes;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
@@ -183,7 +184,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         setBackground(new java.awt.Color(239, 245, 213));
 
         lblAddPDF.setBackground(new java.awt.Color(239, 245, 213));
-        lblAddPDF.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnRegresarPost.setText("Regresar");
         BtnRegresarPost.addActionListener(new java.awt.event.ActionListener() {
@@ -191,10 +191,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnRegresarPostActionPerformed(evt);
             }
         });
-        lblAddPDF.add(BtnRegresarPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         BtnLimpiarCampos.setText("Limpiar Campos");
-        lblAddPDF.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 124, 34));
 
         BtnAgregar.setText("Agregar");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -202,27 +200,17 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        lblAddPDF.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 124, 32));
 
         BtnActualizar.setText("Actualizar");
-        lblAddPDF.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 124, 33));
-        lblAddPDF.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 176, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombres del postulante");
-        lblAddPDF.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Correo del postulante");
-        lblAddPDF.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contraseña");
-        lblAddPDF.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 91, -1));
-        lblAddPDF.add(txtCorreoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 176, -1));
 
         BtnImageAdd.setText("Agregar imagen");
         BtnImageAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -230,129 +218,65 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnImageAddActionPerformed(evt);
             }
         });
-        lblAddPDF.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Genero");
-        lblAddPDF.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
-
-        lblAddPDF.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 140, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Estado");
-        lblAddPDF.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
-
-        lblAddPDF.add(cmbEstadoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Departamento en donde reside");
-        lblAddPDF.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
-
-        lblAddPDF.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 140, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Departamento de preferencia");
-        lblAddPDF.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
-
-        lblAddPDF.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Progreso");
-        lblAddPDF.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
-
-        lblAddPDF.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Apellidos del postulante");
-        lblAddPDF.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-        lblAddPDF.add(txtApellidoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 176, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Habilidad general");
         jLabel10.setEnabled(false);
-        lblAddPDF.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
-
-        lblAddPDF.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 140, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Estado de trabajo");
-        lblAddPDF.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
-
-        lblAddPDF.add(cmbTipoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 160, -1));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Tipo de trabajo");
-        lblAddPDF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
-
-        lblAddPDF.add(cmbEstadoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 190, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Tipo de contrato");
-        lblAddPDF.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
-
-        lblAddPDF.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 140, -1));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Preferencias laborales");
-        lblAddPDF.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
-
-        lblAddPDF.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 140, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Nivel universitario:");
-        lblAddPDF.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
         txtHabilidadGeneral.setEnabled(false);
-        lblAddPDF.add(txtHabilidadGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 170, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Rama perteneciente");
         jLabel17.setEnabled(false);
-        lblAddPDF.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
         txtRama.setEnabled(false);
-        lblAddPDF.add(txtRama, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 170, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Habilidad adicional");
         jLabel18.setEnabled(false);
-        lblAddPDF.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
 
         txtHabilidadAdicional.setEnabled(false);
-        lblAddPDF.add(txtHabilidadAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 170, -1));
 
         CheckAlumni.setText("Ex-alumno");
-        lblAddPDF.add(CheckAlumni, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 30));
-        lblAddPDF.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 110, 100));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Salario");
-        lblAddPDF.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
-
-        lblAddPDF.add(cmbHighType, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 140, -1));
-        lblAddPDF.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, -1));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Nivel de estudio");
-        lblAddPDF.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
-
-        lblAddPDF.add(cmbNivelEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 140, -1));
 
         BtnAddPDF.setText("Añadir PDF");
         BtnAddPDF.addActionListener(new java.awt.event.ActionListener() {
@@ -360,8 +284,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAddPDFActionPerformed(evt);
             }
         });
-        lblAddPDF.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 124, 33));
-        lblAddPDF.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, -1, -1));
 
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -381,23 +303,252 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTPostulantes);
 
-        lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 1120, 460));
-        lblAddPDF.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 90, -1));
-
-        lblID.setForeground(new java.awt.Color(0, 0, 0));
         lblID.setText("ID:");
-        lblAddPDF.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
+        javax.swing.GroupLayout lblAddPDFLayout = new javax.swing.GroupLayout(lblAddPDF);
+        lblAddPDF.setLayout(lblAddPDFLayout);
+        lblAddPDFLayout.setHorizontalGroup(
+            lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnRegresarPost)
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel1))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(txtNombrePost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel9))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(txtApellidoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(txtCorreoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(txtContraseñaPost, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(lblID))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel17))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(txtRama, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(4, 4, 4)
+                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(txtHabilidadAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(cmbEstadoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)
+                            .addComponent(cmbTipoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11)
+                            .addComponent(cmbNivelEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13)
+                            .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19)
+                            .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel15))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel12))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(cmbEstadoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel6))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(cmbDepartReside, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel7))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(cmbDepartPreferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel16))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel8))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel10))
+                    .addComponent(txtHabilidadGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(BtnImageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel20))
+                    .addComponent(BtnAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        lblAddPDFLayout.setVerticalGroup(
+            lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(BtnRegresarPost)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
+                .addGap(1, 1, 1)
+                .addComponent(txtNombrePost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(1, 1, 1)
+                .addComponent(txtApellidoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(1, 1, 1)
+                .addComponent(txtCorreoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(1, 1, 1)
+                .addComponent(txtContraseñaPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(lblID)
+                .addGap(4, 4, 4)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel17)
+                .addGap(1, 1, 1)
+                .addComponent(txtRama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel4)
+                .addGap(1, 1, 1)
+                .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(1, 1, 1)
+                .addComponent(cmbEstadoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addGap(1, 1, 1)
+                .addComponent(cmbTipoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel11)
+                .addGap(1, 1, 1)
+                .addComponent(cmbNivelEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13)
+                .addGap(1, 1, 1)
+                .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel19)
+                .addGap(1, 1, 1)
+                .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel18)
+                .addGap(1, 1, 1)
+                .addComponent(txtHabilidadAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel15)
+                .addGap(1, 1, 1)
+                .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addGap(1, 1, 1)
+                .addComponent(cmbEstadoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(1, 1, 1)
+                .addComponent(cmbDepartReside, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel7)
+                .addGap(1, 1, 1)
+                .addComponent(cmbDepartPreferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addGap(1, 1, 1)
+                .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addGap(1, 1, 1)
+                .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel10)
+                .addGap(1, 1, 1)
+                .addComponent(txtHabilidadGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(BtnImageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel20)
+                .addGap(30, 30, 30)
+                .addComponent(BtnAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(BtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(BtnLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 1914, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

@@ -7,6 +7,7 @@ package Vista;
 import Controlador.Utils;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -271,6 +272,15 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jLabel10.setText("Género");
 
+        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContraKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -492,6 +502,20 @@ public class Usuarios extends javax.swing.JFrame {
         }
                
     }//GEN-LAST:event_btnAgregarUsuarioActionPerformed
+
+    private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraKeyPressed
+
+    private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
+        // TODO add your handling code here:
+           char[] txt = txtContra.getPassword();
+           if (txt.length == 6) {
+                txt = Arrays.copyOf(txt, txt.length - 1);
+        }
+           txtContra.setText(String.valueOf(txt));
+           JOptionPane.showMessageDialog(null, String.valueOf(txt));
+    }//GEN-LAST:event_txtContraKeyTyped
     
     //Collect data from the view and append all into a HashMap
     private HashMap<String,String> CollectData() {             

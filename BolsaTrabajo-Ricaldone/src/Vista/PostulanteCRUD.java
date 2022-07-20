@@ -45,7 +45,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         
         inti = add;
         if (inti == 1) {
-            BtnActualizar.setVisible(false);
+            BtnActualizar.setVisible(true);
         }
         else{
             BtnAgregar.setVisible(false);
@@ -205,21 +205,23 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 124, 32));
 
         BtnActualizar.setText("Actualizar");
+        BtnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnActualizarActionPerformed(evt);
+            }
+        });
         lblAddPDF.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 124, 33));
         lblAddPDF.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 176, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombres del postulante");
         lblAddPDF.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Correo del postulante");
         lblAddPDF.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contraseña");
         lblAddPDF.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 91, -1));
         lblAddPDF.add(txtCorreoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 176, -1));
@@ -233,48 +235,41 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Genero");
         lblAddPDF.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
 
         lblAddPDF.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 140, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Estado");
         lblAddPDF.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
         lblAddPDF.add(cmbEstadoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Departamento en donde reside");
         lblAddPDF.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
 
         lblAddPDF.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 140, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Departamento de preferencia");
         lblAddPDF.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
 
         lblAddPDF.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Progreso");
         lblAddPDF.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
 
         lblAddPDF.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Apellidos del postulante");
         lblAddPDF.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
         lblAddPDF.add(txtApellidoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 176, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Habilidad general");
         jLabel10.setEnabled(false);
         lblAddPDF.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
@@ -282,35 +277,30 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 140, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Estado de trabajo");
         lblAddPDF.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         lblAddPDF.add(cmbTipoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 160, -1));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Tipo de trabajo");
         lblAddPDF.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
 
         lblAddPDF.add(cmbEstadoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 190, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Tipo de contrato");
         lblAddPDF.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
 
         lblAddPDF.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 140, -1));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Preferencias laborales");
         lblAddPDF.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
 
         lblAddPDF.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 140, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Nivel universitario:");
         lblAddPDF.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
@@ -318,7 +308,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(txtHabilidadGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 170, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Rama perteneciente");
         jLabel17.setEnabled(false);
         lblAddPDF.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
@@ -327,7 +316,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(txtRama, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 170, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Habilidad adicional");
         jLabel18.setEnabled(false);
         lblAddPDF.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
@@ -340,7 +328,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 110, 100));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Salario");
         lblAddPDF.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
@@ -348,7 +335,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, -1));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Nivel de estudio");
         lblAddPDF.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
 
@@ -384,7 +370,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 1120, 460));
         lblAddPDF.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 90, -1));
 
-        lblID.setForeground(new java.awt.Color(0, 0, 0));
         lblID.setText("ID:");
         lblAddPDF.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
@@ -461,8 +446,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         // TODO add your handling code here:
         HashMap<String,String> All = new HashMap<>();
         HashMap<String,String> Required = new HashMap<>();
-        All = CollectAll();
-        Required = CollectRequired();
+        All = CollectAllAdd();
+        Required = CollectRequiredAdd();
         
         int res;
         try {
@@ -546,16 +531,36 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_JTPostulantesMouseClicked
 
-    private HashMap<String,String> CollectAll() {             
-        HashMap<String,String> data =  new HashMap<>();
-        char[] pword = txtContraseñaPost.getPassword();
+    private void BtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActualizarActionPerformed
+        // TODO add your handling code here:
+        HashMap<String,String> All = new HashMap<>();
+        HashMap<String,String> Required = new HashMap<>();
+        All = CollectAllUpdate();
+        Required = CollectRequiredUptade();
         
-        data.put("namePostulant", txtNombrePost.getText());        
+        int res;
+        try {
+            if (!Controlador.Utils.emptyFields(Required)) {                
+                 res = Controlador.ControladorPostulante.AgreparPostulante(All);
+                 JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
+            }else{
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BtnActualizarActionPerformed
+
+    private HashMap<String, String> CollectAllAdd() {
+        HashMap<String, String> data = new HashMap<>();
+        char[] pword = txtContraseñaPost.getPassword();
+
+        data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
         data.put("imgByte", S);
         data.put("resumePDF", "");
-        data.put("resumeDetails", "");         
+        data.put("resumeDetails", "");
         data.put("mailverification", "0");
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
@@ -563,7 +568,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("RDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
         data.put("IDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
-        data.put("Progress",String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
         data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
         data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
@@ -572,15 +577,43 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("WorkStatus", String.valueOf(cmbEstadoTrabajo.getSelectedIndex() + 1));
         data.put("lastName", txtApellidoPost.getText());
 
-      
+        return data;
+    }
+     private HashMap<String, String> CollectAllUpdate() {
+        HashMap<String, String> data = new HashMap<>();
+        char[] pword = txtContraseñaPost.getPassword();
+
+        data.put("namePostulant", txtNombrePost.getText());
+        data.put("mailPostulant", txtCorreoPost.getText());
+        data.put("Pword", Utils.encrypt(pword));
+        data.put("imgByte", S);
+        data.put("resumePDF", "");
+        data.put("resumeDetails", "");
+        data.put("mailverification", "0");
+        data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
+        data.put("Alumni", CheckAlumni.isSelected() ? "1" : "0");
+        data.put("RDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
+        data.put("IDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
+        data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
+        data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
+        data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
+        data.put("WorkPreference", String.valueOf(cmbPrefLaboral.getSelectedIndex() + 1));
+        data.put("StudyLevel", String.valueOf(cmbNivelEstudio.getSelectedIndex() + 1));
+        data.put("WorkStatus", String.valueOf(cmbEstadoTrabajo.getSelectedIndex() + 1));
+        data.put("lastName", txtApellidoPost.getText());
+        data.put("idPostulant", String.valueOf(txtID.getText()));
+
         return data;
     }
     
-    private HashMap<String,String> CollectRequired() {             
-        HashMap<String,String> data =  new HashMap<>();
+    private HashMap<String, String> CollectRequiredAdd() {
+        HashMap<String, String> data = new HashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
-        
-        data.put("namePostulant", txtNombrePost.getText());        
+
+        data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
 //        data.put("imgByte", S);        
@@ -590,7 +623,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("RDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("IDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
-        data.put("Progress",String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
         data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
         data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
@@ -598,7 +631,34 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("StudyLevel", String.valueOf(cmbNivelEstudio.getSelectedIndex() + 1));
         data.put("WorkStatus", String.valueOf(cmbEstadoTrabajo.getSelectedIndex() + 1));
         data.put("lastName", txtApellidoPost.getText());
-     
+
+        return data;
+    }
+    
+    private HashMap<String, String> CollectRequiredUptade() {
+        HashMap<String, String> data = new HashMap<>();
+        char[] pword = txtContraseñaPost.getPassword();
+
+        data.put("namePostulant", txtNombrePost.getText());
+        data.put("mailPostulant", txtCorreoPost.getText());
+        data.put("Pword", Utils.encrypt(pword));
+//        data.put("imgByte", S);        
+        data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
+        data.put("Alumni", CheckAlumni.isSelected() ? "1" : "0");
+        data.put("RDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
+        data.put("IDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
+        data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
+        data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
+        data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
+        data.put("WorkPreference", String.valueOf(cmbPrefLaboral.getSelectedIndex() + 1));
+        data.put("StudyLevel", String.valueOf(cmbNivelEstudio.getSelectedIndex() + 1));
+        data.put("WorkStatus", String.valueOf(cmbEstadoTrabajo.getSelectedIndex() + 1));
+        data.put("lastName", txtApellidoPost.getText());
+        data.put("idPostulant", String.valueOf(txtID.getText()));
+
         return data;
     }
     

@@ -40,8 +40,6 @@ public class Usuarios extends javax.swing.JFrame {
        //Getting data from database Gender
        dataGender = Controlador.Utils.getDataTable("Genders");      
        
-      
-       
        for(int k = 1; k<=dataGender.size();k++){
            cmbGenero.addItem(dataGender.get(k));
        }

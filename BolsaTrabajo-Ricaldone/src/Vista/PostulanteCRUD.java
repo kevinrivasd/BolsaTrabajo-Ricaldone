@@ -202,7 +202,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
 
         BtnActualizar.setText("Actualizar");
-
         BtnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnActualizarActionPerformed(evt);
@@ -308,13 +307,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(JTPostulantes);
-
-
-
-        lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 1120, 460));
-        lblAddPDF.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 90, -1));
-
-
 
         lblID.setText("ID:");
 

@@ -38,7 +38,9 @@ public class Usuarios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         
        //Getting data from database Gender
-       dataGender = Controlador.Utils.getDataTable("Genders");        
+       dataGender = Controlador.Utils.getDataTable("Genders");      
+       
+      
        
        for(int k = 1; k<=dataGender.size();k++){
            cmbGenero.addItem(dataGender.get(k));

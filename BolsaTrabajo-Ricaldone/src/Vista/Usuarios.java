@@ -7,6 +7,7 @@ package Vista;
 import Controlador.Utils;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,10 @@ public class Usuarios extends javax.swing.JFrame {
     /**
      * Creates new form Usuarios
      */
+    public HashMap<Integer,String> dataGender;
+    public HashMap<Integer,String> dataRols;
+    public HashMap<Integer,String> dataState;
+    
     public Usuarios() throws Exception {
         initComponents();
         
@@ -33,29 +38,25 @@ public class Usuarios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         
        //Getting data from database Gender
-       List<String> dataGender = Controlador.Utils.getDataCmb("Genders","Gender");        
+       dataGender = Controlador.Utils.getDataTable("Genders");        
        
-       for(int k = 0; k<dataGender.size();k++){
+       for(int k = 1; k<=dataGender.size();k++){
            cmbGenero.addItem(dataGender.get(k));
        }
              
        
        //Getting data from database rols
-       List<String> dataRols = Controlador.Utils.getDataCmb("Rols", "Rol");               
-        
-       for(int k = 0; k<dataRols.size();k++){           
+       dataRols = Controlador.Utils.getDataTable("Rols");                      
+       for(int k = 1; k<=dataRols.size();k++){           
           cmbRol.addItem(dataRols.get(k));
        }       
        
        //Getting data from database rols
-       List<String> dataState = Controlador.Utils.getDataCmb("States", "States");               
-        
-       for(int k = 0; k<dataState.size();k++){           
+       dataState = Controlador.Utils.getDataTable("States");               
+       for(int k = 1; k<=dataState.size();k++){           
           cmbEstado.addItem(dataState.get(k));
-       }
-       
+       }      
        dgvUsers.setModel(Controlador.Utils.rtrnTqble("UserSystems"));
-       
        
        
     }
@@ -270,6 +271,15 @@ public class Usuarios extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jLabel10.setText("Género");
+
+        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContraKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -492,6 +502,20 @@ public class Usuarios extends javax.swing.JFrame {
         }
                
     }//GEN-LAST:event_btnAgregarUsuarioActionPerformed
+
+    private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraKeyPressed
+
+    private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
+        // TODO add your handling code here:
+           char[] txt = txtContra.getPassword();
+           if (txt.length == 6) {
+                txt = Arrays.copyOf(txt, txt.length - 1);
+        }
+           txtContra.setText(String.valueOf(txt));
+           JOptionPane.showMessageDialog(null, String.valueOf(txt));
+    }//GEN-LAST:event_txtContraKeyTyped
     
     //Collect data from the view and append all into a HashMap
     private HashMap<String,String> CollectData() {             

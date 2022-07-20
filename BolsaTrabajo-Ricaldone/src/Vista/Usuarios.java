@@ -42,7 +42,6 @@ public class Usuarios extends javax.swing.JFrame {
        
        for(int k = 1; k<=dataGender.size();k++){
            cmbGenero.addItem(dataGender.get(k));
-           JOptionPane.showMessageDialog(null, "prueba4");
        }
              
        

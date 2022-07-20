@@ -25,6 +25,10 @@ public class Utils {
     public static List<String> getDataCmb(String cmbString, String campoString) throws Exception{
         return Modelo.ModeloUtils.getData(cmbString, campoString);               
     }
+
+    public static HashMap<Integer,String> getDataTable(String cmbString) throws Exception{
+        return Modelo.ModeloUtils.getTableHM(cmbString);
+    }
     
     //check if any element on the hashmap is empyt or null
     //the hashmap comes as a parameter.
@@ -76,7 +80,7 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
     Vector<Vector<Object>> data = new Vector<>();
     while (rs.next()) {
         Vector<Object> vector = new Vector<>();
-        for (int columnIndex = 1; columnCount > columnIndex; columnIndex++) {
+        for (int columnIndex = 1; columnCount >= columnIndex; columnIndex++) {
             vector.add(rs.getObject(columnIndex));
         }
         data.add(vector);

@@ -39,6 +39,19 @@ public class PostulanteCRUD extends javax.swing.JFrame {
      */
     private static int inti;
     DefaultTableModel base;
+    public HashMap<Integer,String> dataGender;
+    public HashMap<Integer,String> dataStatus;
+    public HashMap<Integer,String> datapreflaboral;
+    public HashMap<Integer,String> dptoPreferencia;
+    public HashMap<Integer,String> dptoReside;
+    public HashMap<Integer,String> EstadoTrabajo;
+    public HashMap<Integer,String> TContrato;
+    public HashMap<Integer,String> TTrabajo;
+    public HashMap<Integer,String> salario;
+    public HashMap<Integer,String> hightype;
+    public HashMap<Integer,String> progreso;
+    public HashMap<Integer,String> nlEstudio;
+    
     public PostulanteCRUD(int add) throws Exception {
         initComponents();
         txtID.setVisible(false);
@@ -54,63 +67,63 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setTitle("Gestion de postulantes");
         
-        List<String> dataGender = Controlador.Utils.getDataCmb("Genders","Gender");        
-        for(int k = 0; k<dataGender.size();k++){
+        dataGender = Controlador.Utils.getDataTable("Genders");        
+        for(int k = 0; k<=dataGender.size();k++){
            cmbGenero.addItem(dataGender.get(k));
        }
-        List<String> datapreflaboral = Controlador.Utils.getDataCmb("WorkPreference","WPreference");        
-        for(int k = 0; k<datapreflaboral.size();k++){
+        datapreflaboral = Controlador.Utils.getDataTable("WorkPreference");        
+        for(int k = 0; k<=datapreflaboral.size();k++){
            cmbPrefLaboral.addItem(datapreflaboral.get(k));
         }
         
-        List<String> dataStatus = Controlador.Utils.getDataCmb("States","States");        
-        for(int k = 0; k<dataStatus.size();k++){
+        dataStatus = Controlador.Utils.getDataTable("States");        
+        for(int k = 0; k<=dataStatus.size();k++){
            cmbEstadoPost.addItem(dataStatus.get(k));
         }
         
-        List<String> dptoPreferencia = Controlador.Utils.getDataCmb("Departments","Department");        
-        for(int k = 0; k<dptoPreferencia.size();k++){
+        dptoPreferencia = Controlador.Utils.getDataTable("Departments");        
+        for(int k = 0; k<=dptoPreferencia.size();k++){
            cmbDepartPreferencia.addItem(dptoPreferencia.get(k));
         }
         
-        List<String> dptoReside = Controlador.Utils.getDataCmb("Departments","Department");        
-        for(int k = 0; k<dptoReside.size();k++){
+        dptoReside = Controlador.Utils.getDataTable("Departments");        
+        for(int k = 0; k<=dptoReside.size();k++){
            cmbDepartReside.addItem(dptoReside.get(k));
         }
         
-        List<String> EstadoTrabajo = Controlador.Utils.getDataCmb("WorkState","WorkState");        
-        for(int k = 0; k<EstadoTrabajo.size();k++){
+        EstadoTrabajo = Controlador.Utils.getDataTable("WorkState");        
+        for(int k = 0; k<=EstadoTrabajo.size();k++){
            cmbEstadoTrabajo.addItem(EstadoTrabajo.get(k));
         }
         
-        List<String> TContrato = Controlador.Utils.getDataCmb("ContractType","WType");        
-        for(int k = 0; k<TContrato.size();k++){
+        TContrato = Controlador.Utils.getDataTable("ContractType");        
+        for(int k = 0; k<=TContrato.size();k++){
            cmbTipoContrato.addItem(TContrato.get(k));
         }
         
-        List<String> TTrabajo = Controlador.Utils.getDataCmb("workSubjects","WorkSubject");        
-        for(int k = 0; k<TTrabajo.size();k++){
+        TTrabajo = Controlador.Utils.getDataTable("workSubjects");        
+        for(int k = 0; k<=TTrabajo.size();k++){
            cmbTipoTrabajo.addItem(TTrabajo.get(k));
         }
         
-        List<String> salario = Controlador.Utils.getDataCmb("SalaryState","Salary");        
-        for(int k = 0; k<salario.size();k++){
+        salario = Controlador.Utils.getDataTable("SalaryState");        
+        for(int k = 0; k<=salario.size();k++){
            cmbSalario.addItem(salario.get(k));
         }
         
         
-        List<String> hightype = Controlador.Utils.getDataCmb("HighType","HighType");        
-        for(int k = 0; k<hightype.size();k++){
+        hightype = Controlador.Utils.getDataTable("HighType");        
+        for(int k = 0; k<=hightype.size();k++){
            cmbHighType.addItem(hightype.get(k));
         }
         
-        List<String> progreso = Controlador.Utils.getDataCmb("Progress","Progress");        
-        for(int k = 0; k<progreso.size();k++){
+        progreso = Controlador.Utils.getDataTable("Progress");        
+        for(int k = 0; k<=progreso.size();k++){
            cmbProgreso.addItem(progreso.get(k));
         }
         
-        List<String> nlEstudio = Controlador.Utils.getDataCmb("studyLevels","studyLevel");        
-        for(int k = 0; k<nlEstudio.size();k++){
+        nlEstudio = Controlador.Utils.getDataTable("studyLevels");        
+        for(int k = 0; k<=nlEstudio.size();k++){
            cmbNivelEstudio.addItem(nlEstudio.get(k));
         }
         
@@ -677,29 +690,29 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void JTPostulantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPostulantesMouseClicked
         // TODO add your handling code here:
-//        if (evt.getClickCount()==1) {
-//            JTable Table = (JTable) evt.getSource();
-//            txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
-//            txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString());
-//            txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
-//            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
-//            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
-//            cmbGenero.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),8).toString());
-//            cmbEstadoPost.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),9).toString());
-//            CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(),10).toString());
-//            cmbDepartPreferencia.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),11).toString());
-//            cmbDepartReside.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),12).toString());
-//            cmbTipoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),13).toString());
-//            cmbProgreso.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),14).toString());
-//            cmbSalario.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),15).toString());
-//            cmbHighType.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),16).toString());
-//            cmbTipoContrato.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),17).toString());
-//            cmbPrefLaboral.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),18).toString());
-//            cmbNivelEstudio.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),19).toString());
-//            cmbEstadoTrabajo.addItem(Table.getModel().getValueAt(Table.getSelectedRow(),20).toString());
-//            txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),21).toString());
-//            
-//        }
+        if (evt.getClickCount()==1) {
+            JTable Table = (JTable) evt.getSource();
+            txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
+            txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString());
+            txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
+            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
+            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
+            cmbGenero.setSelectedItem(dataGender.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),8).toString())));
+            cmbEstadoPost.setSelectedItem(dataStatus.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),9).toString())));
+            CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(),10).toString());
+            cmbDepartPreferencia.setSelectedItem(dptoPreferencia.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),11).toString())));
+            cmbDepartReside.setSelectedItem(dptoReside.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),12).toString())));
+            cmbTipoTrabajo.setSelectedItem(TTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),13).toString())));
+            cmbProgreso.setSelectedItem(progreso.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),14).toString())));
+            cmbSalario.setSelectedItem(salario.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),15).toString())));
+            cmbHighType.setSelectedItem(hightype.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),16).toString())));
+            cmbTipoContrato.setSelectedItem(TContrato.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),17).toString())));
+            cmbPrefLaboral.setSelectedItem(datapreflaboral.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),18).toString())));
+            cmbNivelEstudio.setSelectedItem(nlEstudio.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),19).toString())));
+            cmbEstadoTrabajo.setSelectedItem(EstadoTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),20).toString())));
+            txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),21).toString());
+            
+        }
     }//GEN-LAST:event_JTPostulantesMouseClicked
 
     private void BtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActualizarActionPerformed

@@ -208,9 +208,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnActualizarActionPerformed(evt);
             }
         });
-        lblAddPDF.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 124, 33));
-        lblAddPDF.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 176, -1));
-
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel1.setText("Nombres del postulante");
@@ -313,8 +310,10 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jScrollPane1.setViewportView(JTPostulantes);
 
 
+
         lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 1120, 460));
         lblAddPDF.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 90, -1));
+
 
 
         lblID.setText("ID:");

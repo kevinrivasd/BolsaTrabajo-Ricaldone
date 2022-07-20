@@ -46,7 +46,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         
         inti = add;
         if (inti == 1) {
-            BtnActualizar.setVisible(false);
+            BtnActualizar.setVisible(true);
         }
         else{
             BtnAgregar.setVisible(false);
@@ -202,6 +202,14 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
 
         BtnActualizar.setText("Actualizar");
+        BtnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnActualizarActionPerformed(evt);
+            }
+        });
+        lblAddPDF.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 124, 33));
+        lblAddPDF.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 176, -1));
+
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel1.setText("Nombres del postulante");
@@ -302,6 +310,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(JTPostulantes);
+
+        lblAddPDF.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 1120, 460));
+        lblAddPDF.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 90, -1));
 
         lblID.setText("ID:");
 
@@ -612,8 +623,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         // TODO add your handling code here:
         HashMap<String,String> All = new HashMap<>();
         HashMap<String,String> Required = new HashMap<>();
-        All = CollectAll();
-        Required = CollectRequired();
+        All = CollectAllAdd();
+        Required = CollectRequiredAdd();
         
         int res;
         try {
@@ -697,16 +708,36 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_JTPostulantesMouseClicked
 
-    private HashMap<String,String> CollectAll() {             
-        HashMap<String,String> data =  new HashMap<>();
-        char[] pword = txtContraseñaPost.getPassword();
+    private void BtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActualizarActionPerformed
+        // TODO add your handling code here:
+        HashMap<String,String> All = new HashMap<>();
+        HashMap<String,String> Required = new HashMap<>();
+        All = CollectAllUpdate();
+        Required = CollectRequiredUptade();
         
-        data.put("namePostulant", txtNombrePost.getText());        
+        int res;
+        try {
+            if (!Controlador.Utils.emptyFields(Required)) {                
+                 res = Controlador.ControladorPostulante.AgreparPostulante(All);
+                 JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
+            }else{
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BtnActualizarActionPerformed
+
+    private HashMap<String, String> CollectAllAdd() {
+        HashMap<String, String> data = new HashMap<>();
+        char[] pword = txtContraseñaPost.getPassword();
+
+        data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
         data.put("imgByte", S);
         data.put("resumePDF", "");
-        data.put("resumeDetails", "");         
+        data.put("resumeDetails", "");
         data.put("mailverification", "0");
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
@@ -714,7 +745,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("RDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
         data.put("IDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
-        data.put("Progress",String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
         data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
         data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
@@ -723,15 +754,43 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("WorkStatus", String.valueOf(cmbEstadoTrabajo.getSelectedIndex() + 1));
         data.put("lastName", txtApellidoPost.getText());
 
-      
+        return data;
+    }
+     private HashMap<String, String> CollectAllUpdate() {
+        HashMap<String, String> data = new HashMap<>();
+        char[] pword = txtContraseñaPost.getPassword();
+
+        data.put("namePostulant", txtNombrePost.getText());
+        data.put("mailPostulant", txtCorreoPost.getText());
+        data.put("Pword", Utils.encrypt(pword));
+        data.put("imgByte", S);
+        data.put("resumePDF", "");
+        data.put("resumeDetails", "");
+        data.put("mailverification", "0");
+        data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
+        data.put("Alumni", CheckAlumni.isSelected() ? "1" : "0");
+        data.put("RDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
+        data.put("IDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
+        data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
+        data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
+        data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
+        data.put("WorkPreference", String.valueOf(cmbPrefLaboral.getSelectedIndex() + 1));
+        data.put("StudyLevel", String.valueOf(cmbNivelEstudio.getSelectedIndex() + 1));
+        data.put("WorkStatus", String.valueOf(cmbEstadoTrabajo.getSelectedIndex() + 1));
+        data.put("lastName", txtApellidoPost.getText());
+        data.put("idPostulant", String.valueOf(txtID.getText()));
+
         return data;
     }
     
-    private HashMap<String,String> CollectRequired() {             
-        HashMap<String,String> data =  new HashMap<>();
+    private HashMap<String, String> CollectRequiredAdd() {
+        HashMap<String, String> data = new HashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
-        
-        data.put("namePostulant", txtNombrePost.getText());        
+
+        data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
 //        data.put("imgByte", S);        
@@ -741,7 +800,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("RDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("IDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
-        data.put("Progress",String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
         data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
         data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
@@ -749,7 +808,34 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("StudyLevel", String.valueOf(cmbNivelEstudio.getSelectedIndex() + 1));
         data.put("WorkStatus", String.valueOf(cmbEstadoTrabajo.getSelectedIndex() + 1));
         data.put("lastName", txtApellidoPost.getText());
-     
+
+        return data;
+    }
+    
+    private HashMap<String, String> CollectRequiredUptade() {
+        HashMap<String, String> data = new HashMap<>();
+        char[] pword = txtContraseñaPost.getPassword();
+
+        data.put("namePostulant", txtNombrePost.getText());
+        data.put("mailPostulant", txtCorreoPost.getText());
+        data.put("Pword", Utils.encrypt(pword));
+//        data.put("imgByte", S);        
+        data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
+        data.put("Alumni", CheckAlumni.isSelected() ? "1" : "0");
+        data.put("RDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
+        data.put("IDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
+        data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
+        data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
+        data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
+        data.put("WorkPreference", String.valueOf(cmbPrefLaboral.getSelectedIndex() + 1));
+        data.put("StudyLevel", String.valueOf(cmbNivelEstudio.getSelectedIndex() + 1));
+        data.put("WorkStatus", String.valueOf(cmbEstadoTrabajo.getSelectedIndex() + 1));
+        data.put("lastName", txtApellidoPost.getText());
+        data.put("idPostulant", String.valueOf(txtID.getText()));
+
         return data;
     }
     

@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -273,6 +274,18 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jLabel10.setText("Género");
 
+        txtContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtContraMouseClicked(evt);
+            }
+        });
+        txtContra.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtContraInputMethodTextChanged(evt);
+            }
+        });
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContraKeyPressed(evt);
@@ -549,6 +562,19 @@ public class Usuarios extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_dgvUsersMouseClicked
+
+    private void txtContraInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtContraInputMethodTextChanged
+           char[] txt = txtContra.getPassword();
+           if (txt.length == 6) {
+                txt = Arrays.copyOf(txt, txt.length - 1);
+        }
+           txtContra.setText(String.valueOf(txt));
+           JOptionPane.showMessageDialog(null, String.valueOf(txt));
+    }//GEN-LAST:event_txtContraInputMethodTextChanged
+
+    private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraMouseClicked
     
     //Collect data from the view and append all into a HashMap
     private HashMap<String,String> CollectData() {             

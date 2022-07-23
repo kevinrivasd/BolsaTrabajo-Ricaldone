@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -92,7 +93,7 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        txtNumero = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cmbGenero = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -102,6 +103,7 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cmbEstado = new javax.swing.JComboBox<>();
         txtContra = new javax.swing.JPasswordField();
+        txtNumero = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvUsers = new javax.swing.JTable();
@@ -272,6 +274,18 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         jLabel10.setText("Género");
 
+        txtContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtContraMouseClicked(evt);
+            }
+        });
+        txtContra.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtContraInputMethodTextChanged(evt);
+            }
+        });
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContraKeyPressed(evt);
@@ -303,8 +317,7 @@ public class Usuarios extends javax.swing.JFrame {
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9)
-                                    .addComponent(jLabel6)
-                                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel6))))
                         .addGap(73, 73, 73))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -313,13 +326,21 @@ public class Usuarios extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(236, 236, 236))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
+                        .addComponent(jLabel10)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel8)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64))))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addContainerGap(438, Short.MAX_VALUE)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(63, 63, 63)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,17 +369,27 @@ public class Usuarios extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addContainerGap(228, Short.MAX_VALUE)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(77, 77, 77)))
         );
 
         dgvUsers.setColumnSelectionAllowed(true);
+        dgvUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dgvUsersMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(dgvUsers);
         dgvUsers.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -516,6 +547,34 @@ public class Usuarios extends javax.swing.JFrame {
            txtContra.setText(String.valueOf(txt));
            JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraKeyTyped
+
+    private void dgvUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvUsersMouseClicked
+        if (evt.getClickCount()==1) {
+            JTable Table = (JTable) evt.getSource();
+            txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
+            cmbEstado.setSelectedItem(dataState.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString())));
+            txtUsuario.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
+            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
+            txtCorreo.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
+            txtNumero.setText(Table.getModel().getValueAt(Table.getSelectedRow(),5).toString());
+            cmbRol.setSelectedItem(dataRols.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),6).toString())));
+            cmbGenero.setSelectedItem(dataGender.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),8).toString())));
+            
+        }
+    }//GEN-LAST:event_dgvUsersMouseClicked
+
+    private void txtContraInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtContraInputMethodTextChanged
+           char[] txt = txtContra.getPassword();
+           if (txt.length == 6) {
+                txt = Arrays.copyOf(txt, txt.length - 1);
+        }
+           txtContra.setText(String.valueOf(txt));
+           JOptionPane.showMessageDialog(null, String.valueOf(txt));
+    }//GEN-LAST:event_txtContraInputMethodTextChanged
+
+    private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraMouseClicked
     
     //Collect data from the view and append all into a HashMap
     private HashMap<String,String> CollectData() {             
@@ -525,7 +584,7 @@ public class Usuarios extends javax.swing.JFrame {
         data.put("Usuario", txtUsuario.getText());        
         data.put("Contrasena", Utils.encrypt(pword));
         data.put("Correo", txtCorreo.getText());
-        data.put("Numero", txtNumero.getText());        
+        data.put("Numero", txtID.getText());        
         data.put("Rol", String.valueOf(cmbRol.getSelectedIndex() + 1));
         data.put("Estado", String.valueOf(cmbEstado.getSelectedIndex() + 1));
         data.put("Genero", String.valueOf(cmbGenero.getSelectedIndex() + 1));
@@ -606,6 +665,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPasswordField txtContra;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

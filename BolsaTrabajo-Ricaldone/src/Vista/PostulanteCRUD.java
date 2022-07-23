@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import org.xml.sax.Attributes;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
@@ -68,67 +69,68 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         setTitle("Gestion de postulantes");
         
         dataGender = Controlador.Utils.getDataTable("Genders");        
-        for(int k = 0; k<=dataGender.size();k++){
+        for(int k = 1; k<=dataGender.size();k++){
            cmbGenero.addItem(dataGender.get(k));
        }
         datapreflaboral = Controlador.Utils.getDataTable("WorkPreference");        
-        for(int k = 0; k<=datapreflaboral.size();k++){
+        for(int k = 1; k<=datapreflaboral.size();k++){
            cmbPrefLaboral.addItem(datapreflaboral.get(k));
         }
         
         dataStatus = Controlador.Utils.getDataTable("States");        
-        for(int k = 0; k<=dataStatus.size();k++){
+        for(int k = 1; k<=dataStatus.size();k++){
            cmbEstadoPost.addItem(dataStatus.get(k));
         }
         
         dptoPreferencia = Controlador.Utils.getDataTable("Departments");        
-        for(int k = 0; k<=dptoPreferencia.size();k++){
+        for(int k = 1; k<=dptoPreferencia.size();k++){
            cmbDepartPreferencia.addItem(dptoPreferencia.get(k));
         }
         
         dptoReside = Controlador.Utils.getDataTable("Departments");        
-        for(int k = 0; k<=dptoReside.size();k++){
+        for(int k = 1; k<=dptoReside.size();k++){
            cmbDepartReside.addItem(dptoReside.get(k));
         }
         
         EstadoTrabajo = Controlador.Utils.getDataTable("WorkState");        
-        for(int k = 0; k<=EstadoTrabajo.size();k++){
+        for(int k = 1; k<=EstadoTrabajo.size();k++){
            cmbEstadoTrabajo.addItem(EstadoTrabajo.get(k));
         }
         
         TContrato = Controlador.Utils.getDataTable("ContractType");        
-        for(int k = 0; k<=TContrato.size();k++){
+        for(int k = 1; k<=TContrato.size();k++){
            cmbTipoContrato.addItem(TContrato.get(k));
         }
         
         TTrabajo = Controlador.Utils.getDataTable("workSubjects");        
-        for(int k = 0; k<=TTrabajo.size();k++){
+        for(int k = 1; k<=TTrabajo.size();k++){
            cmbTipoTrabajo.addItem(TTrabajo.get(k));
         }
         
         salario = Controlador.Utils.getDataTable("SalaryState");        
-        for(int k = 0; k<=salario.size();k++){
+        for(int k = 1; k<=salario.size();k++){
            cmbSalario.addItem(salario.get(k));
         }
         
         
         hightype = Controlador.Utils.getDataTable("HighType");        
-        for(int k = 0; k<=hightype.size();k++){
+        for(int k = 1; k<=hightype.size();k++){
            cmbHighType.addItem(hightype.get(k));
         }
         
         progreso = Controlador.Utils.getDataTable("Progress");        
-        for(int k = 0; k<=progreso.size();k++){
+        for(int k = 1; k<=progreso.size();k++){
            cmbProgreso.addItem(progreso.get(k));
         }
         
         nlEstudio = Controlador.Utils.getDataTable("studyLevels");        
-        for(int k = 0; k<=nlEstudio.size();k++){
+        for(int k = 1; k<=nlEstudio.size();k++){
            cmbNivelEstudio.addItem(nlEstudio.get(k));
         }
         
         JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
         
+        txtContraseñaPost.setTransferHandler(null);
     }
 
     /**
@@ -292,6 +294,12 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel19.setText("Salario");
+
+        txtContraseñaPost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContraseñaPostKeyPressed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel11.setText("Nivel de estudio");
@@ -579,7 +587,13 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         newfrm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnRegresarPostActionPerformed
-
+    
+    public void LimpiarCampos(){
+        txtNombrePost.setText("");
+        txtApellidoPost.setText("");
+        txtContraseñaPost.setText("");
+        txtCorreoPost.setText("");
+    }
     
     
     private String S = "";
@@ -643,6 +657,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         } catch (Exception ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
+        } catch (Exception ex) {
+            Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
@@ -725,15 +744,30 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         int res;
         try {
             if (!Controlador.Utils.emptyFields(Required)) {                
-                 res = Controlador.ControladorPostulante.AgreparPostulante(All);
-                 JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
+                 res = Controlador.ControladorPostulante.ActualizarPostulante(All);
+                 JOptionPane.showInternalMessageDialog(null, "Postulante actualizado exitosamente", "Confirmacion", 1);
             }else{
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
         } catch (Exception ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
+        } catch (Exception ex) {
+            Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BtnActualizarActionPerformed
+
+    private void txtContraseñaPostKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaPostKeyPressed
+        // TODO add your handling code here:
+        char[] txt = txtContraseñaPost.getPassword();
+           if (txt.length == 6) {
+                txt = Arrays.copyOf(txt, txt.length - 1);
+        }
+           txtContraseñaPost.setText(String.valueOf(txt));
+//           JOptionPane.showMessageDialog(null, String.valueOf(txt));
+    }//GEN-LAST:event_txtContraseñaPostKeyPressed
 
     private HashMap<String, String> CollectAllAdd() {
         HashMap<String, String> data = new HashMap<>();
@@ -825,7 +859,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
-        data.put("Pword", Utils.encrypt(pword));
+        data.put("Pword",Utils.encrypt(pword));
 //        data.put("imgByte", S);        
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));

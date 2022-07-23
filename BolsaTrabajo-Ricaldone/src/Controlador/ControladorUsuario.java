@@ -14,4 +14,8 @@ public class ControladorUsuario {
     public static int AgregarUsuario(HashMap<String,String> dataMap) throws Exception{
         return Modelo.ModeloUsuario.AgregarUsuario(dataMap);
     }
+
+    public static int Eliminar(String idUsuario) throws Exception {
+        return Modelo.ModeloUsuario.Eliminar(idUsuario);
+    }
 }

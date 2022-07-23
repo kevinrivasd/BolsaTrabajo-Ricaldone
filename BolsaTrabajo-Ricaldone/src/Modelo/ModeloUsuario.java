@@ -7,6 +7,7 @@ package Modelo;
 import Controlador.ControladorConexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -34,5 +35,18 @@ public class ModeloUsuario {
         boolean res = consult.execute();
            
         return res ? 1:0;
+    }
+
+    public static int Eliminar(String idUsuario) throws Exception {
+        Connection sql = ControladorConexion.getConection();
+        String squery = "DELETE FROM UserSystems WHERE idUser=?";
+        PreparedStatement consult = sql.prepareStatement(squery);
+        
+        //Sacando values del HashMap        
+        consult.setInt(1,Integer.parseInt(idUsuario));        
+
+        boolean res = consult.execute();
+           
+        return res ? 0:1;
     }
 }

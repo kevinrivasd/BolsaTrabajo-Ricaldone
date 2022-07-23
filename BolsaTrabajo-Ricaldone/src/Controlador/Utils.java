@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -55,7 +56,6 @@ public class Utils {
         
         return baseString;
     }
-
    public static DefaultTableModel rtrnTqble(String sqlTable) throws Exception{
       
        ResultSet rs = Modelo.ModeloUtils.getTable(sqlTable);

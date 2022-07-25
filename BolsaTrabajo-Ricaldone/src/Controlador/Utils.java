@@ -89,5 +89,13 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
     return new DefaultTableModel(data, columnNames);
 
 }
+
+    public static int eliminar(String id, String tabla) throws Exception {
+        return Modelo.ModeloUtils.Eliminar(id, tabla);
+    }
+
+    public static int actualizarUser(HashMap<String, String> data, String id,String tabla) throws Exception {
+        return Modelo.ModeloUtils.Actualizar(data,id,tabla);
+    }
     
 }

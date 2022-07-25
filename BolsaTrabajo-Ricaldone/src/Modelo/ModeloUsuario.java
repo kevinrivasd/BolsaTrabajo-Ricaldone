@@ -39,7 +39,7 @@ public class ModeloUsuario {
 
     public static int Eliminar(String idUsuario) throws Exception {
         Connection sql = ControladorConexion.getConection();
-        String squery = "DELETE FROM UserSystems WHERE idUser=?";
+        String squery = "DELTE FROM UserSystems WHERE id = ?;" ;
         PreparedStatement consult = sql.prepareStatement(squery);
         
         //Sacando values del HashMap        
@@ -47,6 +47,6 @@ public class ModeloUsuario {
 
         boolean res = consult.execute();
            
-        return res ? 0:1;
+        return res ? 1:0;
     }
 }

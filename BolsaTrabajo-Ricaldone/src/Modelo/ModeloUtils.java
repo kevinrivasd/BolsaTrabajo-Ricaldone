@@ -11,8 +11,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 /**
  *
@@ -67,4 +69,69 @@ public class ModeloUtils {
         return data;
 
     }
+    
+        public static int Eliminar(String idUsuario, String table) throws Exception {
+        Connection sql = ControladorConexion.getConection();
+        String squery = "DELETE FROM "+table+" WHERE idUser=?";
+        PreparedStatement consult = sql.prepareStatement(squery);
+        
+        //Sacando values del HashMap        
+//        consult.setString(1,table);        
+        consult.setInt(1,Integer.parseInt(idUsuario));        
+
+        boolean res = consult.execute();
+           
+        return res ? 0:1;
+    }
+
+    public static int Actualizar(HashMap<String, String> dataMap, String id, String tabla) throws SQLException, Exception {
+        //Getting connection pool
+        Connection sql = ControladorConexion.getConection();
+         
+         
+        //Init del SB con el UPDATE y la tabla
+        StringBuilder query = new StringBuilder("UPDATE "+tabla+" SET ");
+        
+        //Tamaño del HM para poder chequear si es el ultimo registro o no
+        int mapSize = dataMap.size();
+        //Index del for
+        int countFirst = 0;
+        
+        for (Map.Entry<String, String> entry : dataMap.entrySet()) {
+            countFirst++;
+            //sacando valor de las llaves del HM
+            Object key = entry.getKey();
+            //insertandolo al SB
+            query.append(key.toString()).append(countFirst == mapSize ? "= ? ":"= ?, ");
+        }
+        
+        //FIN DE LA QUERY
+        query.append("WHERE idUser =").append(id);
+        
+        
+        //init de la consulta con el SB a string
+        PreparedStatement consult = sql.prepareStatement(query.toString());
+        
+        int count=1;
+         for (Map.Entry<String, String> entry : dataMap.entrySet()) {
+            Object key = entry.getKey();
+            Object val = entry.getValue();
+            
+            //checkeando si deberia ser setInt o setString
+             if (key.toString().contains("id")) {
+                   consult.setInt(count, Integer.valueOf(val.toString()));
+             }else{
+                   consult.setString(count, val.toString());
+             }
+
+               count++;
+        }
+         
+//         return 1;
+        int rowsAffected = consult.executeUpdate();
+
+
+        return rowsAffected > 0 ? 1 : 0;
+    }
+
 }

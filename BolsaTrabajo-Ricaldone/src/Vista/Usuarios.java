@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -58,7 +59,9 @@ public class Usuarios extends javax.swing.JFrame {
           cmbEstado.addItem(dataState.get(k));
        }      
        dgvUsers.setModel(Controlador.Utils.rtrnTqble("UserSystems"));
-       
+       txtContra.setTransferHandler(null);
+       txtID.setVisible(false);
+
        
     }
 
@@ -86,7 +89,7 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnAgregarUsuario = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -107,6 +110,7 @@ public class Usuarios extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvUsers = new javax.swing.JTable();
+        jButton10 = new javax.swing.JButton();
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("Postulantes");
@@ -247,7 +251,12 @@ public class Usuarios extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Modificar usuario");
+        btnEliminar.setText("Eliminar Usuario");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Limpiar campos");
 
@@ -338,9 +347,9 @@ public class Usuarios extends javax.swing.JFrame {
                         .addGap(64, 64, 64))))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addContainerGap(438, Short.MAX_VALUE)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(63, 63, 63)))
+                    .addContainerGap(429, Short.MAX_VALUE)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(75, 75, 75)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,6 +419,13 @@ public class Usuarios extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jButton10.setText("Modificar usuario");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -419,19 +435,25 @@ public class Usuarios extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(btnAgregarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jButton8))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(jButton9))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(jLabel4)))
-                        .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(89, 89, 89)
+                                        .addComponent(jLabel4)))
+                                .addGap(107, 107, 107))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(btnAgregarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton10))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jButton9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnEliminar)))
+                                .addGap(18, 18, 18)))
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -446,10 +468,12 @@ public class Usuarios extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(27, 27, 27)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAgregarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAgregarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -517,8 +541,7 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void btnAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUsuarioActionPerformed
         //Initializing map to then collect data
-        HashMap<String,String> datos = new HashMap<>();
-        datos = CollectData();
+        HashMap<String,String> datos = CollectData();
         
         int res;
         try {
@@ -545,7 +568,6 @@ public class Usuarios extends javax.swing.JFrame {
                 txt = Arrays.copyOf(txt, txt.length - 1);
         }
            txtContra.setText(String.valueOf(txt));
-           JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraKeyTyped
 
     private void dgvUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvUsersMouseClicked
@@ -554,7 +576,7 @@ public class Usuarios extends javax.swing.JFrame {
             txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
             cmbEstado.setSelectedItem(dataState.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString())));
             txtUsuario.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
-            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
+//            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
             txtCorreo.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
             txtNumero.setText(Table.getModel().getValueAt(Table.getSelectedRow(),5).toString());
             cmbRol.setSelectedItem(dataRols.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),6).toString())));
@@ -569,25 +591,97 @@ public class Usuarios extends javax.swing.JFrame {
                 txt = Arrays.copyOf(txt, txt.length - 1);
         }
            txtContra.setText(String.valueOf(txt));
-           JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraInputMethodTextChanged
 
     private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraMouseClicked
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try {
+            
+        if ( 
+             JOptionPane.showConfirmDialog(null, "Seguro que quieres eliminar a "+ txtUsuario.getText()+"?", "Mensaje",
+        JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES
+                ){
+                    // TODO add your handling code here:
+                    String id = txtID.getText();
+                    int res = Controlador.Utils.eliminar(id,"UserSystems");
+                    if (res == 1) {
+                        JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente");
+                        try {
+                            dgvUsers.setModel(Controlador.Utils.rtrnTqble("UserSystems"));
+                        } catch (Exception ex) {
+                            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, res);
+                    }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+         
+        HashMap<String,String> data = CollectData();
+         
+         
+         if (data.get("Pword").trim().isEmpty() && 
+             JOptionPane.showConfirmDialog(null, "La contraseña no ha sido modificada, se dejara la antigua, deseas continuar?", "Mensaje",
+        JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
+                  
+                 data.remove("Pword");
+                 if (!Controlador.Utils.emptyFields(data)) {
+                     String id = txtID.getText();
+                     int res=0; 
+                     try {
+                         res = Controlador.Utils.actualizarUser(data,id,"UserSystems");
+                     } catch (Exception ex) {
+                         Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                     }
+                     JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado":"Hubo un error");
+                 }else{
+                     JOptionPane.showMessageDialog(null, "Por favor revisa que los campos a parte de la contraseña estén correctamente llenos.");
+                 }
+          
+        }
+         else if (!data.get("Pword").trim().isEmpty()) {
+                 String id = txtID.getText();
+                if (!Controlador.Utils.emptyFields(data)) {
+                    try{
+                     int res = Controlador.Utils.actualizarUser(data,id,"UserSystems");                      
+                     JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado":"Hubo un error");
+                     
+                    }catch(Exception ex){
+                        Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                 }else{
+                     JOptionPane.showMessageDialog(null, "Por favor revisa que los campos estén correctamente llenos.");
+                 }
+         }
+         
+        try {
+            dgvUsers.setModel(Controlador.Utils.rtrnTqble("UserSystems"));
+        } catch (Exception ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+                 
+    }//GEN-LAST:event_jButton10ActionPerformed
     
-    //Collect data from the view and append all into a HashMap
     private HashMap<String,String> CollectData() {             
         HashMap<String,String> data =  new HashMap<>();
         char[] pword = txtContra.getPassword();
         
-        data.put("Usuario", txtUsuario.getText());        
-        data.put("Contrasena", Utils.encrypt(pword));
-        data.put("Correo", txtCorreo.getText());
-        data.put("Numero", txtID.getText());        
-        data.put("Rol", String.valueOf(cmbRol.getSelectedIndex() + 1));
-        data.put("Estado", String.valueOf(cmbEstado.getSelectedIndex() + 1));
-        data.put("Genero", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        data.put("nameUser", txtUsuario.getText());        
+        data.put("Pword", Utils.encrypt(pword));
+        data.put("mailUser", txtCorreo.getText());
+        data.put("numberUser", txtID.getText());        
+        data.put("idRol", String.valueOf(cmbRol.getSelectedIndex() + 1));
+        data.put("idState", String.valueOf(cmbEstado.getSelectedIndex() + 1));
+        data.put("idGender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         
         return data;
     }
@@ -634,6 +728,7 @@ public class Usuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarUsuario;
     private javax.swing.JButton btnConfiuracionUsua;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEstadisticasUsua;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnNotificacionesUsua;
@@ -644,7 +739,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbGenero;
     private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JTable dgvUsers;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

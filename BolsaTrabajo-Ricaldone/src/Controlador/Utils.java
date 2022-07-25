@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -55,7 +56,6 @@ public class Utils {
         
         return baseString;
     }
-
    public static DefaultTableModel rtrnTqble(String sqlTable) throws Exception{
       
        ResultSet rs = Modelo.ModeloUtils.getTable(sqlTable);
@@ -89,5 +89,13 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
     return new DefaultTableModel(data, columnNames);
 
 }
+
+    public static int eliminar(String id, String tabla) throws Exception {
+        return Modelo.ModeloUtils.Eliminar(id, tabla);
+    }
+
+    public static int actualizarUser(HashMap<String, String> data, String id,String tabla) throws Exception {
+        return Modelo.ModeloUtils.Actualizar(data,id,tabla);
+    }
     
 }

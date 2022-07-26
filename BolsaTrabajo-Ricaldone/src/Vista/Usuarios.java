@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -541,16 +542,23 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void btnAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUsuarioActionPerformed
         //Initializing map to then collect data
-        HashMap<String,String> datos = CollectData();
+        LinkedHashMap<String,String> datos = CollectData();
         
         int res;
         try {
             if (!Controlador.Utils.emptyFields(datos)) {                
-                 res = Controlador.ControladorUsuario.AgregarUsuario(datos);
-                 JOptionPane.showInternalMessageDialog(null, "Usuario Agregado Correctamente.", "Confirmacion", 1);
+                 res = Controlador.Utils.Agregar(datos, "UserSystems");
+                     JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado":"Hubo un error");
+               
             }else{
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
+        } catch (Exception ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            dgvUsers.setModel(Controlador.Utils.rtrnTqble("UserSystems"));
         } catch (Exception ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -625,7 +633,7 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
          
-        HashMap<String,String> data = CollectData();
+        LinkedHashMap<String,String> data = CollectData();
          
          
          if (data.get("Pword").trim().isEmpty() && 
@@ -671,16 +679,17 @@ public class Usuarios extends javax.swing.JFrame {
                  
     }//GEN-LAST:event_jButton10ActionPerformed
     
-    private HashMap<String,String> CollectData() {             
-        HashMap<String,String> data =  new HashMap<>();
+    private LinkedHashMap<String,String> CollectData() {             
+        LinkedHashMap<String,String> data =  new LinkedHashMap<>();
         char[] pword = txtContra.getPassword();
         
+        data.put("idState", String.valueOf(cmbEstado.getSelectedIndex() + 1));
         data.put("nameUser", txtUsuario.getText());        
         data.put("Pword", Utils.encrypt(pword));
         data.put("mailUser", txtCorreo.getText());
-        data.put("numberUser", txtID.getText());        
+        data.put("numberUser", txtNumero.getText());        
         data.put("idRol", String.valueOf(cmbRol.getSelectedIndex() + 1));
-        data.put("idState", String.valueOf(cmbEstado.getSelectedIndex() + 1));
+        data.put("mailVerification", String.valueOf(1));        
         data.put("idGender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         
         return data;

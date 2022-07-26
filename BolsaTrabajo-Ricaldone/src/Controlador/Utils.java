@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -94,8 +95,13 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
         return Modelo.ModeloUtils.Eliminar(id, tabla);
     }
 
-    public static int actualizarUser(HashMap<String, String> data, String id,String tabla) throws Exception {
+    public static int actualizarUser(LinkedHashMap<String, String> data, String id,String tabla) throws Exception {
         return Modelo.ModeloUtils.Actualizar(data,id,tabla);
     }
-    
+
+    public static int Agregar(LinkedHashMap<String, String> datos, String tabla) throws Exception{
+        return Modelo.ModeloUtils.Agregar(datos, tabla);
+
+    }
+
 }

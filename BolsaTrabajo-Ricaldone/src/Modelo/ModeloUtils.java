@@ -52,6 +52,28 @@ public class ModeloUtils {
         
         return res;
     }
+    public static ResultSet getTable(String sqlTable, String[] colStrings) throws SQLException, Exception{
+        
+        Connection sql = ControladorConexion.getConection();
+        
+         StringBuilder querTemp = new StringBuilder("SELECT ");
+         
+          int size = colStrings.length;
+          
+         for(int k=0;k<colStrings.length;k++){
+             querTemp.append(k != size-1 ? colStrings[k]+",":colStrings[k]);             
+         }
+         
+         
+         querTemp.append(" FROM ").append(sqlTable).append(";");
+         
+         
+         PreparedStatement consult = sql.prepareStatement(querTemp.toString());
+
+        ResultSet res = consult.executeQuery();
+        
+        return res;
+    }
     
     //whole table as RS
     public static HashMap<Integer, String> getTableHM(String sqlTable) throws SQLException, Exception{

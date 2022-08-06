@@ -151,9 +151,8 @@ public class ModeloUtils {
             
             //insertandolo al SB
             query.append(countFirst == mapSize ? "?);":"?, ");
-        }
+        }   
         
-        JOptionPane.showMessageDialog(null, query);
         //init de la consulta con el SB a string
         PreparedStatement consult = sql.prepareStatement(query.toString());
         

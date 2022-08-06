@@ -301,6 +301,13 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel19.setText("Salario");
 
+        txtContraseñaPost.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtContraseñaPostInputMethodTextChanged(evt);
+            }
+        });
         txtContraseñaPost.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContraseñaPostKeyPressed(evt);
@@ -554,8 +561,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel8)
                                         .addGap(1, 1, 1)
-                                        .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(27, 27, 27))))
+                                        .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(lblAddPDFLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(BtnRegresarPost)
@@ -584,9 +590,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                                 .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(lblAddPDFLayout.createSequentialGroup()
                                         .addGap(39, 39, 39)
-                                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel18)
-                                            .addComponent(jLabel10))
+                                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel18))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtHabilidadGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(lblAddPDFLayout.createSequentialGroup()
@@ -831,6 +837,17 @@ public class PostulanteCRUD extends javax.swing.JFrame {
            txtContraseñaPost.setText(String.valueOf(txt));
 //           JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraseñaPostKeyPressed
+
+    private void txtContraseñaPostInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtContraseñaPostInputMethodTextChanged
+        // TODO add your handling code here:
+        char[] txt = txtContraseñaPost.getPassword();
+           if (txt.length == 6) {
+                txt = Arrays.copyOf(txt, txt.length - 1);
+        }
+           txtContraseñaPost.setText(String.valueOf(txt));
+
+           JOptionPane.showMessageDialog(null, String.valueOf(txt));
+    }//GEN-LAST:event_txtContraseñaPostInputMethodTextChanged
 
     private HashMap<String, String> CollectAllAdd() {
         HashMap<String, String> data = new HashMap<>();

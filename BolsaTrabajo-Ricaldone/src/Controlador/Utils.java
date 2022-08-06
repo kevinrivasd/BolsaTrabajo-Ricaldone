@@ -57,6 +57,15 @@ public class Utils {
         
         return baseString;
     }
+   public static DefaultTableModel rtrnTqble(String sqlTable, String[] colStrings) throws Exception{
+      
+       ResultSet rs = Modelo.ModeloUtils.getTable(sqlTable,colStrings);
+       DefaultTableModel table = buildTableModel(rs);
+      
+       
+      return table;
+    }    
+
    public static DefaultTableModel rtrnTqble(String sqlTable) throws Exception{
       
        ResultSet rs = Modelo.ModeloUtils.getTable(sqlTable);
@@ -88,7 +97,6 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
     }
 
     return new DefaultTableModel(data, columnNames);
-
 }
 
     public static int eliminar(String id, String tabla) throws Exception {

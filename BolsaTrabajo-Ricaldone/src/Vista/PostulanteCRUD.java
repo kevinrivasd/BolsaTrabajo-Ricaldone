@@ -413,6 +413,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jButton5.setText("Actualizar Habilidad Adicional");
 
         jButton6.setText("Agregar Habilidad General");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Actualizar Habilidad General");
 
@@ -428,37 +433,18 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                             .addComponent(BtnRegresarPost)
                             .addGroup(lblAddPDFLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel1))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(txtNombrePost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel9))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(txtApellidoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel2))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(txtCorreoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(txtContraseñaPost, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(lblID))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtNombrePost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(txtApellidoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(txtCorreoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtContraseñaPost, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblID)
+                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(62, 62, 62)
                         .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -927,6 +913,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
            JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraseñaPostInputMethodTextChanged
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        try {
+            AbilitiesCRUD frm = new AbilitiesCRUD(0);
+            frm.setVisible(true);
+            // TODO add your handling code here:
+        } catch (Exception ex) {
+            Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private HashMap<String, String> CollectAllAdd() {
         HashMap<String, String> data = new HashMap<>();

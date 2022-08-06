@@ -22,14 +22,13 @@ public class ModeloPostulante {
     public static int AgregarPostulante(HashMap<String, String> dataMap) throws Exception, Exception {
         Connection sql = ControladorConexion.getConection();
         String query = "INSERT INTO Postulants VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-        byte[] decode = Base64.getDecoder().decode(dataMap.get("imgByte"));
         byte[] decode2 = Base64.getDecoder().decode(dataMap.get("resumePDF"));
 
         PreparedStatement consult = sql.prepareStatement(query);
         consult.setString(1, dataMap.get("namePostulant"));
         consult.setString(2, dataMap.get("mailPostulant"));
         consult.setString(3, dataMap.get("Pword"));
-        consult.setBytes(4, decode);//Add image
+        consult.setString(4, dataMap.get("imgByte"));//Add image
         consult.setBytes(5, decode2);
         consult.setString(6, dataMap.get("resumeDetails"));
         consult.setInt(7, Integer.parseInt(dataMap.get("mailverification")));

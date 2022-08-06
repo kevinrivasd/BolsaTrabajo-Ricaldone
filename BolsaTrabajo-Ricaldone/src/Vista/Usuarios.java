@@ -348,9 +348,11 @@ public class Usuarios extends javax.swing.JFrame {
                         .addGap(64, 64, 64))))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addContainerGap(429, Short.MAX_VALUE)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(75, 75, 75)))
+
+                    .addContainerGap(438, Short.MAX_VALUE)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(63, 63, 63)))
+
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -584,7 +586,9 @@ public class Usuarios extends javax.swing.JFrame {
             txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
             cmbEstado.setSelectedItem(dataState.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString())));
             txtUsuario.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
-//            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
+
+            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
+
             txtCorreo.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
             txtNumero.setText(Table.getModel().getValueAt(Table.getSelectedRow(),5).toString());
             cmbRol.setSelectedItem(dataRols.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),6).toString())));
@@ -599,11 +603,15 @@ public class Usuarios extends javax.swing.JFrame {
                 txt = Arrays.copyOf(txt, txt.length - 1);
         }
            txtContra.setText(String.valueOf(txt));
+
+           JOptionPane.showMessageDialog(null, String.valueOf(txt));
+
     }//GEN-LAST:event_txtContraInputMethodTextChanged
 
     private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraMouseClicked
+
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
@@ -678,11 +686,13 @@ public class Usuarios extends javax.swing.JFrame {
             
                  
     }//GEN-LAST:event_jButton10ActionPerformed
+
     
     private LinkedHashMap<String,String> CollectData() {             
         LinkedHashMap<String,String> data =  new LinkedHashMap<>();
         char[] pword = txtContra.getPassword();
         
+
         data.put("idState", String.valueOf(cmbEstado.getSelectedIndex() + 1));
         data.put("nameUser", txtUsuario.getText());        
         data.put("Pword", Utils.encrypt(pword));
@@ -691,6 +701,7 @@ public class Usuarios extends javax.swing.JFrame {
         data.put("idRol", String.valueOf(cmbRol.getSelectedIndex() + 1));
         data.put("mailVerification", String.valueOf(1));        
         data.put("idGender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+
         
         return data;
     }

@@ -4,12 +4,17 @@
  */
 package Vista;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import jdk.jshell.execution.Util;
@@ -24,34 +29,45 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
      * Creates new form AbilitiesCRUD
      */
     private static int typeA = 0;
+    private static String idPos = "";
     
-    String[] arrAb = {"","idLevel"};
+    String[] arrAb = {"","idLevel",""};
     
     private static String table = "";
-    public AbilitiesCRUD(int abilitie) throws Exception {
+    public HashMap<Integer,String> levelCMB;
+    
+    public AbilitiesCRUD(int abilitie, String id) throws Exception {
         initComponents();
         typeA = abilitie;
-        
+        idPos = id;
         switch (typeA) {
             case 0:
                 table = "AditionalSkills";    
                 arrAb[0] = "NameSkill";
+                arrAb[2] = "idAskills";
                 break;
             case 1:
                 table = "Branches";
                 arrAb[0] = "Branch";
-
+                arrAb[2] = "idBranch";
                 break;
             case 2:
                 table = "GeneralSkills";
                 arrAb[0] = "Skill";
+                arrAb[2] = "idGskill";
                 break;
+                
             default:
                 throw new AssertionError();
         }
 
-        dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb));
+       dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,id));
+        txtId.setVisible(false);
         
+        levelCMB = Controlador.Utils.getDataTable("Levels");        
+        for(int k = 1; k<=levelCMB.size();k++){
+           cmbLevel.addItem(levelCMB.get(k));
+       }
         
         List<String> level = Controlador.Utils.getDataCmb("Levels", "Levels");
         
@@ -70,6 +86,15 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvLol = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        cmbLevel = new javax.swing.JComboBox<>();
+        txtTitle = new javax.swing.JTextField();
+        btnEliminar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        txtId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,28 +106,196 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
             }
         ));
+        dgvLol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dgvLolMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(dgvLol);
+
+        jLabel1.setText("jLabel1");
+
+        jButton1.setText("Insertar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Nivel De Manejo");
+
+        jLabel3.setText("Titulo");
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(257, 257, 257))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(cmbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(206, 206, 206))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(123, 123, 123)
+                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 304, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(0, 304, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 304, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(0, 304, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LinkedHashMap<String,String> map = new LinkedHashMap<>();
+        map = collectMap();
+        
+        try {
+            int res = Controlador.Utils.Agregar(map, table);
+            if (res == 1) {
+                JOptionPane.showMessageDialog(null, "Exito puto");
+                dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
+            }else{
+                JOptionPane.showMessageDialog(null, "Sin exito puto");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AbilitiesCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        try {
+               if ( 
+             JOptionPane.showConfirmDialog(null, "Seguro que quieres eliminar este elemento?", "Mensaje",
+        JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES
+                ){
+                    // TODO add your handling code here:
+                    String id = txtId.getText();
+                    int res = Controlador.Utils.eliminar(id,table,arrAb[2]);
+                    if (res == 1) {
+                        JOptionPane.showMessageDialog(null, "Elemento eliminado correctamente");
+                        try {
+                            dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
+                        } catch (Exception ex) {
+                            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, res);
+                    }
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        LinkedHashMap<String, String> data = collectMap();
+        
+        if (!Controlador.Utils.emptyFields(data)) {
+                     String id = txtId.getText();
+                     int res=0; 
+            try {
+                res = Controlador.Utils.actualizar(data,id,table,arrAb[2]);
+                JOptionPane.showMessageDialog(null, res == 1 ? "Elemento correctamente actualizado":"Hubo un error");
+
+                dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
+            } catch (Exception ex) {
+                         Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                     }
+
+                 }else{
+                     JOptionPane.showMessageDialog(null, "Por favor revisa que los campos estén correctamente llenos.");
+                 }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void dgvLolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvLolMouseClicked
+        // TODO add your handling code here:
+        
+        if (evt.getClickCount()==1) {
+            JTable Table = (JTable) evt.getSource();
+            txtId.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
+            cmbLevel.setSelectedItem(levelCMB.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString())));
+            txtTitle.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
+         
+            
+        }
+    }//GEN-LAST:event_dgvLolMouseClicked
+    private LinkedHashMap<String, String> collectMap(){
+        LinkedHashMap<String,String> map = new LinkedHashMap<>();
+         map.put(arrAb[0], txtTitle.getText());
+         map.put(arrAb[1], String.valueOf(cmbLevel.getSelectedIndex()+1));
+         map.put("idPostulant", idPos);
+        return map;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -131,19 +324,26 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new AbilitiesCRUD(typeA).setVisible(true);
-                } catch (Exception ex) {
-                    Logger.getLogger(AbilitiesCRUD.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new AbilitiesCRUD(typeA, idPos).setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(AbilitiesCRUD.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JComboBox<String> cmbLevel;
     private javax.swing.JTable dgvLol;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtTitle;
     // End of variables declaration//GEN-END:variables
 }

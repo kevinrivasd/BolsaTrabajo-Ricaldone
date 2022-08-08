@@ -587,8 +587,7 @@ public class Usuarios extends javax.swing.JFrame {
             cmbEstado.setSelectedItem(dataState.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString())));
             txtUsuario.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
 
-            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
-
+//            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
             txtCorreo.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
             txtNumero.setText(Table.getModel().getValueAt(Table.getSelectedRow(),5).toString());
             cmbRol.setSelectedItem(dataRols.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),6).toString())));
@@ -622,7 +621,7 @@ public class Usuarios extends javax.swing.JFrame {
                 ){
                     // TODO add your handling code here:
                     String id = txtID.getText();
-                    int res = Controlador.Utils.eliminar(id,"UserSystems");
+                    int res = Controlador.Utils.eliminar(id,"UserSystems","idUser");
                     if (res == 1) {
                         JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente");
                         try {
@@ -653,7 +652,7 @@ public class Usuarios extends javax.swing.JFrame {
                      String id = txtID.getText();
                      int res=0; 
                      try {
-                         res = Controlador.Utils.actualizarUser(data,id,"UserSystems");
+                         res = Controlador.Utils.actualizar(data,id,"UserSystems","idUser");
                      } catch (Exception ex) {
                          Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
                      }
@@ -667,7 +666,7 @@ public class Usuarios extends javax.swing.JFrame {
                  String id = txtID.getText();
                 if (!Controlador.Utils.emptyFields(data)) {
                     try{
-                     int res = Controlador.Utils.actualizarUser(data,id,"UserSystems");                      
+                     int res = Controlador.Utils.actualizar(data,id,"UserSystems","idUser");                      
                      JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado":"Hubo un error");
                      
                     }catch(Exception ex){

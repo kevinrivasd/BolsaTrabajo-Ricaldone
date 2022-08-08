@@ -52,7 +52,7 @@ public class ModeloUtils {
         
         return res;
     }
-    public static ResultSet getTable(String sqlTable, String[] colStrings) throws SQLException, Exception{
+    public static ResultSet getTable(String sqlTable, String[] colStrings, String idString) throws SQLException, Exception{
         
         Connection sql = ControladorConexion.getConection();
         
@@ -65,7 +65,7 @@ public class ModeloUtils {
          }
          
          
-         querTemp.append(" FROM ").append(sqlTable).append(";");
+         querTemp.append(" FROM ").append(sqlTable).append(" WHERE idPostulant = ").append(idString).append(";");
          
          
          PreparedStatement consult = sql.prepareStatement(querTemp.toString());
@@ -93,10 +93,12 @@ public class ModeloUtils {
 
     }
     
-    public static int Eliminar(String idUsuario, String table) throws Exception {
+    public static int Eliminar(String idUsuario, String table, String campo) throws Exception {
         Connection sql = ControladorConexion.getConection();
-        String squery = "DELETE FROM "+table+" WHERE idUser=?";
-        PreparedStatement consult = sql.prepareStatement(squery);
+        StringBuilder squery = new StringBuilder("DELETE FROM "+table+" WHERE ");
+        
+        squery.append(campo).append("= ?;");
+        PreparedStatement consult = sql.prepareStatement(squery.toString());
         
         //Sacando values del HashMap        
 //        consult.setString(1,table);        
@@ -107,7 +109,7 @@ public class ModeloUtils {
         return res ? 0:1;
     }
 
-    public static int Actualizar(LinkedHashMap<String, String> dataMap, String id, String tabla) throws SQLException, Exception {
+    public static int Actualizar(LinkedHashMap<String, String> dataMap, String id, String tabla, String idCompare) throws SQLException, Exception {
         //Getting connection pool
         Connection sql = ControladorConexion.getConection();
          
@@ -129,7 +131,7 @@ public class ModeloUtils {
         }
         
         //FIN DE LA QUERY
-        query.append("WHERE idUser =").append(id);
+        query.append("WHERE ").append(idCompare).append("=").append(id);
         
         
         //init de la consulta con el SB a string

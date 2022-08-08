@@ -57,9 +57,9 @@ public class Utils {
         
         return baseString;
     }
-   public static DefaultTableModel rtrnTqble(String sqlTable, String[] colStrings) throws Exception{
+   public static DefaultTableModel rtrnTqble(String sqlTable, String[] colStrings, String idString) throws Exception{
       
-       ResultSet rs = Modelo.ModeloUtils.getTable(sqlTable,colStrings);
+       ResultSet rs = Modelo.ModeloUtils.getTable(sqlTable,colStrings,idString);
        DefaultTableModel table = buildTableModel(rs);
       
        
@@ -99,12 +99,12 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
     return new DefaultTableModel(data, columnNames);
 }
 
-    public static int eliminar(String id, String tabla) throws Exception {
-        return Modelo.ModeloUtils.Eliminar(id, tabla);
+    public static int eliminar(String id, String tabla, String campo) throws Exception {
+        return Modelo.ModeloUtils.Eliminar(id, tabla,campo);
     }
 
-    public static int actualizarUser(LinkedHashMap<String, String> data, String id,String tabla) throws Exception {
-        return Modelo.ModeloUtils.Actualizar(data,id,tabla);
+    public static int actualizar(LinkedHashMap<String, String> data, String id,String tabla, String idCompare) throws Exception {
+        return Modelo.ModeloUtils.Actualizar(data,id,tabla,idCompare);
     }
 
     public static int Agregar(LinkedHashMap<String, String> datos, String tabla) throws Exception{

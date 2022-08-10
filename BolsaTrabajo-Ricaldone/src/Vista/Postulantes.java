@@ -21,7 +21,9 @@ import java.util.stream.*;
 import java.util.*;
 import java.nio.file.*;
 import java.io.IOException;
+import java.util.regex.PatternSyntaxException;
 import javax.swing.RowFilter;
+import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -32,6 +34,7 @@ public class Postulantes extends javax.swing.JFrame {
 
     DefaultTableModel Datos;
     TableRowSorter trsfiltro;
+    public TableRowSorter<TableModel> sorter;
     /**
      * Creates new form Postulantes
      */
@@ -40,7 +43,11 @@ public class Postulantes extends javax.swing.JFrame {
         setTitle("Postulantes");
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         try {
-            JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
+            DefaultTableModel jPost = new DefaultTableModel();
+            jPost = Controlador.Utils.rtrnTqble("Postulants");
+            JTPostulantes.setModel(jPost);
+            sorter = new TableRowSorter<>(jPost);
+            JTPostulantes.setRowSorter(sorter);
         } catch (Exception ex) {
             Logger.getLogger(Postulantes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -317,22 +324,6 @@ public class Postulantes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnConfiguracionPostuActionPerformed
 
-    public void MostrarFiltro() throws Exception {
-//        Connection con;
-//        PreparedStatement ps;
-//        ResultSet rs;
-//        con = ControladorConexion.getConection();
-//        String query = "SELECT * FROM Postulants WHERE idPostulant LIKE '%"+txtFiltroPost+"%' AND namePostulant LIKE '%"+txtFiltroPost+"%'";
-//        ps = con.prepareStatement(query);
-//        rs = ps.executeQuery();
-//        Stream<String> Stm = (Stream<String>) Controlador.Utils.rtrnTqble("Postulants");
-//        int rows = (int) Stm
-//                .map(x -> x.split(""))
-//                .filter(x -> x.length == 2)
-//                .count();
-//        JTPostulantes.setModel(rows);
-
-    }
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
 
@@ -391,20 +382,17 @@ public class Postulantes extends javax.swing.JFrame {
 
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped
         // TODO add your handling code here:
-        txtFiltroPost.addKeyListener(new KeyAdapter() {
-            public void keyReleased(final KeyEvent e) {
-                String cadena = (txtFiltroPost.getText()).toUpperCase();
-                txtFiltroPost.setText(cadena);
-                repaint();
-                filtro();
-            }
-        });
-        trsfiltro = new TableRowSorter(Datos);
-        JTPostulantes.setRowSorter(trsfiltro);
+        String text = txtFiltroPost.getText();
+            if(text.length() == 0) {
+               sorter.setRowFilter(null);
+            } else {
+               try {
+                  sorter.setRowFilter(RowFilter.regexFilter(text));
+               } catch(PatternSyntaxException pse) {
+                     System.out.println("Mal Patron REGEX");
+               }
+             }
     }//GEN-LAST:event_txtFiltroPostKeyTyped
-    public void filtro() {
-        trsfiltro.setRowFilter(RowFilter.regexFilter(txtFiltroPost.getText(), 1));
-    }
 
     /**
      * @param args the command line arguments

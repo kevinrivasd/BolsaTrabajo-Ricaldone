@@ -25,6 +25,7 @@ public class Postulantes extends javax.swing.JFrame {
     DefaultTableModel Datos;
     TableRowSorter trsfiltro;
     public TableRowSorter<TableModel> sorter;
+
     /**
      * Creates new form Postulantes
      */
@@ -373,15 +374,15 @@ public class Postulantes extends javax.swing.JFrame {
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped
         // TODO add your handling code here:
         String text = txtFiltroPost.getText();
-            if(text.length() == 0) {
-               sorter.setRowFilter(null);
-            } else {
-               try {
-                  sorter.setRowFilter(RowFilter.regexFilter(text));
-               } catch(PatternSyntaxException pse) {
-                     System.out.println("Mal Patron REGEX");
-               }
-             }
+        if (text.length() == 0) {
+            sorter.setRowFilter(null);
+        } else {
+            try {
+                sorter.setRowFilter(RowFilter.regexFilter(text));
+            } catch (PatternSyntaxException pse) {
+                System.out.println("Mal Patron REGEX");
+            }
+        }
     }//GEN-LAST:event_txtFiltroPostKeyTyped
 
     /**

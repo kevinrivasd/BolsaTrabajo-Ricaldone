@@ -17,6 +17,8 @@ import java.util.HashMap;
  * @author Jonathan
  */
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class ModeloPostulante {
 
     public static int AgregarPostulante(HashMap<String, String> dataMap) throws Exception, Exception {
@@ -51,11 +53,11 @@ public class ModeloPostulante {
 
         return res ? 1 : 0;
     }
-    
-    public static int ActualizarPostulante(HashMap<String,String> dataMap) throws Exception,Exception{
+
+    public static int ActualizarPostulante(HashMap<String, String> dataMap) throws Exception, Exception {
         Connection sql = ControladorConexion.getConection();
         String query = "UPDATE Postulants SET namePostulant = ?, mailPostulant = ?, Pword = ?, photoPostulant = ?, resumePDF= ?, resumeDetails = ?, mailverification= ?, Gender = ?,States = ?, Alumni = ?, RDepartment = ?, IDepartment = ?, WSubject = ?, Progress = ?, Salary = ?, HighType = ?, ContractType = ?, WorkPreference = ?, StudyLevel = ?, WorkStatus = ?, lastName = ? WHERE idPostulant = ?";
-        
+
         byte[] decode = Base64.getDecoder().decode(dataMap.get("imgByte"));
         byte[] decode2 = Base64.getDecoder().decode(dataMap.get("resumePDF"));
 
@@ -82,12 +84,27 @@ public class ModeloPostulante {
         consult.setInt(20, Integer.parseInt(dataMap.get("WorkStatus")));
         consult.setString(21, dataMap.get("lastName"));
         consult.setInt(22, Integer.parseInt(dataMap.get("idPostulant")));
-        
+
         boolean res = consult.execute();
 
         return res ? 1 : 0;
-        
+
     }
 
+    public static ResultSet mostrarTabla() throws Exception, Exception {
+        Connection con;
+        PreparedStatement ps;
+        try {
+            con = ControladorConexion.getConection();
+            String query = "SELECT * FROM Postulants";
+            ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            return rs;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+
+    }
 
 }

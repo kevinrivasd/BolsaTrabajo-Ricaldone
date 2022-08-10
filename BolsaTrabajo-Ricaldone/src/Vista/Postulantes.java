@@ -4,8 +4,25 @@
  */
 package Vista;
 
+import Controlador.ControladorConexion;
+import Controlador.ControladorPostulante;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import java.lang.String;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.*;
+import java.util.*;
+import java.nio.file.*;
+import java.io.IOException;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -13,12 +30,13 @@ import java.util.logging.Logger;
  */
 public class Postulantes extends javax.swing.JFrame {
 
+    DefaultTableModel Datos;
+    TableRowSorter trsfiltro;
     /**
      * Creates new form Postulantes
      */
     public Postulantes() {
         initComponents();
-        
         setTitle("Postulantes");
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         try {
@@ -26,8 +44,6 @@ public class Postulantes extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(Postulantes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        JTPostulantes.getColumnModel().getColumn(1).setPreferredWidth(50);
     }
 
     /**
@@ -220,9 +236,20 @@ public class Postulantes extends javax.swing.JFrame {
         JTPostulantes.setShowGrid(true);
         jScrollPane1.setViewportView(JTPostulantes);
 
+        txtFiltroPost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFiltroPostKeyTyped(evt);
+            }
+        });
+
         jLabel1.setText("Icono");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -256,10 +283,11 @@ public class Postulantes extends javax.swing.JFrame {
                             .addComponent(BtnCrudPostuAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtFiltroPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtFiltroPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -289,6 +317,22 @@ public class Postulantes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnConfiguracionPostuActionPerformed
 
+    public void MostrarFiltro() throws Exception {
+//        Connection con;
+//        PreparedStatement ps;
+//        ResultSet rs;
+//        con = ControladorConexion.getConection();
+//        String query = "SELECT * FROM Postulants WHERE idPostulant LIKE '%"+txtFiltroPost+"%' AND namePostulant LIKE '%"+txtFiltroPost+"%'";
+//        ps = con.prepareStatement(query);
+//        rs = ps.executeQuery();
+//        Stream<String> Stm = (Stream<String>) Controlador.Utils.rtrnTqble("Postulants");
+//        int rows = (int) Stm
+//                .map(x -> x.split(""))
+//                .filter(x -> x.length == 2)
+//                .count();
+//        JTPostulantes.setModel(rows);
+
+    }
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
 
@@ -323,7 +367,7 @@ public class Postulantes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPostulantesPostuActionPerformed
 
     private void btnSalirPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirPostuActionPerformed
-        Login newFrm  = new Login();
+        Login newFrm = new Login();
         newFrm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirPostuActionPerformed
@@ -338,8 +382,29 @@ public class Postulantes extends javax.swing.JFrame {
         }
         next.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped
+        // TODO add your handling code here:
+        txtFiltroPost.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtFiltroPost.getText()).toUpperCase();
+                txtFiltroPost.setText(cadena);
+                repaint();
+                filtro();
+            }
+        });
+        trsfiltro = new TableRowSorter(Datos);
+        JTPostulantes.setRowSorter(trsfiltro);
+    }//GEN-LAST:event_txtFiltroPostKeyTyped
+    public void filtro() {
+        trsfiltro.setRowFilter(RowFilter.regexFilter(txtFiltroPost.getText(), 1));
+    }
 
     /**
      * @param args the command line arguments

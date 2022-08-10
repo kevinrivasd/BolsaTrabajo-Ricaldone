@@ -61,6 +61,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     
     public PostulanteCRUD(int add) throws Exception {
         initComponents();
+        this.setLocationRelativeTo(null);
         txtID.setVisible(false);
         lblID.setVisible(false);
         btnA.setEnabled(false);
@@ -326,7 +327,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         });
 
-        JTPostulantes.setBackground(new java.awt.Color(84, 118, 8));
+        JTPostulantes.setBackground(new java.awt.Color(132, 175, 75));
         JTPostulantes.setForeground(new java.awt.Color(255, 255, 255));
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -340,6 +341,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         ));
         JTPostulantes.setGridColor(new java.awt.Color(255, 255, 255));
+        JTPostulantes.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        JTPostulantes.setShowGrid(true);
         JTPostulantes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTPostulantesMouseClicked(evt);
@@ -350,6 +353,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblID.setText("ID:");
 
         btnB.setText("Actualizar Rama");
+        btnB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBActionPerformed(evt);
+            }
+        });
 
         btnA.setText("Actualizar Habilidad Adicional");
         btnA.addActionListener(new java.awt.event.ActionListener() {
@@ -365,6 +373,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         });
 
+        BTabla.setBackground(new java.awt.Color(132, 175, 75));
+        BTabla.setForeground(new java.awt.Color(255, 255, 255));
         BTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -376,8 +386,13 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
             }
         ));
+        BTabla.setGridColor(new java.awt.Color(255, 255, 255));
+        BTabla.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        BTabla.setShowGrid(true);
         jScrollPane2.setViewportView(BTabla);
 
+        GTable.setBackground(new java.awt.Color(132, 175, 75));
+        GTable.setForeground(new java.awt.Color(255, 255, 255));
         GTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -389,8 +404,13 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
             }
         ));
+        GTable.setGridColor(new java.awt.Color(255, 255, 255));
+        GTable.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        GTable.setShowGrid(true);
         jScrollPane3.setViewportView(GTable);
 
+        ATable.setBackground(new java.awt.Color(132, 175, 75));
+        ATable.setForeground(new java.awt.Color(255, 255, 255));
         ATable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -402,6 +422,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
             }
         ));
+        ATable.setGridColor(new java.awt.Color(255, 255, 255));
+        ATable.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        ATable.setShowGrid(true);
         jScrollPane4.setViewportView(ATable);
 
         javax.swing.GroupLayout lblAddPDFLayout = new javax.swing.GroupLayout(lblAddPDF);
@@ -859,6 +882,17 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnGActionPerformed
+
+    private void btnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBActionPerformed
+        String idPos = txtID.getText(); 
+        try {
+            // TODO add your handling code here:
+            AbilitiesCRUD frm = new AbilitiesCRUD(1, idPos);
+            frm.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnBActionPerformed
 
     private HashMap<String, String> CollectAllAdd() {
         HashMap<String, String> data = new HashMap<>();

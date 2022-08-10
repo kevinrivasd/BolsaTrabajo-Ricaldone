@@ -38,6 +38,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
     
     public AbilitiesCRUD(int abilitie, String id) throws Exception {
         initComponents();
+        this.setLocationRelativeTo(null);
         typeA = abilitie;
         idPos = id;
         switch (typeA) {
@@ -98,6 +99,8 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        dgvLol.setBackground(new java.awt.Color(132, 175, 75));
+        dgvLol.setForeground(new java.awt.Color(255, 255, 255));
         dgvLol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -106,6 +109,9 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
             }
         ));
+        dgvLol.setGridColor(new java.awt.Color(255, 255, 255));
+        dgvLol.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        dgvLol.setShowGrid(true);
         dgvLol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dgvLolMouseClicked(evt);

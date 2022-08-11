@@ -25,12 +25,14 @@ public class Postulantes extends javax.swing.JFrame {
     DefaultTableModel Datos;
     TableRowSorter trsfiltro;
     public TableRowSorter<TableModel> sorter;
+    BarraMenú bar = new BarraMenú();
 
     /**
      * Creates new form Postulantes
      */
     public Postulantes() {
         initComponents();
+
         setTitle("Postulantes");
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         try {
@@ -53,15 +55,6 @@ public class Postulantes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btnMenu = new javax.swing.JButton();
-        btnUsuarioPostu = new javax.swing.JButton();
-        btnNotificacionesPostu = new javax.swing.JButton();
-        btnEstadisticasPostu = new javax.swing.JButton();
-        btnConfiguracionPostu = new javax.swing.JButton();
-        btnPostulantesPostu = new javax.swing.JButton();
-        btnSalirPostu = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         BtnCrudPostuAdd = new javax.swing.JButton();
@@ -69,140 +62,11 @@ public class Postulantes extends javax.swing.JFrame {
         JTPostulantes = new javax.swing.JTable();
         txtFiltroPost = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(133, 175, 75));
-
-        jPanel2.setBackground(new java.awt.Color(133, 175, 75));
-
-        btnMenu.setBackground(new java.awt.Color(133, 175, 75));
-        btnMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenu.setText("Menu");
-        btnMenu.setBorder(null);
-        btnMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuActionPerformed(evt);
-            }
-        });
-
-        btnUsuarioPostu.setBackground(new java.awt.Color(133, 175, 75));
-        btnUsuarioPostu.setForeground(new java.awt.Color(255, 255, 255));
-        btnUsuarioPostu.setText("Usuario");
-        btnUsuarioPostu.setBorderPainted(false);
-        btnUsuarioPostu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuarioPostuActionPerformed(evt);
-            }
-        });
-
-        btnNotificacionesPostu.setBackground(new java.awt.Color(133, 175, 75));
-        btnNotificacionesPostu.setForeground(new java.awt.Color(255, 255, 255));
-        btnNotificacionesPostu.setText("Notificaciones");
-        btnNotificacionesPostu.setBorderPainted(false);
-        btnNotificacionesPostu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNotificacionesPostuActionPerformed(evt);
-            }
-        });
-
-        btnEstadisticasPostu.setBackground(new java.awt.Color(133, 175, 75));
-        btnEstadisticasPostu.setForeground(new java.awt.Color(255, 255, 255));
-        btnEstadisticasPostu.setText("Estadisticas");
-        btnEstadisticasPostu.setBorderPainted(false);
-        btnEstadisticasPostu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEstadisticasPostuActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnNotificacionesPostu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                        .addComponent(btnUsuarioPostu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnEstadisticasPostu, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUsuarioPostu, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnNotificacionesPostu, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEstadisticasPostu, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        btnConfiguracionPostu.setBackground(new java.awt.Color(133, 175, 75));
-        btnConfiguracionPostu.setForeground(new java.awt.Color(255, 255, 255));
-        btnConfiguracionPostu.setText("Configuracion");
-        btnConfiguracionPostu.setBorderPainted(false);
-        btnConfiguracionPostu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfiguracionPostuActionPerformed(evt);
-            }
-        });
-
-        btnPostulantesPostu.setBackground(new java.awt.Color(133, 175, 75));
-        btnPostulantesPostu.setForeground(new java.awt.Color(255, 255, 255));
-        btnPostulantesPostu.setText("Postulantes");
-        btnPostulantesPostu.setBorderPainted(false);
-        btnPostulantesPostu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPostulantesPostuActionPerformed(evt);
-            }
-        });
-
-        btnSalirPostu.setText("Salir");
-        btnSalirPostu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirPostuActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnConfiguracionPostu, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPostulantesPostu, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSalirPostu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPostulantesPostu, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfiguracionPostu, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
-                .addComponent(btnSalirPostu)
-                .addContainerGap())
-        );
-
         jPanel3.setBackground(new java.awt.Color(239, 245, 213));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1105, 757));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("Postulantes");
@@ -242,13 +106,6 @@ public class Postulantes extends javax.swing.JFrame {
 
         jLabel1.setText("Icono");
 
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -259,13 +116,11 @@ public class Postulantes extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 381, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFiltroPost, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscar)
-                        .addGap(99, 99, 99)
+                        .addGap(178, 178, 178)
                         .addComponent(BtnCrudPostuAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)))
                 .addGap(28, 28, 28))
@@ -274,85 +129,38 @@ public class Postulantes extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFiltroPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(17, 17, 17))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(BtnCrudPostuAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtFiltroPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(BtnCrudPostuAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1095, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnConfiguracionPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionPostuActionPerformed
-        Configuracion newfrm = new Configuracion();
-        newfrm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnConfiguracionPostuActionPerformed
-
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnMenuActionPerformed
-
-    private void btnUsuarioPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioPostuActionPerformed
-        try {
-            Usuarios newfrm = new Usuarios();
-            newfrm.setVisible(true);
-            this.dispose();
-        } catch (Exception ex) {
-            Logger.getLogger(Postulantes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnUsuarioPostuActionPerformed
-
-    private void btnNotificacionesPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificacionesPostuActionPerformed
-        Notificaciones newfrm = new Notificaciones();
-        newfrm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnNotificacionesPostuActionPerformed
-
-    private void btnEstadisticasPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasPostuActionPerformed
-        Principal newfrm = new Principal();
-        newfrm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnEstadisticasPostuActionPerformed
-
-    private void btnPostulantesPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostulantesPostuActionPerformed
-        Postulantes newfrm = new Postulantes();
-        newfrm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnPostulantesPostuActionPerformed
-
-    private void btnSalirPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirPostuActionPerformed
-        Login newFrm = new Login();
-        newFrm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSalirPostuActionPerformed
 
     private void BtnCrudPostuAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrudPostuAddActionPerformed
         // TODO add your handling code here:
@@ -363,13 +171,9 @@ public class Postulantes extends javax.swing.JFrame {
             Logger.getLogger(Postulantes.class.getName()).log(Level.SEVERE, null, ex);
         }
         next.setVisible(true);
-        this.dispose();
+        bar.dispose();
 
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped
         // TODO add your handling code here:
@@ -423,18 +227,8 @@ public class Postulantes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCrudPostuAdd;
     private javax.swing.JTable JTPostulantes;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnConfiguracionPostu;
-    private javax.swing.JButton btnEstadisticasPostu;
-    private javax.swing.JButton btnMenu;
-    private javax.swing.JButton btnNotificacionesPostu;
-    private javax.swing.JButton btnPostulantesPostu;
-    private javax.swing.JButton btnSalirPostu;
-    private javax.swing.JButton btnUsuarioPostu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtFiltroPost;

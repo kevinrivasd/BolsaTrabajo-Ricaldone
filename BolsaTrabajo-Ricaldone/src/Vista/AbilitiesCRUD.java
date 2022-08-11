@@ -251,7 +251,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
                         try {
                             dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
                         } catch (Exception ex) {
-                            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }else{
                         JOptionPane.showMessageDialog(null, res);
@@ -274,7 +274,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
                 dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
             } catch (Exception ex) {
-                         Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                         Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                      }
 
                  }else{

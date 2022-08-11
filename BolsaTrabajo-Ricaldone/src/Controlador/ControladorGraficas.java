@@ -4,10 +4,14 @@
  */
 package Controlador;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author Kevin Rivas
+ * @author hello
  */
-public class ControladorRecu {
-
+public class ControladorGraficas {
+    public static DefaultTableModel agruparPersona() throws Exception{
+        return Modelo.ModeloUtils.agruparPersona();
+    }
 }

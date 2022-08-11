@@ -17,6 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author hello
@@ -202,5 +203,27 @@ public class ModeloUtils {
 
         return rowsAffected > 0 ? 1 : 0;
     }
+    
+    public static DefaultTableModel agruparPersona() throws Exception{
+        
+        DefaultTableModel miModelo = null;
+        Connection cn = ControladorConexion.getConection();
+        try{
+            String titulos []= {"Nombres","Cuantas personas"};
+            String dts [] = new String[2];
+            miModelo = new DefaultTableModel(null, titulos);
+            String sql = "SELECT nameUser, COUNT(nameUser) as userCount FROM UserSystems GROUP BY nameUser;";
+            PreparedStatement pst = cn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+               dts[0] = rs.getString("nameUser");
+               dts[1] = rs.getString("userCount");
+               miModelo.addRow(dts);
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return miModelo;
+    }   
 
 }

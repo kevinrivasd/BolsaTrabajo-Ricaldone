@@ -653,7 +653,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void BtnRegresarPostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarPostActionPerformed
         // TODO add your handling code here:
-        BarraMenú newfrm = new BarraMenú();
+        Menú newfrm = new Menú();
         newfrm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnRegresarPostActionPerformed

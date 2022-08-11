@@ -25,7 +25,7 @@ public class Postulantes extends javax.swing.JFrame {
     DefaultTableModel Datos;
     TableRowSorter trsfiltro;
     public TableRowSorter<TableModel> sorter;
-    BarraMenú bar = new BarraMenú();
+
 
     /**
      * Creates new form Postulantes
@@ -171,7 +171,6 @@ public class Postulantes extends javax.swing.JFrame {
             Logger.getLogger(Postulantes.class.getName()).log(Level.SEVERE, null, ex);
         }
         next.setVisible(true);
-        bar.dispose();
 
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
 

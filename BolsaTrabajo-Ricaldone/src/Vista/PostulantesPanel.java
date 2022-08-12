@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Vista;
+
 import Controlador.ControladorConexion;
 import Controlador.ControladorPostulante;
 import java.awt.event.KeyAdapter;
@@ -14,7 +15,6 @@ import java.util.regex.PatternSyntaxException;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-
 
 /**
  *
@@ -28,14 +28,15 @@ public class PostulantesPanel extends javax.swing.JPanel {
     DefaultTableModel Datos;
     TableRowSorter trsfiltro;
     public TableRowSorter<TableModel> sorter;
+    public Menú men = new Menú();
     public PostulantesPanel() throws Exception {
         initComponents();
-        
-           DefaultTableModel jPost = new DefaultTableModel();
-            jPost = Controlador.Utils.rtrnTqble("Postulants");
-            JTPostulantes.setModel(jPost);
-            sorter = new TableRowSorter<>(jPost);
-            JTPostulantes.setRowSorter(sorter);
+
+        DefaultTableModel jPost = new DefaultTableModel();
+        jPost = Controlador.Utils.rtrnTqble("Postulants");
+        JTPostulantes.setModel(jPost);
+        sorter = new TableRowSorter<>(jPost);
+        JTPostulantes.setRowSorter(sorter);
     }
 
     /**
@@ -154,9 +155,10 @@ public class PostulantesPanel extends javax.swing.JPanel {
         try {
             next = new PostulanteCRUD(1);
         } catch (Exception ex) {
-            Logger.getLogger(Postulantes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         next.setVisible(true);
+        men.dispose();
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
 
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped

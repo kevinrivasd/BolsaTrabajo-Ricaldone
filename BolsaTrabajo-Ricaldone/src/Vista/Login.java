@@ -7,7 +7,6 @@ package Vista;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
-import Vista.Principal;
 import Controlador.ControladorLogin;
 import java.awt.Image;
 import javax.swing.Icon;
@@ -170,7 +169,7 @@ public class Login extends javax.swing.JFrame {
             if (num != 1) JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
                 JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
-                Principal newfrm = new Principal();
+                Menú newfrm = new Menú();
                         newfrm.setVisible(true);
                         this.dispose();                
             }

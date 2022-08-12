@@ -272,9 +272,11 @@ public class Menú extends javax.swing.JFrame {
             previo = new UsuariosPanel();
             PanelHolder.setLayout(new BorderLayout());
             PanelHolder.add(previo, BorderLayout.NORTH);
+            previo.repaint();
+            previo.revalidate();
 
         } catch (Exception ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnUsuarioGrafiActionPerformed
 
@@ -291,7 +293,7 @@ public class Menú extends javax.swing.JFrame {
             previo.repaint();
             previo.revalidate();
         } catch (Exception ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPostulantesGrafiActionPerformed
 
@@ -305,7 +307,7 @@ public class Menú extends javax.swing.JFrame {
             previo.revalidate();
 
         } catch (Exception ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNotificacionesGrafiActionPerformed
 
@@ -320,7 +322,7 @@ public class Menú extends javax.swing.JFrame {
             previo.revalidate();
 
         } catch (Exception ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnConfiguracionGrafiActionPerformed
 

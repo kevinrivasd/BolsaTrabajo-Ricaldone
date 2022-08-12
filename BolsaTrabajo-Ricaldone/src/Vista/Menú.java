@@ -218,6 +218,8 @@ public class Menú extends javax.swing.JFrame {
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
+        PanelHolder.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout PanelHolderLayout = new javax.swing.GroupLayout(PanelHolder);
         PanelHolder.setLayout(PanelHolderLayout);
         PanelHolderLayout.setHorizontalGroup(
@@ -226,7 +228,7 @@ public class Menú extends javax.swing.JFrame {
         );
         PanelHolderLayout.setVerticalGroup(
             PanelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -236,12 +238,12 @@ public class Menú extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PanelHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -286,6 +288,8 @@ public class Menú extends javax.swing.JFrame {
             previo = new PostulantesPanel();
             PanelHolder.setLayout(new BorderLayout());
             PanelHolder.add(previo, BorderLayout.NORTH);
+            previo.repaint();
+            previo.revalidate();
         } catch (Exception ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -297,6 +301,8 @@ public class Menú extends javax.swing.JFrame {
             previo = new NotificacionPanel();
             PanelHolder.setLayout(new BorderLayout());
             PanelHolder.add(previo, BorderLayout.NORTH);
+            previo.repaint();
+            previo.revalidate();
 
         } catch (Exception ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
@@ -310,6 +316,8 @@ public class Menú extends javax.swing.JFrame {
             previo = new ConfiguracionPanel();
             PanelHolder.setLayout(new BorderLayout());
             PanelHolder.add(previo, BorderLayout.NORTH);
+            previo.repaint();
+            previo.revalidate();
 
         } catch (Exception ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);

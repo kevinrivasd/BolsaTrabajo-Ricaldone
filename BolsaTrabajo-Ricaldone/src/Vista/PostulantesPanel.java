@@ -154,7 +154,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
         try {
             next = new PostulanteCRUD(1);
         } catch (Exception ex) {
-            Logger.getLogger(Postulantes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         next.setVisible(true);
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed

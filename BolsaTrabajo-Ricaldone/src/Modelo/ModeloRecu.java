@@ -18,7 +18,7 @@ public class ModeloRecu {
    
     public static int RecuperacionPWD (String user) throws Exception{
         Connection sql = ControladorConexion.getConection(); 
-        String squery = "SELECT * FROM usersystems WHERE nameUser=?, mailUser=? ";
+        String squery = "SELECT * FROM usersystems WHERE nameUser=?;";
         PreparedStatement consult = sql.prepareStatement(squery);
         consult.setString(1, user);
         ResultSet res = consult.executeQuery();
@@ -27,7 +27,7 @@ public class ModeloRecu {
 
 public static String sentCode (String nameUser) throws Exception{
         Connection sql = ControladorConexion.getConection(); 
-        String squery = "SELECT mailUser FROM Userystem WHERE nameUser =?";
+        String squery = "SELECT mailUser FROM UserSystems WHERE nameUser=?";
         PreparedStatement consult = sql.prepareStatement(squery); 
         consult.setString(1, nameUser);
         ResultSet res = consult.executeQuery();

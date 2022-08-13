@@ -249,20 +249,22 @@ public class RecuperacionPWD extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String user;
-        try {
-            user = txtuser.getText();
-            Integer num = ControladorRecu.RecuperacionPWD(user);
+        user = txtuser.getText();
             
+        try {
+
+            int num = ControladorRecu.RecuperacionPWD(user);
+            
+            JOptionPane.showMessageDialog(null, num);
             if (num != 1) 
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
-                JOptionPane.showConfirmDialog(null, "Correo enviado");
                  ControladorRecu.SentCode(user);
             }
             
         } catch (Exception e) {
             //TODO: handle exception
-            JOptionPane.showMessageDialog(null, "e: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "holi: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -274,10 +276,11 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         String code;
         try{
             code = txtcode.getText();
-            if (num != ) 
+            int num = ControladorRecu.RecuperacionPWD(txtuser.getText());
+            if (num != 1) 
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
-                                
+                   ControladorRecu.SentCode(txtuser.getText());
             }
         }catch (Exception ex) {
             

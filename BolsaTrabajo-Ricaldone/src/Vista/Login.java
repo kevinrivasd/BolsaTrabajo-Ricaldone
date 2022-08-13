@@ -160,25 +160,27 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_btnIniciarSesionActionPerformed
-       String user;
-       char[] password;
-        try {
-            user = txtUser.getText();
-            password = txtPassword.getPassword();
-            Integer num = ControladorLogin.Login(user, password);
-            
-            if (num != 1) JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
-            else {                
-                JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
-                Principal newfrm = new Principal();
-                        newfrm.setVisible(true);
-                        this.dispose();                
-            }
-            
-        } catch (Exception e) {
-            //TODO: handle exception
-            JOptionPane.showMessageDialog(null, "e: " + e.getMessage());
-        }
+        RecuperacionPWD frm = new RecuperacionPWD();
+        frm.setVisible(true);
+//       String user;
+//       char[] password;
+//        try {
+//            user = txtUser.getText();
+//            password = txtPassword.getPassword();
+//            Integer num = ControladorLogin.Login(user, password);
+//            
+//            if (num != 1) JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
+//            else {                
+//                JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
+//                Principal newfrm = new Principal();
+//                        newfrm.setVisible(true);
+//                        this.dispose();                
+//            }
+//            
+//        } catch (Exception e) {
+//            //TODO: handle exception
+//            JOptionPane.showMessageDialog(null, "e: " + e.getMessage());
+//        }
 
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 

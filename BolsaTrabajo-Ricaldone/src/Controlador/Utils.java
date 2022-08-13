@@ -65,6 +65,9 @@ public class Utils {
        
       return table;
     }    
+       public static DefaultTableModel agruparPersona() throws Exception{
+        return Modelo.ModeloUtils.agruparPersona();
+    }
 
    public static DefaultTableModel rtrnTqble(String sqlTable) throws Exception{
       

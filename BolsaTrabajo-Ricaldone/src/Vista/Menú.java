@@ -24,11 +24,17 @@ public class Menú extends javax.swing.JFrame {
     Desface desplace;
     Dimension d = new Dimension(500, 757);
     public JPanel previo = new JPanel();
-    public Menú() {
+    
+    public Menú() throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
         setPreferredSize(d);
         desplace = new Desface();
+        previo = new Estadisticas();
+        PanelHolder.setLayout(new BorderLayout());
+        PanelHolder.add(previo, BorderLayout.NORTH);
+        previo.repaint();
+         previo.revalidate();
     }
 
     /**
@@ -282,6 +288,17 @@ public class Menú extends javax.swing.JFrame {
 
     private void btnEstadisticasGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasGrafiActionPerformed
         // TODO add your handling code here:
+                try {
+            PanelHolder.remove(previo);
+            previo = new Estadisticas();
+            PanelHolder.setLayout(new BorderLayout());
+            PanelHolder.add(previo, BorderLayout.NORTH);
+            previo.repaint();
+            previo.revalidate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEstadisticasGrafiActionPerformed
 
     private void btnPostulantesGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostulantesGrafiActionPerformed
@@ -363,7 +380,11 @@ public class Menú extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menú().setVisible(true);
+                try {
+                    new Menú().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

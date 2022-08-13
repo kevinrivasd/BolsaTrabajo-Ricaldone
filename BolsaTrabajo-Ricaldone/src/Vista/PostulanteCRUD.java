@@ -653,8 +653,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void BtnRegresarPostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarPostActionPerformed
         // TODO add your handling code here:
-        Postulantes newfrm = new Postulantes();
-        newfrm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnRegresarPostActionPerformed
     
@@ -726,7 +724,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
         } catch (Exception ex) {
-            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
@@ -829,7 +827,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
         } catch (Exception ex) {
-            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));

@@ -9,7 +9,7 @@ package Controlador;
  * @author hello
  */
 public class ControladorLogin {
-    public static int Login(String user, char[] password) throws Exception{
+    public static String Login(String user, char[] password) throws Exception{
         
         return Modelo.ModeloLogin.Login(user, Utils.encrypt(password));        
     

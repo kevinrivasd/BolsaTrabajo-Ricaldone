@@ -115,4 +115,8 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
 
     }
 
+    public static List<String> getUserData(String nameUser) throws Exception {
+        return Modelo.ModeloUtils.getUserData(nameUser);
+    }
+
 }

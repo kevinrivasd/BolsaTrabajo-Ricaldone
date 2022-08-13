@@ -225,10 +225,10 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         try {
             int res = Controlador.Utils.Agregar(map, table);
             if (res == 1) {
-                JOptionPane.showMessageDialog(null, "Exito puto");
+                JOptionPane.showMessageDialog(null, "Exito");
                 dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
             }else{
-                JOptionPane.showMessageDialog(null, "Sin exito puto");
+                JOptionPane.showMessageDialog(null, "Sin exito ");
             }
         } catch (Exception ex) {
             Logger.getLogger(AbilitiesCRUD.class.getName()).log(Level.SEVERE, null, ex);

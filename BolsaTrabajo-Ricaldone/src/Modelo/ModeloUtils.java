@@ -40,6 +40,27 @@ public class ModeloUtils {
         }
         return data;
     }
+    //specific field
+    public static List<String> getUserData(String username) throws SQLException, Exception{        
+        List<String> data = new ArrayList<>();
+        
+        Connection sql = ControladorConexion.getConection();
+        
+        String squery = "SELECT nameUser,mailUser,idRol,idUser FROM UserSystems WHERE idUser=?";
+        PreparedStatement consult = sql.prepareStatement(squery);
+        consult.setString(1, username);
+
+        ResultSet res = consult.executeQuery();
+        
+        while (res.next()) {
+            data.add(res.getString("nameUser"));            
+            data.add(res.getString("mailUser"));            
+            data.add(res.getString("idRol"));            
+            data.add(res.getString("idUser"));            
+        }
+        return data;
+    }
+    
     
     //whole table as RS
     public static ResultSet getTable(String sqlTable) throws SQLException, Exception{
@@ -48,6 +69,7 @@ public class ModeloUtils {
         
         String squery = "SELECT * FROM "+sqlTable ;
         PreparedStatement consult = sql.prepareStatement(squery);
+        
 
         ResultSet res = consult.executeQuery();
         

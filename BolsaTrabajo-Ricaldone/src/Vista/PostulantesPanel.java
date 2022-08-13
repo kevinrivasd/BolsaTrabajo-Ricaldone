@@ -28,7 +28,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
     DefaultTableModel Datos;
     TableRowSorter trsfiltro;
     public TableRowSorter<TableModel> sorter;
-    public Menú men = new Menú();
+//    public Menú men = new Menú();
     public PostulantesPanel() throws Exception {
         initComponents();
 
@@ -158,7 +158,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
             Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         next.setVisible(true);
-        men.dispose();
+//        men.dispose();
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
 
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped

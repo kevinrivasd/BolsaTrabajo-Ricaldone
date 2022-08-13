@@ -14,15 +14,19 @@ import java.sql.ResultSet;
  * @author hello
  */
 public class ModeloLogin {
-    public static int Login(String user, String password) throws Exception{
+    public static String Login(String user, String password) throws Exception{
             Connection sql = ControladorConexion.getConection();
-            String squery = "SELECT * FROM userSystems WHERE nameUser= ? AND Pword=?" ;
+            String squery = "SELECT idUser FROM userSystems WHERE nameUser= ? AND Pword=?" ;
             PreparedStatement consult = sql.prepareStatement(squery);
             consult.setString(1, user);
             consult.setString(2, password);
 
             ResultSet res = consult.executeQuery();
+            String id = "";
+            while(res.next()){
+                id += res.getString("idUser");
+            }
            
-            return res.next()? 1:0;
+            return id;
     }
 }

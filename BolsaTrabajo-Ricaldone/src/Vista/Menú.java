@@ -8,8 +8,11 @@ import desplazable.Desface;
 import desplazable.Desface;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -24,17 +27,34 @@ public class Menú extends javax.swing.JFrame {
     Desface desplace;
     Dimension d = new Dimension(500, 757);
     public JPanel previo = new JPanel();
+    public static String nameUser ="";
+    public static List<String> userLevel = new ArrayList<>();
     
-    public Menú() throws Exception {
+    public Menú(String user) throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
         setPreferredSize(d);
         desplace = new Desface();
-        previo = new Estadisticas();
+        previo = new Estadisticas("Hola");
         PanelHolder.setLayout(new BorderLayout());
         PanelHolder.add(previo, BorderLayout.NORTH);
         previo.repaint();
-         previo.revalidate();
+        previo.revalidate();
+        nameUser = user;        
+        cargarProps(nameUser);
+    }
+    public static List<String> cargarProps(String nameUserLocal){
+        try {
+            userLevel = Controlador.Utils.getUserData(nameUserLocal);
+            return userLevel;
+        } catch (Exception ex) {
+            Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    private Menú() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -288,9 +308,9 @@ public class Menú extends javax.swing.JFrame {
 
     private void btnEstadisticasGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasGrafiActionPerformed
         // TODO add your handling code here:
-                try {
+        try {
             PanelHolder.remove(previo);
-            previo = new Estadisticas();
+            previo = new Estadisticas(userLevel.get(0));
             PanelHolder.setLayout(new BorderLayout());
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();
@@ -332,7 +352,7 @@ public class Menú extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             PanelHolder.remove(previo);
-            previo = new ConfiguracionPanel();
+            previo = new ConfiguracionPanel(userLevel);
             PanelHolder.setLayout(new BorderLayout());
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();

@@ -71,8 +71,6 @@ public class PostulantesPanel extends javax.swing.JPanel {
             }
         });
 
-        JTPostulantes.setBackground(new java.awt.Color(132, 175, 75));
-        JTPostulantes.setForeground(new java.awt.Color(255, 255, 255));
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -84,10 +82,10 @@ public class PostulantesPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JTPostulantes.setGridColor(new java.awt.Color(255, 255, 255));
+        JTPostulantes.setGridColor(new java.awt.Color(0, 0, 0));
         JTPostulantes.setMinimumSize(new java.awt.Dimension(400, 64));
         JTPostulantes.setName(""); // NOI18N
-        JTPostulantes.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        JTPostulantes.setSelectionBackground(new java.awt.Color(132, 175, 75));
         JTPostulantes.setShowGrid(true);
         jScrollPane1.setViewportView(JTPostulantes);
 
@@ -141,7 +139,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +156,6 @@ public class PostulantesPanel extends javax.swing.JPanel {
             Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         next.setVisible(true);
-//        men.dispose();
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
 
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped

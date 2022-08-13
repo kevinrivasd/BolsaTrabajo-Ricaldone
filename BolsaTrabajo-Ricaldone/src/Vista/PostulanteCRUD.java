@@ -327,8 +327,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         });
 
-        JTPostulantes.setBackground(new java.awt.Color(132, 175, 75));
-        JTPostulantes.setForeground(new java.awt.Color(255, 255, 255));
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -340,8 +338,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JTPostulantes.setGridColor(new java.awt.Color(255, 255, 255));
-        JTPostulantes.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        JTPostulantes.setGridColor(new java.awt.Color(0, 0, 0));
+        JTPostulantes.setSelectionBackground(new java.awt.Color(132, 175, 75));
         JTPostulantes.setShowGrid(true);
         JTPostulantes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -373,8 +371,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         });
 
-        BTabla.setBackground(new java.awt.Color(132, 175, 75));
-        BTabla.setForeground(new java.awt.Color(255, 255, 255));
         BTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -386,13 +382,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
             }
         ));
-        BTabla.setGridColor(new java.awt.Color(255, 255, 255));
-        BTabla.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        BTabla.setGridColor(new java.awt.Color(0, 0, 0));
+        BTabla.setSelectionBackground(new java.awt.Color(132, 175, 75));
         BTabla.setShowGrid(true);
         jScrollPane2.setViewportView(BTabla);
 
-        GTable.setBackground(new java.awt.Color(132, 175, 75));
-        GTable.setForeground(new java.awt.Color(255, 255, 255));
         GTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -404,13 +398,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
             }
         ));
-        GTable.setGridColor(new java.awt.Color(255, 255, 255));
-        GTable.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        GTable.setGridColor(new java.awt.Color(0, 0, 0));
+        GTable.setSelectionBackground(new java.awt.Color(132, 175, 75));
         GTable.setShowGrid(true);
         jScrollPane3.setViewportView(GTable);
 
-        ATable.setBackground(new java.awt.Color(132, 175, 75));
-        ATable.setForeground(new java.awt.Color(255, 255, 255));
         ATable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -422,8 +414,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
             }
         ));
-        ATable.setGridColor(new java.awt.Color(255, 255, 255));
-        ATable.setSelectionBackground(new java.awt.Color(85, 119, 43));
+        ATable.setGridColor(new java.awt.Color(0, 0, 0));
+        ATable.setSelectionBackground(new java.awt.Color(132, 175, 75));
         ATable.setShowGrid(true);
         jScrollPane4.setViewportView(ATable);
 

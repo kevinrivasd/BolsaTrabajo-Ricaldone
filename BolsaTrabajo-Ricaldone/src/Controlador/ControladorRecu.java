@@ -9,12 +9,7 @@ import com.finalhints.Request;
 import com.finalhints.RequestMethod;
 import com.finalhints.Response;
 import javax.swing.JOptionPane;
-import javax.net.ssl.SSLContext;
 import java.util.*;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 /**
  *

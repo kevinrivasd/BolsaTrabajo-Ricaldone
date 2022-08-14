@@ -7,13 +7,15 @@ package Vista;
 import Controlador.ControladorLogin;
 import Controlador.ControladorRecu;
 import javax.swing.JOptionPane;
+import jdk.internal.agent.Agent;
 
 /**
  *
  * @author Kevin Rivas
  */
 public class RecuperacionPWD extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form RecuperacionPWD
      */
@@ -255,7 +257,6 @@ public class RecuperacionPWD extends javax.swing.JFrame {
 
             int num = ControladorRecu.RecuperacionPWD(user);
             
-            JOptionPane.showMessageDialog(null, num);
             if (num != 1) 
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
@@ -272,15 +273,17 @@ public class RecuperacionPWD extends javax.swing.JFrame {
     
     
     private void btnVerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerificarMouseClicked
-        // TODO add your handling code here:
+//      TODO add your handling code here:
         String code;
-        try{
-            code = txtcode.getText();
-            int num = ControladorRecu.RecuperacionPWD(txtuser.getText());
+        code = txtcode.getText();
+        try{     
+            int num = Controlador.ControladorRecu.Verificacion(code);;
             if (num != 1) 
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
-                   ControladorRecu.SentCode(txtuser.getText());
+                  ActualizacionPWD newfrm = new ActualizacionPWD();
+                        newfrm.setVisible(true);
+                        this.dispose();
             }
         }catch (Exception ex) {
             

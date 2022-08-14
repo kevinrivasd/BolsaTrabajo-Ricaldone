@@ -9,7 +9,6 @@ import Controlador.ControladorRecu;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
-import jdk.internal.agent.Agent;
 
 /**
  *

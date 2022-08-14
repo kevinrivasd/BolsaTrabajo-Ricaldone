@@ -23,9 +23,9 @@ public class ModeloRecu {
         consult.setString(1, user);
         ResultSet res = consult.executeQuery();
         return res.next() ? 1:0;
-}
+    }
 
-public static String sentCode (String nameUser) throws Exception{
+    public static String sentCode (String nameUser) throws Exception{
         Connection sql = ControladorConexion.getConection(); 
         String squery = "SELECT mailUser FROM UserSystems WHERE nameUser=?";
         PreparedStatement consult = sql.prepareStatement(squery); 
@@ -36,5 +36,17 @@ public static String sentCode (String nameUser) throws Exception{
             data = res.getString("mailUser");            
         }
          return data;
-        }
+    }
+    
+    public static int ActualizarPWD( String Pword, String mail) throws Exception, Exception {
+        Connection sql = ControladorConexion.getConection();
+        String query = "UPDATE UserSystems SET Pword = ?  WHERE mailUser= ?";
+        PreparedStatement consult = sql.prepareStatement(query);
+        consult.setString(1, Pword);
+        consult.setString(2, mail);
+        int rowsAffected = consult.executeUpdate();
+
+
+        return rowsAffected > 0 ? 1 : 0;
+    }
 }

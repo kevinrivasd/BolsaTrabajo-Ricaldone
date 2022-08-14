@@ -6,19 +6,30 @@ package Vista;
 
 import Controlador.ControladorLogin;
 import Controlador.ControladorRecu;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import jdk.internal.agent.Agent;
 
 /**
  *
  * @author Kevin Rivas
  */
 public class RecuperacionPWD extends javax.swing.JFrame {
-
+    public static String mailLocal = ""; 
+    
     /**
      * Creates new form RecuperacionPWD
      */
     public RecuperacionPWD() {
         initComponents();
+        
+        Toolkit t = Toolkit.getDefaultToolkit();
+    
+        Dimension h = t.getScreenSize();
+       
+        setTitle("Recuperacion Contraseña");
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -130,7 +141,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.setBackground(new java.awt.Color(244, 244, 244));
-        jPanel1.setPreferredSize(new java.awt.Dimension(500, 350));
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 360));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("El sistema enviara una notificacion a el administrador");
@@ -161,7 +172,6 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         jButton1.setPreferredSize(new java.awt.Dimension(140, 30));
 
         txtcode.setBackground(new java.awt.Color(218, 213, 212));
-        txtcode.setPreferredSize(new java.awt.Dimension(80, 29));
 
         btnVerificar.setText("Verificar");
         btnVerificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,41 +256,46 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        String user;
+    public void validacionUser (){
+    String user;
         user = txtuser.getText();
             
         try {
 
             int num = ControladorRecu.RecuperacionPWD(user);
             
-            JOptionPane.showMessageDialog(null, num);
             if (num != 1) 
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
-                 ControladorRecu.SentCode(user);
+                 mailLocal = ControladorRecu.SentCode(user);
             }
             
         } catch (Exception e) {
             //TODO: handle exception
             JOptionPane.showMessageDialog(null, "holi: " + e.getMessage());
         }
+    }
+    
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        validacionUser();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     
     
     
     private void btnVerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerificarMouseClicked
-        // TODO add your handling code here:
+//      TODO add your handling code here:
         String code;
-        try{
-            code = txtcode.getText();
-            int num = ControladorRecu.RecuperacionPWD(txtuser.getText());
+        code = txtcode.getText();
+        try{     
+            int num = Controlador.ControladorRecu.Verificacion(code);
             if (num != 1) 
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
-                   ControladorRecu.SentCode(txtuser.getText());
+                  ActualizacionPWD newfrm = new ActualizacionPWD(mailLocal);
+                        newfrm.setVisible(true);
+                        this.dispose();
             }
         }catch (Exception ex) {
             

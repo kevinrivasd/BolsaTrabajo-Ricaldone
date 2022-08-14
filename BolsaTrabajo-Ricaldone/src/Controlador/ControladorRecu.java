@@ -24,12 +24,12 @@ public class ControladorRecu {
     
     }
     
-    public static void SentCode(String mailUser){
+    public static String SentCode(String nameUser){
          try{
           Random rand = new Random();
           randomCode = rand.nextInt(999999);
           Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
-          String emailString = Modelo.ModeloRecu.sentCode(mailUser);
+          String emailString = Modelo.ModeloRecu.sentCode(nameUser);
           //Form-Data
           request.form("email", emailString).form("Codigo", randomCode);
 
@@ -38,10 +38,11 @@ public class ControladorRecu {
                   JOptionPane.showMessageDialog(null, "Email enviado con exito, por favor verifica en SPAM.");
               }else{                
                   JOptionPane.showMessageDialog(null, "Hubo un error");
-              }
+              }return emailString;
         }catch (Exception ex) {
               JOptionPane.showMessageDialog(null, ex);
           }
+         return null;
     }
     
     //prueba 
@@ -62,6 +63,11 @@ public class ControladorRecu {
               JOptionPane.showMessageDialog(null, ex);
           }return retorno;
     }    
+    
+    public static int ActualizarPWD(String Pword, String mailUser) throws Exception{
+        return Modelo.ModeloRecu.ActualizarPWD(Pword, mailUser);
+        
+    }
 }
 
 

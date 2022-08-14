@@ -4,17 +4,33 @@
  */
 package Vista;
 
+import Controlador.ControladorRecu;
+import Controlador.Utils;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin Rivas
  */
 public class ActualizacionPWD extends javax.swing.JFrame {
-
+     public static String mailLocal = "";
     /**
      * Creates new form ActualizacionPWD
      */
-    public ActualizacionPWD() {
+    public ActualizacionPWD(String mail) {
         initComponents();
+        mailLocal = mail; 
+        JOptionPane.showMessageDialog(null, mailLocal);
+        Toolkit t = Toolkit.getDefaultToolkit();
+    
+        Dimension h = t.getScreenSize();
+       
+        setTitle("Actualizacion de contraseña");
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -30,29 +46,42 @@ public class ActualizacionPWD extends javax.swing.JFrame {
         txtpwd = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         txtverpwd = new javax.swing.JPasswordField();
+        btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Ingrese su nueva contraseña");
 
-        txtpwd.setText("jPasswordField1");
-
         jLabel2.setText("Verifique su contraseña");
 
-        txtverpwd.setText("jPasswordField2");
+        btnActualizar.setText("Actualizar contraseña");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(105, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtverpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(txtpwd, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                    .addComponent(txtverpwd))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(btnActualizar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,16 +89,39 @@ public class ActualizacionPWD extends javax.swing.JFrame {
                 .addGap(142, 142, 142)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtpwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addComponent(txtpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtverpwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addComponent(txtverpwd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        int num;
+        String mail = "";
+        char[] Pword = txtpwd.getPassword();
+        char[] VERPWD = txtverpwd.getPassword();
+        try {
+            JOptionPane.showMessageDialog(null,String.valueOf(Pword));
+            JOptionPane.showMessageDialog(null,String.valueOf(VERPWD));
+            JOptionPane.showMessageDialog(null, mailLocal);
+            if (String.valueOf(Pword).equals(String.valueOf(VERPWD))) {
+                num = Controlador.ControladorRecu.ActualizarPWD(Utils.encrypt(Pword), mailLocal);
+                JOptionPane.showInternalMessageDialog(null, "Actualizacion de contraseña exitosa", "Confirmacion", 1);
+            }else{                
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revise que haya escrito correctamente la contraseña en la verificacion", "Error.", 0);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "holi: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,12 +153,13 @@ public class ActualizacionPWD extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ActualizacionPWD().setVisible(true);
+                new ActualizacionPWD(mailLocal).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField txtpwd;

@@ -65,6 +65,9 @@ public class Utils {
        
       return table;
     }    
+       public static DefaultTableModel agruparPersona() throws Exception{
+        return Modelo.ModeloUtils.agruparPersona();
+    }
 
    public static DefaultTableModel rtrnTqble(String sqlTable) throws Exception{
       
@@ -110,6 +113,10 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
     public static int Agregar(LinkedHashMap<String, String> datos, String tabla) throws Exception{
         return Modelo.ModeloUtils.Agregar(datos, tabla);
 
+    }
+
+    public static List<String> getUserData(String nameUser) throws Exception {
+        return Modelo.ModeloUtils.getUserData(nameUser);
     }
 
 }

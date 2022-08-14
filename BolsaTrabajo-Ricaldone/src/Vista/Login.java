@@ -173,12 +173,12 @@ public class Login extends javax.swing.JFrame {
         try {
             user = txtUser.getText();
             password = txtPassword.getPassword();
-            Integer num = ControladorLogin.Login(user, password);
+            String num = ControladorLogin.Login(user, password);
             
-            if (num != 1) JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
+            if ("".equals(num)) JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
                 JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
-                Menú newfrm = new Menú();
+                Menú newfrm = new Menú(num);
                         newfrm.setVisible(true);
                         this.dispose();                
             }

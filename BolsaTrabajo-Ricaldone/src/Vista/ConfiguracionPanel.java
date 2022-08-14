@@ -3,8 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Vista;
+import Controlador.Utils;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Jonathan
@@ -14,8 +19,12 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
     /**
      * Creates new form ConfiguracionPanel
      */
-    public ConfiguracionPanel() {
+    public static List<String> userName;
+    public ConfiguracionPanel(List<String> userParam) {
         initComponents();
+        userName = userParam;
+        txtCorreo.setText(userName.get(1));
+        txtUser.setText(userName.get(0));
     }
 
     /**
@@ -33,12 +42,13 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        btnActualizar = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(239, 245, 213));
 
@@ -55,11 +65,9 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Correo");
 
-        jPasswordField1.setText("jPasswordField1");
+        txtCorreo.setText("JuanRomero@gmail.com");
 
-        jTextField1.setText("JuanRomero@gmail.com");
-
-        jTextField2.setText("JuanRomero");
+        txtUser.setText("JuanRomero");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Lenguaje de sistema");
@@ -73,6 +81,13 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(133, 175, 75));
         jLabel8.setText("Historial de actividades");
 
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -83,7 +98,10 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(460, 460, 460)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4)
                     .addComponent(jLabel1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -91,10 +109,10 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
+                        .addComponent(txtUser, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(631, Short.MAX_VALUE))
+                .addContainerGap(481, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,11 +122,13 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
                 .addGap(46, 46, 46)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
@@ -121,7 +141,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -136,8 +156,27 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        LinkedHashMap<String,String> data = CollectData();
+        int res;
+        if (!Controlador.Utils.emptyFields(data)) {
+            try {
+                res = Controlador.Utils.actualizar(data,userName.get(3),"UserSystems","idUser");
+                JOptionPane.showMessageDialog(null, "Te has actualizado con exito");
+                userName = Vista.Menú.cargarProps(userName.get(3));
+
+            } catch (Exception ex) {
+                Logger.getLogger(ConfiguracionPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "No dejes campos sin llenar porfavor.");
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -148,7 +187,18 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
+
+    private LinkedHashMap<String,String> CollectData() {             
+        LinkedHashMap<String,String> data =  new LinkedHashMap<>();
+//        char[] pword = txtU.getPassword();
+       
+        data.put("nameUser", txtUser.getText());        
+        data.put("mailUser", txtCorreo.getText());
+
+        
+        return data;
+    }
 }

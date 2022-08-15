@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -226,6 +228,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
 
         BtnLimpiarCampos.setText("Limpiar Campos");
+        BtnLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLimpiarCamposActionPerformed(evt);
+            }
+        });
 
         BtnAgregar.setText("Agregar");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +256,12 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel3.setText("Contraseña");
+
+        txtCorreoPost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCorreoPostKeyPressed(evt);
+            }
+        });
 
         BtnImageAdd.setText("Agregar imagen");
         BtnImageAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -339,7 +352,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         ));
         JTPostulantes.setGridColor(new java.awt.Color(0, 0, 0));
-        JTPostulantes.setSelectionBackground(new java.awt.Color(132, 175, 75));
+        JTPostulantes.setSelectionBackground(new java.awt.Color(193, 233, 118));
         JTPostulantes.setShowGrid(true);
         JTPostulantes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -350,21 +363,21 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         lblID.setText("ID:");
 
-        btnB.setText("Actualizar Rama");
+        btnB.setText("Gestionar Rama");
         btnB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBActionPerformed(evt);
             }
         });
 
-        btnA.setText("Actualizar Habilidad Adicional");
+        btnA.setText("Gestionar Habilidad Adicional");
         btnA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAActionPerformed(evt);
             }
         });
 
-        btnG.setText("Actualizar Habilidad General");
+        btnG.setText("Gestionar Habilidad General");
         btnG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGActionPerformed(evt);
@@ -383,7 +396,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         ));
         BTabla.setGridColor(new java.awt.Color(0, 0, 0));
-        BTabla.setSelectionBackground(new java.awt.Color(132, 175, 75));
+        BTabla.setSelectionBackground(new java.awt.Color(193, 233, 118));
         BTabla.setShowGrid(true);
         jScrollPane2.setViewportView(BTabla);
 
@@ -399,7 +412,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         ));
         GTable.setGridColor(new java.awt.Color(0, 0, 0));
-        GTable.setSelectionBackground(new java.awt.Color(132, 175, 75));
+        GTable.setSelectionBackground(new java.awt.Color(193, 233, 118));
         GTable.setShowGrid(true);
         jScrollPane3.setViewportView(GTable);
 
@@ -415,7 +428,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         ));
         ATable.setGridColor(new java.awt.Color(0, 0, 0));
-        ATable.setSelectionBackground(new java.awt.Color(132, 175, 75));
+        ATable.setSelectionBackground(new java.awt.Color(193, 233, 118));
         ATable.setShowGrid(true);
         jScrollPane4.setViewportView(ATable);
 
@@ -457,28 +470,28 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                             .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel19)
                             .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49)
+                        .addGap(33, 33, 33)
                         .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)
                             .addComponent(cmbEstadoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
+                            .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15)
                             .addComponent(cmbDepartReside, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
                             .addComponent(cmbDepartPreferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
+                            .addComponent(jLabel7)
                             .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                            .addComponent(jLabel16)
+                            .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(28, 28, 28)
                         .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(BtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BtnAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BtnLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BtnImageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(BtnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                                .addComponent(BtnAddPDF, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                                .addComponent(BtnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                                .addComponent(BtnLimpiarCampos, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                                .addComponent(BtnImageAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(lblAddPDFLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -490,12 +503,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel17)
                             .addComponent(btnB, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel18)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(btnA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(46, 46, 46)
+                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblAddPDFLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnA, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(36, 36, 36)
                         .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel10)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
@@ -523,9 +540,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(BtnImageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(55, 55, 55)
+                                        .addGap(60, 60, 60)
                                         .addComponent(BtnAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(23, 23, 23)
+                                        .addGap(18, 18, 18)
                                         .addComponent(BtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -533,8 +550,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                                         .addComponent(BtnLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                            .addComponent(jLabel15)
-                                            .addGap(1, 1, 1)
                                             .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel12)
@@ -542,22 +557,19 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                                             .addComponent(cmbEstadoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel6)
-                                            .addGap(1, 1, 1)
+                                            .addGap(2, 2, 2)
                                             .addComponent(cmbDepartReside, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(8, 8, 8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jLabel7)
                                             .addGap(1, 1, 1)
                                             .addComponent(cmbDepartPreferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel16)
-                                            .addGap(1, 1, 1)
-                                            .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel8)
-                                            .addGap(1, 1, 1)
-                                            .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(87, 87, 87))
                                         .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                            .addComponent(jLabel4)
+                                            .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel4)
+                                                .addComponent(jLabel15))
                                             .addGap(1, 1, 1)
                                             .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
@@ -575,11 +587,17 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel13)
                                             .addGap(1, 1, 1)
-                                            .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel19)
+                                            .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel19)
+                                                .addComponent(jLabel8))
                                             .addGap(1, 1, 1)
-                                            .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(lblAddPDFLayout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(1, 1, 1)
@@ -706,15 +724,21 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         HashMap<String,String> Required = new HashMap<>();
         All = CollectAllAdd();
         Required = CollectRequiredAdd();
-        
+        String mail = txtCorreoPost.getText();
         int res;
         try {
-            if (!Controlador.Utils.emptyFields(Required)) {                
+            if (verificar_email(mail)) {
+               if (!Controlador.Utils.emptyFields(Required)) {                
                  res = Controlador.ControladorPostulante.AgreparPostulante(All);
                  JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
             }else{
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+            } 
             }
+            else{
+                JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido","Error",0);
+            }
+            
         } catch (Exception ex) {
             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -809,15 +833,21 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         HashMap<String,String> Required = new HashMap<>();
         All = CollectAllUpdate();
         Required = CollectRequiredUptade();
-        
+        String mail = txtCorreoPost.getText();
         int res;
         try {
-            if (!Controlador.Utils.emptyFields(Required)) {                
+            if (verificar_email(mail)) {
+                if (!Controlador.Utils.emptyFields(Required)) {                
                  res = Controlador.ControladorPostulante.ActualizarPostulante(All);
                  JOptionPane.showInternalMessageDialog(null, "Postulante actualizado exitosamente", "Confirmacion", 1);
             }else{
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
+            }
+            else{
+               JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido","Error",0); 
+            }
+            
         } catch (Exception ex) {
             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -884,6 +914,22 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBActionPerformed
 
+    private void txtCorreoPostKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoPostKeyPressed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_txtCorreoPostKeyPressed
+
+    private void BtnLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarCamposActionPerformed
+        // TODO add your handling code here:
+        LimpiarCampos();
+    }//GEN-LAST:event_BtnLimpiarCamposActionPerformed
+
+    public boolean verificar_email(String correo){
+        Pattern patron = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mat = patron.matcher(correo);
+        return mat.find();
+    }
     private HashMap<String, String> CollectAllAdd() {
         HashMap<String, String> data = new HashMap<>();
         char[] pword = txtContraseñaPost.getPassword();

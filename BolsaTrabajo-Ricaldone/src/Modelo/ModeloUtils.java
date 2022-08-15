@@ -230,15 +230,18 @@ public class ModeloUtils {
         DefaultTableModel miModelo = null;
         Connection cn = ControladorConexion.getConection();
         try{
-            String titulos []= {"Nombres","Cuantas personas"};
+            String titulos []= {"namePostulant", "States"};
             String dts [] = new String[2];
             miModelo = new DefaultTableModel(null, titulos);
-            String sql = "SELECT nameUser, COUNT(nameUser) as userCount FROM UserSystems GROUP BY nameUser;";
+            String sql = "SELECT Progress.Progress, COUNT(Postulants.namePostulant) as Countp  "
+                    + "FROM Progress "
+                    + "INNER JOIN Postulants ON Progress.idProgress = Postulants.Progress "
+                    + "GROUP BY Progress.Progress";
             PreparedStatement pst = cn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-               dts[0] = rs.getString("nameUser");
-               dts[1] = rs.getString("userCount");
+               dts[0] = rs.getString("Progress");
+               dts[1] = rs.getString("Countp");
                miModelo.addRow(dts);
             }
         }catch(Exception ex){

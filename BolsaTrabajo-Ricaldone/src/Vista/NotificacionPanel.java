@@ -22,7 +22,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
     public NotificacionPanel() throws SQLException, Exception {
         initComponents();
         DefaultTableModel jPost = new DefaultTableModel();
-        jPost = Controlador.Utils.rtrnTqble("VModerations");
+        jPost = Controlador.Utils.rtrnTqble("Moderations");
         dgvNoti.setModel(jPost);
 
     }

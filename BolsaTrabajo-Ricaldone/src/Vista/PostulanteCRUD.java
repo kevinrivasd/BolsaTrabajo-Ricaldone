@@ -44,25 +44,25 @@ public class PostulanteCRUD extends javax.swing.JFrame {
      */
     private static int inti;
     DefaultTableModel base;
-    public HashMap<Integer,String> dataGender;
-    public HashMap<Integer,String> dataStatus;
-    public HashMap<Integer,String> datapreflaboral;
-    public HashMap<Integer,String> dptoPreferencia;
-    public HashMap<Integer,String> dptoReside;
-    public HashMap<Integer,String> EstadoTrabajo;
-    public HashMap<Integer,String> TContrato;
-    public HashMap<Integer,String> TTrabajo;
-    public HashMap<Integer,String> salario;
-    public HashMap<Integer,String> hightype;
-    public HashMap<Integer,String> progreso;
-    public HashMap<Integer,String> nlEstudio;
-    public HashMap<Integer,String> RamaPost;
-    public HashMap<Integer,String> HAdicional;
-    public HashMap<Integer,String> HGeneral;
-    public String[] arrG = {"Skill","idLevel"};
-    public String[] arrA = {"NameSkill","idLevel"};
-    public String[] Branch = {"Branch","idLevel"};
-    
+    public HashMap<Integer, String> dataGender;
+    public HashMap<Integer, String> dataStatus;
+    public HashMap<Integer, String> datapreflaboral;
+    public HashMap<Integer, String> dptoPreferencia;
+    public HashMap<Integer, String> dptoReside;
+    public HashMap<Integer, String> EstadoTrabajo;
+    public HashMap<Integer, String> TContrato;
+    public HashMap<Integer, String> TTrabajo;
+    public HashMap<Integer, String> salario;
+    public HashMap<Integer, String> hightype;
+    public HashMap<Integer, String> progreso;
+    public HashMap<Integer, String> nlEstudio;
+    public HashMap<Integer, String> RamaPost;
+    public HashMap<Integer, String> HAdicional;
+    public HashMap<Integer, String> HGeneral;
+    public String[] arrG = {"Skill", "idLevel"};
+    public String[] arrA = {"NameSkill", "idLevel"};
+    public String[] Branch = {"Branch", "idLevel"};
+
     public PostulanteCRUD(int add) throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -71,81 +71,77 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         btnA.setEnabled(false);
         btnB.setEnabled(false);
         btnG.setEnabled(false);
-        
+
         inti = add;
         if (inti == 1) {
             BtnActualizar.setVisible(true);
-        }
-        else{
+        } else {
             BtnAgregar.setVisible(false);
         }
         this.setLocationRelativeTo(null);
         setTitle("Gestion de postulantes");
-        
-        dataGender = Controlador.Utils.getDataTable("Genders");        
-        for(int k = 1; k<=dataGender.size();k++){
-           cmbGenero.addItem(dataGender.get(k));
-       }
-        datapreflaboral = Controlador.Utils.getDataTable("WorkPreference");        
-        for(int k = 1; k<=datapreflaboral.size();k++){
-           cmbPrefLaboral.addItem(datapreflaboral.get(k));
+
+        dataGender = Controlador.Utils.getDataTable("Genders");
+        for (int k = 1; k <= dataGender.size(); k++) {
+            cmbGenero.addItem(dataGender.get(k));
         }
-        
-        dataStatus = Controlador.Utils.getDataTable("States");        
-        for(int k = 1; k<=dataStatus.size();k++){
-           cmbEstadoPost.addItem(dataStatus.get(k));
+        datapreflaboral = Controlador.Utils.getDataTable("WorkPreference");
+        for (int k = 1; k <= datapreflaboral.size(); k++) {
+            cmbPrefLaboral.addItem(datapreflaboral.get(k));
         }
-        
-        dptoPreferencia = Controlador.Utils.getDataTable("Departments");        
-        for(int k = 1; k<=dptoPreferencia.size();k++){
-           cmbDepartPreferencia.addItem(dptoPreferencia.get(k));
+
+        dataStatus = Controlador.Utils.getDataTable("States");
+        for (int k = 1; k <= dataStatus.size(); k++) {
+            cmbEstadoPost.addItem(dataStatus.get(k));
         }
-        
-        dptoReside = Controlador.Utils.getDataTable("Departments");        
-        for(int k = 1; k<=dptoReside.size();k++){
-           cmbDepartReside.addItem(dptoReside.get(k));
+
+        dptoPreferencia = Controlador.Utils.getDataTable("Departments");
+        for (int k = 1; k <= dptoPreferencia.size(); k++) {
+            cmbDepartPreferencia.addItem(dptoPreferencia.get(k));
         }
-        
-        EstadoTrabajo = Controlador.Utils.getDataTable("WorkState");        
-        for(int k = 1; k<=EstadoTrabajo.size();k++){
-           cmbEstadoTrabajo.addItem(EstadoTrabajo.get(k));
+
+        dptoReside = Controlador.Utils.getDataTable("Departments");
+        for (int k = 1; k <= dptoReside.size(); k++) {
+            cmbDepartReside.addItem(dptoReside.get(k));
         }
-        
-        TContrato = Controlador.Utils.getDataTable("ContractType");        
-        for(int k = 1; k<=TContrato.size();k++){
-           cmbTipoContrato.addItem(TContrato.get(k));
+
+        EstadoTrabajo = Controlador.Utils.getDataTable("WorkState");
+        for (int k = 1; k <= EstadoTrabajo.size(); k++) {
+            cmbEstadoTrabajo.addItem(EstadoTrabajo.get(k));
         }
-        
-        TTrabajo = Controlador.Utils.getDataTable("workSubjects");        
-        for(int k = 1; k<=TTrabajo.size();k++){
-           cmbTipoTrabajo.addItem(TTrabajo.get(k));
+
+        TContrato = Controlador.Utils.getDataTable("ContractType");
+        for (int k = 1; k <= TContrato.size(); k++) {
+            cmbTipoContrato.addItem(TContrato.get(k));
         }
-        
-        salario = Controlador.Utils.getDataTable("SalaryState");        
-        for(int k = 1; k<=salario.size();k++){
-           cmbSalario.addItem(salario.get(k));
+
+        TTrabajo = Controlador.Utils.getDataTable("workSubjects");
+        for (int k = 1; k <= TTrabajo.size(); k++) {
+            cmbTipoTrabajo.addItem(TTrabajo.get(k));
         }
-        
-        
-        hightype = Controlador.Utils.getDataTable("HighType");        
-        for(int k = 1; k<=hightype.size();k++){
-           cmbHighType.addItem(hightype.get(k));
+
+        salario = Controlador.Utils.getDataTable("SalaryState");
+        for (int k = 1; k <= salario.size(); k++) {
+            cmbSalario.addItem(salario.get(k));
         }
-        
-        progreso = Controlador.Utils.getDataTable("Progress");        
-        for(int k = 1; k<=progreso.size();k++){
-           cmbProgreso.addItem(progreso.get(k));
+
+        hightype = Controlador.Utils.getDataTable("HighType");
+        for (int k = 1; k <= hightype.size(); k++) {
+            cmbHighType.addItem(hightype.get(k));
         }
-        
-        nlEstudio = Controlador.Utils.getDataTable("studyLevels");        
-        for(int k = 1; k<=nlEstudio.size();k++){
-           cmbNivelEstudio.addItem(nlEstudio.get(k));
+
+        progreso = Controlador.Utils.getDataTable("Progress");
+        for (int k = 1; k <= progreso.size(); k++) {
+            cmbProgreso.addItem(progreso.get(k));
         }
-        
-       
+
+        nlEstudio = Controlador.Utils.getDataTable("studyLevels");
+        for (int k = 1; k <= nlEstudio.size(); k++) {
+            cmbNivelEstudio.addItem(nlEstudio.get(k));
+        }
 
         JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
-        
+
         txtContraseñaPost.setTransferHandler(null);
     }
 
@@ -159,7 +155,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private void initComponents() {
 
         lblAddPDF = new javax.swing.JPanel();
-        BtnRegresarPost = new javax.swing.JButton();
         BtnLimpiarCampos = new javax.swing.JButton();
         BtnAgregar = new javax.swing.JButton();
         BtnActualizar = new javax.swing.JButton();
@@ -219,18 +214,12 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblImage = new javax.swing.JLabel();
         lblImage2 = new javax.swing.JLabel();
         lblImage3 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
 
         lblAddPDF.setBackground(new java.awt.Color(239, 245, 213));
-
-        BtnRegresarPost.setText("Regresar");
-        BtnRegresarPost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRegresarPostActionPerformed(evt);
-            }
-        });
 
         BtnLimpiarCampos.setText("Limpiar Campos");
         BtnLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -358,7 +347,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         ));
         JTPostulantes.setGridColor(new java.awt.Color(0, 0, 0));
         JTPostulantes.setSelectionBackground(new java.awt.Color(193, 233, 118));
-        JTPostulantes.setShowGrid(true);
         JTPostulantes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTPostulantesMouseClicked(evt);
@@ -402,7 +390,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         ));
         BTabla.setGridColor(new java.awt.Color(0, 0, 0));
         BTabla.setSelectionBackground(new java.awt.Color(193, 233, 118));
-        BTabla.setShowGrid(true);
         jScrollPane2.setViewportView(BTabla);
 
         GTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -418,7 +405,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         ));
         GTable.setGridColor(new java.awt.Color(0, 0, 0));
         GTable.setSelectionBackground(new java.awt.Color(193, 233, 118));
-        GTable.setShowGrid(true);
         jScrollPane3.setViewportView(GTable);
 
         ATable.setModel(new javax.swing.table.DefaultTableModel(
@@ -434,59 +420,65 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         ));
         ATable.setGridColor(new java.awt.Color(0, 0, 0));
         ATable.setSelectionBackground(new java.awt.Color(193, 233, 118));
-        ATable.setShowGrid(true);
         jScrollPane4.setViewportView(ATable);
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Recu_regresar.png"))); // NOI18N
+        jLabel21.setText("Regresar");
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout lblAddPDFLayout = new javax.swing.GroupLayout(lblAddPDF);
         lblAddPDF.setLayout(lblAddPDFLayout);
         lblAddPDFLayout.setHorizontalGroup(
             lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lblAddPDFLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
                 .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnRegresarPost)
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(jLabel1))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(txtNombrePost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(jLabel9))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(txtApellidoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(jLabel2))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(txtCorreoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(txtContraseñaPost, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(lblID))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(30, 30, 30)
                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel17))
+                        .addGap(22, 22, 22)
+                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnB, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(btnB, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22)
+                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel17))))
                 .addGap(27, 27, 27)
                 .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
@@ -569,133 +561,136 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblAddPDFLayout.setVerticalGroup(
             lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lblAddPDFLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(BtnRegresarPost)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel1)
-                .addGap(1, 1, 1)
-                .addComponent(txtNombrePost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(1, 1, 1)
-                .addComponent(txtApellidoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(1, 1, 1)
-                .addComponent(txtCorreoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(1, 1, 1)
-                .addComponent(txtContraseñaPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(lblID)
-                .addGap(4, 4, 4)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(jLabel17)
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(btnB, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
                 .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(1, 1, 1)
-                        .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addGap(1, 1, 1)
-                        .addComponent(cmbEstadoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel14)
-                        .addGap(1, 1, 1)
-                        .addComponent(cmbTipoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel11)
-                        .addGap(1, 1, 1)
-                        .addComponent(cmbNivelEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(280, 280, 280)
+                        .addComponent(jLabel20))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(lblAddPDFLayout.createSequentialGroup()
                         .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
                             .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel12)
-                        .addGap(1, 1, 1)
-                        .addComponent(cmbEstadoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addGap(2, 2, 2)
-                        .addComponent(cmbDepartReside, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel7)
-                        .addGap(1, 1, 1)
-                        .addComponent(cmbDepartPreferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblImage3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addGap(70, 70, 70)
                                 .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(8, 8, 8)
-                        .addComponent(BtnImageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(lblPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(5, 5, 5)
-                        .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
+                                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel5)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(cmbEstadoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel14)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(cmbTipoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jLabel11)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(cmbNivelEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel15)
+                                            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                                .addGap(17, 17, 17)
+                                                .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel12)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(cmbEstadoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel6)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(cmbDepartReside, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabel7)
+                                        .addGap(1, 1, 1)
+                                        .addComponent(cmbDepartPreferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblImage3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(8, 8, 8)
+                                        .addComponent(BtnImageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(20, 20, 20)
+                                        .addComponent(lblPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(6, 6, 6)
+                                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                                .addComponent(jLabel13)
+                                                .addGap(1, 1, 1)
+                                                .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(BtnAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(9, 9, 9)
+                                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                        .addComponent(BtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                                .addComponent(jLabel19)
+                                                .addGap(1, 1, 1)
+                                                .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                                .addComponent(jLabel8)
+                                                .addGap(1, 1, 1)
+                                                .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(6, 6, 6)
+                                .addComponent(BtnLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel18)
+                                        .addComponent(jLabel17))
+                                    .addComponent(jLabel10)))
+                            .addGroup(lblAddPDFLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel1)
+                                .addGap(1, 1, 1)
+                                .addComponent(txtNombrePost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9)
+                                .addGap(1, 1, 1)
+                                .addComponent(txtApellidoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)
+                                .addGap(1, 1, 1)
+                                .addComponent(txtCorreoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(1, 1, 1)
+                                .addComponent(txtContraseñaPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(lblID)
+                                .addGap(4, 4, 4)
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
                         .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(1, 1, 1)
-                                .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BtnAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(9, 9, 9)
-                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addComponent(BtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lblAddPDFLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(1, 1, 1)
-                                .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(1, 1, 1)
-                                .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(6, 6, 6)
-                .addComponent(BtnLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel10))
-                .addGap(6, 6, 6)
-                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnA, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnG, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(lblAddPDFLayout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(jLabel20))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(lblAddPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnA, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnB, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnG, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -718,22 +713,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnRegresarPostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarPostActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_BtnRegresarPostActionPerformed
-    
-    public void LimpiarCampos(){
+    public void LimpiarCampos() {
         txtNombrePost.setText("");
         lblPdf.setIcon(new ImageIcon("src/recursos/candado.png"));
         txtApellidoPost.setText("");
         txtContraseñaPost.setText("");
         txtCorreoPost.setText("");
     }
-    
-    
+
     private String S = "";
-    
+
     private void BtnImageAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImageAddActionPerformed
         // TODO add your handling code here:
         JFileChooser browseImageFile = new JFileChooser();        //Filter image extensions
@@ -754,16 +743,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
                 byte[] immAsBytes;
                 //use another encoding if JPG is innappropriate for you
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                try ( ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
                     //use another encoding if JPG is innappropriate for you
-                    ImageIO.write(image1, "jpg", baos );
+                    ImageIO.write(image1, "jpg", baos);
                     baos.flush();
                     immAsBytes = baos.toByteArray();
 
                 }
                 try {
                     S = Base64.getEncoder().encodeToString(immAsBytes);
-                    
+
                 } catch (Exception e) {
                 }
 
@@ -778,25 +767,24 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
-        HashMap<String,String> All = new HashMap<>();
-        HashMap<String,String> Required = new HashMap<>();
+        HashMap<String, String> All = new HashMap<>();
+        HashMap<String, String> Required = new HashMap<>();
         All = CollectAllAdd();
         Required = CollectRequiredAdd();
         String mail = txtCorreoPost.getText();
         int res;
         try {
             if (verificar_email(mail)) {
-               if (!Controlador.Utils.emptyFields(Required)) {                
-                 res = Controlador.ControladorPostulante.AgreparPostulante(All);
-                 JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
-            }else{
-                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
-            } 
+                if (!Controlador.Utils.emptyFields(Required)) {
+                    res = Controlador.ControladorPostulante.AgreparPostulante(All);
+                    JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
+                } else {
+                    JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido","Error",0);
-            }
-            
+
         } catch (Exception ex) {
             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -827,16 +815,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
                 byte[] immAsBytes;
                 //use another encoding if JPG is innappropriate for you
-                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                try ( ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
                     //use another encoding if JPG is innappropriate for you
-                    ImageIO.write(image1, "pdf", baos );
+                    ImageIO.write(image1, "pdf", baos);
                     baos.flush();
                     immAsBytes = baos.toByteArray();
 
                 }
                 try {
                     S = Base64.getEncoder().encodeToString(immAsBytes);
-                    
+
                 } catch (Exception e) {
                 }
 
@@ -851,45 +839,45 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void JTPostulantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPostulantesMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount()==1) {
+        if (evt.getClickCount() == 1) {
             btnA.setEnabled(true);
             btnB.setEnabled(true);
             btnG.setEnabled(true);
             JTable Table = (JTable) evt.getSource();
-            txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
-            txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString());
-            txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
-            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
+            txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 0).toString());
+            txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 1).toString());
+            txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 2).toString());
+            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 3).toString());
 //            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
             byte[] btDataFile;
-            btDataFile = Base64.getDecoder().decode(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
+            btDataFile = Base64.getDecoder().decode(Table.getModel().getValueAt(Table.getSelectedRow(), 4).toString());
             BufferedImage image = null;
             try {
                 image = ImageIO.read(new ByteArrayInputStream(btDataFile));
-                if(image != null ){
+                if (image != null) {
                     ImageIcon ii = new ImageIcon(image);
                     Image imagef = ii.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
                     lblImage.setIcon(new ImageIcon(imagef));
-                }else{
-                    lblImage.setIcon(new ImageIcon("src/recursos/candado.png"));      
+                } else {
+                    lblImage.setIcon(new ImageIcon("src/recursos/candado.png"));
                 }
             } catch (IOException ex) {
-                
+
             }
-            cmbGenero.setSelectedItem(dataGender.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),8).toString())));
-            cmbEstadoPost.setSelectedItem(dataStatus.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),9).toString())));
-            CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(),10).toString());
-            cmbDepartPreferencia.setSelectedItem(dptoPreferencia.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),11).toString())));
-            cmbDepartReside.setSelectedItem(dptoReside.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),12).toString())));
-            cmbTipoTrabajo.setSelectedItem(TTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),13).toString())));
-            cmbProgreso.setSelectedItem(progreso.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),14).toString())));
-            cmbSalario.setSelectedItem(salario.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),15).toString())));
-            cmbHighType.setSelectedItem(hightype.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),16).toString())));
-            cmbTipoContrato.setSelectedItem(TContrato.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),17).toString())));
-            cmbPrefLaboral.setSelectedItem(datapreflaboral.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),18).toString())));
-            cmbNivelEstudio.setSelectedItem(nlEstudio.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),19).toString())));
-            cmbEstadoTrabajo.setSelectedItem(EstadoTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),20).toString())));
-            txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),21).toString());
+            cmbGenero.setSelectedItem(dataGender.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString())));
+            cmbEstadoPost.setSelectedItem(dataStatus.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 9).toString())));
+            CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 10).toString());
+            cmbDepartPreferencia.setSelectedItem(dptoPreferencia.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 11).toString())));
+            cmbDepartReside.setSelectedItem(dptoReside.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 12).toString())));
+            cmbTipoTrabajo.setSelectedItem(TTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 13).toString())));
+            cmbProgreso.setSelectedItem(progreso.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 14).toString())));
+            cmbSalario.setSelectedItem(salario.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 15).toString())));
+            cmbHighType.setSelectedItem(hightype.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 16).toString())));
+            cmbTipoContrato.setSelectedItem(TContrato.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 17).toString())));
+            cmbPrefLaboral.setSelectedItem(datapreflaboral.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 18).toString())));
+            cmbNivelEstudio.setSelectedItem(nlEstudio.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 19).toString())));
+            cmbEstadoTrabajo.setSelectedItem(EstadoTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 20).toString())));
+            txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 21).toString());
             try {
                 GTable.setModel(Controlador.Utils.rtrnTqble("GeneralSkills", arrG, txtID.getText()));
                 ATable.setModel(Controlador.Utils.rtrnTqble("AditionalSkills", arrA, txtID.getText()));
@@ -902,25 +890,24 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void BtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActualizarActionPerformed
         // TODO add your handling code here:
-        HashMap<String,String> All = new HashMap<>();
-        HashMap<String,String> Required = new HashMap<>();
+        HashMap<String, String> All = new HashMap<>();
+        HashMap<String, String> Required = new HashMap<>();
         All = CollectAllUpdate();
         Required = CollectRequiredUptade();
         String mail = txtCorreoPost.getText();
         int res;
         try {
             if (verificar_email(mail)) {
-                if (!Controlador.Utils.emptyFields(Required)) {                
-                 res = Controlador.ControladorPostulante.ActualizarPostulante(All);
-                 JOptionPane.showInternalMessageDialog(null, "Postulante actualizado exitosamente", "Confirmacion", 1);
-            }else{
-                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+                if (!Controlador.Utils.emptyFields(Required)) {
+                    res = Controlador.ControladorPostulante.ActualizarPostulante(All);
+                    JOptionPane.showInternalMessageDialog(null, "Postulante actualizado exitosamente", "Confirmacion", 1);
+                } else {
+                    JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
             }
-            }
-            else{
-               JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido","Error",0); 
-            }
-            
+
         } catch (Exception ex) {
             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -934,31 +921,30 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private void txtContraseñaPostKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaPostKeyPressed
         // TODO add your handling code here:
         char[] txt = txtContraseñaPost.getPassword();
-           if (txt.length == 6) {
-                txt = Arrays.copyOf(txt, txt.length - 1);
+        if (txt.length == 6) {
+            txt = Arrays.copyOf(txt, txt.length - 1);
         }
-           txtContraseñaPost.setText(String.valueOf(txt));
+        txtContraseñaPost.setText(String.valueOf(txt));
 //           JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraseñaPostKeyPressed
 
     private void txtContraseñaPostInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtContraseñaPostInputMethodTextChanged
         // TODO add your handling code here:
         char[] txt = txtContraseñaPost.getPassword();
-           if (txt.length == 6) {
-                txt = Arrays.copyOf(txt, txt.length - 1);
+        if (txt.length == 6) {
+            txt = Arrays.copyOf(txt, txt.length - 1);
         }
-           txtContraseñaPost.setText(String.valueOf(txt));
+        txtContraseñaPost.setText(String.valueOf(txt));
 
-           JOptionPane.showMessageDialog(null, String.valueOf(txt));
+        JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraseñaPostInputMethodTextChanged
-    
 
-    
+
     private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
-         String idPos = txtID.getText(); 
+        String idPos = txtID.getText();
         try {
             // TODO add your handling code here:
-            AbilitiesCRUD frm = new AbilitiesCRUD(0,idPos);
+            AbilitiesCRUD frm = new AbilitiesCRUD(0, idPos);
             frm.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
@@ -966,7 +952,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAActionPerformed
 
     private void btnGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGActionPerformed
-        String idPos = txtID.getText(); 
+        String idPos = txtID.getText();
         try {
             // TODO add your handling code here:
             AbilitiesCRUD frm = new AbilitiesCRUD(2, idPos);
@@ -977,7 +963,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGActionPerformed
 
     private void btnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBActionPerformed
-        String idPos = txtID.getText(); 
+        String idPos = txtID.getText();
         try {
             // TODO add your handling code here:
             AbilitiesCRUD frm = new AbilitiesCRUD(1, idPos);
@@ -989,7 +975,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void txtCorreoPostKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoPostKeyPressed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_txtCorreoPostKeyPressed
 
     private void BtnLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarCamposActionPerformed
@@ -997,12 +983,18 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         LimpiarCampos();
     }//GEN-LAST:event_BtnLimpiarCamposActionPerformed
 
-    public boolean verificar_email(String correo){
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        this.dispose();
+
+    }//GEN-LAST:event_jLabel21MouseClicked
+
+    public boolean verificar_email(String correo) {
         Pattern patron = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
         Matcher mat = patron.matcher(correo);
         return mat.find();
     }
+
     private HashMap<String, String> CollectAllAdd() {
         HashMap<String, String> data = new HashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
@@ -1031,7 +1023,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         return data;
     }
-     private HashMap<String, String> CollectAllUpdate() {
+
+    private HashMap<String, String> CollectAllUpdate() {
         HashMap<String, String> data = new HashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
 
@@ -1060,7 +1053,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         return data;
     }
-    
+
     private HashMap<String, String> CollectRequiredAdd() {
         HashMap<String, String> data = new HashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
@@ -1086,14 +1079,14 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         return data;
     }
-    
+
     private HashMap<String, String> CollectRequiredUptade() {
         HashMap<String, String> data = new HashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
 
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
-        data.put("Pword",Utils.encrypt(pword));
+        data.put("Pword", Utils.encrypt(pword));
 //        data.put("imgByte", S);        
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
@@ -1113,7 +1106,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         return data;
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1161,7 +1154,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JButton BtnAgregar;
     private javax.swing.JButton BtnImageAdd;
     private javax.swing.JButton BtnLimpiarCampos;
-    private javax.swing.JButton BtnRegresarPost;
     private javax.swing.JCheckBox CheckAlumni;
     private javax.swing.JTable GTable;
     private javax.swing.JTable JTPostulantes;
@@ -1193,6 +1185,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

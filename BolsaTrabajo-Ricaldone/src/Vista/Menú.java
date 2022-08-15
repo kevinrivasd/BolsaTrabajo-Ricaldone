@@ -27,9 +27,9 @@ public class Menú extends javax.swing.JFrame {
     Desface desplace;
     Dimension d = new Dimension(500, 757);
     public JPanel previo = new JPanel();
-    public static String nameUser ="";
+    public static String nameUser = "";
     public static List<String> userLevel = new ArrayList<>();
-    
+
     public Menú(String user) throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -40,10 +40,11 @@ public class Menú extends javax.swing.JFrame {
         PanelHolder.add(previo, BorderLayout.NORTH);
         previo.repaint();
         previo.revalidate();
-        nameUser = user;        
+        nameUser = user;
         cargarProps(nameUser);
     }
-    public static List<String> cargarProps(String nameUserLocal){
+
+    public static List<String> cargarProps(String nameUserLocal) {
         try {
             userLevel = Controlador.Utils.getUserData(nameUserLocal);
             return userLevel;

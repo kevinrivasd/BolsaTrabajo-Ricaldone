@@ -155,6 +155,11 @@ public class RecuperacionPWD extends javax.swing.JFrame {
                 btnVerificarMouseClicked(evt);
             }
         });
+        btnVerificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerificarActionPerformed(evt);
+            }
+        });
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/key login.png"))); // NOI18N
 
@@ -260,6 +265,10 @@ public class RecuperacionPWD extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btnVerificarMouseClicked
+
+    private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerificarActionPerformed
 
     /**
      * @param args the command line arguments

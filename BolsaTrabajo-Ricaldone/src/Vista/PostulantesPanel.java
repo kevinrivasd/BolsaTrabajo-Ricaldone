@@ -29,6 +29,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
     TableRowSorter trsfiltro;
     public TableRowSorter<TableModel> sorter;
 //    public Menú men = new Menú();
+
     public PostulantesPanel() throws Exception {
         initComponents();
 
@@ -149,8 +150,9 @@ public class PostulantesPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void BtnCrudPostuAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrudPostuAddActionPerformed
-        // TODO add your handling code here:
+//        try {
         PostulanteCRUD next = null;
         try {
             next = new PostulanteCRUD(1);
@@ -158,6 +160,13 @@ public class PostulantesPanel extends javax.swing.JPanel {
             Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         next.setVisible(true);
+//            PostulanteCRUD frm = new PostulanteCRUD(1);
+//        } catch (Exception ex) {
+//            Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        Menú men = new Menú();
+//        men.setVisible(true);
+//        men.dispose();
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
 
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped

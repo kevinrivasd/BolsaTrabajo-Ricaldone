@@ -31,7 +31,7 @@ public class ControladorRecu {
           Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
           String emailString = Modelo.ModeloRecu.sentCode(nameUser);
           //Form-Data
-          request.form("email", emailString).form("Codigo", randomCode);
+          request.form("email", emailString).form("Codigo", randomCode).form("subject", "Código de verificación de Sacculum").form("text", "Tu código de verificación es: ");
 
           Response response = new HttpClient(request).execute();
               if (response.getStatusCode() == 200) {

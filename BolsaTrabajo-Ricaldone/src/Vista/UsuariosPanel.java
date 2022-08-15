@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import java.util.regex.PatternSyntaxException;
 import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
@@ -131,6 +132,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
         });
 
         jButton9.setText("Limpiar campos");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(133, 175, 75));
 
@@ -409,7 +415,12 @@ public class UsuariosPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_btnAgregarUsuarioActionPerformed
-
+    public void limpiarCampos(){        
+        txtUsuario.setText("");
+        txtCorreo.setText("");
+        txtNumero.setText("");
+        txtContra.setText("");
+    }
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
 
@@ -547,6 +558,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_txtFilterKeyTyped
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        limpiarCampos();
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     private LinkedHashMap<String,String> CollectData() {             
         LinkedHashMap<String,String> data =  new LinkedHashMap<>();

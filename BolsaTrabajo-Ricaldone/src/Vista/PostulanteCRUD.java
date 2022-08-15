@@ -7,9 +7,11 @@ package Vista;
 import Controlador.Utils;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
 import org.xml.sax.Attributes;
 import java.util.ArrayList;
@@ -734,44 +736,44 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     
     private void BtnImageAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImageAddActionPerformed
         // TODO add your handling code here:
-//        JFileChooser browseImageFile = new JFileChooser();        //Filter image extensions
-//        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
-//        browseImageFile.addChoosableFileFilter(fnef);
-//        int num = browseImageFile.showOpenDialog(null);
-//
-//        if (num == JFileChooser.APPROVE_OPTION) {
-//            File selectedImageFile = browseImageFile.getSelectedFile();
-//            String selectedImagePath = selectedImageFile.getAbsolutePath();
-//            //Display image on jlable
-//            ImageIcon ii = new ImageIcon(selectedImagePath);
-////            Resize image to fit jlabel
-//            Image image = ii.getImage().getScaledInstance(lblPdf.getWidth(), lblPdf.getHeight(), Image.SCALE_SMOOTH);
-//
-//            try {
-//                BufferedImage image1 = ImageIO.read(selectedImageFile);
-//
-//                byte[] immAsBytes;
-//                //use another encoding if JPG is innappropriate for you
-//                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-//                    //use another encoding if JPG is innappropriate for you
-//                    ImageIO.write(image1, "jpg", baos );
-//                    baos.flush();
-//                    immAsBytes = baos.toByteArray();
-//
-//                }
-//                try {
-//                    S = Base64.getEncoder().encodeToString(immAsBytes);
-//                    
-//                } catch (Exception e) {
-//                }
-//
-//            } catch (IOException ex) {
-//                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//            lblPdf.setIcon(new ImageIcon(image));
-//
-//        }
+        JFileChooser browseImageFile = new JFileChooser();        //Filter image extensions
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(fnef);
+        int num = browseImageFile.showOpenDialog(null);
+
+        if (num == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            //Display image on jlable
+            ImageIcon ii = new ImageIcon(selectedImagePath);
+//            Resize image to fit jlabel
+            Image image = ii.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+
+            try {
+                BufferedImage image1 = ImageIO.read(selectedImageFile);
+
+                byte[] immAsBytes;
+                //use another encoding if JPG is innappropriate for you
+                try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+                    //use another encoding if JPG is innappropriate for you
+                    ImageIO.write(image1, "jpg", baos );
+                    baos.flush();
+                    immAsBytes = baos.toByteArray();
+
+                }
+                try {
+                    S = Base64.getEncoder().encodeToString(immAsBytes);
+                    
+                } catch (Exception e) {
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            lblImage.setIcon(new ImageIcon(image));
+
+        }
     }//GEN-LAST:event_BtnImageAddActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
@@ -858,7 +860,22 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString());
             txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
             txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
-            lblPdf.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
+//            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
+            byte[] btDataFile;
+            btDataFile = Base64.getDecoder().decode(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
+            BufferedImage image = null;
+            try {
+                image = ImageIO.read(new ByteArrayInputStream(btDataFile));
+                if(image != null ){
+                    ImageIcon ii = new ImageIcon(image);
+                    Image imagef = ii.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    lblImage.setIcon(new ImageIcon(imagef));
+                }else{
+                    lblImage.setIcon(new ImageIcon("src/recursos/candado.png"));      
+                }
+            } catch (IOException ex) {
+                
+            }
             cmbGenero.setSelectedItem(dataGender.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),8).toString())));
             cmbEstadoPost.setSelectedItem(dataStatus.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),9).toString())));
             CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(),10).toString());

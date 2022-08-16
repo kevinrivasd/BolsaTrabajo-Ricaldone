@@ -50,7 +50,10 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(1141, 717));
+
         jPanel2.setBackground(new java.awt.Color(239, 245, 213));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1141, 717));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
@@ -58,10 +61,10 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel1.setText("Configuracion");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 23, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(133, 175, 75));
         jLabel3.setText("cambiar contraseña");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(50, 63, 27));
@@ -72,18 +75,22 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(50, 63, 27));
         jLabel6.setText("Correo");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 338, 46));
 
+        jPasswordField1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 290, 46));
+
+        txtCorreo.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         txtCorreo.setText("JuanRomero@gmail.com");
         jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 332, 46));
 
+        txtUser.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         txtUser.setText("JuanRomero");
         jPanel2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 332, 46));
 
         jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(50, 63, 27));
         jLabel5.setText("Lenguaje de sistema");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(50, 63, 27));
@@ -91,21 +98,21 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 216, 31));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 216, 31));
 
         jLabel8.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(85, 119, 43));
         jLabel8.setText("Historial de actividad");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
 
-        btnActualizar.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        btnActualizar.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, 102, 48));
+        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 610, 140, 48));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,7 +123,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 717, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

@@ -62,9 +62,11 @@ public class PostulantesPanel extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(239, 245, 213));
         jPanel3.setPreferredSize(new java.awt.Dimension(1100, 700));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(88, 117, 42));
         jLabel2.setText("Postulantes");
 
+        BtnCrudPostuAdd.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         BtnCrudPostuAdd.setText("Gestionar");
         BtnCrudPostuAdd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         BtnCrudPostuAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +75,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
             }
         });
 
+        JTPostulantes.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -88,7 +91,6 @@ public class PostulantesPanel extends javax.swing.JPanel {
         JTPostulantes.setMinimumSize(new java.awt.Dimension(400, 64));
         JTPostulantes.setName(""); // NOI18N
         JTPostulantes.setSelectionBackground(new java.awt.Color(193, 233, 118));
-        JTPostulantes.setShowGrid(true);
         jScrollPane1.setViewportView(JTPostulantes);
 
         txtFiltroPost.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -97,6 +99,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
         jLabel1.setText("Icono");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -108,7 +111,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFiltroPost, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)

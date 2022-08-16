@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 public class ModeloLogin {
     public static String Login(String user, String password) throws Exception{
             Connection sql = ControladorConexion.getConection();
-            String squery = "SELECT idUser FROM userSystems WHERE nameUser= ? AND Pword=?" ;
+            String squery = "SELECT idUser FROM UserSystems WHERE nameUser= ? AND Pword=?" ;
             PreparedStatement consult = sql.prepareStatement(squery);
             consult.setString(1, user);
             consult.setString(2, password);

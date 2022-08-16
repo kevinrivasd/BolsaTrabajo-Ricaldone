@@ -28,7 +28,7 @@ public class Menú extends javax.swing.JFrame {
      * Creates new form Menú
      */    
     Desface desplace;
-    Dimension d = new Dimension(500, 757);
+    Dimension d = new Dimension(1141, 717);
     public JPanel previo = new JPanel();
     public static String nameUser = "";
     public static List<String> userLevel = new ArrayList<>();
@@ -38,7 +38,7 @@ public class Menú extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setPreferredSize(d);
         desplace = new Desface();
-        previo = new Estadisticas("Hola");
+        previo = new Bienvenido();
         PanelHolder.setLayout(new BorderLayout());
         PanelHolder.add(previo, BorderLayout.NORTH);
         previo.repaint();
@@ -94,7 +94,8 @@ public class Menú extends javax.swing.JFrame {
         PanelHolder = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1333, 757));
+        setBackground(new java.awt.Color(239, 245, 213));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         PanelMenu.setBackground(new java.awt.Color(133, 175, 75));
 
@@ -135,7 +136,7 @@ public class Menú extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnMenu1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMenu)
@@ -148,16 +149,17 @@ public class Menú extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         btnUsuarioGrafi.setBackground(new java.awt.Color(133, 175, 75));
-        btnUsuarioGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnUsuarioGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnUsuarioGrafi.setForeground(new java.awt.Color(255, 255, 255));
         btnUsuarioGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User menu.png"))); // NOI18N
-        btnUsuarioGrafi.setText("Usuario");
-        btnUsuarioGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 85));
+        btnUsuarioGrafi.setText("   Usuario");
+        btnUsuarioGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 1, 80));
         btnUsuarioGrafi.setBorderPainted(false);
+        btnUsuarioGrafi.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         btnUsuarioGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioGrafiActionPerformed(evt);
@@ -165,11 +167,11 @@ public class Menú extends javax.swing.JFrame {
         });
 
         btnEstadisticasGrafi.setBackground(new java.awt.Color(133, 175, 75));
-        btnEstadisticasGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnEstadisticasGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnEstadisticasGrafi.setForeground(new java.awt.Color(255, 255, 255));
         btnEstadisticasGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Estadisticas menu.png"))); // NOI18N
-        btnEstadisticasGrafi.setText("Estadisticas");
-        btnEstadisticasGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 55));
+        btnEstadisticasGrafi.setText("  Estadisticas");
+        btnEstadisticasGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 25));
         btnEstadisticasGrafi.setBorderPainted(false);
         btnEstadisticasGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,11 +180,11 @@ public class Menú extends javax.swing.JFrame {
         });
 
         btnPostulantesGrafi.setBackground(new java.awt.Color(133, 175, 75));
-        btnPostulantesGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnPostulantesGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnPostulantesGrafi.setForeground(new java.awt.Color(255, 255, 255));
         btnPostulantesGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/CV Menu.png"))); // NOI18N
-        btnPostulantesGrafi.setText("Postulantes");
-        btnPostulantesGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 45));
+        btnPostulantesGrafi.setText(" Postulantes");
+        btnPostulantesGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 1, 35));
         btnPostulantesGrafi.setBorderPainted(false);
         btnPostulantesGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,11 +193,11 @@ public class Menú extends javax.swing.JFrame {
         });
 
         btnNotificacionesGrafi.setBackground(new java.awt.Color(133, 175, 75));
-        btnNotificacionesGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnNotificacionesGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnNotificacionesGrafi.setForeground(new java.awt.Color(255, 255, 255));
         btnNotificacionesGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/NotificacionesMenu.png"))); // NOI18N
-        btnNotificacionesGrafi.setText("Notificaciones");
-        btnNotificacionesGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 35));
+        btnNotificacionesGrafi.setText("  Notificaciones");
+        btnNotificacionesGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 1, 10));
         btnNotificacionesGrafi.setBorderPainted(false);
         btnNotificacionesGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,11 +206,11 @@ public class Menú extends javax.swing.JFrame {
         });
 
         btnConfiguracionGrafi.setBackground(new java.awt.Color(133, 175, 75));
-        btnConfiguracionGrafi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnConfiguracionGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnConfiguracionGrafi.setForeground(new java.awt.Color(255, 255, 255));
         btnConfiguracionGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Configuracion Menu.png"))); // NOI18N
-        btnConfiguracionGrafi.setText("Configuracion");
-        btnConfiguracionGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 35));
+        btnConfiguracionGrafi.setText("  Configuracion");
+        btnConfiguracionGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 7, 1, 9));
         btnConfiguracionGrafi.setBorderPainted(false);
         btnConfiguracionGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,18 +256,19 @@ public class Menú extends javax.swing.JFrame {
                 .addComponent(btnPostulantesGrafi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnConfiguracionGrafi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(81, 81, 81)
                 .addComponent(btnSalirPostu)
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
+        PanelHolder.setBackground(new java.awt.Color(239, 245, 213));
         PanelHolder.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout PanelHolderLayout = new javax.swing.GroupLayout(PanelHolder);
         PanelHolder.setLayout(PanelHolderLayout);
         PanelHolderLayout.setHorizontalGroup(
             PanelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1141, Short.MAX_VALUE)
+            .addGap(0, 1145, Short.MAX_VALUE)
         );
         PanelHolderLayout.setVerticalGroup(
             PanelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,6 +375,7 @@ public class Menú extends javax.swing.JFrame {
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();
             previo.revalidate();
+            PanelHolder.setPreferredSize(d);
 
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);

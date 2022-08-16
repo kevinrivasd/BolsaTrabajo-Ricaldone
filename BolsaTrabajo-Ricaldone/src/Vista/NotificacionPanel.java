@@ -66,9 +66,11 @@ public class NotificacionPanel extends javax.swing.JPanel {
         jPanel8.setBackground(new java.awt.Color(239, 245, 213));
         jPanel8.setPreferredSize(new java.awt.Dimension(1075, 833));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(88, 117, 42));
         jLabel3.setText("Notificaciones");
 
+        dgvNoti.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dgvNoti.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -80,7 +82,6 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        dgvNoti.setSelectionBackground(new java.awt.Color(193, 233, 118));
         jScrollPane1.setViewportView(dgvNoti);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -100,8 +101,8 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(323, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -112,7 +113,9 @@ public class NotificacionPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

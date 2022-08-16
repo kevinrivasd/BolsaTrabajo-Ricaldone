@@ -497,6 +497,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         lblTodo.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 140, 30));
 
+        jLabel21.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Recu_regresar.png"))); // NOI18N
         jLabel21.setText("Regresar");
         jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -504,11 +505,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 jLabel21MouseClicked(evt);
             }
         });
-        lblTodo.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
+        lblTodo.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
         jLabel22.setText("Postulantes");
-        lblTodo.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        lblTodo.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, -1));
 
         jScrollPane5.setViewportView(lblTodo);
 
@@ -588,15 +589,15 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         String mail = txtCorreoPost.getText();
         int res;
         try {
-            if (verificar_email(mail)) {
-                if (!Controlador.Utils.emptyFields(Required)) {
+            if (!Controlador.Utils.emptyFields(Required)) {
+                if (verificar_email(mail)) {
                     res = Controlador.ControladorPostulante.AgreparPostulante(All);
                     JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
                 } else {
-                    JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+                    JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
 
         } catch (Exception ex) {
@@ -707,15 +708,15 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         String mail = txtCorreoPost.getText();
         int res;
         try {
-            if (verificar_email(mail)) {
-                if (!Controlador.Utils.emptyFields(Required)) {
+            if (!Controlador.Utils.emptyFields(Required)) {
+                if (verificar_email(mail)) {
                     res = Controlador.ControladorPostulante.ActualizarPostulante(All);
                     JOptionPane.showInternalMessageDialog(null, "Postulante actualizado exitosamente", "Confirmacion", 1);
                 } else {
-                    JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+                    JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
             }
 
         } catch (Exception ex) {

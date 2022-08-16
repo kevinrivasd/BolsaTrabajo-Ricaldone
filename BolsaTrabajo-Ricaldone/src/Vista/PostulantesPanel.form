@@ -141,9 +141,6 @@
                   <Color blue="76" green="e9" red="c1" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JTPostulantesMouseClicked"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

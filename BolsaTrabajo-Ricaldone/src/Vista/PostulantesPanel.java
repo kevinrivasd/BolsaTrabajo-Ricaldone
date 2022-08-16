@@ -97,11 +97,6 @@ public class PostulantesPanel extends javax.swing.JPanel {
         JTPostulantes.setMinimumSize(new java.awt.Dimension(400, 64));
         JTPostulantes.setName(""); // NOI18N
         JTPostulantes.setSelectionBackground(new java.awt.Color(193, 233, 118));
-        JTPostulantes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTPostulantesMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(JTPostulantes);
 
         txtFiltroPost.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -195,10 +190,6 @@ public class PostulantesPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_txtFiltroPostKeyTyped
-
-    private void JTPostulantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPostulantesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTPostulantesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

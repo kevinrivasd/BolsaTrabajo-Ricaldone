@@ -8,8 +8,10 @@ import com.finalhints.HttpClient;
 import com.finalhints.Request;
 import com.finalhints.RequestMethod;
 import com.finalhints.Response;
+import java.io.FileInputStream;
 import javax.swing.JOptionPane;
 import java.util.*;
+import org.jfree.io.IOUtils;
 
 /**
  *
@@ -31,7 +33,11 @@ public class ControladorRecu {
           Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
           String emailString = Modelo.ModeloRecu.sentCode(nameUser);
           //Form-Data
-          request.form("email", emailString).form("Codigo", randomCode).form("subject", "Código de verificación de Sacculum").form("text", "Tu código de verificación es: ");
+            request.form("email", emailString)
+                   .form("Codigo", randomCode)
+                   .form("subject", "Código de verificación de Sacculum")
+                   .form("text", "Tu código de verificación es: ")
+                   .form("base64", "");
 
           Response response = new HttpClient(request).execute();
               if (response.getStatusCode() == 200) {

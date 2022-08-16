@@ -250,4 +250,20 @@ public class ModeloUtils {
         return miModelo;
     }   
 
+    public static String getPDF() throws SQLException, Exception {
+        String b64 = "";
+        
+        Connection sql = ControladorConexion.getConection();
+        
+        String squery = "SELECT resumePDF FROM Postulants WHERE idPostulant = 2;" ;
+        PreparedStatement consult = sql.prepareStatement(squery);
+
+        ResultSet res = consult.executeQuery();
+        
+        while (res.next()) {
+            b64 += res.getString("resumePDF");            
+        }
+        return b64;
+    }
+
 }

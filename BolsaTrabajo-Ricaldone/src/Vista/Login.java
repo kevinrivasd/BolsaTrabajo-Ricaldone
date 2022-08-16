@@ -76,24 +76,37 @@ public class Login extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(244, 244, 244));
         jPanel3.setPreferredSize(new java.awt.Dimension(500, 486));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
+        txtUser.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jPanel3.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 183, 297, 37));
+        txtUser.getAccessibleContext().setAccessibleName("txtUser");
+
+        txtPassword.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jPanel3.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 346, 297, 37));
+        txtPassword.getAccessibleContext().setAccessibleName("txtContra");
+
+        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User Login.png"))); // NOI18N
-        jLabel2.setText("Usuario");
+        jLabel2.setText("   Usuario");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 134, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/key login.png"))); // NOI18N
-        jLabel5.setText("Contraseña");
+        jLabel5.setText("   Contraseña");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 295, -1, -1));
 
-        btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        btnIniciarSesion.setText("Ingresar");
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
+        jPanel3.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 455, 126, 50));
 
         jLabel1.setBackground(new java.awt.Color(133, 175, 75));
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(133, 175, 75));
         jLabel1.setText("¿Olvidaste tu Contraseña?");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,48 +114,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(123, 123, 123))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                                .addComponent(txtPassword))
-                            .addComponent(jLabel2))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        txtUser.getAccessibleContext().setAccessibleName("txtUser");
-        txtPassword.getAccessibleContext().setAccessibleName("txtContra");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 468, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

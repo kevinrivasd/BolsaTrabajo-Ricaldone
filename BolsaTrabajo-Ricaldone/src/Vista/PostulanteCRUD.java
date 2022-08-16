@@ -228,7 +228,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 320, 140, 32));
+        lblTodo.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 140, 32));
 
         BtnActualizar.setText("Actualizar");
         BtnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +236,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnActualizarActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 140, 30));
+        lblTodo.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 140, 30));
         lblTodo.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 176, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -264,7 +264,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnImageAddActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, 140, 30));
+        lblTodo.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setText("Genero");
@@ -282,19 +282,19 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jLabel6.setText("Departamento en donde reside");
         lblTodo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
 
-        lblTodo.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 140, -1));
+        lblTodo.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 190, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel7.setText("Departamento de preferencia");
         lblTodo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, -1, -1));
 
-        lblTodo.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 140, -1));
+        lblTodo.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 190, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel8.setText("Progreso");
         lblTodo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
 
-        lblTodo.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 140, -1));
+        lblTodo.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 190, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel9.setText("Apellidos del postulante");
@@ -323,13 +323,13 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jLabel14.setText("Tipo de contrato");
         lblTodo.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, -1, -1));
 
-        lblTodo.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 140, -1));
+        lblTodo.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 190, -1));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel15.setText("Preferencias laborales");
         lblTodo.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
 
-        lblTodo.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 140, -1));
+        lblTodo.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 190, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel16.setText("Nivel universitario:");
@@ -379,7 +379,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAddPDFActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 140, 30));
+        lblTodo.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 240, 140, 30));
         lblTodo.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(811, 759, -1, -1));
 
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
@@ -402,7 +402,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTPostulantes);
 
-        lblTodo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 780, 150));
+        lblTodo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 810, 150));
         lblTodo.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, -1));
 
         lblID.setText("ID:");
@@ -482,7 +482,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jScrollPane4.setViewportView(ATable);
 
         lblTodo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 190, 120));
-        lblTodo.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 69, 124, 122));
+        lblTodo.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 62, 124, 130));
 
         BtnLimpiarCampos.setText("Limpiar Campos");
         BtnLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -490,7 +490,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnLimpiarCamposActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, 140, 30));
+        lblTodo.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 140, 30));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Recu_regresar.png"))); // NOI18N
         jLabel21.setText("Regresar");
@@ -511,7 +511,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1786, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

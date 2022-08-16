@@ -79,6 +79,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 192, -1, -1));
 
         txtuser.setBackground(new java.awt.Color(218, 213, 212));
+        txtuser.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jPanel2.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 241, 374, 43));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User Login.png"))); // NOI18N
@@ -109,6 +110,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         jLabel11.setText("Volver a inicio de sesión");
 
         txtcode.setBackground(new java.awt.Color(218, 213, 212));
+        txtcode.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
 
         btnVerificar.setText("Verificar");
         btnVerificar.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -87,7 +87,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
         try {
             ResultSet rs = CargarUser.CargarUsuariosController();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idUser"), rs.getString("States"), rs.getString("nameUser"), rs.getString("Pword"), rs.getString("mailuser"), rs.getInt("numberUser"), rs.getString("Rol"), rs.getInt("mailverification"), rs.getString("Genders")};
+                Object[] oValores = {rs.getInt("idUser"), rs.getInt("idState"), rs.getString("nameUser"), rs.getString("Pword"), rs.getString("mailuser"), rs.getInt("numberUser"), rs.getInt("idRol"), rs.getInt("mailverification"), rs.getInt("idGender")};
                 user.addRow(oValores);
             }
         } catch (Exception e) {

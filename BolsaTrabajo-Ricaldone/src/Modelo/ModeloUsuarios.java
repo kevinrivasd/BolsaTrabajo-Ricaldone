@@ -19,7 +19,7 @@ public class ModeloUsuarios {
         Connection con;
         try {
             con = ControladorConexion.getConection();
-            String query = "SELECT * FROM VUsuarios";
+            String query = "SELECT * FROM UserSystems";
         PreparedStatement consult = con.prepareStatement(query);
         ResultSet rs = consult.executeQuery();
         return rs;

@@ -10,8 +10,11 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.ResultSet;
 import org.xml.sax.Attributes;
 import java.util.ArrayList;
@@ -523,7 +526,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     public void LimpiarCampos() {
         txtNombrePost.setText("");
-        lblPdf.setIcon(new ImageIcon("src/recursos/candado.png"));
+        lblImage.setIcon(new ImageIcon("src/recursos/candado.png"));
         txtApellidoPost.setText("");
         txtContraseñaPost.setText("");
         txtCorreoPost.setText("");
@@ -603,6 +606,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
+    private String pdf = "";
     private void BtnAddPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddPDFActionPerformed
 //         TODO add your handling code here:
         JFileChooser browseImageFile = new JFileChooser();        //Filter image extensions
@@ -613,37 +617,28 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         if (num == JFileChooser.APPROVE_OPTION) {
             File selectedImageFile = browseImageFile.getSelectedFile();
             String selectedImagePath = selectedImageFile.getAbsolutePath();
-            //Display image on jlable
-            ImageIcon ii = new ImageIcon(selectedImagePath);
-//            Resize image to fit jlabel
-            Image image = ii.getImage().getScaledInstance(lblPdf.getWidth(), lblPdf.getHeight(), Image.SCALE_SMOOTH);
-
+            byte[] inFileBytes;
             try {
-                BufferedImage image1 = ImageIO.read(selectedImageFile);
-
-                byte[] immAsBytes;
-                //use another encoding if JPG is innappropriate for you
-                try ( ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                    //use another encoding if JPG is innappropriate for you
-                    ImageIO.write(image1, "pdf", baos);
-                    baos.flush();
-                    immAsBytes = baos.toByteArray();
-
-                }
-                try {
-                    S = Base64.getEncoder().encodeToString(immAsBytes);
-
-                } catch (Exception e) {
-                }
-
+                inFileBytes = Files.readAllBytes(Paths.get(selectedImagePath));
+                byte[] encoded = java.util.Base64.getEncoder().encode(inFileBytes);
+                pdf = Base64.getEncoder().encodeToString(inFileBytes);
+                decodePdf();
             } catch (IOException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            lblPdf.setIcon(new ImageIcon(image));
-
+            lblPdf.setText(selectedImagePath);
         }
     }//GEN-LAST:event_BtnAddPDFActionPerformed
+
+    private void decodePdf() throws IOException {
+        byte[] decoded = java.util.Base64.getDecoder().decode(pdf);
+
+        FileOutputStream fos = new FileOutputStream("Archivo.pdf");
+        fos.write(decoded);
+        fos.flush();
+        fos.close();
+    }
 
     private void JTPostulantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPostulantesMouseClicked
         // TODO add your handling code here:
@@ -811,7 +806,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
         data.put("imgByte", S);
-        data.put("resumePDF", "");
+        data.put("resumePDF", pdf);
         data.put("resumeDetails", "");
         data.put("mailverification", "0");
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
@@ -840,7 +835,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
         data.put("imgByte", S);
-        data.put("resumePDF", "");
+        data.put("resumePDF", pdf);
         data.put("resumeDetails", "");
         data.put("mailverification", "0");
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));

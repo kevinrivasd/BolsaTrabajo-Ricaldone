@@ -90,6 +90,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(244, 244, 244));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 380));
 
+        jButton2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jButton2.setText("Enviar correo");
         jButton2.setPreferredSize(new java.awt.Dimension(140, 30));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +113,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         txtcode.setBackground(new java.awt.Color(218, 213, 212));
         txtcode.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
 
+        btnVerificar.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         btnVerificar.setText("Verificar");
         btnVerificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

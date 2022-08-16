@@ -11,6 +11,7 @@ import Controlador.ControladorLogin;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+
 /**
  *
  * @author hello
@@ -20,15 +21,14 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    
 //    
     public Login() {
         initComponents();
-        
+
         Toolkit t = Toolkit.getDefaultToolkit();
-    
+
         Dimension h = t.getScreenSize();
-       
+
         setTitle("Login");
         this.setLocationRelativeTo(null);  // *** this will center your app ***
     }
@@ -82,7 +82,7 @@ public class Login extends javax.swing.JFrame {
         jPanel3.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 183, 297, 37));
         txtUser.getAccessibleContext().setAccessibleName("txtUser");
 
-        txtPassword.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel3.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 346, 297, 37));
         txtPassword.getAccessibleContext().setAccessibleName("txtContra");
 
@@ -139,21 +139,22 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_btnIniciarSesionActionPerformed
 
-       String user;
-       char[] password;
+        String user;
+        char[] password;
         try {
             user = txtUser.getText();
             password = txtPassword.getPassword();
             String num = ControladorLogin.Login(user, password);
-            
-            if ("".equals(num)) JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
-            else {                
+
+            if ("".equals(num)) {
+                JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
+            } else {
                 JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
                 Menú newfrm = new Menú(num);
-                        newfrm.setVisible(true);
-                        this.dispose();                
+                newfrm.setVisible(true);
+                this.dispose();
             }
-            
+
         } catch (Exception e) {
             //TODO: handle exception
             JOptionPane.showMessageDialog(null, "e: " + e.getMessage());
@@ -171,7 +172,7 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-         java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
             }

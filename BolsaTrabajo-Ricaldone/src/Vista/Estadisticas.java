@@ -54,6 +54,9 @@ public class Estadisticas extends javax.swing.JPanel {
         tblConsultas = new javax.swing.JTable();
         panelHolder = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(239, 245, 213));
+        setPreferredSize(new java.awt.Dimension(1141, 478));
+
         tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -71,7 +74,7 @@ public class Estadisticas extends javax.swing.JPanel {
         panelHolder.setLayout(panelHolderLayout);
         panelHolderLayout.setHorizontalGroup(
             panelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGap(0, 954, Short.MAX_VALUE)
         );
         panelHolderLayout.setVerticalGroup(
             panelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,13 +86,13 @@ public class Estadisticas extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(879, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(136, 136, 136))
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(panelHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(472, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

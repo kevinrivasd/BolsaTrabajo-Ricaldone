@@ -7,11 +7,14 @@ package Vista;
 import desplazable.Desface;
 import desplazable.Desface;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -23,7 +26,7 @@ public class Menú extends javax.swing.JFrame {
 
     /**
      * Creates new form Menú
-     */
+     */    
     Desface desplace;
     Dimension d = new Dimension(500, 757);
     public JPanel previo = new JPanel();
@@ -42,6 +45,17 @@ public class Menú extends javax.swing.JFrame {
         previo.revalidate();
         nameUser = user;
         cargarProps(nameUser);
+        
+        if (userLevel.get(2).equals("2")) {
+            Color myGreen = new Color(50, 63, 27);
+            
+            Icon icon = new ImageIcon("src/recursos/User menu.png");
+            btnUsuarioGrafi.setDisabledIcon(icon);
+            btnUsuarioGrafi.setIcon(icon);
+            
+            btnUsuarioGrafi.setBackground(myGreen);
+            btnUsuarioGrafi.setEnabled(false);
+        }
     }
 
     public static List<String> cargarProps(String nameUserLocal) {

@@ -7,7 +7,10 @@ package Vista;
 import Controlador.ControladorNotificaciones;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -80,7 +83,11 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        dgvNoti.setSelectionBackground(new java.awt.Color(193, 233, 118));
+        dgvNoti.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dgvNotiMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(dgvNoti);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -100,8 +107,8 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -112,11 +119,37 @@ public class NotificacionPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void dgvNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvNotiMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 1) {
+            try {
+                var idPostulante = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 1);
+
+                String mailUser = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 3).toString();
+                
+                if (idPostulante != null) {
+                    String b64 = Modelo.ModeloUtils.getPDF(idPostulante.toString());
+                    if (!b64.equals("") && !mailUser.equals("")) {
+                        Controlador.Utils.sendPDF(b64, mailUser);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Este postulante no tiene pdf aun");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debes crearle una cuenta a este usuario");
+                }
+
+            } catch (Exception ex) {
+                Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_dgvNotiMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable dgvNoti;

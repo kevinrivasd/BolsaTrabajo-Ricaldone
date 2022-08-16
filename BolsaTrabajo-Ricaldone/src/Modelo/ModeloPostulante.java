@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  *
@@ -21,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ModeloPostulante {
 
-    public static int AgregarPostulante(HashMap<String, String> dataMap) throws Exception, Exception {
+    public static int AgregarPostulante(LinkedHashMap<String, String> dataMap) throws Exception, Exception {
         Connection sql = ControladorConexion.getConection();
         String query = "INSERT INTO Postulants VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         byte[] decode2 = Base64.getDecoder().decode(dataMap.get("resumePDF"));
@@ -31,7 +32,7 @@ public class ModeloPostulante {
         consult.setString(2, dataMap.get("mailPostulant"));
         consult.setString(3, dataMap.get("Pword"));
         consult.setString(4, dataMap.get("imgByte"));//Add image
-        consult.setBytes(5, decode2);
+        consult.setString(5, dataMap.get("resumePDF"));
         consult.setString(6, dataMap.get("resumeDetails"));
         consult.setInt(7, Integer.parseInt(dataMap.get("mailverification")));
         consult.setInt(8, Integer.parseInt(dataMap.get("Gender")));
@@ -54,7 +55,7 @@ public class ModeloPostulante {
         return res ? 1 : 0;
     }
 
-    public static int ActualizarPostulante(HashMap<String, String> dataMap) throws Exception, Exception {
+    public static int ActualizarPostulante(LinkedHashMap<String, String> dataMap) throws Exception, Exception {
         Connection sql = ControladorConexion.getConection();
         String query = "UPDATE Postulants SET namePostulant = ?, mailPostulant = ?, Pword = ?, photoPostulant = ?, resumePDF= ?, resumeDetails = ?, mailverification= ?, Gender = ?,States = ?, Alumni = ?, RDepartment = ?, IDepartment = ?, WSubject = ?, Progress = ?, Salary = ?, HighType = ?, ContractType = ?, WorkPreference = ?, StudyLevel = ?, WorkStatus = ?, lastName = ? WHERE idPostulant = ?";
 
@@ -66,7 +67,7 @@ public class ModeloPostulante {
         consult.setString(2, dataMap.get("mailPostulant"));
         consult.setString(3, dataMap.get("Pword"));
         consult.setString(4, dataMap.get("imgByte"));//Add image
-        consult.setBytes(5, decode2);
+        consult.setString(5, dataMap.get("resumePDF"));
         consult.setString(6, dataMap.get("resumeDetails"));
         consult.setInt(7, Integer.parseInt(dataMap.get("mailverification")));
         consult.setInt(8, Integer.parseInt(dataMap.get("Gender")));

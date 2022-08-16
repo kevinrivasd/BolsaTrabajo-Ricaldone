@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -348,6 +349,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         CheckAlumni.setText("Ex-alumno");
         lblTodo.add(CheckAlumni, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 110, 30));
+        CheckAlumni.setText("Ex-alumno");
         lblTodo.add(lblPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 496, 100, 30));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -525,6 +527,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void LimpiarCampos() {
+        lblPdf.setText("");
         txtNombrePost.setText("");
         lblImage.setIcon(new ImageIcon("src/recursos/candado.png"));
         txtApellidoPost.setText("");
@@ -578,8 +581,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
-        HashMap<String, String> All = new HashMap<>();
-        HashMap<String, String> Required = new HashMap<>();
+        LinkedHashMap<String, String> All = new LinkedHashMap<>();
+        LinkedHashMap<String, String> Required = new LinkedHashMap<>();
         All = CollectAllAdd();
         Required = CollectRequiredAdd();
         String mail = txtCorreoPost.getText();
@@ -650,7 +653,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 0).toString());
             txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 1).toString());
             txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 2).toString());
-            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 3).toString());
+//            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 3).toString());
 //            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
             byte[] btDataFile;
             btDataFile = Base64.getDecoder().decode(Table.getModel().getValueAt(Table.getSelectedRow(), 4).toString());
@@ -669,7 +672,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
             cmbGenero.setSelectedItem(dataGender.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString())));
             cmbEstadoPost.setSelectedItem(dataStatus.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 9).toString())));
-            CheckAlumni.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 10).toString());
+            if(Table.getModel().getValueAt(Table.getSelectedRow(), 10).toString().equals("true")){
+                CheckAlumni.setSelected(true);
+            }else{
+                CheckAlumni.setSelected(false);
+            }
             cmbDepartPreferencia.setSelectedItem(dptoPreferencia.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 11).toString())));
             cmbDepartReside.setSelectedItem(dptoReside.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 12).toString())));
             cmbTipoTrabajo.setSelectedItem(TTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 13).toString())));
@@ -693,8 +700,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
     private void BtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActualizarActionPerformed
         // TODO add your handling code here:
-        HashMap<String, String> All = new HashMap<>();
-        HashMap<String, String> Required = new HashMap<>();
+        LinkedHashMap<String, String> All = new LinkedHashMap<>();
+        LinkedHashMap<String, String> Required = new LinkedHashMap<>();
         All = CollectAllUpdate();
         Required = CollectRequiredUptade();
         String mail = txtCorreoPost.getText();
@@ -798,8 +805,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         return mat.find();
     }
 
-    private HashMap<String, String> CollectAllAdd() {
-        HashMap<String, String> data = new HashMap<>();
+    private LinkedHashMap<String, String> CollectAllAdd() {
+        LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
 
         data.put("namePostulant", txtNombrePost.getText());
@@ -827,8 +834,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         return data;
     }
 
-    private HashMap<String, String> CollectAllUpdate() {
-        HashMap<String, String> data = new HashMap<>();
+    private LinkedHashMap<String, String> CollectAllUpdate() {
+        LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
 
         data.put("namePostulant", txtNombrePost.getText());
@@ -857,8 +864,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         return data;
     }
 
-    private HashMap<String, String> CollectRequiredAdd() {
-        HashMap<String, String> data = new HashMap<>();
+    private LinkedHashMap<String, String> CollectRequiredAdd() {
+        LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
 
         data.put("namePostulant", txtNombrePost.getText());
@@ -883,8 +890,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         return data;
     }
 
-    private HashMap<String, String> CollectRequiredUptade() {
-        HashMap<String, String> data = new HashMap<>();
+    private LinkedHashMap<String, String> CollectRequiredUptade() {
+        LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
 
         data.put("namePostulant", txtNombrePost.getText());

@@ -6,6 +6,7 @@ package Controlador;
 
 import java.sql.ResultSet;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  *
@@ -13,11 +14,11 @@ import java.util.HashMap;
  */
 public class ControladorPostulante {
 
-    public static int AgreparPostulante(HashMap<String, String> dataMap) throws Exception {
+    public static int AgreparPostulante(LinkedHashMap<String, String> dataMap) throws Exception {
         return Modelo.ModeloPostulante.AgregarPostulante(dataMap);
     }
 
-    public static int ActualizarPostulante(HashMap<String, String> dataMap) throws Exception {
+    public static int ActualizarPostulante(LinkedHashMap<String, String> dataMap) throws Exception {
         return Modelo.ModeloPostulante.ActualizarPostulante(dataMap);
     }
 

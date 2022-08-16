@@ -4,6 +4,10 @@
  */
 package Controlador;
 
+import com.finalhints.HttpClient;
+import com.finalhints.Request;
+import com.finalhints.RequestMethod;
+import com.finalhints.Response;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -11,6 +15,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -117,6 +122,32 @@ public static DefaultTableModel buildTableModel(ResultSet rs)
 
     public static List<String> getUserData(String nameUser) throws Exception {
         return Modelo.ModeloUtils.getUserData(nameUser);
+    }
+    
+       public static String sendPDF(String b64, String mail) {
+
+         try{
+          Random rand = new Random();
+             int randomCode = rand.nextInt(999999);
+          Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
+          String emailString = mail;
+          //Form-Data
+            request.form("email", emailString)
+                   .form("subject", "Código de verificación de Sacculum")
+                   .form("text", "Este es el Curriculum del postulante que solicitaste: ")
+                   .form("base64", b64);
+
+          Response response = new HttpClient(request).execute();
+              if (response.getStatusCode() == 200) {
+                  JOptionPane.showMessageDialog(null, "Email enviado con exito, por favor verifica en SPAM.");
+              }else{                
+                  JOptionPane.showMessageDialog(null, "Hubo un error");
+              }
+            return emailString;
+        }catch (Exception ex) {
+              JOptionPane.showMessageDialog(null, ex);
+          }
+         return null;    
     }
 
 }

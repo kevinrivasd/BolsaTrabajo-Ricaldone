@@ -5,9 +5,12 @@
 package Vista;
 
 import Controlador.ControladorNotificaciones;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -82,6 +85,11 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        dgvNoti.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dgvNotiMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(dgvNoti);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -118,6 +126,32 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void dgvNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvNotiMouseClicked
+        // TODO add your handling code here:
+                if (evt.getClickCount() == 1) {
+            try {
+                var idPostulante = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 1);
+
+                String mailUser = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 3).toString();
+
+                if (idPostulante != null) {
+                    String b64 = Modelo.ModeloUtils.getPDF(idPostulante.toString());
+                    if (!b64.equals("") && !mailUser.equals("")) {
+                        Controlador.Utils.sendPDF(b64, mailUser);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Este postulante no tiene pdf aun");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debes crearle una cuenta a este usuario");
+                }
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex);
+//                Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_dgvNotiMouseClicked
 
     
 

@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.text.MaskFormatter;
+import Controlador.ControladorUsuario;
 
 /**
  *
@@ -42,9 +43,14 @@ public class UsuariosPanel extends javax.swing.JPanel {
     public HashMap<Integer, String> dataRols;
     public HashMap<Integer, String> dataState;
     public TableRowSorter<TableModel> sorter;
+    DefaultTableModel user;
 
     public UsuariosPanel() throws Exception {
         initComponents();
+        String[] Encabezados = {"ID", "Estado", "Usuario", "Contraseña", "Correo", "Numero", "Rol", "Verificacion de correo", "Genero"};
+        user = new DefaultTableModel(null, Encabezados);
+        dgvUsers.setModel(user);
+        CargarTabla();
         dataGender = Controlador.Utils.getDataTable("Genders");
 
         for (int k = 1; k <= dataGender.size(); k++) {
@@ -62,15 +68,31 @@ public class UsuariosPanel extends javax.swing.JPanel {
         for (int k = 1; k <= dataState.size(); k++) {
             cmbEstado.addItem(dataState.get(k));
         }
-        DefaultTableModel model = new DefaultTableModel();
-        model = Controlador.Utils.rtrnTqble("UserSystems");
+//        DefaultTableModel model = new DefaultTableModel();
+//        model = Controlador.Utils.rtrnTqble("UserSystems");
 
-        dgvUsers.setModel(model);
+//        dgvUsers.setModel(model);
         txtContra.setTransferHandler(null);
         txtID.setVisible(false);
 
-        sorter = new TableRowSorter<>(model);
-        dgvUsers.setRowSorter(sorter);
+//        sorter = new TableRowSorter<>(model);
+//        dgvUsers.setRowSorter(sorter);
+    }
+
+    final void CargarTabla() {
+        ControladorUsuario CargarUser = new ControladorUsuario();
+        while (user.getRowCount() > 0) {
+            user.removeRow(0);
+        }
+        try {
+            ResultSet rs = CargarUser.CargarUsuariosController();
+            while (rs.next()) {
+                Object[] oValores = {rs.getInt("idUser"), rs.getInt("idState"), rs.getString("nameUser"), rs.getString("Pword"), rs.getString("mailuser"), rs.getInt("numberUser"), rs.getInt("idRol"), rs.getInt("mailverification"), rs.getInt("idGender")};
+                user.addRow(oValores);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
     }
 
     /**
@@ -420,7 +442,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 if (verificar_email(mail)) {
                     res = Controlador.Utils.Agregar(datos, "UserSystems");
                     JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado" : "Hubo un error");
-
+                    CargarTabla();
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
@@ -457,7 +479,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 int res = Controlador.Utils.eliminar(id, "UserSystems", "idUser");
                 if (res == 1) {
                     JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente");
-
+                    CargarTabla();
                 } else {
                     JOptionPane.showMessageDialog(null, res);
                 }
@@ -532,6 +554,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                     Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
+                CargarTabla();
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor revisa que los campos a parte de la contraseña estén correctamente llenos.");
             }

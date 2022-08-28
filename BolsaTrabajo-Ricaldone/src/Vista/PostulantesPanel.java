@@ -24,6 +24,13 @@ import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.sf.jasperreports.engine.JasperReport;
+import java.sql.Connection;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -65,6 +72,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
         JTPostulantes = new javax.swing.JTable();
         txtFiltroPost = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btnGenerarReporte = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1100, 700));
 
@@ -111,6 +119,13 @@ public class PostulantesPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
         jLabel1.setText("Icono");
 
+        btnGenerarReporte.setText("Generar reporte");
+        btnGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarReporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -118,9 +133,12 @@ public class PostulantesPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFiltroPost, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +165,9 @@ public class PostulantesPanel extends javax.swing.JPanel {
                             .addComponent(BtnCrudPostuAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGenerarReporte, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -195,10 +215,31 @@ public class PostulantesPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtFiltroPostKeyTyped
 
+    private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
+        try {
+//               ControladorConexion con = new ControladorConexion();
+            Connection conn = ControladorConexion.getConection();
+            JasperReport reporte;
+            String url = "src\\Reportes\\Postulantes.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(url);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+
+            JasperViewer vista = new JasperViewer(jprint, false);
+
+            vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+            vista.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+
+    }//GEN-LAST:event_btnGenerarReporteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCrudPostuAdd;
     private javax.swing.JTable JTPostulantes;
+    private javax.swing.JButton btnGenerarReporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;

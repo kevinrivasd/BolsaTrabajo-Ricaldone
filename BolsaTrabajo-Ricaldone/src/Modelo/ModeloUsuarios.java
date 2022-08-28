@@ -28,4 +28,20 @@ public class ModeloUsuarios {
             return null;
         }
     }
+    
+    public static boolean ValidarUser(String user){
+        Connection con;
+        try {
+            con = ControladorConexion.getConection();
+            String query = "SELECT * FROM UserSystems where nameUser = ?";
+        PreparedStatement consult = con.prepareStatement(query);
+        consult.setString(1, user);
+        consult.execute();
+        return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return false;
+        }
+    }
+    
 }

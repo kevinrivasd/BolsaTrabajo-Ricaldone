@@ -3,19 +3,112 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controlador;
+
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import Modelo.ModeloUsuarios;
+
 /**
  *
  * @author Kevin Rivas
  */
 public class ControladorUsuario {
-    ModeloUsuarios modeluser = new ModeloUsuarios();
-    
-    public ResultSet CargarUsuariosController(){
-    return ModeloUsuarios.CargarUsuarios();
-}
 
+    ModeloUsuarios modeluser = new ModeloUsuarios();
+
+    public ResultSet CargarUsuariosController() {
+        return ModeloUsuarios.CargarUsuarios();
+    }
+
+    public int idUser;
+    public int idState;
+    public String nameUser;
+    public String Pword;
+    public String mailUser;
+    public int numberUser;
+    public int idRol;
+    public int mailverification;
+    public int idGender;
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public int getIdState() {
+        return idState;
+    }
+
+    public void setIdState(int idState) {
+        this.idState = idState;
+    }
+
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
+
+    public String getPword() {
+        return Pword;
+    }
+
+    public void setPword(String Pword) {
+        this.Pword = Pword;
+    }
+
+    public String getMailUser() {
+        return mailUser;
+    }
+
+    public void setMailUser(String mailUser) {
+        this.mailUser = mailUser;
+    }
+
+    public int getNumberUser() {
+        return numberUser;
+    }
+
+    public void setNumberUser(int numberUser) {
+        this.numberUser = numberUser;
+    }
+
+    public int getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
+    }
+
+    public int getMailverification() {
+        return mailverification;
+    }
+
+    public void setMailverification(int mailverification) {
+        this.mailverification = mailverification;
+    }
+
+    public int getIdGender() {
+        return idGender;
+    }
+
+    public void setIdGender(int idGender) {
+        this.idGender = idGender;
+    }
+
+
+    public ControladorUsuario() {
+    }
+
+    public boolean ValidarUserController(String user){
+        return ModeloUsuarios.ValidarUser(nameUser);
+    }
+    
 }

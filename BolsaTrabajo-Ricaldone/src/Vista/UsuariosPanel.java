@@ -468,13 +468,21 @@ public class UsuariosPanel extends javax.swing.JPanel {
         LinkedHashMap<String, String> datos = CollectData();
         String mail = txtCorreo.getText();
         int res;
+        ControladorUsuario us = new ControladorUsuario();
+        String user = txtUsuario.getText();
+//        ResultSet rs = us.ValidarUserController();
         try {
 
             if (!Controlador.Utils.emptyFields(datos)) {
                 if (verificar_email(mail)) {
-                    res = Controlador.Utils.Agregar(datos, "UserSystems");
-                    JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado" : "Hubo un error");
-                    CargarTabla();
+                    if (us.ValidarUserController(user)) {
+                        res = Controlador.Utils.Agregar(datos, "UserSystems");
+                        JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado" : "Hubo un error");
+                        CargarTabla();
+                        limpiarCampos();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Xfavor");
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
@@ -512,6 +520,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 if (res == 1) {
                     JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente");
                     CargarTabla();
+                    limpiarCampos();
                 } else {
                     JOptionPane.showMessageDialog(null, res);
                 }
@@ -587,6 +596,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 }
                 JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
                 CargarTabla();
+                limpiarCampos();
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor revisa que los campos a parte de la contraseña estén correctamente llenos.");
             }
@@ -597,7 +607,8 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 try {
                     int res = Controlador.Utils.actualizar(data, id, "UserSystems", "idUser");
                     JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
-
+                    CargarTabla();
+                    limpiarCampos();
                 } catch (Exception ex) {
                     Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }

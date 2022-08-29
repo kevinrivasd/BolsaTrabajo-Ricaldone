@@ -59,7 +59,6 @@ public class ModeloPostulante {
         Connection sql = ControladorConexion.getConection();
         String query = "UPDATE Postulants SET namePostulant = ?, mailPostulant = ?, Pword = ?, photoPostulant = ?, resumePDF= ?, resumeDetails = ?, mailverification= ?, Gender = ?,States = ?, Alumni = ?, RDepartment = ?, IDepartment = ?, WSubject = ?, Progress = ?, Salary = ?, HighType = ?, ContractType = ?, WorkPreference = ?, StudyLevel = ?, WorkStatus = ?, lastName = ? WHERE idPostulant = ?";
 
-        
         byte[] decode2 = Base64.getDecoder().decode(dataMap.get("resumePDF"));
 
         PreparedStatement consult = sql.prepareStatement(query);
@@ -98,6 +97,38 @@ public class ModeloPostulante {
         try {
             con = ControladorConexion.getConection();
             String query = "SELECT * FROM Postulants";
+            ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            return rs;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+
+    }
+
+    public static ResultSet mostrarTablaV() throws Exception, Exception {
+        Connection con;
+        PreparedStatement ps;
+        try {
+            con = ControladorConexion.getConection();
+            String query = "SELECT * FROM V_Post";
+            ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            return rs;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+
+    }
+    
+    public static ResultSet TablaCRUD_V() throws Exception, Exception {
+        Connection con;
+        PreparedStatement ps;
+        try {
+            con = ControladorConexion.getConection();
+            String query = "SELECT * FROM V_PostCRUD";
             ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             return rs;

@@ -50,10 +50,11 @@ public class PostulantesPanel extends javax.swing.JPanel {
         initComponents();
 
         DefaultTableModel jPost = new DefaultTableModel();
-        jPost = Controlador.Utils.rtrnTqble("Postulants");
+        jPost = Controlador.Utils.rtrnTqble("V_Post");
         JTPostulantes.setModel(jPost);
         sorter = new TableRowSorter<>(jPost);
         JTPostulantes.setRowSorter(sorter);
+        
     }
 
     /**
@@ -104,6 +105,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTPostulantes.setFocusable(false);
         JTPostulantes.setGridColor(new java.awt.Color(0, 0, 0));
         JTPostulantes.setMinimumSize(new java.awt.Dimension(400, 64));
         JTPostulantes.setName(""); // NOI18N
@@ -231,6 +233,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
             vista.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
+            System.out.println(e.toString());
         }
 
     }//GEN-LAST:event_btnGenerarReporteActionPerformed

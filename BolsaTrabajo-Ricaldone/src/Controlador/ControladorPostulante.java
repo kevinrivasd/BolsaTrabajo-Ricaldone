@@ -25,5 +25,13 @@ public class ControladorPostulante {
     public ResultSet MostrarTablaControlador() throws Exception {
         return Modelo.ModeloPostulante.mostrarTabla();
     }
+    
+    public ResultSet MostrarTablaVControlador() throws Exception {
+        return Modelo.ModeloPostulante.mostrarTablaV();
+    }
+    
+    public ResultSet TablaCRUD_VController() throws Exception {
+        return Modelo.ModeloPostulante.TablaCRUD_V();
+    }
 
 }

@@ -74,7 +74,7 @@ public class Estadisticas extends javax.swing.JPanel {
         panelHolder.setLayout(panelHolderLayout);
         panelHolderLayout.setHorizontalGroup(
             panelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 954, Short.MAX_VALUE)
+            .addGap(0, 1099, Short.MAX_VALUE)
         );
         panelHolderLayout.setVerticalGroup(
             panelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +86,7 @@ public class Estadisticas extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(879, Short.MAX_VALUE)
+                .addContainerGap(1004, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(136, 136, 136))
             .addGroup(layout.createSequentialGroup()

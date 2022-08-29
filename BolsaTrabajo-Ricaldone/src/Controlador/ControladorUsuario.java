@@ -22,14 +22,14 @@ public class ControladorUsuario {
     }
 
     public int idUser;
-    public int idState;
+    public String idState;
     public String nameUser;
     public String Pword;
     public String mailUser;
     public int numberUser;
-    public int idRol;
+    public String idRol;
     public int mailverification;
-    public int idGender;
+    public String idGender;
 
     public int getIdUser() {
         return idUser;
@@ -39,11 +39,11 @@ public class ControladorUsuario {
         this.idUser = idUser;
     }
 
-    public int getIdState() {
+    public String getIdState() {
         return idState;
     }
 
-    public void setIdState(int idState) {
+    public void setIdState(String idState) {
         this.idState = idState;
     }
 
@@ -79,11 +79,11 @@ public class ControladorUsuario {
         this.numberUser = numberUser;
     }
 
-    public int getIdRol() {
+    public String getIdRol() {
         return idRol;
     }
 
-    public void setIdRol(int idRol) {
+    public void setIdRol(String idRol) {
         this.idRol = idRol;
     }
 
@@ -95,20 +95,19 @@ public class ControladorUsuario {
         this.mailverification = mailverification;
     }
 
-    public int getIdGender() {
+    public String getIdGender() {
         return idGender;
     }
 
-    public void setIdGender(int idGender) {
+    public void setIdGender(String idGender) {
         this.idGender = idGender;
     }
-
 
     public ControladorUsuario() {
     }
 
-    public boolean ValidarUserController(String user){
+    public boolean ValidarUserController(String user) {
         return ModeloUsuarios.ValidarUser(nameUser);
     }
-    
+
 }

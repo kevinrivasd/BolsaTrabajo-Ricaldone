@@ -77,6 +77,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
 
         sorter = new TableRowSorter<>(user);
         dgvUsers.setRowSorter(sorter);
+        txtRol.setVisible(false);
+        txtGender.setVisible(false);
+        txtState.setVisible(false);
     }
 
     final void CargarTabla() {
@@ -87,7 +90,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
         try {
             ResultSet rs = CargarUser.CargarUsuariosController();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idUser"), rs.getInt("idState"), rs.getString("nameUser"), rs.getString("Pword"), rs.getString("mailuser"), rs.getInt("numberUser"), rs.getInt("idRol"), rs.getInt("mailverification"), rs.getInt("idGender")};
+                Object[] oValores = {rs.getInt("idUser"), rs.getString("States"), rs.getString("nameUser"), rs.getString("Pword"), rs.getString("mailuser"), rs.getInt("numberUser"), rs.getString("Rol"), rs.getInt("mailverification"), rs.getString("Gender")};
                 user.addRow(oValores);
             }
         } catch (Exception e) {
@@ -126,6 +129,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
         txtContra = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
         txtNumero = new javax.swing.JFormattedTextField();
+        txtGender = new javax.swing.JTextField();
+        txtState = new javax.swing.JTextField();
+        txtRol = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvUsers = new javax.swing.JTable();
@@ -255,10 +261,15 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -268,7 +279,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel7)
                                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
@@ -278,7 +289,10 @@ public class UsuariosPanel extends javax.swing.JPanel {
                             .addComponent(jLabel5)
                             .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel6)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -298,26 +312,31 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(txtRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         try {
@@ -475,14 +494,14 @@ public class UsuariosPanel extends javax.swing.JPanel {
 
             if (!Controlador.Utils.emptyFields(datos)) {
                 if (verificar_email(mail)) {
-                    if (us.ValidarUserController(user)) {
+//                    if (us.ValidarUserController(user) == false) {
                         res = Controlador.Utils.Agregar(datos, "UserSystems");
                         JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado" : "Hubo un error");
                         CargarTabla();
                         limpiarCampos();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Xfavor");
-                    }
+//                    } else {
+//                        JOptionPane.showMessageDialog(null, "Xfavor");
+//                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
@@ -565,15 +584,17 @@ public class UsuariosPanel extends javax.swing.JPanel {
         if (evt.getClickCount() == 1) {
             JTable Table = (JTable) evt.getSource();
             txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 0).toString());
-            cmbEstado.setSelectedItem(dataState.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 1).toString())));
+            String idState = txtState.getText();
+            cmbEstado.setSelectedItem(idState + 1);
             txtUsuario.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 2).toString());
 
             //            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
             txtCorreo.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 4).toString());
             txtNumero.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 5).toString());
-            cmbRol.setSelectedItem(dataRols.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 6).toString())));
-            cmbGenero.setSelectedItem(dataGender.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString())));
-
+            String rol = txtRol.getText();
+            cmbRol.setSelectedItem(rol + 1);
+            String Genero = txtGender.getText();
+            cmbGenero.setSelectedItem(Genero + 1);
         }
     }//GEN-LAST:event_dgvUsersMouseClicked
 
@@ -695,8 +716,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField txtContra;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtFilter;
+    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtID;
     private javax.swing.JFormattedTextField txtNumero;
+    private javax.swing.JTextField txtRol;
+    private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

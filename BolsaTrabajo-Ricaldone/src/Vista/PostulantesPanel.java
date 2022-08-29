@@ -12,6 +12,8 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,7 +43,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
     /**
      * Creates new form PostulantesPanel
      */
-    DefaultTableModel Datos;
+//    DefaultTableModel Datos;
     TableRowSorter trsfiltro;
     public TableRowSorter<TableModel> sorter;
 //    public Menú men = new Menú();
@@ -220,16 +222,16 @@ public class PostulantesPanel extends javax.swing.JPanel {
     private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
         try {
 //               ControladorConexion con = new ControladorConexion();
-            Connection conn = ControladorConexion.getConection();
-            JasperReport reporte;
-            String url = "src\\Reportes\\Postulantes.jasper";
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(url);
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
-
+            Connection con = ControladorConexion.getConection();
+            JasperReport reporte = null;
+            String ruta;
+            Path path = Paths.get("");
+            ruta = path.toAbsolutePath().toString();
+            String path2 = path + "src\\Reportes\\Postulantes.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path2);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer vista = new JasperViewer(jprint, false);
-
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
             vista.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());

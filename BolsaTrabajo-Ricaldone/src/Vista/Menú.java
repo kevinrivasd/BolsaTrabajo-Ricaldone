@@ -375,7 +375,7 @@ public class Menú extends javax.swing.JFrame {
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();
             previo.revalidate();
-            PanelHolder.setPreferredSize(d);
+//            PanelHolder.setPreferredSize(d);
 
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);

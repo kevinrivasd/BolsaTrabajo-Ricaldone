@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.ControladorPostulante;
 import Controlador.Utils;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -66,7 +67,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     public String[] arrG = {"Skill", "idLevel"};
     public String[] arrA = {"NameSkill", "idLevel"};
     public String[] Branch = {"Branch", "idLevel"};
-
+    DefaultTableModel post;
     public PostulanteCRUD(int add) throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -75,7 +76,23 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         btnA.setEnabled(false);
         btnB.setEnabled(false);
         btnG.setEnabled(false);
+        txtContractType.setVisible(false);
+        txtIDepartment.setVisible(false);
+        txtRDepartment.setVisible(false);
+        txtestado.setVisible(false);
+        txtgenero.setVisible(false);
+        txthigtType.setVisible(false);
+        txtprogress.setVisible(false);
+        txtsalary.setVisible(false);
+        txtstudylevel.setVisible(false);
+        txtworkPreference.setVisible(false);
+        txtworkState.setVisible(false);
+        txtworktype.setVisible(false);
 
+        String[] Encabezados = {"ID", "Nombre del postulante", "COrreo del postulante", "Contraseña", "Foto", "Resumen PDF", "Resumen detalles", "Verificacion de correo", "Genero", "Estado", "Ex-Alumno", "Departamento de preferencia", "Departamento de residencia", "Trabajo", "Progreso", "Salario", "Bachillerato", "Tipo de trabajo", "Preferencia laboral", "Nivel de estudio", "Estado del trabajo", "Apellido"};
+        post = new DefaultTableModel(null, Encabezados);
+        JTPostulantes.setModel(post);
+        CargarTabla();
         inti = add;
         if (inti == 1) {
             BtnActualizar.setVisible(true);
@@ -144,7 +161,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             cmbNivelEstudio.addItem(nlEstudio.get(k));
         }
 
-        JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
+//        JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
 
         txtContraseñaPost.setTransferHandler(null);
     }
@@ -219,6 +236,18 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         BtnLimpiarCampos = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        txtgenero = new javax.swing.JTextField();
+        txtestado = new javax.swing.JTextField();
+        txtstudylevel = new javax.swing.JTextField();
+        txthigtType = new javax.swing.JTextField();
+        txtworktype = new javax.swing.JTextField();
+        txtsalary = new javax.swing.JTextField();
+        txtworkPreference = new javax.swing.JTextField();
+        txtworkState = new javax.swing.JTextField();
+        txtRDepartment = new javax.swing.JTextField();
+        txtIDepartment = new javax.swing.JTextField();
+        txtContractType = new javax.swing.JTextField();
+        txtprogress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
@@ -232,7 +261,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 140, 32));
+        lblTodo.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, 140, 32));
 
         BtnActualizar.setText("Actualizar");
         BtnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +269,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnActualizarActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 140, 30));
+        lblTodo.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 140, 30));
         lblTodo.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 176, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -268,7 +297,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnImageAddActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 140, 30));
+        lblTodo.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setText("Genero");
@@ -336,7 +365,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblTodo.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 190, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel16.setText("Nivel universitario:");
+        jLabel16.setText("Bachilerato:");
         lblTodo.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -384,7 +413,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAddPDFActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 240, 140, 30));
+        lblTodo.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 140, 30));
         lblTodo.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(811, 759, -1, -1));
 
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
@@ -487,7 +516,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jScrollPane4.setViewportView(ATable);
 
         lblTodo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 190, 120));
-        lblTodo.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 62, 124, 130));
+        lblTodo.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 42, 124, 160));
 
         BtnLimpiarCampos.setText("Limpiar Campos");
         BtnLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -495,7 +524,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnLimpiarCamposActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 140, 30));
+        lblTodo.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 140, 30));
 
         jLabel21.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Recu_regresar.png"))); // NOI18N
@@ -510,6 +539,18 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
         jLabel22.setText("Postulantes");
         lblTodo.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, -1));
+        lblTodo.add(txtgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
+        lblTodo.add(txtestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
+        lblTodo.add(txtstudylevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));
+        lblTodo.add(txthigtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
+        lblTodo.add(txtworktype, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
+        lblTodo.add(txtsalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
+        lblTodo.add(txtworkPreference, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, -1));
+        lblTodo.add(txtworkState, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
+        lblTodo.add(txtRDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, 10, -1));
+        lblTodo.add(txtIDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 10, -1));
+        lblTodo.add(txtContractType, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 20, -1));
+        lblTodo.add(txtprogress, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 20, -1));
 
         jScrollPane5.setViewportView(lblTodo);
 
@@ -527,6 +568,21 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    final void CargarTabla() {
+        ControladorPostulante CargarPost = new ControladorPostulante();
+        while (post.getRowCount() > 0) {
+            post.removeRow(0);
+        }
+        try {
+            ResultSet rs = CargarPost.TablaCRUD_VController();
+            while (rs.next()) {
+                Object[] oValores = {rs.getInt("idPostulant"), rs.getString("namePostulant"), rs.getString("mailPostulant"), rs.getString("Pword"), rs.getString("photoPostulant"), rs.getString("resumePDF"), rs.getString("resumeDetails"), rs.getInt("mailverification"), rs.getString("Gender"),rs.getString("States"),rs.getInt("Alumni"),rs.getInt("IDepartment"),rs.getInt("RDepartment"),rs.getString("WorkSubject"),rs.getString("Progress"),rs.getString("Salary"),rs.getString("HighType"),rs.getString("WType"),rs.getString("WPreference"),rs.getString("studyLevel"),rs.getString("WorkState"),rs.getString("lastName")};
+                post.addRow(oValores);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }
     public void LimpiarCampos() {
         lblPdf.setText("");
         txtNombrePost.setText("");
@@ -593,6 +649,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 if (verificar_email(mail)) {
                     res = Controlador.ControladorPostulante.AgreparPostulante(All);
                     JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
+                    CargarTabla();
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
@@ -604,7 +661,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
+//            JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
         } catch (Exception ex) {
             Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -671,23 +728,35 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             } catch (IOException ex) {
 
             }
-            cmbGenero.setSelectedItem(dataGender.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString())));
-            cmbEstadoPost.setSelectedItem(dataStatus.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 9).toString())));
+            String genero = txtgenero.getText();
+            cmbGenero.setSelectedItem(genero + 1);
+            String estado = txtestado.getText();
+            cmbEstadoPost.setSelectedItem(estado + 1);
             if(Table.getModel().getValueAt(Table.getSelectedRow(), 10).toString().equals("true")){
                 CheckAlumni.setSelected(true);
             }else{
                 CheckAlumni.setSelected(false);
             }
-            cmbDepartPreferencia.setSelectedItem(dptoPreferencia.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 11).toString())));
-            cmbDepartReside.setSelectedItem(dptoReside.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 12).toString())));
-            cmbTipoTrabajo.setSelectedItem(TTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 13).toString())));
-            cmbProgreso.setSelectedItem(progreso.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 14).toString())));
-            cmbSalario.setSelectedItem(salario.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 15).toString())));
-            cmbHighType.setSelectedItem(hightype.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 16).toString())));
-            cmbTipoContrato.setSelectedItem(TContrato.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 17).toString())));
-            cmbPrefLaboral.setSelectedItem(datapreflaboral.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 18).toString())));
-            cmbNivelEstudio.setSelectedItem(nlEstudio.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 19).toString())));
-            cmbEstadoTrabajo.setSelectedItem(EstadoTrabajo.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 20).toString())));
+            String IDepartamento = txtIDepartment.getText();
+            cmbDepartPreferencia.setSelectedItem(IDepartamento + 1);
+            String RDepartamento = txtRDepartment.getText();
+            cmbDepartReside.setSelectedItem(RDepartamento + 1);
+            String workType = txtworktype.getText();
+            cmbTipoTrabajo.setSelectedItem(workType + 1);
+            String Progress = txtprogress.getText();
+            cmbProgreso.setSelectedItem(Progress + 1);
+            String salario = txtsalary.getText();
+            cmbSalario.setSelectedItem(salario + 1);
+            String hightype = txthigtType.getText();
+            cmbHighType.setSelectedItem(hightype + 1);
+            String contractType = txtContractType.getText();
+            cmbTipoContrato.setSelectedItem(contractType + 1);
+            String preflaboral = txtworkPreference.getText();
+            cmbPrefLaboral.setSelectedItem(preflaboral + 1);
+            String studylevel = txtstudylevel.getText();
+            cmbNivelEstudio.setSelectedItem(studylevel + 1);
+            String workstatus = txtworkState.getText();
+            cmbEstadoTrabajo.setSelectedItem(workstatus + 1);
             txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 21).toString());
             try {
                 GTable.setModel(Controlador.Utils.rtrnTqble("GeneralSkills", arrG, txtID.getText()));
@@ -712,6 +781,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 if (verificar_email(mail)) {
                     res = Controlador.ControladorPostulante.ActualizarPostulante(All);
                     JOptionPane.showInternalMessageDialog(null, "Postulante actualizado exitosamente", "Confirmacion", 1);
+                    CargarTabla();
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
@@ -723,7 +793,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
+//            JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
         } catch (Exception ex) {
             Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1015,9 +1085,21 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel lblPdf;
     private javax.swing.JPanel lblTodo;
     private javax.swing.JTextField txtApellidoPost;
+    private javax.swing.JTextField txtContractType;
     private javax.swing.JPasswordField txtContraseñaPost;
     private javax.swing.JTextField txtCorreoPost;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtIDepartment;
     private javax.swing.JTextField txtNombrePost;
+    private javax.swing.JTextField txtRDepartment;
+    private javax.swing.JTextField txtestado;
+    private javax.swing.JTextField txtgenero;
+    private javax.swing.JTextField txthigtType;
+    private javax.swing.JTextField txtprogress;
+    private javax.swing.JTextField txtsalary;
+    private javax.swing.JTextField txtstudylevel;
+    private javax.swing.JTextField txtworkPreference;
+    private javax.swing.JTextField txtworkState;
+    private javax.swing.JTextField txtworktype;
     // End of variables declaration//GEN-END:variables
 }

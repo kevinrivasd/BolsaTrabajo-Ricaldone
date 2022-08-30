@@ -21,7 +21,7 @@ public class ModeloNotificaciones {
         PreparedStatement ps;
         try {
             con = ControladorConexion.getConection();
-            String query = "SELECT * FROM VModerations";
+            String query = "SELECT * FROM V_Mod";
             ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             return rs;

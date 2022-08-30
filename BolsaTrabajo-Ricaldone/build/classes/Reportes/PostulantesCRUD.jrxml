@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PostulantesCRUD" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="02208b7d-b0d2-4b72-9010-c8c3ee666579">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT a.idPostulant, a.namePostulant, a.mailPostulant, a.Pword, a.photoPostulant, a.resumePDF, a.resumeDetails, a.mailverification, b.Gender, c.States, a.Alumni, a.IDepartment, a.RDepartment, g.WorkSubject, d.Progress, h.Salary, i.HighType, j.WType, k.WPreference, l.studyLevel, e.WorkState, a.lastName
+FROM Postulants a, Genders b, States c, Progress d, WorkState e, workSubjects g, SalaryState h, HighType i, ContractType j, WorkPreference k, StudyLevels l
+WHERE a.Gender = b.idGender AND	a.States = c.idState AND a.Progress = d.idProgress AND a.WorkStatus = e.idWorkSatet AND a.WSubject = g.idSubject AND a.Salary = h.idSalary AND a.HighType = i.idType AND a.ContractType = j.idContractT AND a.WorkPreference = k.idPreference AND a.StudyLevel = l.idSLevel]]>
+	</queryString>
+	<field name="idPostulant" class="java.lang.Integer"/>
+	<field name="namePostulant" class="java.lang.String"/>
+	<field name="mailPostulant" class="java.lang.String"/>
+	<field name="Pword" class="java.sql.Clob"/>
+	<field name="photoPostulant" class="java.sql.Clob"/>
+	<field name="resumePDF" class="java.lang.Object"/>
+	<field name="resumeDetails" class="java.sql.Clob"/>
+	<field name="mailverification" class="java.lang.Boolean"/>
+	<field name="Gender" class="java.lang.String"/>
+	<field name="States" class="java.lang.String"/>
+	<field name="Alumni" class="java.lang.Boolean"/>
+	<field name="IDepartment" class="java.lang.Integer"/>
+	<field name="RDepartment" class="java.lang.Integer"/>
+	<field name="WorkSubject" class="java.lang.String"/>
+	<field name="Progress" class="java.lang.String"/>
+	<field name="Salary" class="java.lang.String"/>
+	<field name="HighType" class="java.lang.String"/>
+	<field name="WType" class="java.lang.String"/>
+	<field name="WPreference" class="java.lang.String"/>
+	<field name="studyLevel" class="java.lang.String"/>
+	<field name="WorkState" class="java.lang.String"/>
+	<field name="lastName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="209" y="24" width="156" height="20" uuid="b1d2c03b-1b05-47b5-876e-646d215a3f66"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gestor de postulantes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="434" y="0" width="121" height="20" uuid="6eae1093-1d3c-44f0-8430-b4fa5b5b266d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="19" width="63" height="20" uuid="e29c86e4-5493-4a0f-8627-4d80ff7fc3c1"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[idPostulant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="19" width="74" height="20" uuid="d9014e38-3bff-4bc8-a32a-a5bfd62dd045"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[namePostulant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="19" width="85" height="20" uuid="ef36ba9d-786c-43fd-b641-fa8a0422229c"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[mailPostulant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="19" width="86" height="20" uuid="4732ea6f-43c4-45ec-a6dc-41b96320b577"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[mailverification]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="19" width="57" height="20" uuid="f25a142d-a2a0-483d-be89-46eda6614232"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="19" width="55" height="20" uuid="f60fc0d5-1e7a-4065-99d7-557b433297c9"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[States]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="19" width="65" height="20" uuid="745868dc-473c-4b19-b829-e1f55b929fd9"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Alumni]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="484" y="19" width="22" height="20" uuid="08e9bb2c-9753-4439-a522-3a4aa3ce839e"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[IDepartment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="507" y="19" width="29" height="20" uuid="ca1fafa7-660a-4938-adc9-cc13df6240dc"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[RDepartment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="44" width="86" height="20" uuid="8fc59e29-52b8-41c1-924e-dba4a2187f72"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[WorkSubject]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="44" width="68" height="20" uuid="56a2674a-d788-4695-8cb5-01aad938d0c0"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Progress]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="44" width="56" height="20" uuid="2efec2b0-1ff6-4109-a18a-c3732541b75a"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Salary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="44" width="63" height="20" uuid="60df909c-9b90-46a9-878d-13f399fb7487"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[HighType]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="44" width="56" height="20" uuid="c79aa557-bcfe-45e4-91a3-3b1cb091af46"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[WType]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="351" y="44" width="83" height="20" uuid="71c907d0-2d69-42dd-a24d-1e0b334a6fb2"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[WPreference]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="44" width="65" height="20" uuid="986cc8b4-189b-4589-8429-84c265f1aa81"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[studyLevel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="73" width="78" height="20" uuid="bb60d19a-7b9e-400f-97a3-4b02c555f5fa"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[WorkState]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="73" width="72" height="20" uuid="3370caec-df11-4a85-bf65-9d54ec469e36"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[lastName]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="92" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="13" width="63" height="20" uuid="2eeccaae-02bd-4b79-8d04-2ee104da612f"/>
+				<textFieldExpression><![CDATA[$F{idPostulant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="13" width="74" height="20" uuid="74943f2e-cfde-495b-8019-becca6210b76"/>
+				<textFieldExpression><![CDATA[$F{namePostulant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="13" width="85" height="20" uuid="ab56033c-cfa9-4213-b01e-d4df1e428de9"/>
+				<textFieldExpression><![CDATA[$F{mailPostulant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="13" width="86" height="20" uuid="8352dc68-7868-4bcd-8e0d-b1f04898d336"/>
+				<textFieldExpression><![CDATA[$F{mailverification}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="13" width="57" height="20" uuid="f6602142-9f0d-4c3e-9d53-adb136434ae4"/>
+				<textFieldExpression><![CDATA[$F{Gender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="13" width="55" height="20" uuid="b18ca7d5-8db5-428e-969e-77c8baf2ea15"/>
+				<textFieldExpression><![CDATA[$F{States}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="13" width="65" height="20" uuid="ba1a0cfa-aece-4453-aae5-b5f17f7c5a3f"/>
+				<textFieldExpression><![CDATA[$F{Alumni}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="484" y="13" width="27" height="20" uuid="87a89dab-58fc-4384-9021-40bc7b994c1c"/>
+				<textFieldExpression><![CDATA[$F{IDepartment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="511" y="13" width="29" height="20" uuid="57a6ee6b-f997-41c7-91f9-890b2b0c2c34"/>
+				<textFieldExpression><![CDATA[$F{RDepartment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="38" width="86" height="20" uuid="fb464d6f-ef54-4adf-8c3f-e90967f40902"/>
+				<textFieldExpression><![CDATA[$F{WorkSubject}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="38" width="68" height="20" uuid="783254ba-1a82-49d2-bd6b-7a1807c63cb4"/>
+				<textFieldExpression><![CDATA[$F{Progress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="38" width="77" height="20" uuid="a4244dce-eb11-4f31-8dcb-23ccb71aad15"/>
+				<textFieldExpression><![CDATA[$F{Salary}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="38" width="63" height="20" uuid="117db606-936f-40da-8c55-f11cfc3a784a"/>
+				<textFieldExpression><![CDATA[$F{HighType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="38" width="56" height="20" uuid="22e00425-65b2-40a2-b7c4-a119a9278063"/>
+				<textFieldExpression><![CDATA[$F{WType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="351" y="38" width="83" height="20" uuid="beb991c7-287f-4b93-a1c1-6fd2221bbcec"/>
+				<textFieldExpression><![CDATA[$F{WPreference}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="38" width="72" height="20" uuid="88f3148a-02ef-457b-8191-ed894fd8c4da"/>
+				<textFieldExpression><![CDATA[$F{studyLevel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="63" width="71" height="20" uuid="290aaf7c-cebd-4889-8a34-6d8e47735a02"/>
+				<textFieldExpression><![CDATA[$F{WorkState}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="63" width="70" height="20" uuid="b43e3c03-e911-450c-9e01-273881a0ee9d"/>
+				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="419" y="3" width="80" height="20" uuid="c02a0c42-3bb4-4070-aad8-d6257f655016"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="499" y="3" width="56" height="20" uuid="d893dc12-8e98-494b-a7e5-3ac31b627271"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

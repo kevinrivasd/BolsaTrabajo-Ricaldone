@@ -17,7 +17,7 @@
 			<staticText>
 				<reportElement x="151" y="0" width="278" height="30" uuid="509a723f-76f2-4588-9b79-03066256b947"/>
 				<textElement textAlignment="Center">
-					<font size="14"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Postulantes]]></text>
 			</staticText>
@@ -38,14 +38,23 @@
 		<band height="38" splitType="Stretch">
 			<staticText>
 				<reportElement x="62" y="2" width="134" height="20" uuid="7d1d2a37-0be1-47bb-8e8a-def63dcd7b38"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
 				<text><![CDATA[Nombre del postulante:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="226" y="2" width="128" height="20" uuid="4fb3bcfa-34f1-4538-956d-07bb268c87b1"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
 				<text><![CDATA[Apellido del postulante:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="377" y="2" width="146" height="20" uuid="69bf0067-87d1-49b3-b1ba-d19e20ff404a"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
 				<text><![CDATA[Correo del postulante:]]></text>
 			</staticText>
 		</band>

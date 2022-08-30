@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.ControladorNotificaciones;
+import Controlador.ControladorUsuario;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.sql.ResultSet;
@@ -22,12 +23,32 @@ public class NotificacionPanel extends javax.swing.JPanel {
     /**
      * Creates new form NotificacionPanel
      */
+    DefaultTableModel mod;
     public NotificacionPanel() throws SQLException, Exception {
         initComponents();
-        DefaultTableModel jPost = new DefaultTableModel();
-        jPost = Controlador.Utils.rtrnTqble("Moderations");
-        dgvNoti.setModel(jPost);
+        String[] Encabezados = {"ID", "Postulante", "Fecha", "Descripción", "respuesta", "Información de la respuesta", "Usuario"};
+        mod = new DefaultTableModel(null, Encabezados);
+        dgvNoti.setModel(mod);
+        CargarTabla();
+//        DefaultTableModel jPost = new DefaultTableModel();
+//        jPost = Controlador.Utils.rtrnTqble("Moderations");
+//        dgvNoti.setModel(jPost);
 
+    }
+    final void CargarTabla() {
+        ControladorNotificaciones Cargarnoti = new ControladorNotificaciones();
+        while (mod.getRowCount() > 0) {
+            mod.removeRow(0);
+        }
+        try {
+            ResultSet rs = Cargarnoti.CargarNotificacionsControlador();
+            while (rs.next()) {
+                Object[] oValores = {rs.getInt("idMod"), rs.getString("namePostulant"), rs.getDate("dateMod"), rs.getString("context"), rs.getString("request"), rs.getString("requestedInfo"), rs.getString("nameUser")};
+                mod.addRow(oValores);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
     }
 
 //    public void AsignarComponentes() throws SQLException{

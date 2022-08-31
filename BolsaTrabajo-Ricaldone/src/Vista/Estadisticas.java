@@ -17,7 +17,7 @@ import org.jfree.data.general.DefaultPieDataset;
  */
 public class Estadisticas extends javax.swing.JPanel {
 
-    public Estadisticas(String username) throws Exception {
+    public Estadisticas(String username){
         initComponents();
         tblConsultas.setModel(Controlador.Utils.agruparPersona());
         graficar();

@@ -33,6 +33,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
+import Controlador.Utils;
 
 /**
  *
@@ -45,14 +46,16 @@ public class PostulantesPanel extends javax.swing.JPanel {
      */
 //    DefaultTableModel Datos;
     TableRowSorter trsfiltro;
+    Utils utils = new Utils();
     public TableRowSorter<TableModel> sorter;
 //    public Menú men = new Menú();
 
     public PostulantesPanel() throws Exception {
         initComponents();
 
-        DefaultTableModel jPost = new DefaultTableModel();
-        jPost = Controlador.Utils.rtrnTqble("V_Post");
+        DefaultTableModel jPost;
+        jPost = new DefaultTableModel();
+        jPost = utils.rtrnTqble("V_Post");
         JTPostulantes.setModel(jPost);
         sorter = new TableRowSorter<>(jPost);
         JTPostulantes.setRowSorter(sorter);
@@ -188,14 +191,10 @@ public class PostulantesPanel extends javax.swing.JPanel {
 
 
     private void BtnCrudPostuAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrudPostuAddActionPerformed
-//        try {
-        PostulanteCRUD next = null;
         try {
-            next = new PostulanteCRUD(1);
-        } catch (Exception ex) {
-            Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        next.setVisible(true);
+            //        try {
+            PostulanteCRUD next = new PostulanteCRUD(1);            
+            next.setVisible(true);
 //            PostulanteCRUD frm = new PostulanteCRUD(1);
 //        } catch (Exception ex) {
 //            Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -203,6 +202,9 @@ public class PostulantesPanel extends javax.swing.JPanel {
 //        Menú men = new Menú();
 //        men.setVisible(true);
 //        men.dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
 
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped
@@ -223,12 +225,12 @@ public class PostulantesPanel extends javax.swing.JPanel {
         try {
 //               ControladorConexion con = new ControladorConexion();
             Connection con = ControladorConexion.getConection();
-            JasperReport reporte = null;
-            String ruta;
+             
+            
             Path path = Paths.get("");
-            ruta = path.toAbsolutePath().toString();
-            String path2 = path + "src\\Reportes\\Postulantes.jasper";
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path2);
+            String ruta = path.toAbsolutePath().toString();
+            String path2 = ruta + "\\src\\Reportes\\Postulantes.jasper";
+            JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(path2);
             JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer vista = new JasperViewer(jprint, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

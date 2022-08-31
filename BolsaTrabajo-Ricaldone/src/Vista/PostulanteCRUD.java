@@ -37,6 +37,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import Controlador.Utils;
+import Controlador.ControladorPostulante;
 
 /**
  *
@@ -68,7 +70,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     public String[] arrA = {"NameSkill", "idLevel"};
     public String[] Branch = {"Branch", "idLevel"};
     DefaultTableModel post;
-    public PostulanteCRUD(int add) throws Exception {
+    ControladorPostulante postcontroller = new ControladorPostulante();
+    Utils utils = new Utils();
+    public PostulanteCRUD(int add) {
         initComponents();
         this.setLocationRelativeTo(null);
         txtID.setVisible(false);
@@ -102,61 +106,61 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setTitle("Gestion de postulantes");
 
-        dataGender = Controlador.Utils.getDataTable("Genders");
+        dataGender = utils.getDataTable("Genders");
         for (int k = 1; k <= dataGender.size(); k++) {
             cmbGenero.addItem(dataGender.get(k));
         }
-        datapreflaboral = Controlador.Utils.getDataTable("WorkPreference");
+        datapreflaboral = utils.getDataTable("WorkPreference");
         for (int k = 1; k <= datapreflaboral.size(); k++) {
             cmbPrefLaboral.addItem(datapreflaboral.get(k));
         }
 
-        dataStatus = Controlador.Utils.getDataTable("States");
+        dataStatus = utils.getDataTable("States");
         for (int k = 1; k <= dataStatus.size(); k++) {
             cmbEstadoPost.addItem(dataStatus.get(k));
         }
 
-        dptoPreferencia = Controlador.Utils.getDataTable("Departments");
+        dptoPreferencia = utils.getDataTable("Departments");
         for (int k = 1; k <= dptoPreferencia.size(); k++) {
             cmbDepartPreferencia.addItem(dptoPreferencia.get(k));
         }
 
-        dptoReside = Controlador.Utils.getDataTable("Departments");
+        dptoReside = utils.getDataTable("Departments");
         for (int k = 1; k <= dptoReside.size(); k++) {
             cmbDepartReside.addItem(dptoReside.get(k));
         }
 
-        EstadoTrabajo = Controlador.Utils.getDataTable("WorkState");
+        EstadoTrabajo = utils.getDataTable("WorkState");
         for (int k = 1; k <= EstadoTrabajo.size(); k++) {
             cmbEstadoTrabajo.addItem(EstadoTrabajo.get(k));
         }
 
-        TContrato = Controlador.Utils.getDataTable("ContractType");
+        TContrato = utils.getDataTable("ContractType");
         for (int k = 1; k <= TContrato.size(); k++) {
             cmbTipoContrato.addItem(TContrato.get(k));
         }
 
-        TTrabajo = Controlador.Utils.getDataTable("workSubjects");
+        TTrabajo = utils.getDataTable("workSubjects");
         for (int k = 1; k <= TTrabajo.size(); k++) {
             cmbTipoTrabajo.addItem(TTrabajo.get(k));
         }
 
-        salario = Controlador.Utils.getDataTable("SalaryState");
+        salario = utils.getDataTable("SalaryState");
         for (int k = 1; k <= salario.size(); k++) {
             cmbSalario.addItem(salario.get(k));
         }
 
-        hightype = Controlador.Utils.getDataTable("HighType");
+        hightype = utils.getDataTable("HighType");
         for (int k = 1; k <= hightype.size(); k++) {
             cmbHighType.addItem(hightype.get(k));
         }
 
-        progreso = Controlador.Utils.getDataTable("Progress");
+        progreso = utils.getDataTable("Progress");
         for (int k = 1; k <= progreso.size(); k++) {
             cmbProgreso.addItem(progreso.get(k));
         }
 
-        nlEstudio = Controlador.Utils.getDataTable("studyLevels");
+        nlEstudio = utils.getDataTable("studyLevels");
         for (int k = 1; k <= nlEstudio.size(); k++) {
             cmbNivelEstudio.addItem(nlEstudio.get(k));
         }
@@ -647,7 +651,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         try {
             if (!Controlador.Utils.emptyFields(Required)) {
                 if (verificar_email(mail)) {
-                    res = Controlador.ControladorPostulante.AgreparPostulante(All);
+                    res = postcontroller.AgreparPostulante(All);
                     JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
                     CargarTabla();
                 } else {
@@ -661,7 +665,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-//            JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
         } catch (Exception ex) {
             Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -759,9 +762,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             cmbEstadoTrabajo.setSelectedItem(workstatus + 1);
             txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 21).toString());
             try {
-                GTable.setModel(Controlador.Utils.rtrnTqble("GeneralSkills", arrG, txtID.getText()));
-                ATable.setModel(Controlador.Utils.rtrnTqble("AditionalSkills", arrA, txtID.getText()));
-                BTabla.setModel(Controlador.Utils.rtrnTqble("Branches", Branch, txtID.getText()));
+                GTable.setModel(utils.rtrnTqble("GeneralSkills", arrG, txtID.getText()));
+                ATable.setModel(utils.rtrnTqble("AditionalSkills", arrA, txtID.getText()));
+                BTabla.setModel(utils.rtrnTqble("Branches", Branch, txtID.getText()));
             } catch (Exception ex) {
                 Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -779,7 +782,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         try {
             if (!Controlador.Utils.emptyFields(Required)) {
                 if (verificar_email(mail)) {
-                    res = Controlador.ControladorPostulante.ActualizarPostulante(All);
+                    res = postcontroller.ActualizarPostulante(All);
                     JOptionPane.showInternalMessageDialog(null, "Postulante actualizado exitosamente", "Confirmacion", 1);
                     CargarTabla();
                 } else {

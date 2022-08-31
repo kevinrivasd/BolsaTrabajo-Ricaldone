@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Modelo.ModeloUtils;
 
 /**
  *
@@ -24,6 +25,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
      * Creates new form NotificacionPanel
      */
     DefaultTableModel mod;
+    ModeloUtils utils = new ModeloUtils();
     public NotificacionPanel() throws SQLException, Exception {
         initComponents();
         String[] Encabezados = {"ID", "Postulante", "Fecha", "Descripción", "respuesta", "Información de la respuesta", "Usuario"};
@@ -157,7 +159,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 String mailUser = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 3).toString();
 
                 if (idPostulante != null) {
-                    String b64 = Modelo.ModeloUtils.getPDF(idPostulante.toString());
+                    String b64 = utils.getPDF(idPostulante.toString());
                     if (!b64.equals("") && !mailUser.equals("")) {
                         Controlador.Utils.sendPDF(b64, mailUser);
                     } else {

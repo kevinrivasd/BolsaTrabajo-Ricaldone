@@ -12,6 +12,8 @@ import java.io.FileInputStream;
 import javax.swing.JOptionPane;
 import java.util.*;
 import org.jfree.io.IOUtils;
+import Modelo.ModeloUtils;
+import Modelo.ModeloRecu;
 
 /**
  *
@@ -19,19 +21,21 @@ import org.jfree.io.IOUtils;
  */
 public class ControladorRecu {
    public static int randomCode;
+   ModeloRecu recumodel = new ModeloRecu();
+   ModeloUtils utils = new ModeloUtils();
     
-    public static int RecuperacionPWD(String user) throws Exception{
+    public int RecuperacionPWD(String user){
         
-        return Modelo.ModeloRecu.RecuperacionPWD(user);        
+        return recumodel.RecuperacionPWD(user);        
     
     }
     
-    public static String SentCode(String nameUser){
+    public String SentCode(String nameUser){
          try{
           Random rand = new Random();
           randomCode = rand.nextInt(999999);
           Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
-          String emailString = Modelo.ModeloRecu.sentCode(nameUser);
+          String emailString = recumodel.sentCode(nameUser);
           //Form-Data
             request.form("email", emailString)
                    .form("Codigo", randomCode)
@@ -70,8 +74,8 @@ public class ControladorRecu {
           }return retorno;
     }    
     
-    public static int ActualizarPWD(String Pword, String mailUser) throws Exception{
-        return Modelo.ModeloRecu.ActualizarPWD(Pword, mailUser);
+    public int ActualizarPWD(String Pword, String mailUser){
+        return recumodel.ActualizarPWD(Pword, mailUser);
         
     }
 }

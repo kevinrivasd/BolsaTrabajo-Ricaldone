@@ -6,13 +6,14 @@ package Controlador;
 
 import java.sql.Connection;
 import Modelo.ModeloConexion;
+
 /**
  *
  * @author hello
  */
 public class ControladorConexion {
 
-    public static Connection getConection() throws Exception{      
+    public static Connection getConection() {
         return ModeloConexion.Conectar();
     }
 }

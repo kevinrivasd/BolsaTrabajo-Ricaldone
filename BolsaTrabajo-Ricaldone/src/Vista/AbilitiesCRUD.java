@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import jdk.jshell.execution.Util;
+import Controlador.Utils;
 
 /**
  *
@@ -25,6 +26,7 @@ import jdk.jshell.execution.Util;
  */
 public class AbilitiesCRUD extends javax.swing.JFrame {
 
+    Utils utils = new Utils();
     /**
      * Creates new form AbilitiesCRUD
      */
@@ -62,15 +64,15 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
                 throw new AssertionError();
         }
 
-       dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,id));
+       dgvLol.setModel(utils.rtrnTqble(table, arrAb,id));
         txtId.setVisible(false);
         
-        levelCMB = Controlador.Utils.getDataTable("Levels");        
+        levelCMB = utils.getDataTable("Levels");        
         for(int k = 1; k<=levelCMB.size();k++){
            cmbLevel.addItem(levelCMB.get(k));
        }
         
-        List<String> level = Controlador.Utils.getDataCmb("Levels", "Levels");
+        List<String> level = utils.getDataCmb("Levels", "Levels");
         
         JComboBox combo = new JComboBox<>(level.toArray());
         TableColumn col = dgvLol.getColumnModel().getColumn(1);
@@ -205,10 +207,10 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         map = collectMap();
         
         try {
-            int res = Controlador.Utils.Agregar(map, table);
+            int res = utils.Agregar(map, table);
             if (res == 1) {
                 JOptionPane.showMessageDialog(null, "Exito");
-                dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
+                dgvLol.setModel(utils.rtrnTqble(table, arrAb,idPos));
             }else{
                 JOptionPane.showMessageDialog(null, "Sin exito ");
             }
@@ -227,11 +229,11 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
                 ){
                     // TODO add your handling code here:
                     String id = txtId.getText();
-                    int res = Controlador.Utils.eliminar(id,table,arrAb[2]);
+                    int res = utils.eliminar(id,table,arrAb[2]);
                     if (res == 1) {
                         JOptionPane.showMessageDialog(null, "Elemento eliminado correctamente");
                         try {
-                            dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
+                            dgvLol.setModel(utils.rtrnTqble(table, arrAb,idPos));
                         } catch (Exception ex) {
                             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -251,10 +253,10 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
                      String id = txtId.getText();
                      int res=0; 
             try {
-                res = Controlador.Utils.actualizar(data,id,table,arrAb[2]);
+                res = utils.actualizar(data,id,table,arrAb[2]);
                 JOptionPane.showMessageDialog(null, res == 1 ? "Elemento correctamente actualizado":"Hubo un error");
 
-                dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
+                dgvLol.setModel(utils.rtrnTqble(table, arrAb,idPos));
             } catch (Exception ex) {
                          Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                      }

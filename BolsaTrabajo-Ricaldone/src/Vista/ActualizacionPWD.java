@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Controlador.ControladorRecu;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class ActualizacionPWD extends javax.swing.JFrame {
      public static String mailLocal = "";
+     ControladorRecu recucontroller = new ControladorRecu();
     /**
      * Creates new form ActualizacionPWD
      */
@@ -160,7 +162,7 @@ public class ActualizacionPWD extends javax.swing.JFrame {
         char[] VERPWD = txtverpwd.getPassword();
         try {
             if (String.valueOf(Pword).equals(String.valueOf(VERPWD))) {
-                num = Controlador.ControladorRecu.ActualizarPWD(Utils.encrypt(Pword), mailLocal);
+                num = recucontroller.ActualizarPWD(Utils.encrypt(Pword), mailLocal);
                 JOptionPane.showInternalMessageDialog(null, "Actualizacion de contraseña exitosa", "Confirmacion", 1);
                 this.dispose();
             }else{                

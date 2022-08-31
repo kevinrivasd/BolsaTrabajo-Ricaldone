@@ -29,13 +29,14 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.text.MaskFormatter;
 import Controlador.ControladorUsuario;
+import Controlador.Utils;
 
 /**
  *
  * @author Jonathan
  */
 public class UsuariosPanel extends javax.swing.JPanel {
-
+    Utils utils = new Utils();
     /**
      * Creates new form UsuariosPanel
      */
@@ -51,20 +52,20 @@ public class UsuariosPanel extends javax.swing.JPanel {
         user = new DefaultTableModel(null, Encabezados);
         dgvUsers.setModel(user);
         CargarTabla();
-        dataGender = Controlador.Utils.getDataTable("Genders");
+        dataGender = utils.getDataTable("Genders");
 
         for (int k = 1; k <= dataGender.size(); k++) {
             cmbGenero.addItem(dataGender.get(k));
         }
 
         //Getting data from database rols
-        dataRols = Controlador.Utils.getDataTable("Rols");
+        dataRols = utils.getDataTable("Rols");
         for (int k = 1; k <= dataRols.size(); k++) {
             cmbRol.addItem(dataRols.get(k));
         }
 
         //Getting data from database rols
-        dataState = Controlador.Utils.getDataTable("States");
+        dataState = utils.getDataTable("States");
         for (int k = 1; k <= dataState.size(); k++) {
             cmbEstado.addItem(dataState.get(k));
         }
@@ -495,7 +496,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
             if (!Controlador.Utils.emptyFields(datos)) {
                 if (verificar_email(mail)) {
 //                    if (us.ValidarUserController(user) == false) {
-                        res = Controlador.Utils.Agregar(datos, "UserSystems");
+                        res = utils.Agregar(datos, "UserSystems");
                         JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado" : "Hubo un error");
                         CargarTabla();
                         limpiarCampos();
@@ -535,7 +536,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                     JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
                 // TODO add your handling code here:
                 String id = txtID.getText();
-                int res = Controlador.Utils.eliminar(id, "UserSystems", "idUser");
+                int res = utils.eliminar(id, "UserSystems", "idUser");
                 if (res == 1) {
                     JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente");
                     CargarTabla();
@@ -611,7 +612,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 String id = txtID.getText();
                 int res = 0;
                 try {
-                    res = Controlador.Utils.actualizar(data, id, "UserSystems", "idUser");
+                    res = utils.actualizar(data, id, "UserSystems", "idUser");
                 } catch (Exception ex) {
                     Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -626,7 +627,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
             String id = txtID.getText();
             if (!Controlador.Utils.emptyFields(data)) {
                 try {
-                    int res = Controlador.Utils.actualizar(data, id, "UserSystems", "idUser");
+                    int res = utils.actualizar(data, id, "UserSystems", "idUser");
                     JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
                     CargarTabla();
                     limpiarCampos();

@@ -12,8 +12,9 @@ import java.sql.ResultSet;
  * @author Jonathan
  */
 public class ControladorNotificaciones {
+
     Modelo.ModeloNotificaciones model = new ModeloNotificaciones();
-    
+
     public int idMod;
     public String namePostulant;
     public String dateMod;
@@ -78,10 +79,7 @@ public class ControladorNotificaciones {
         this.nameUser = nameUser;
     }
 
- 
-    
-    
-    public ResultSet CargarNotificacionsControlador(){
-       return model.CargarNotificaciones();
+    public ResultSet CargarNotificacionsControlador() {
+        return model.CargarNotificaciones();
     }
 }

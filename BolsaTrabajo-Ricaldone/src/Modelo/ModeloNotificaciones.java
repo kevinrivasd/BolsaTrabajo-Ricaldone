@@ -15,9 +15,9 @@ import javax.swing.JOptionPane;
  * @author Jonathan
  */
 public class ModeloNotificaciones {
-    
-    public ResultSet CargarNotificaciones(){
-       Connection con;
+
+    public ResultSet CargarNotificaciones() {
+        Connection con;
         PreparedStatement ps;
         try {
             con = ControladorConexion.getConection();
@@ -28,6 +28,6 @@ public class ModeloNotificaciones {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
             return null;
-        } 
+        }
     }
 }

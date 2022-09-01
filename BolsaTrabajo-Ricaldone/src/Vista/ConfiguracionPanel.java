@@ -140,7 +140,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
             try {
                 res = utils.actualizar(data,userName.get(3),"UserSystems","idUser");
                 JOptionPane.showMessageDialog(null, "Te has actualizado con exito");
-                userName = menu.cargarProps(userName.get(3));
+//                userName = menu.cargarProps(userName.get(3));
 
             } catch (Exception ex) {
                 Logger.getLogger(ConfiguracionPanel.class.getName()).log(Level.SEVERE, null, ex);

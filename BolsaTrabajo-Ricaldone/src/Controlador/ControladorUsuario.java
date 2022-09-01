@@ -18,7 +18,7 @@ public class ControladorUsuario {
     ModeloUsuarios modeluser = new ModeloUsuarios();
 
     public ResultSet CargarUsuariosController() {
-        return ModeloUsuarios.CargarUsuarios();
+        return modeluser.CargarUsuarios();
     }
 
     public int idUser;
@@ -107,7 +107,15 @@ public class ControladorUsuario {
     }
 
     public boolean ValidarUserController(String user) {
-        return ModeloUsuarios.ValidarUser(nameUser);
+        boolean resultado = false;
+        resultado = modeluser.ValidarUser(user);
+        return resultado;
+    }
+    
+    public boolean ValidarMailController(String mail) {
+        boolean resultado = false;
+        resultado = modeluser.ValidarMail(mail);
+        return resultado;
     }
 
 }

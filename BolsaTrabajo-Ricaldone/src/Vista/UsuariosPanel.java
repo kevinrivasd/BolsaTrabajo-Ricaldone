@@ -36,6 +36,7 @@ import Controlador.Utils;
  * @author Jonathan
  */
 public class UsuariosPanel extends javax.swing.JPanel {
+
     Utils utils = new Utils();
     /**
      * Creates new form UsuariosPanel
@@ -46,7 +47,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
     public TableRowSorter<TableModel> sorter;
     DefaultTableModel user;
 
-    public UsuariosPanel() throws Exception {
+    public UsuariosPanel() {
         initComponents();
         String[] Encabezados = {"ID", "Estado", "Usuario", "Contraseña", "Correo", "Numero", "Rol", "Verificacion de correo", "Genero"};
         user = new DefaultTableModel(null, Encabezados);
@@ -495,14 +496,14 @@ public class UsuariosPanel extends javax.swing.JPanel {
 
             if (!Controlador.Utils.emptyFields(datos)) {
                 if (verificar_email(mail)) {
-//                    if (us.ValidarUserController(user) == false) {
+                    if (us.ValidarUserController(txtUsuario.getText()) == true && us.ValidarMailController(txtCorreo.getText()) == true) {
                         res = utils.Agregar(datos, "UserSystems");
                         JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado" : "Hubo un error");
                         CargarTabla();
                         limpiarCampos();
-//                    } else {
-//                        JOptionPane.showMessageDialog(null, "Xfavor");
-//                    }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Compruebe que el usuario o el correo no se repitan con otro registro.", "Error", 0);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
@@ -602,23 +603,34 @@ public class UsuariosPanel extends javax.swing.JPanel {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 
         LinkedHashMap<String, String> data = CollectData();
-
+        String mail = txtCorreo.getText();
+        ControladorUsuario us = new ControladorUsuario();
         if (data.get("Pword").trim().isEmpty()
                 && JOptionPane.showConfirmDialog(null, "La contraseña no ha sido modificada, se dejara la antigua, deseas continuar?", "Mensaje",
                         JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
 
             data.remove("Pword");
             if (!Controlador.Utils.emptyFields(data)) {
-                String id = txtID.getText();
-                int res = 0;
-                try {
-                    res = utils.actualizar(data, id, "UserSystems", "idUser");
-                } catch (Exception ex) {
-                    Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
+                if (verificar_email(mail)) {
+                    if (us.ValidarUserController(txtUsuario.getText()) == true && us.ValidarMailController(txtCorreo.getText()) == true) {
+                        String id = txtID.getText();
+                        int res = 0;
+                        try {
+                            res = utils.actualizar(data, id, "UserSystems", "idUser");
+                        } catch (Exception ex) {
+                            Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
+                        CargarTabla();
+                        limpiarCampos();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Compruebe que el usuario o el correo no se repitan con otro registro.", "Error", 0);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
-                JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
-                CargarTabla();
-                limpiarCampos();
+
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor revisa que los campos a parte de la contraseña estén correctamente llenos.");
             }
@@ -626,14 +638,24 @@ public class UsuariosPanel extends javax.swing.JPanel {
         } else if (!data.get("Pword").trim().isEmpty()) {
             String id = txtID.getText();
             if (!Controlador.Utils.emptyFields(data)) {
-                try {
-                    int res = utils.actualizar(data, id, "UserSystems", "idUser");
-                    JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
-                    CargarTabla();
-                    limpiarCampos();
-                } catch (Exception ex) {
-                    Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
+                if (verificar_email(mail)) {
+                    if (us.ValidarUserController(txtUsuario.getText()) == true && us.ValidarMailController(txtCorreo.getText()) == true) {
+                        try {
+                            int res = utils.actualizar(data, id, "UserSystems", "idUser");
+                            JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
+                            CargarTabla();
+                            limpiarCampos();
+                        } catch (Exception ex) {
+                            Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Compruebe que el usuario o el correo no se repitan con otro registro.", "Error", 0);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor revisa que los campos estén correctamente llenos.");
             }

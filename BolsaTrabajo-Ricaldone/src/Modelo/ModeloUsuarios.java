@@ -15,13 +15,15 @@ import javax.swing.JOptionPane;
  * @author Kevin Rivas
  */
 public class ModeloUsuarios {
+    
+    PreparedStatement consult = null;
 
-    public static ResultSet CargarUsuarios() {
+    public ResultSet CargarUsuarios() {
         Connection con;
         try {
             con = ControladorConexion.getConection();
             String query = "SELECT * FROM V_Users";
-            PreparedStatement consult = con.prepareStatement(query);
+            consult = con.prepareStatement(query);
             ResultSet rs = consult.executeQuery();
             return rs;
         } catch (Exception e) {
@@ -30,23 +32,48 @@ public class ModeloUsuarios {
         }
     }
 
-    public static boolean ValidarUser(String user) {
-        Connection con;
-        String users[] = new String[1];
+    public boolean ValidarUser(String user) {
+        Connection con = ControladorConexion.getConection();
+        boolean resultado = false;
+        String query = "SELECT * FROM UserSystems WHERE nameUser = ?";
+
         try {
-            con = ControladorConexion.getConection();
-            String query = "SELECT * FROM UserSystems WHERE nameUser = ?";
-            PreparedStatement consult = con.prepareStatement(query);
-            consult.setString(0, user);
+            consult = con.prepareStatement(query);
+            consult.setString(1, user);
             ResultSet rs = consult.executeQuery();
-            while (rs.next()) {
-                users[0] = rs.getString("nameUser");
+            if (!rs.isBeforeFirst() && rs.getRow() == 0) {
+                resultado = true;
+            } else {
+                resultado = false;
             }
-            return true;
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
             return false;
         }
+        return resultado;
+    }
+    
+    public boolean ValidarMail(String mail) {
+        Connection con = ControladorConexion.getConection();
+        boolean resultado = false;
+        String query = "SELECT * FROM UserSystems WHERE mailUser = ?";
+
+        try {
+            consult = con.prepareStatement(query);
+            consult.setString(1, mail);
+            ResultSet rs = consult.executeQuery();
+            if (!rs.isBeforeFirst() && rs.getRow() == 0) {
+                resultado = true;
+            } else {
+                resultado = false;
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return false;
+        }
+        return resultado;
     }
 
 }

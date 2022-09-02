@@ -32,14 +32,15 @@ public class ModeloUsuarios {
         }
     }
 
-    public boolean ValidarUser(String user) {
+    public boolean ValidarUser(String user, String id) {
         Connection con = ControladorConexion.getConection();
         boolean resultado = false;
-        String query = "SELECT * FROM UserSystems WHERE nameUser = ?";
+        String query = "SELECT * FROM UserSystems WHERE nameUser = ? AND NOT idUser= ?";
 
         try {
             consult = con.prepareStatement(query);
             consult.setString(1, user);
+            consult.setString(2, id);
             ResultSet rs = consult.executeQuery();
             if (!rs.isBeforeFirst() && rs.getRow() == 0) {
                 resultado = true;
@@ -54,14 +55,15 @@ public class ModeloUsuarios {
         return resultado;
     }
     
-    public boolean ValidarMail(String mail) {
+    public boolean ValidarMail(String mail, String id) {
         Connection con = ControladorConexion.getConection();
         boolean resultado = false;
-        String query = "SELECT * FROM UserSystems WHERE mailUser = ?";
+        String query = "SELECT * FROM UserSystems WHERE mailUser = ? AND NOT idUser= ?";
 
         try {
             consult = con.prepareStatement(query);
             consult.setString(1, mail);
+            consult.setString(2, id);
             ResultSet rs = consult.executeQuery();
             if (!rs.isBeforeFirst() && rs.getRow() == 0) {
                 resultado = true;

@@ -106,15 +106,16 @@ public class ControladorUsuario {
     public ControladorUsuario() {
     }
 
-    public boolean ValidarUserController(String user) {
+    public boolean ValidarUserController(String user, String iduser) {
+        
         boolean resultado = false;
-        resultado = modeluser.ValidarUser(user);
+        resultado = modeluser.ValidarUser(user, iduser);
         return resultado;
     }
     
-    public boolean ValidarMailController(String mail) {
+    public boolean ValidarMailController(String mail, String iduser) {
         boolean resultado = false;
-        resultado = modeluser.ValidarMail(mail);
+        resultado = modeluser.ValidarMail(mail, iduser);
         return resultado;
     }
 

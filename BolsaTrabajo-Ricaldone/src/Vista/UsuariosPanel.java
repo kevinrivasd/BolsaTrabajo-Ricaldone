@@ -491,12 +491,13 @@ public class UsuariosPanel extends javax.swing.JPanel {
         int res;
         ControladorUsuario us = new ControladorUsuario();
         String user = txtUsuario.getText();
+        String id = txtID.getText();
 //        ResultSet rs = us.ValidarUserController();
         try {
 
             if (!Controlador.Utils.emptyFields(datos)) {
                 if (verificar_email(mail)) {
-                    if (us.ValidarUserController(txtUsuario.getText()) == true && us.ValidarMailController(txtCorreo.getText()) == true) {
+                    if (us.ValidarUserController(txtUsuario.getText(), id ) == true && us.ValidarMailController(txtCorreo.getText(), id) == true) {
                         res = utils.Agregar(datos, "UserSystems");
                         JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado" : "Hubo un error");
                         CargarTabla();
@@ -610,10 +611,10 @@ public class UsuariosPanel extends javax.swing.JPanel {
                         JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
 
             data.remove("Pword");
-            if (!Controlador.Utils.emptyFields(data)) {
+            if (!Controlador.Utils.emptyFields(data)) {        
                 if (verificar_email(mail)) {
-                    if (us.ValidarUserController(txtUsuario.getText()) == true && us.ValidarMailController(txtCorreo.getText()) == true) {
-                        String id = txtID.getText();
+                    String id = txtID.getText();
+                    if (us.ValidarUserController(txtUsuario.getText(), id) == true && us.ValidarMailController(txtCorreo.getText(), id) == true) {
                         int res = 0;
                         try {
                             res = utils.actualizar(data, id, "UserSystems", "idUser");
@@ -623,14 +624,13 @@ public class UsuariosPanel extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
                         CargarTabla();
                         limpiarCampos();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Compruebe que el usuario o el correo no se repitan con otro registro.", "Error", 0);
+                        }
+                    else {
+                            JOptionPane.showMessageDialog(null, "Compruebe que el usuario o el correo no se repitan .", "Error", 0);                     
                     }
-
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
-
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor revisa que los campos a parte de la contraseña estén correctamente llenos.");
             }
@@ -639,7 +639,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
             String id = txtID.getText();
             if (!Controlador.Utils.emptyFields(data)) {
                 if (verificar_email(mail)) {
-                    if (us.ValidarUserController(txtUsuario.getText()) == true && us.ValidarMailController(txtCorreo.getText()) == true) {
+                    if (us.ValidarUserController(txtUsuario.getText(), id) == true && us.ValidarMailController(txtCorreo.getText(), id) == true) {
                         try {
                             int res = utils.actualizar(data, id, "UserSystems", "idUser");
                             JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");

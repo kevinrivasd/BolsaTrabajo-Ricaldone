@@ -160,8 +160,9 @@ public class NotificacionPanel extends javax.swing.JPanel {
 
                 if (idPostulante != null) {
                     String b64 = utils.getPDF(idPostulante.toString());
-                    if (!b64.equals("") && !mailUser.equals("")) {
+                    if (b64.equals("") || mailUser.equals("") || b64.isEmpty() || b64.isBlank()) {
                         Controlador.Utils.sendPDF(b64, mailUser);
+                        JOptionPane.showMessageDialog(null, b64);
                     } else {
                         JOptionPane.showMessageDialog(null, "Este postulante no tiene pdf aun");
                     }

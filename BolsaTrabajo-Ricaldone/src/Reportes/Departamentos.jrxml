@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Departamentos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="612d9828-188c-4af1-8b09-c464d9f6dce6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM Departments]]>
+	</queryString>
+	<field name="idDepartment" class="java.lang.Integer"/>
+	<field name="Department" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="94" height="88" uuid="f90bb088-c504-41ac-a928-a19cae66b067"/>
+				<imageExpression><![CDATA["C:\\Users\\jonat\\OneDrive\\Documentos\\GitHub\\BolsaTrabajo-Ricaldone\\BolsaTrabajo-Ricaldone\\src\\Recursos\\MicrosoftTeams-image.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="194" y="29" width="188" height="26" uuid="9a6db9f7-6cc4-4733-a7b8-8b9e3cd7a0d5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Poppins ExtraBold" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Habilidades Adicionales]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="433" y="15" width="122" height="20" uuid="9aa883a5-312d-474e-b0c1-c424b5aa78cd"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="52" height="20" uuid="8bdd4c2a-a0fb-4ed6-9c21-c03532e025bf"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="41" width="100" height="20" uuid="59465896-945b-40d9-8bb7-4a71a960bbf9"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="12" width="52" height="20" uuid="dd8191c9-ab55-4ae2-8c60-4a85e5d24a71"/>
+				<textFieldExpression><![CDATA[$F{idDepartment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="52" y="12" width="100" height="20" uuid="0c7dbd13-f833-42c8-8291-dae7178efab3"/>
+				<textFieldExpression><![CDATA[$F{Department}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="32" width="555" height="1" uuid="096d3053-ca0c-4b2b-b6e3-514d41b7dd0e"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="411" y="0" width="80" height="20" uuid="f030b75a-22ae-457e-b527-c85dab2a6f90"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="491" y="0" width="42" height="20" uuid="61673a06-cd88-47fe-b260-6831e2cdd918"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

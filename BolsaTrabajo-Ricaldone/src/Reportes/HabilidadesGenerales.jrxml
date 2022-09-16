@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Habilidades" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e06ae907-5827-46ca-8496-4bd911b1678d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT a.idGskill, a.Skill, b.Levels, c.namePostulant 
+FROM GeneralSkills a, Levels b, Postulants c
+WHERE a.idLevel = b.idLevel AND a.idPostulant = c.idPostulant]]>
+	</queryString>
+	<field name="idGskill" class="java.lang.Integer"/>
+	<field name="Skill" class="java.sql.Clob"/>
+	<field name="Levels" class="java.lang.String"/>
+	<field name="namePostulant" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="191" y="28" width="186" height="26" uuid="3d693458-81aa-4f1d-abd7-b280de5b2b6e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Poppins ExtraBold" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Habilidades Generales]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="94" height="88" uuid="bbb16322-7a70-4aa4-ab84-9a834808f787"/>
+				<imageExpression><![CDATA["C:\\Users\\jonat\\OneDrive\\Documentos\\GitHub\\BolsaTrabajo-Ricaldone\\BolsaTrabajo-Ricaldone\\src\\Recursos\\MicrosoftTeams-image.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="432" y="0" width="123" height="20" uuid="12e1e082-d009-47e2-9115-a81a5950f645"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="24" width="35" height="20" uuid="5c2fa8cb-58a3-45c4-a67d-cb63d92e9ad2"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="24" width="100" height="20" uuid="b6b03773-5180-42c2-8cfd-baa8eea5cbb8"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Habilidad general]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="24" width="100" height="20" uuid="463465d8-4590-414c-a829-4447ebab1ef9"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Nivel de dominio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="24" width="100" height="20" uuid="165c4fd7-bf4f-4fc8-8c8e-5b41b04bce92"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Postulante]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="65" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="55" width="555" height="1" uuid="89727d4a-b0a0-46ce-8ddf-c463bd7ace6b"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="14" width="35" height="20" uuid="e6fc4ac1-2fc8-4ef1-bec7-86cb52db9db3"/>
+				<textFieldExpression><![CDATA[$F{idGskill}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="13" width="100" height="42" uuid="ed6c834a-5c33-4722-a8c7-e801fe1d02cd"/>
+				<textFieldExpression><![CDATA[""+$F{Skill}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="14" width="100" height="20" uuid="09c928bb-b334-401a-b86f-de401db5f827"/>
+				<textFieldExpression><![CDATA[$F{Levels}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="13" width="100" height="20" uuid="ff451568-4aa2-4b40-a3b9-2eb64a42f874"/>
+				<textFieldExpression><![CDATA[$F{namePostulant}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="432" y="6" width="80" height="20" uuid="e43f0e56-8ecc-45c0-91ca-23e5dfc2ffb5"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="512" y="6" width="43" height="20" uuid="1f066d44-2048-4a5b-85f1-af6e8ad667b2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

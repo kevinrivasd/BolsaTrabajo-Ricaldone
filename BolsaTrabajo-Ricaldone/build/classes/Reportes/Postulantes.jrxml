@@ -13,14 +13,18 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="59" splitType="Stretch">
+		<band height="89" splitType="Stretch">
 			<staticText>
 				<reportElement x="151" y="0" width="278" height="30" uuid="509a723f-76f2-4588-9b79-03066256b947"/>
 				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
+					<font fontName="Poppins ExtraBold" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Postulantes]]></text>
 			</staticText>
+			<image>
+				<reportElement x="0" y="1" width="94" height="88" uuid="3bdb11f5-98f8-440b-94d4-5a1d5f1e48e2"/>
+				<imageExpression><![CDATA["C:\\Users\\jonat\\OneDrive\\Documentos\\GitHub\\BolsaTrabajo-Ricaldone\\BolsaTrabajo-Ricaldone\\src\\Recursos\\MicrosoftTeams-image.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -39,28 +43,28 @@
 			<staticText>
 				<reportElement x="62" y="2" width="134" height="20" uuid="7d1d2a37-0be1-47bb-8e8a-def63dcd7b38"/>
 				<textElement>
-					<font isBold="true" isItalic="true"/>
+					<font fontName="Poppins SemiBold" isBold="false" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[Nombre del postulante:]]></text>
+				<text><![CDATA[Nombre del postulante]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="226" y="2" width="128" height="20" uuid="4fb3bcfa-34f1-4538-956d-07bb268c87b1"/>
 				<textElement>
-					<font isBold="true" isItalic="true"/>
+					<font fontName="Poppins SemiBold" isBold="false" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[Apellido del postulante:]]></text>
+				<text><![CDATA[Apellido del postulante]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="377" y="2" width="146" height="20" uuid="69bf0067-87d1-49b3-b1ba-d19e20ff404a"/>
 				<textElement>
-					<font isBold="true" isItalic="true"/>
+					<font fontName="Poppins SemiBold" isBold="false" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[Correo del postulante:]]></text>
+				<text><![CDATA[Correo del postulante]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="25" splitType="Stretch">
+		<band height="36" splitType="Stretch">
 			<textField>
 				<reportElement x="62" y="5" width="100" height="20" uuid="320ac4d7-67a2-4a73-b57b-148735f79a3d"/>
 				<textFieldExpression><![CDATA[$F{namePostulant}]]></textFieldExpression>
@@ -70,13 +74,16 @@
 				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="377" y="5" width="100" height="20" uuid="8917acec-a879-4d95-a068-5ed4dcc150c5"/>
+				<reportElement x="377" y="5" width="134" height="20" uuid="8917acec-a879-4d95-a068-5ed4dcc150c5"/>
 				<textFieldExpression><![CDATA[$F{mailPostulant}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="0" y="25" width="555" height="1" uuid="a9344873-66a4-4fc8-b941-de9ffdf349f9"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="3" splitType="Stretch"/>
+		<band height="19" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch">

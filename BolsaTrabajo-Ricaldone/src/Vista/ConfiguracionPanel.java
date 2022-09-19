@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Controlador.Utils;
 import Vista.Menú;
+import static javax.swing.GroupLayout.Alignment.CENTER;
 /**
  *
  * @author Jonathan
@@ -54,6 +55,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(239, 245, 213));
         setPreferredSize(new java.awt.Dimension(1141, 717));
 
         jPanel2.setBackground(new java.awt.Color(239, 245, 213));

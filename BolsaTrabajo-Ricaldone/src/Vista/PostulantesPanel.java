@@ -81,7 +81,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnGenerarReporte = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(1100, 700));
+        setPreferredSize(new java.awt.Dimension(1141, 700));
 
         jPanel3.setBackground(new java.awt.Color(239, 245, 213));
         jPanel3.setPreferredSize(new java.awt.Dimension(1100, 700));

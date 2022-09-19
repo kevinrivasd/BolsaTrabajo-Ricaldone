@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Modelo.ModeloUtils;
 import javax.security.auth.callback.ConfirmationCallback;
+import Controlador.Utils;
 
 /**
  *
@@ -25,36 +26,37 @@ public class NotificacionPanel extends javax.swing.JPanel {
     /**
      * Creates new form NotificacionPanel
      */
-    DefaultTableModel mod;
+//    DefaultTableModel mod;
     ModeloUtils utils = new ModeloUtils();
+    Utils util = new Utils();
 
-    public NotificacionPanel() throws SQLException, Exception {
+    public NotificacionPanel(){
         initComponents();
-        String[] Encabezados = {"ID", "Postulante", "Fecha", "Descripción", "respuesta", "Información de la respuesta", "Usuario"};
-        mod = new DefaultTableModel(null, Encabezados);
-        dgvNoti.setModel(mod);
-        CargarTabla();
-//        DefaultTableModel jPost = new DefaultTableModel();
-//        jPost = Controlador.Utils.rtrnTqble("Moderations");
-//        dgvNoti.setModel(jPost);
+//        String[] Encabezados = {"ID", "Postulante", "Fecha", "Descripción", "respuesta", "Información de la respuesta", "Usuario"};
+//        mod = new DefaultTableModel(null, Encabezados);
+//        dgvNoti.setModel(mod);
+//        CargarTabla();
+        DefaultTableModel jPost = new DefaultTableModel();
+        jPost = util.rtrnTqble("Moderations");
+        dgvNoti.setModel(jPost);
 
     }
 
-    final void CargarTabla() {
-        ControladorNotificaciones Cargarnoti = new ControladorNotificaciones();
-        while (mod.getRowCount() > 0) {
-            mod.removeRow(0);
-        }
-        try {
-            ResultSet rs = Cargarnoti.CargarNotificacionsControlador();
-            while (rs.next()) {
-                Object[] oValores = {rs.getInt("idMod"), rs.getString("namePostulant"), rs.getDate("dateMod"), rs.getString("context"), rs.getString("request"), rs.getString("requestedInfo"), rs.getString("nameUser")};
-                mod.addRow(oValores);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-    }
+//    final void CargarTabla() {
+//        ControladorNotificaciones Cargarnoti = new ControladorNotificaciones();
+//        while (mod.getRowCount() > 0) {
+//            mod.removeRow(0);
+//        }
+//        try {
+//            ResultSet rs = Cargarnoti.CargarNotificacionsControlador();
+//            while (rs.next()) {
+//                Object[] oValores = {rs.getInt("idMod"), rs.getInt("idPostulant"), rs.getDate("dateMod"), rs.getString("context"), rs.getString("request"), rs.getString("requestedInfo"), rs.getInt("idUserSystem")};
+//                mod.addRow(oValores);
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e.toString());
+//        }
+//    }
 
 //    public void AsignarComponentes() throws SQLException{
 //        ControladorNotificaciones noti = new ControladorNotificaciones();
@@ -90,7 +92,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvNoti = new javax.swing.JTable();
 
-        setPreferredSize(new java.awt.Dimension(1075, 833));
+        setPreferredSize(new java.awt.Dimension(1141, 833));
 
         jPanel8.setBackground(new java.awt.Color(239, 245, 213));
         jPanel8.setPreferredSize(new java.awt.Dimension(1075, 833));

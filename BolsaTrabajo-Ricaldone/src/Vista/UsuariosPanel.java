@@ -146,6 +146,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(239, 245, 213));
+        setPreferredSize(new java.awt.Dimension(1141, 850));
 
         jPanel3.setBackground(new java.awt.Color(239, 245, 213));
         jPanel3.setPreferredSize(new java.awt.Dimension(1105, 790));
@@ -354,7 +355,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
 
         jPanel5.setPreferredSize(new java.awt.Dimension(1041, 430));
 
-        dgvUsers.setColumnSelectionAllowed(true);
+        dgvUsers.setFocusable(false);
         dgvUsers.setSelectionBackground(new java.awt.Color(193, 233, 118));
         dgvUsers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -545,6 +546,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
         txtCorreo.setText("");
         txtNumero.setText("");
         txtContra.setText("");
+        cmbEstado.setSelectedIndex(0);
+        cmbGenero.setSelectedIndex(0);
+        cmbRol.setSelectedIndex(0);
     }
 
     public boolean verificar_email(String correo) {

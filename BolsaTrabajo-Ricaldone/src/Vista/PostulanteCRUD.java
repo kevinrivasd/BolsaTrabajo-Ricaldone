@@ -629,6 +629,18 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtApellidoPost.setText("");
         txtContraseñaPost.setText("");
         txtCorreoPost.setText("");
+        cmbDepartPreferencia.setSelectedIndex(0);
+        cmbDepartReside.setSelectedIndex(0);
+        cmbEstadoPost.setSelectedIndex(0);
+        cmbEstadoTrabajo.setSelectedIndex(0);
+        cmbGenero.setSelectedIndex(0);
+        cmbHighType.setSelectedIndex(0);
+        cmbNivelEstudio.setSelectedIndex(0);
+        cmbPrefLaboral.setSelectedIndex(0);
+        cmbSalario.setSelectedIndex(0);
+        cmbProgreso.setSelectedIndex(0);
+        cmbTipoContrato.setSelectedIndex(0);
+        cmbTipoTrabajo.setSelectedIndex(0);
     }
 
     private String S = "";

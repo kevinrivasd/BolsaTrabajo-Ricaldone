@@ -8,11 +8,17 @@ import java.sql.Connection;
 import Modelo.ModeloConexion;
 
 /**
+ * class made for connection.
  *
  * @author hello
  */
 public class ControladorConexion {
 
+    /**
+     * This method is used to return the connection query and used in the view.
+     *
+     * @return
+     */
     public static Connection getConection() {
         return ModeloConexion.Conectar();
     }

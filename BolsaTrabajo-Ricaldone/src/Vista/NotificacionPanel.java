@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.ControladorNotificaciones;
+import Controlador.ControladorUsuario;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.sql.ResultSet;
@@ -12,6 +13,8 @@ import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Modelo.ModeloUtils;
+import javax.security.auth.callback.ConfirmationCallback;
 
 /**
  *
@@ -22,12 +25,33 @@ public class NotificacionPanel extends javax.swing.JPanel {
     /**
      * Creates new form NotificacionPanel
      */
+    DefaultTableModel mod;
+    ModeloUtils utils = new ModeloUtils();
     public NotificacionPanel() throws SQLException, Exception {
         initComponents();
-        DefaultTableModel jPost = new DefaultTableModel();
-        jPost = Controlador.Utils.rtrnTqble("Moderations");
-        dgvNoti.setModel(jPost);
+        String[] Encabezados = {"ID", "Postulante", "Fecha", "Descripción", "respuesta", "Información de la respuesta", "Usuario"};
+        mod = new DefaultTableModel(null, Encabezados);
+        dgvNoti.setModel(mod);
+        CargarTabla();
+//        DefaultTableModel jPost = new DefaultTableModel();
+//        jPost = Controlador.Utils.rtrnTqble("Moderations");
+//        dgvNoti.setModel(jPost);
 
+    }
+    final void CargarTabla() {
+        ControladorNotificaciones Cargarnoti = new ControladorNotificaciones();
+        while (mod.getRowCount() > 0) {
+            mod.removeRow(0);
+        }
+        try {
+            ResultSet rs = Cargarnoti.CargarNotificacionsControlador();
+            while (rs.next()) {
+                Object[] oValores = {rs.getInt("idMod"), rs.getString("namePostulant"), rs.getDate("dateMod"), rs.getString("context"), rs.getString("request"), rs.getString("requestedInfo"), rs.getString("nameUser")};
+                mod.addRow(oValores);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
     }
 
 //    public void AsignarComponentes() throws SQLException{
@@ -136,10 +160,11 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 String mailUser = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 3).toString();
 
                 if (idPostulante != null) {
-                    String b64 = Modelo.ModeloUtils.getPDF(idPostulante.toString());
-                    if (!b64.equals("") && !mailUser.equals("")) {
+                    String b64 = utils.getPDF(idPostulante.toString());
+                    if (b64.equals("") || mailUser.equals("") || b64.isEmpty() || b64.isBlank()) {
                         Controlador.Utils.sendPDF(b64, mailUser);
-                    } else {
+                        JOptionPane.showMessageDialog(null, b64);
+                    } else if(JOptionPane.showConfirmDialog(null, "¿Deseas enviar el pdf adjunto en un correo?","Mensaje",JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
                         JOptionPane.showMessageDialog(null, "Este postulante no tiene pdf aun");
                     }
                 }else{

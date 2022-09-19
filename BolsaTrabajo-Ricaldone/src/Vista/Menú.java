@@ -17,6 +17,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import Controlador.Utils;
 
 /**
  *
@@ -26,14 +27,15 @@ public class Menú extends javax.swing.JFrame {
 
     /**
      * Creates new form Menú
-     */    
+     */
     Desface desplace;
     Dimension d = new Dimension(1141, 717);
     public JPanel previo = new JPanel();
     public static String nameUser = "";
     public static List<String> userLevel = new ArrayList<>();
+    Utils user = new Utils();
 
-    public Menú(String user) throws Exception {
+    public Menú(String user) {
         initComponents();
         this.setLocationRelativeTo(null);
         setPreferredSize(d);
@@ -45,31 +47,31 @@ public class Menú extends javax.swing.JFrame {
         previo.revalidate();
         nameUser = user;
         cargarProps(nameUser);
-        
+
         if (userLevel.get(2).equals("2")) {
             Color myGreen = new Color(50, 63, 27);
-            
+
             Icon icon = new ImageIcon("src/recursos/User menu.png");
             btnUsuarioGrafi.setDisabledIcon(icon);
             btnUsuarioGrafi.setIcon(icon);
-            
+
             btnUsuarioGrafi.setBackground(myGreen);
             btnUsuarioGrafi.setEnabled(false);
         }
     }
 
-    public static List<String> cargarProps(String nameUserLocal) {
+    private Menú() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public List<String> cargarProps(String nameUserLocal) {
         try {
-            userLevel = Controlador.Utils.getUserData(nameUserLocal);
+            userLevel = user.getUserData(nameUserLocal);
             return userLevel;
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }
-
-    private Menú() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -375,7 +377,7 @@ public class Menú extends javax.swing.JFrame {
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();
             previo.revalidate();
-            PanelHolder.setPreferredSize(d);
+//            PanelHolder.setPreferredSize(d);
 
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);

@@ -15,19 +15,19 @@ import javax.swing.JOptionPane;
  * @author Jonathan
  */
 public class ModeloNotificaciones {
-    
-    public ResultSet CargarNotificaciones(){
-       Connection con;
+
+    public ResultSet CargarNotificaciones() {
+        Connection con;
         PreparedStatement ps;
         try {
             con = ControladorConexion.getConection();
-            String query = "SELECT * FROM VModerations";
+            String query = "SELECT * FROM V_Mod";
             ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             return rs;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
             return null;
-        } 
+        }
     }
 }

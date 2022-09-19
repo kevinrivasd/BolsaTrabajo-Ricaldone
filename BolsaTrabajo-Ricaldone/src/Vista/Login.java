@@ -11,13 +11,14 @@ import Controlador.ControladorLogin;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import Controlador.ControladorLogin;
 
 /**
  *
  * @author hello
  */
 public class Login extends javax.swing.JFrame {
-
+ControladorLogin logincontroller = new ControladorLogin();
     /**
      * Creates new form Login
      */
@@ -46,11 +47,11 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtUser = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btnIniciarSesion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtpassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -82,10 +83,6 @@ public class Login extends javax.swing.JFrame {
         jPanel3.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 183, 297, 37));
         txtUser.getAccessibleContext().setAccessibleName("txtUser");
 
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel3.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 346, 297, 37));
-        txtPassword.getAccessibleContext().setAccessibleName("txtContra");
-
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User Login.png"))); // NOI18N
         jLabel2.setText("   Usuario");
@@ -115,6 +112,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 468, -1, -1));
+        jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 290, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,10 +139,11 @@ public class Login extends javax.swing.JFrame {
 
         String user;
         char[] password;
+        
         try {
             user = txtUser.getText();
-            password = txtPassword.getPassword();
-            String num = ControladorLogin.Login(user, password);
+            password = txtpassword.getPassword();
+            String num = logincontroller.Login(user, password);
 
             if ("".equals(num)) {
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
@@ -187,7 +186,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUser;
+    private javax.swing.JPasswordField txtpassword;
     // End of variables declaration//GEN-END:variables
 }

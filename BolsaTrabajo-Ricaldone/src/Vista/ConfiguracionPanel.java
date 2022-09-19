@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Controlador.Utils;
+import Vista.Menú;
 /**
  *
  * @author Jonathan
@@ -20,6 +22,8 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
      * Creates new form ConfiguracionPanel
      */
     public static List<String> userName;
+    Utils utils = new Utils();
+//    Menú menu = new Menú();
     public ConfiguracionPanel(List<String> userParam) {
         initComponents();
         userName = userParam;
@@ -134,9 +138,9 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         int res;
         if (!Controlador.Utils.emptyFields(data)) {
             try {
-                res = Controlador.Utils.actualizar(data,userName.get(3),"UserSystems","idUser");
+                res = utils.actualizar(data,userName.get(3),"UserSystems","idUser");
                 JOptionPane.showMessageDialog(null, "Te has actualizado con exito");
-                userName = Vista.Menú.cargarProps(userName.get(3));
+//                userName = menu.cargarProps(userName.get(3));
 
             } catch (Exception ex) {
                 Logger.getLogger(ConfiguracionPanel.class.getName()).log(Level.SEVERE, null, ex);

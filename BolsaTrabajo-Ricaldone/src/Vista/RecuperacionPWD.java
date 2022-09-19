@@ -9,6 +9,7 @@ import Controlador.ControladorRecu;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import Controlador.ControladorRecu;
 
 /**
  *
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class RecuperacionPWD extends javax.swing.JFrame {
     public static String mailLocal = ""; 
+    ControladorRecu recucontroller = new ControladorRecu();
     
     /**
      * Creates new form RecuperacionPWD
@@ -191,12 +193,12 @@ public class RecuperacionPWD extends javax.swing.JFrame {
             
         try {
 
-            int num = ControladorRecu.RecuperacionPWD(user);
+            int num = recucontroller.RecuperacionPWD(user);
             
             if (num != 1) 
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             else {                
-                 mailLocal = ControladorRecu.SentCode(user);
+                 mailLocal = recucontroller.SentCode(user);
             }
             
         } catch (Exception e) {

@@ -7,23 +7,62 @@ package Controlador;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import Modelo.ModeloPostulante;
 
 /**
+ * class to manage postulants
  *
  * @author Jonathan
  */
 public class ControladorPostulante {
 
-    public static int AgreparPostulante(LinkedHashMap<String, String> dataMap) throws Exception {
-        return Modelo.ModeloPostulante.AgregarPostulante(dataMap);
+    ModeloPostulante modelpost = new ModeloPostulante();
+
+    /**
+     * method to insert data to the table.
+     *
+     * @param dataMap
+     * @return
+     */
+    public int AgreparPostulante(LinkedHashMap<String, String> dataMap) {
+        return modelpost.AgregarPostulante(dataMap);
     }
 
-    public static int ActualizarPostulante(LinkedHashMap<String, String> dataMap) throws Exception {
-        return Modelo.ModeloPostulante.ActualizarPostulante(dataMap);
+    /**
+     * method to update data to the table.
+     *
+     * @param dataMap
+     * @return
+     */
+    public int ActualizarPostulante(LinkedHashMap<String, String> dataMap) {
+        return modelpost.ActualizarPostulante(dataMap);
     }
 
-    public ResultSet MostrarTablaControlador() throws Exception {
-        return Modelo.ModeloPostulante.mostrarTabla();
+    /**
+     * Return the table of postulants.
+     *
+     * @return
+     */
+    public ResultSet MostrarTablaControlador() {
+        return modelpost.mostrarTabla();
+    }
+
+    /**
+     * Return the view of postulants
+     *
+     * @return
+     */
+    public ResultSet MostrarTablaVControlador() {
+        return modelpost.mostrarTablaV();
+    }
+
+    /**
+     * Return the view of Postulantes CRUD
+     *
+     * @return
+     */
+    public ResultSet TablaCRUD_VController() {
+        return modelpost.TablaCRUD_V();
     }
 
 }

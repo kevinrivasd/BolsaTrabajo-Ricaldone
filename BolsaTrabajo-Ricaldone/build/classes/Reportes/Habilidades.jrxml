@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Habilidades" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e06ae907-5827-46ca-8496-4bd911b1678d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[
+SELECT a.NameSkill, a.idLevel, b.Branch, b.idLevel, c.Skill, c.idLevel
+FROM AditionalSkills a, Branches b, GeneralSkills c, Postulants d, Levels e
+WHERE a.idPostulant = d.idPostulant AND b.idPostulant = d.idPostulant AND	C.idPostulant = d.idPostulant]]>
+	</queryString>
+	<field name="NameSkill" class="java.lang.String"/>
+	<field name="idLevel" class="java.lang.Integer"/>
+	<field name="Branch" class="java.lang.String"/>
+	<field name="Skill" class="java.sql.Clob"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="246" y="28" width="100" height="20" uuid="3d693458-81aa-4f1d-abd7-b280de5b2b6e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Habilidades]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="12e1e082-d009-47e2-9115-a81a5950f645"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="15" width="72" height="20" uuid="c643bc2a-c924-45b0-ad5a-dd0b32bc0822"/>
+				<text><![CDATA[NameSkill]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="15" width="53" height="20" uuid="1a899e31-ce78-467c-9c74-0b9ffdc4cab5"/>
+				<text><![CDATA[idLevel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="15" width="61" height="20" uuid="a0bf0438-0138-49f8-82a5-7f4f938ba48d"/>
+				<text><![CDATA[Branch]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="15" width="54" height="20" uuid="a56b938f-d369-40ca-a7cf-50a12d273dcd"/>
+				<text><![CDATA[Skill]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="68" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="13" width="72" height="20" uuid="e2dc5ac5-5576-4bf2-a022-1b901cec9e11"/>
+				<textFieldExpression><![CDATA[$F{NameSkill}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="13" width="53" height="20" uuid="649e599f-0529-43c5-b61b-90b0e123c1a2"/>
+				<textFieldExpression><![CDATA[$F{idLevel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="13" width="61" height="20" uuid="f50f4923-305d-48c7-8d7b-fba3ed61c0a4"/>
+				<textFieldExpression><![CDATA[$F{Branch}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="13" width="61" height="20" uuid="b84beda1-1aa3-4fb7-b39b-10229df10735"/>
+				<textFieldExpression><![CDATA[""+$F{Skill}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="432" y="6" width="80" height="20" uuid="e43f0e56-8ecc-45c0-91ca-23e5dfc2ffb5"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="512" y="6" width="43" height="20" uuid="1f066d44-2048-4a5b-85f1-af6e8ad667b2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

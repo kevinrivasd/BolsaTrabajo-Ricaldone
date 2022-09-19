@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import jdk.jshell.execution.Util;
+import Controlador.Utils;
 
 /**
  *
@@ -25,17 +26,18 @@ import jdk.jshell.execution.Util;
  */
 public class AbilitiesCRUD extends javax.swing.JFrame {
 
+    Utils utils = new Utils();
     /**
      * Creates new form AbilitiesCRUD
      */
     private static int typeA = 0;
     private static String idPos = "";
-    
-    String[] arrAb = {"","idLevel",""};
-    
+
+    String[] arrAb = {"", "idLevel", ""};
+
     private static String table = "";
-    public HashMap<Integer,String> levelCMB;
-    
+    public HashMap<Integer, String> levelCMB;
+
     public AbilitiesCRUD(int abilitie, String id) throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -43,7 +45,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         idPos = id;
         switch (typeA) {
             case 0:
-                table = "AditionalSkills";    
+                table = "AditionalSkills";
                 arrAb[0] = "NameSkill";
                 arrAb[2] = "idAskills";
                 break;
@@ -57,25 +59,26 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
                 arrAb[0] = "Skill";
                 arrAb[2] = "idGskill";
                 break;
-                
+
             default:
                 throw new AssertionError();
         }
 
-       dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,id));
+        dgvLol.setModel(utils.rtrnTqble(table, arrAb, id));
         txtId.setVisible(false);
-        
-        levelCMB = Controlador.Utils.getDataTable("Levels");        
-        for(int k = 1; k<=levelCMB.size();k++){
-           cmbLevel.addItem(levelCMB.get(k));
-       }
-        
-        List<String> level = Controlador.Utils.getDataCmb("Levels", "Levels");
-        
+
+        levelCMB = utils.getDataTable("Levels");
+        for (int k = 1; k <= levelCMB.size(); k++) {
+            cmbLevel.addItem(levelCMB.get(k));
+        }
+
+        List<String> level = utils.getDataCmb("Levels", "Levels");
+
         JComboBox combo = new JComboBox<>(level.toArray());
         TableColumn col = dgvLol.getColumnModel().getColumn(1);
         col.setCellEditor(new DefaultCellEditor(combo));
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -201,43 +204,41 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        LinkedHashMap<String,String> map = new LinkedHashMap<>();
+        LinkedHashMap<String, String> map = new LinkedHashMap<>();
         map = collectMap();
-        
+
         try {
-            int res = Controlador.Utils.Agregar(map, table);
+            int res = utils.Agregar(map, table);
             if (res == 1) {
                 JOptionPane.showMessageDialog(null, "Exito");
-                dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
-            }else{
+                dgvLol.setModel(utils.rtrnTqble(table, arrAb, idPos));
+            } else {
                 JOptionPane.showMessageDialog(null, "Sin exito ");
             }
         } catch (Exception ex) {
             Logger.getLogger(AbilitiesCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         try {
-               if ( 
-             JOptionPane.showConfirmDialog(null, "Seguro que quieres eliminar este elemento?", "Mensaje",
-        JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES
-                ){
-                    // TODO add your handling code here:
-                    String id = txtId.getText();
-                    int res = Controlador.Utils.eliminar(id,table,arrAb[2]);
-                    if (res == 1) {
-                        JOptionPane.showMessageDialog(null, "Elemento eliminado correctamente");
-                        try {
-                            dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
-                        } catch (Exception ex) {
-                            Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }else{
-                        JOptionPane.showMessageDialog(null, res);
+            if (JOptionPane.showConfirmDialog(null, "Seguro que quieres eliminar este elemento?", "Mensaje",
+                    JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
+                // TODO add your handling code here:
+                String id = txtId.getText();
+                int res = utils.eliminar(id, table, arrAb[2]);
+                if (res == 1) {
+                    JOptionPane.showMessageDialog(null, "Elemento eliminado correctamente");
+                    try {
+                        dgvLol.setModel(utils.rtrnTqble(table, arrAb, idPos));
+                    } catch (Exception ex) {
+                        Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, res);
+                }
             }
         } catch (Exception e) {
         }
@@ -246,34 +247,33 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
         LinkedHashMap<String, String> data = collectMap();
-        
+
         if (!Controlador.Utils.emptyFields(data)) {
-                     String id = txtId.getText();
-                     int res=0; 
+            String id = txtId.getText();
+            int res = 0;
             try {
-                res = Controlador.Utils.actualizar(data,id,table,arrAb[2]);
-                JOptionPane.showMessageDialog(null, res == 1 ? "Elemento correctamente actualizado":"Hubo un error");
+                res = utils.actualizar(data, id, table, arrAb[2]);
+                JOptionPane.showMessageDialog(null, res == 1 ? "Elemento correctamente actualizado" : "Hubo un error");
 
-                dgvLol.setModel(Controlador.Utils.rtrnTqble(table, arrAb,idPos));
+                dgvLol.setModel(utils.rtrnTqble(table, arrAb, idPos));
             } catch (Exception ex) {
-                         Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
-                     }
+                Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-                 }else{
-                     JOptionPane.showMessageDialog(null, "Por favor revisa que los campos estén correctamente llenos.");
-                 }
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor revisa que los campos estén correctamente llenos.");
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void dgvLolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvLolMouseClicked
         // TODO add your handling code here:
-        
-        if (evt.getClickCount()==1) {
+
+        if (evt.getClickCount() == 1) {
             JTable Table = (JTable) evt.getSource();
-            txtId.setText(Table.getModel().getValueAt(Table.getSelectedRow(),2).toString());
-            cmbLevel.setSelectedItem(levelCMB.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(),1).toString())));
-            txtTitle.setText(Table.getModel().getValueAt(Table.getSelectedRow(),0).toString());
-         
-            
+            txtId.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 2).toString());
+            cmbLevel.setSelectedItem(levelCMB.get(Integer.valueOf(Table.getModel().getValueAt(Table.getSelectedRow(), 1).toString())));
+            txtTitle.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 0).toString());
+
         }
     }//GEN-LAST:event_dgvLolMouseClicked
 
@@ -281,14 +281,14 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_lblRegresarMouseClicked
-    private LinkedHashMap<String, String> collectMap(){
-        LinkedHashMap<String,String> map = new LinkedHashMap<>();
-         map.put(arrAb[0], txtTitle.getText());
-         map.put(arrAb[1], String.valueOf(cmbLevel.getSelectedIndex()+1));
-         map.put("idPostulant", idPos);
+    private LinkedHashMap<String, String> collectMap() {
+        LinkedHashMap<String, String> map = new LinkedHashMap<>();
+        map.put(arrAb[0], txtTitle.getText());
+        map.put(arrAb[1], String.valueOf(cmbLevel.getSelectedIndex() + 1));
+        map.put("idPostulant", idPos);
         return map;
     }
-    
+
     /**
      * @param args the command line arguments
      */

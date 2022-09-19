@@ -4,14 +4,37 @@
  */
 package Controlador;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import Modelo.ModeloLogin;
+
 /**
+ * class designed to mediate the login.
  *
  * @author hello
  */
 public class ControladorLogin {
-    public static String Login(String user, char[] password) throws Exception{
-        
-        return Modelo.ModeloLogin.Login(user, Utils.encrypt(password));        
-    
+
+    /**
+     * Object from ModeloLogin.
+     */
+    ModeloLogin login = new ModeloLogin();
+
+    /**
+     * login method to capture username and password, encrypting the password.
+     *
+     * @param user
+     * @param password
+     * @return
+     */
+    public String Login(String user, char[] password) {
+        try {
+            String i = "";
+            String claveEncrypt = Utils.encrypt(password);
+            return login.Login(user, claveEncrypt);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PostulantesCRUD" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="02208b7d-b0d2-4b72-9010-c8c3ee666579">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="2"/>
+	<queryString>
+		<![CDATA[SELECT a.idPostulant, a.namePostulant, a.mailPostulant, a.Pword, a.photoPostulant, a.resumePDF, a.resumeDetails, a.mailverification, b.Gender, c.States, a.Alumni, a.IDepartment, a.RDepartment, g.WorkSubject, d.Progress, h.Salary, i.HighType, j.WType, k.WPreference, l.studyLevel, e.WorkState, a.lastName
+FROM Postulants a, Genders b, States c, Progress d, WorkState e, workSubjects g, SalaryState h, HighType i, ContractType j, WorkPreference k, StudyLevels l
+WHERE a.Gender = b.idGender AND	a.States = c.idState AND a.Progress = d.idProgress AND a.WorkStatus = e.idWorkSatet AND a.WSubject = g.idSubject AND a.Salary = h.idSalary AND a.HighType = i.idType AND a.ContractType = j.idContractT AND a.WorkPreference = k.idPreference AND a.StudyLevel = l.idSLevel]]>
+	</queryString>
+	<field name="idPostulant" class="java.lang.Integer"/>
+	<field name="namePostulant" class="java.lang.String"/>
+	<field name="mailPostulant" class="java.lang.String"/>
+	<field name="Pword" class="java.sql.Clob"/>
+	<field name="photoPostulant" class="java.sql.Clob"/>
+	<field name="resumePDF" class="java.lang.Object"/>
+	<field name="resumeDetails" class="java.sql.Clob"/>
+	<field name="mailverification" class="java.lang.Boolean"/>
+	<field name="Gender" class="java.lang.String"/>
+	<field name="States" class="java.lang.String"/>
+	<field name="Alumni" class="java.lang.Boolean"/>
+	<field name="IDepartment" class="java.lang.Integer"/>
+	<field name="RDepartment" class="java.lang.Integer"/>
+	<field name="WorkSubject" class="java.lang.String"/>
+	<field name="Progress" class="java.lang.String"/>
+	<field name="Salary" class="java.lang.String"/>
+	<field name="HighType" class="java.lang.String"/>
+	<field name="WType" class="java.lang.String"/>
+	<field name="WPreference" class="java.lang.String"/>
+	<field name="studyLevel" class="java.lang.String"/>
+	<field name="WorkState" class="java.lang.String"/>
+	<field name="lastName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="209" y="24" width="178" height="25" uuid="b1d2c03b-1b05-47b5-876e-646d215a3f66"/>
+				<textElement>
+					<font fontName="Poppins ExtraBold" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gestor de postulantes]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="2" width="94" height="88" uuid="ee0ceb4c-c28f-453d-b60a-b344581da870"/>
+				<imageExpression><![CDATA["C:\\Users\\jonat\\OneDrive\\Documentos\\GitHub\\BolsaTrabajo-Ricaldone\\BolsaTrabajo-Ricaldone\\src\\Recursos\\MicrosoftTeams-image.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="434" y="0" width="121" height="20" uuid="6eae1093-1d3c-44f0-8430-b4fa5b5b266d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="162" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="30" height="20" uuid="8bb330ad-ee00-42f1-bd57-51a118abc405"/>
+				<textFieldExpression><![CDATA[$F{idPostulant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="20" width="100" height="20" uuid="a4d216e5-5b94-4a7a-98a2-f8def27bfddb"/>
+				<textFieldExpression><![CDATA[$F{namePostulant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="20" width="123" height="20" uuid="3afc635c-9539-4158-a1a2-648abb0809d7"/>
+				<textFieldExpression><![CDATA[$F{mailPostulant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="20" width="100" height="20" uuid="2787ae43-f3f7-4f55-bcac-ffed6b67d947"/>
+				<textFieldExpression><![CDATA[$F{mailverification}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="20" width="48" height="20" uuid="717f79b5-6fbd-4181-a7b9-a21e1978ee6d"/>
+				<textFieldExpression><![CDATA[$F{Gender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="20" width="54" height="20" uuid="cb41ae3f-e3dd-413b-a6f0-7bbc93a94f0b"/>
+				<textFieldExpression><![CDATA[$F{States}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="484" y="20" width="54" height="20" uuid="22abf6c1-4f60-451c-872e-d69a819d6944"/>
+				<textFieldExpression><![CDATA[$F{Alumni}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="73" width="100" height="20" uuid="b106a6e2-e3c6-4960-9021-e80db5efde82"/>
+				<textFieldExpression><![CDATA[$F{WorkSubject}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="53" width="100" height="20" uuid="93d2c954-3a44-400c-877c-d7dd4b615c36"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Tipo de trabajo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="20" uuid="15052bf9-ed4a-439f-ac3c-76db5b0d6e68"/>
+				<textElement>
+					<font fontName="Poppins SemiBold" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="111" height="20" uuid="9ef51034-0c8c-474f-95db-f5641f86ecc7"/>
+				<textElement>
+					<font fontName="Poppins SemiBold" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Nombres del postulante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="123" height="20" uuid="d640f553-49c1-4599-9a79-73fd3e278d20"/>
+				<textElement>
+					<font fontName="Poppins SemiBold" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Correo electrónico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="0" width="121" height="20" uuid="e5fadec1-223d-4765-80ed-b0bdc61c076b"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Verificación de correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="0" width="48" height="20" uuid="d05b67d7-c7ef-4e07-9cc0-5be6ca48e99c"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Genero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="0" width="44" height="20" uuid="3bc8f81c-aa77-459b-9e84-cc22da69ffc7"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="484" y="0" width="71" height="20" uuid="355d39eb-5542-4ac0-8684-44d2c05741fc"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Ex-Alumno]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="74" width="67" height="35" uuid="765be8b0-4c82-4f88-a787-5c7e18b711ff"/>
+				<textFieldExpression><![CDATA[$F{Progress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="53" width="53" height="20" uuid="df8ff844-15d0-4997-ae42-d2d8842c4811"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Progreso]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="167" y="74" width="100" height="20" uuid="53df17b7-a982-4d36-81eb-51968cfcd666"/>
+				<textFieldExpression><![CDATA[$F{Salary}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="167" y="54" width="100" height="20" uuid="c450987d-88fd-4c14-a05a-085702c9d89b"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Salario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="267" y="73" width="100" height="20" uuid="af9ed664-77f4-4739-8fef-af5d2f305310"/>
+				<textFieldExpression><![CDATA[$F{HighType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="269" y="53" width="96" height="20" uuid="8e560e15-602f-4443-9a41-ef45042a7d01"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Nivel de bachiller]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="367" y="74" width="69" height="20" uuid="059fdfc2-f6ce-4e59-8a82-818fa61aabbd"/>
+				<textFieldExpression><![CDATA[$F{WType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="365" y="54" width="89" height="20" uuid="ba6e070c-0ec3-40a9-a266-85d3f77b2394"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Tipo de contrato]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="73" width="100" height="20" uuid="7ceba1a0-e9b5-4d3b-a108-900cbafaff3f"/>
+				<textFieldExpression><![CDATA[$F{WPreference}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="455" y="53" width="100" height="20" uuid="c6e1fd1d-cb8c-498e-9a44-79c8c9fa5394"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Preferencia laboral]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="129" width="100" height="20" uuid="fc85fe0b-39f6-4b4e-9e03-710fa6eeadc1"/>
+				<textFieldExpression><![CDATA[$F{studyLevel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="109" width="100" height="20" uuid="13cfb5c9-7efd-4ebf-b15c-1f7fd38bf22a"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Nivel de estudio]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="116" y="129" width="100" height="20" uuid="76572857-2300-4199-b993-3b5e79b28bb6"/>
+				<textFieldExpression><![CDATA[$F{WorkState}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="116" y="109" width="100" height="20" uuid="da14fc20-fd18-4cc0-95cd-59ad3745f652"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Estado laboral]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="244" y="129" width="100" height="20" uuid="1b7898ff-bc20-4a68-b09a-f611bbd93c76"/>
+				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="244" y="109" width="131" height="20" uuid="fdbdedd0-01d4-4a2b-a613-c1ee90fcf1db"/>
+				<textElement>
+					<font fontName="Poppins SemiBold"/>
+				</textElement>
+				<text><![CDATA[Apellidos del postulante]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="149" width="553" height="1" uuid="aa7b6385-d2a6-4cd6-b5d0-61785b758091"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="419" y="3" width="80" height="20" uuid="c02a0c42-3bb4-4070-aad8-d6257f655016"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="499" y="3" width="56" height="20" uuid="d893dc12-8e98-494b-a7e5-3ac31b627271"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

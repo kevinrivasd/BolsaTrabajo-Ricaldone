@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
+
 import java.sql.ResultSet;
 import java.sql.Connection;
 import Controlador.ControladorConexion;
@@ -15,17 +16,66 @@ import javax.swing.JOptionPane;
  */
 public class ModeloUsuarios {
     
-    public static ResultSet CargarUsuarios(){
+    PreparedStatement consult = null;
+
+    public ResultSet CargarUsuarios() {
         Connection con;
         try {
             con = ControladorConexion.getConection();
-            String query = "SELECT * FROM UserSystems";
-        PreparedStatement consult = con.prepareStatement(query);
-        ResultSet rs = consult.executeQuery();
-        return rs;
+            String query = "SELECT * FROM V_Users";
+            consult = con.prepareStatement(query);
+            ResultSet rs = consult.executeQuery();
+            return rs;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
             return null;
         }
     }
+
+    public boolean ValidarUser(String user, String id) {
+        Connection con = ControladorConexion.getConection();
+        boolean resultado = false;
+        String query = "SELECT * FROM UserSystems WHERE nameUser = ? AND NOT idUser= ?";
+
+        try {
+            consult = con.prepareStatement(query);
+            consult.setString(1, user);
+            consult.setString(2, id);
+            ResultSet rs = consult.executeQuery();
+            if (!rs.isBeforeFirst() && rs.getRow() == 0) {
+                resultado = true;
+            } else {
+                resultado = false;
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return false;
+        }
+        return resultado;
+    }
+    
+    public boolean ValidarMail(String mail, String id) {
+        Connection con = ControladorConexion.getConection();
+        boolean resultado = false;
+        String query = "SELECT * FROM UserSystems WHERE mailUser = ? AND NOT idUser= ?";
+
+        try {
+            consult = con.prepareStatement(query);
+            consult.setString(1, mail);
+            consult.setString(2, id);
+            ResultSet rs = consult.executeQuery();
+            if (!rs.isBeforeFirst() && rs.getRow() == 0) {
+                resultado = true;
+            } else {
+                resultado = false;
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return false;
+        }
+        return resultado;
+    }
+
 }

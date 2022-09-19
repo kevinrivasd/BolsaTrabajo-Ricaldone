@@ -28,13 +28,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * kind of utilities to streamline processes.
  * @author hello
  */
 public class Utils {
+    /**
+     * Object from ModeloUtils.
+     */
     ModeloUtils modelUtils = new ModeloUtils();
     //retrieve data for the comboboxes based on the cmbString(table)
     //and the field that retrieves is campoString(tableField)
+    /**
+     * MD5 encryption method.
+     * @param input
+     * @return 
+     */
     public static String encryptMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -50,17 +58,32 @@ public class Utils {
         }
     }
 
-    
+    /**
+     * Get data for combo box.
+     * @param cmbString
+     * @param campoString
+     * @return 
+     */
     public List<String> getDataCmb(String cmbString, String campoString){
         return modelUtils.getData(cmbString, campoString);
     }
 
+    /**
+     * Get data for table.
+     * @param cmbString
+     * @return 
+     */
     public HashMap<Integer, String> getDataTable(String cmbString) {
         return modelUtils.getTableHM(cmbString);
     }
 
-    //check if any element on the hashmap is empyt or null
+    //check if any element on the hashmap is empyt or null.
     //the hashmap comes as a parameter.
+    /**
+     * Check empty fields
+     * @param fields
+     * @return 
+     */
     public static boolean emptyFields(HashMap<String, String> fields) {
 
         for (Map.Entry<String, String> entry : fields.entrySet()) {
@@ -75,6 +98,11 @@ public class Utils {
         return false;
     }
 
+    /**
+     * Password encryption.
+     * @param password
+     * @return 
+     */
     public static String encrypt(char[] password) {
         String baseString = "";
 
@@ -85,6 +113,13 @@ public class Utils {
         return baseString;
     }
 
+    /**
+     * Return table with fields from base.
+     * @param sqlTable
+     * @param colStrings
+     * @param idString
+     * @return 
+     */
     public DefaultTableModel rtrnTqble(String sqlTable, String[] colStrings, String idString){
 
         try {
@@ -98,10 +133,19 @@ public class Utils {
         }
     }
 
+    /**
+     * Method to gather the amount and count a data.
+     * @return 
+     */
     public static DefaultTableModel agruparPersona() {
         return Modelo.ModeloUtils.agruparPersona();
     }
 
+    /**
+     * Return table from base.
+     * @param sqlTable
+     * @return 
+     */
     public DefaultTableModel rtrnTqble(String sqlTable){
 
         try {
@@ -115,6 +159,12 @@ public class Utils {
         }
     }
 
+    /**
+     * rebuild table from meta data.
+     * @param rs
+     * @return
+     * @throws SQLException 
+     */
     public static DefaultTableModel buildTableModel(ResultSet rs)
             throws SQLException {
 
@@ -140,23 +190,56 @@ public class Utils {
         return new DefaultTableModel(data, columnNames);
     }
 
+    /**
+     * Delete data.
+     * @param id
+     * @param tabla
+     * @param campo
+     * @return 
+     */
     public int eliminar(String id, String tabla, String campo) {
         return modelUtils.Eliminar(id, tabla, campo);
     }
 
+    /**
+     * Update data.
+     * @param data
+     * @param id
+     * @param tabla
+     * @param idCompare
+     * @return
+     * @throws Exception 
+     */
     public int actualizar(LinkedHashMap<String, String> data, String id, String tabla, String idCompare) throws Exception {
         return modelUtils.Actualizar(data, id, tabla, idCompare);
     }
 
+    /**
+     * Insert data.
+     * @param datos
+     * @param tabla
+     * @return 
+     */
     public int Agregar(LinkedHashMap<String, String> datos, String tabla) {
         return modelUtils.Agregar(datos, tabla);
 
     }
 
+    /**
+     * Get user data.
+     * @param nameUser
+     * @return 
+     */
     public List<String> getUserData(String nameUser) {
         return modelUtils.getUserData(nameUser);
     }
 
+    /**
+     * Send PDF for Email.
+     * @param b64
+     * @param mail
+     * @return 
+     */
     public static String sendPDF(String b64, String mail) {
 
         try {

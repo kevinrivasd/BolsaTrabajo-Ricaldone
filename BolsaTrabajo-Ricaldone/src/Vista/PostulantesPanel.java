@@ -226,15 +226,13 @@ public class PostulantesPanel extends javax.swing.JPanel {
 //               ControladorConexion con = new ControladorConexion();
             Connection con = ControladorConexion.getConection();
              
-            
-            Path path = Paths.get("");
-            String ruta = path.toAbsolutePath().toString();
-            String path2 = ruta + "\\src\\Reportes\\Postulantes.jasper";
-            JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(path2);
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
-            JasperViewer vista = new JasperViewer(jprint, false);
-            vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            vista.setVisible(true);
+            JasperReport reporte = null;
+            String path = "src\\Reportes\\Postulantes.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte,null, con);
+            JasperViewer view = new JasperViewer(jprint);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
             System.out.println(e.toString());

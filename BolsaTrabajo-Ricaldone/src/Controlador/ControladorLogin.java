@@ -9,14 +9,25 @@ import java.util.logging.Logger;
 import Modelo.ModeloLogin;
 
 /**
+ * class designed to mediate the login.
  *
  * @author hello
  */
 public class ControladorLogin {
 
+    /**
+     * Object from ModeloLogin.
+     */
     ModeloLogin login = new ModeloLogin();
 
-    public String Login(String user, char [] password) {
+    /**
+     * login method to capture username and password, encrypting the password.
+     *
+     * @param user
+     * @param password
+     * @return
+     */
+    public String Login(String user, char[] password) {
         try {
             String i = "";
             String claveEncrypt = Utils.encrypt(password);

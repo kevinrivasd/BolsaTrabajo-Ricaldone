@@ -10,29 +10,58 @@ import java.util.LinkedHashMap;
 import Modelo.ModeloPostulante;
 
 /**
+ * class to manage postulants
  *
  * @author Jonathan
  */
 public class ControladorPostulante {
+
     ModeloPostulante modelpost = new ModeloPostulante();
 
+    /**
+     * method to insert data to the table.
+     *
+     * @param dataMap
+     * @return
+     */
     public int AgreparPostulante(LinkedHashMap<String, String> dataMap) {
         return modelpost.AgregarPostulante(dataMap);
     }
 
-    public int ActualizarPostulante(LinkedHashMap<String, String> dataMap){
+    /**
+     * method to update data to the table.
+     *
+     * @param dataMap
+     * @return
+     */
+    public int ActualizarPostulante(LinkedHashMap<String, String> dataMap) {
         return modelpost.ActualizarPostulante(dataMap);
     }
 
-    public ResultSet MostrarTablaControlador(){
+    /**
+     * Return the table of postulants.
+     *
+     * @return
+     */
+    public ResultSet MostrarTablaControlador() {
         return modelpost.mostrarTabla();
     }
-    
-    public ResultSet MostrarTablaVControlador(){
+
+    /**
+     * Return the view of postulants
+     *
+     * @return
+     */
+    public ResultSet MostrarTablaVControlador() {
         return modelpost.mostrarTablaV();
     }
-    
-    public ResultSet TablaCRUD_VController(){
+
+    /**
+     * Return the view of Postulantes CRUD
+     *
+     * @return
+     */
+    public ResultSet TablaCRUD_VController() {
         return modelpost.TablaCRUD_V();
     }
 

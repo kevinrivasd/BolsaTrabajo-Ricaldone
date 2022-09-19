@@ -13,13 +13,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ *This class contains the method we use to validate credentials at login
  * @author hello
  */
 public class ModeloLogin {
 
     PreparedStatement consult;
 
+    /**
+     * This method is used to validate the credentials, calling a model to make the query
+     * @param user
+     * @param password
+     * @return 
+     */
     public String Login(String user, String password) {
         try {
             Connection sql = ControladorConexion.getConection();

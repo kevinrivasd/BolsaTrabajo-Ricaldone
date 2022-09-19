@@ -4,6 +4,7 @@
  */
 package Customizar;
 
+import Vista.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JLabel;

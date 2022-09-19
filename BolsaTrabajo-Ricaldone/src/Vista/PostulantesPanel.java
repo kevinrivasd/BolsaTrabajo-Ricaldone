@@ -34,6 +34,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import Controlador.Utils;
+import net.sf.jasperreports.engine.JRException;
 
 /**
  *
@@ -226,14 +227,14 @@ public class PostulantesPanel extends javax.swing.JPanel {
 //               ControladorConexion con = new ControladorConexion();
             Connection con = ControladorConexion.getConection();
              
-            JasperReport reporte = null;
+            JasperReport reporte;
             String path = "src\\Reportes\\Postulantes.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint = JasperFillManager.fillReport(reporte,null, con);
             JasperViewer view = new JasperViewer(jprint);
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             view.setVisible(true);
-        } catch (Exception e) {
+        } catch (JRException e) {
             JOptionPane.showMessageDialog(null, e.toString());
             System.out.println(e.toString());
         }

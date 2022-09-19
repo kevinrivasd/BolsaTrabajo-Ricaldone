@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Modelo.ModeloUtils;
+import javax.security.auth.callback.ConfirmationCallback;
 
 /**
  *
@@ -163,7 +164,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
                     if (b64.equals("") || mailUser.equals("") || b64.isEmpty() || b64.isBlank()) {
                         Controlador.Utils.sendPDF(b64, mailUser);
                         JOptionPane.showMessageDialog(null, b64);
-                    } else {
+                    } else if(JOptionPane.showConfirmDialog(null, "¿Deseas enviar el pdf adjunto en un correo?","Mensaje",JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
                         JOptionPane.showMessageDialog(null, "Este postulante no tiene pdf aun");
                     }
                 }else{

@@ -18,18 +18,20 @@ import Controlador.ControladorRecu;
  * @author Kevin Rivas
  */
 public class ActualizacionPWD extends javax.swing.JFrame {
-     public static String mailLocal = "";
-     ControladorRecu recucontroller = new ControladorRecu();
+
+    public static String mailLocal = "";
+    ControladorRecu recucontroller = new ControladorRecu();
+
     /**
      * Creates new form ActualizacionPWD
      */
     public ActualizacionPWD(String mail) {
         initComponents();
-        mailLocal = mail; 
+        mailLocal = mail;
         Toolkit t = Toolkit.getDefaultToolkit();
-    
+
         Dimension h = t.getScreenSize();
-       
+
         setTitle("Actualizacion de contraseña");
         this.setLocationRelativeTo(null);
     }
@@ -165,7 +167,7 @@ public class ActualizacionPWD extends javax.swing.JFrame {
                 num = recucontroller.ActualizarPWD(Utils.encrypt(Pword), mailLocal);
                 JOptionPane.showInternalMessageDialog(null, "Actualizacion de contraseña exitosa", "Confirmacion", 1);
                 this.dispose();
-            }else{                
+            } else {
                 JOptionPane.showInternalMessageDialog(null, "Por Favor, revise que haya escrito correctamente la contraseña en la verificacion", "Error.", 0);
             }
         } catch (Exception ex) {

@@ -27,6 +27,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
      */
     DefaultTableModel mod;
     ModeloUtils utils = new ModeloUtils();
+
     public NotificacionPanel() throws SQLException, Exception {
         initComponents();
         String[] Encabezados = {"ID", "Postulante", "Fecha", "Descripción", "respuesta", "Información de la respuesta", "Usuario"};
@@ -38,6 +39,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
 //        dgvNoti.setModel(jPost);
 
     }
+
     final void CargarTabla() {
         ControladorNotificaciones Cargarnoti = new ControladorNotificaciones();
         while (mod.getRowCount() > 0) {
@@ -153,7 +155,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
 
     private void dgvNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvNotiMouseClicked
         // TODO add your handling code here:
-                if (evt.getClickCount() == 1) {
+        if (evt.getClickCount() == 1) {
             try {
                 var idPostulante = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 1);
 
@@ -161,13 +163,16 @@ public class NotificacionPanel extends javax.swing.JPanel {
 
                 if (idPostulante != null) {
                     String b64 = utils.getPDF(idPostulante.toString());
-                    if (b64.equals("") || mailUser.equals("") || b64.isEmpty() || b64.isBlank()) {
-                        Controlador.Utils.sendPDF(b64, mailUser);
-                        JOptionPane.showMessageDialog(null, b64);
-                    } else if(JOptionPane.showConfirmDialog(null, "¿Deseas enviar el pdf adjunto en un correo?","Mensaje",JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
+                    if (!b64.equals("") || !mailUser.equals("") || !b64.isEmpty() || !b64.isBlank()) {
+                        if (JOptionPane.showConfirmDialog(null, "¿Deseas enviar el pdf adjunto en un correo?", "Mensaje", JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
+                            Controlador.Utils.sendPDF(b64, mailUser);
+//                            JOptionPane.showMessageDialog(null, b64);
+                        }
+
+                    } else {
                         JOptionPane.showMessageDialog(null, "Este postulante no tiene pdf aun");
                     }
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Debes crearle una cuenta a este usuario");
                 }
 
@@ -178,7 +183,6 @@ public class NotificacionPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_dgvNotiMouseClicked
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable dgvNoti;

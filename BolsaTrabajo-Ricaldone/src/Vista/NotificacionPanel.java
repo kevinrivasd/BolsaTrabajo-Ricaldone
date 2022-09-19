@@ -95,8 +95,8 @@ public class NotificacionPanel extends javax.swing.JPanel {
         jPanel8.setBackground(new java.awt.Color(239, 245, 213));
         jPanel8.setPreferredSize(new java.awt.Dimension(1075, 833));
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(88, 117, 42));
+        jLabel3.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(50, 63, 27));
         jLabel3.setText("Notificaciones");
 
         dgvNoti.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -136,7 +136,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

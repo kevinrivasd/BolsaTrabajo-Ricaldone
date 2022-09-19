@@ -84,14 +84,14 @@ ControladorLogin logincontroller = new ControladorLogin();
         txtUser.getAccessibleContext().setAccessibleName("txtUser");
 
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User Login.png"))); // NOI18N
-        jLabel2.setText("   Usuario");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 134, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Persona-O-50.png"))); // NOI18N
+        jLabel2.setText(" Usuario");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/key login.png"))); // NOI18N
-        jLabel5.setText("   Contraseña");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 295, -1, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Llave-O-50.png"))); // NOI18N
+        jLabel5.setText(" Contraseña");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
         btnIniciarSesion.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         btnIniciarSesion.setText("Ingresar");

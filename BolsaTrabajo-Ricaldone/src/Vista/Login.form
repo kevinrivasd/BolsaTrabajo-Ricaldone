@@ -114,13 +114,13 @@
               <Font name="Poppins SemiBold" size="24" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/User Login.png"/>
+              <Image iconType="3" name="/ICONOS SCM/Persona-O-50.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="   Usuario"/>
+            <Property name="text" type="java.lang.String" value=" Usuario"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="123" y="134" width="-1" height="-1"/>
+              <AbsoluteConstraints x="120" y="120" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -130,13 +130,13 @@
               <Font name="Poppins SemiBold" size="24" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/key login.png"/>
+              <Image iconType="3" name="/ICONOS SCM/Llave-O-50.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="   Contrase&#xf1;a"/>
+            <Property name="text" type="java.lang.String" value=" Contrase&#xf1;a"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="123" y="295" width="-1" height="-1"/>
+              <AbsoluteConstraints x="120" y="290" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

@@ -177,7 +177,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/User menu.png"/>
+              <Image iconType="3" name="/ICONOS SCM/Persona-B-50.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="   Usuario"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -204,7 +204,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/Estadisticas menu.png"/>
+              <Image iconType="3" name="/ICONOS SCM/Estadistica-B-50.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  Estadisticas"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -230,7 +230,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/CV Menu.png"/>
+              <Image iconType="3" name="/ICONOS SCM/Postulantes-B-50.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" Postulantes"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -256,7 +256,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/NotificacionesMenu.png"/>
+              <Image iconType="3" name="/ICONOS SCM/Campana-B-50.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  Notificaciones"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -282,7 +282,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/Configuracion Menu.png"/>
+              <Image iconType="3" name="/ICONOS SCM/Configuracion-B-50.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  Configuracion"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -302,7 +302,7 @@
               <Color blue="4b" green="af" red="85" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Recursos/Cerrar sesion menu.png"/>
+              <Image iconType="3" name="/ICONOS SCM/Cerrar-B-50.png"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
@@ -325,7 +325,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1145" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1134" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

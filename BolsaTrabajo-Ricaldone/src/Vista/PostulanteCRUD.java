@@ -259,35 +259,40 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblTodo.setBackground(new java.awt.Color(239, 245, 213));
         lblTodo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtnAgregar.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         BtnAgregar.setText("Agregar");
         BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAgregarActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, 140, 32));
+        lblTodo.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 300, 140, 32));
 
+        BtnActualizar.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         BtnActualizar.setText("Actualizar");
         BtnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnActualizarActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 140, 30));
+        lblTodo.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 140, 30));
+
+        txtNombrePost.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         lblTodo.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 176, -1));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel1.setText("Nombres del postulante");
         lblTodo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel2.setText("Correo del postulante");
         lblTodo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel3.setText("Contraseña");
         lblTodo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 91, -1));
 
+        txtCorreoPost.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         txtCorreoPost.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCorreoPostKeyPressed(evt);
@@ -295,102 +300,118 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         lblTodo.add(txtCorreoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 176, -1));
 
+        BtnImageAdd.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         BtnImageAdd.setText("Agregar imagen");
         BtnImageAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnImageAddActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 140, 30));
+        lblTodo.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 140, 30));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel4.setText("Genero");
         lblTodo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
 
+        cmbGenero.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 180, -1));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel5.setText("Estado");
         lblTodo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
 
+        cmbEstadoPost.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbEstadoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 180, -1));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel6.setText("Departamento en donde reside");
         lblTodo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
 
+        cmbDepartReside.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 190, -1));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel7.setText("Departamento de preferencia");
         lblTodo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, -1, -1));
 
+        cmbDepartPreferencia.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 190, -1));
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel8.setText("Progreso");
         lblTodo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
 
+        cmbPrefLaboral.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 190, -1));
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel9.setText("Apellidos del postulante");
         lblTodo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        txtApellidoPost.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         lblTodo.add(txtApellidoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 176, -1));
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel10.setText("Habilidad general");
         lblTodo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, -1, -1));
 
+        cmbSalario.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 180, -1));
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel12.setText("Estado de trabajo");
         lblTodo.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, -1));
 
+        cmbTipoTrabajo.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbTipoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 180, -1));
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel13.setText("Tipo de trabajo");
         lblTodo.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, -1, -1));
 
+        cmbEstadoTrabajo.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbEstadoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 190, -1));
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel14.setText("Tipo de contrato");
         lblTodo.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, -1, -1));
 
+        cmbTipoContrato.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 190, -1));
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel15.setText("Preferencias laborales");
         lblTodo.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
 
+        cmbProgreso.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 190, -1));
 
-        jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel16.setText("Bachilerato:");
         lblTodo.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel17.setText("Rama perteneciente");
         lblTodo.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
-        jLabel18.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel18.setText("Habilidad adicional");
         lblTodo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, -1, -1));
 
+        CheckAlumni.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         CheckAlumni.setText("Ex-alumno");
         lblTodo.add(CheckAlumni, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 110, 30));
         CheckAlumni.setText("Ex-alumno");
         lblTodo.add(lblPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(701, 496, 100, 30));
 
-        jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel19.setText("Salario");
         lblTodo.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
+        cmbHighType.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbHighType, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 180, -1));
 
+        txtContraseñaPost.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         txtContraseñaPost.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -405,19 +426,21 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         lblTodo.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 180, -1));
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel11.setText("Nivel de estudio");
         lblTodo.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
 
+        cmbNivelEstudio.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblTodo.add(cmbNivelEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 180, -1));
 
+        BtnAddPDF.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         BtnAddPDF.setText("Añadir PDF");
         BtnAddPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAddPDFActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 140, 30));
+        lblTodo.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 220, 140, 30));
         lblTodo.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(811, 759, -1, -1));
 
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
@@ -441,11 +464,15 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jScrollPane1.setViewportView(JTPostulantes);
 
         lblTodo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 810, 150));
+
+        txtID.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         lblTodo.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, -1));
 
+        lblID.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         lblID.setText("ID:");
         lblTodo.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
+        btnB.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnB.setText("Gestionar Rama");
         btnB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,6 +481,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         lblTodo.add(btnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 190, 34));
 
+        btnA.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnA.setText("Gestionar Habilidad Adicional");
         btnA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -462,6 +490,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         lblTodo.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, 190, 34));
 
+        btnG.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnG.setText("Gestionar Habilidad General");
         btnG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -470,6 +499,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         lblTodo.add(btnG, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 560, 190, 34));
 
+        BTabla.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         BTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -487,6 +517,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         lblTodo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 432, 190, 120));
 
+        GTable.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         GTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -504,6 +535,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         lblTodo.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 190, 120));
 
+        ATable.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         ATable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -522,16 +554,18 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         lblTodo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 190, 120));
         lblTodo.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 42, 124, 160));
 
+        BtnLimpiarCampos.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         BtnLimpiarCampos.setText("Limpiar Campos");
         BtnLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnLimpiarCamposActionPerformed(evt);
             }
         });
-        lblTodo.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 140, 30));
+        lblTodo.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 140, 30));
 
-        jLabel21.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Recu_regresar.png"))); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(133, 175, 75));
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Volver-C-40.png"))); // NOI18N
         jLabel21.setText("Regresar");
         jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -540,9 +574,10 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         lblTodo.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(50, 63, 27));
         jLabel22.setText("Postulantes");
-        lblTodo.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, -1));
+        lblTodo.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, -1));
         lblTodo.add(txtgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
         lblTodo.add(txtestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
         lblTodo.add(txtstudylevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));

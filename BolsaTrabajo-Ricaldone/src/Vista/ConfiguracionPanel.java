@@ -60,7 +60,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(1141, 717));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poppins", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(50, 63, 27));
         jLabel1.setText("Configuracion");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 23, -1, -1));

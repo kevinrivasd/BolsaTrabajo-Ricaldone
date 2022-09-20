@@ -32,7 +32,7 @@ public class Panels {
 
                 //Dimensiones
                 lblestado.setPreferredSize(new Dimension(150, 40));
-                container.setPreferredSize(new Dimension(1000, 40));
+                container.setPreferredSize(new Dimension(1040, 40));
                 lblnombre.setPreferredSize(new Dimension(700, 40));
                 colorestado.setPreferredSize(new Dimension(35, 35));
 

@@ -46,6 +46,13 @@ public class ModeloLogin {
         }
     }
     
+    /**
+     * We use this method to verify the status of the users
+     * @param user
+     * @param password
+     * @return 
+     */
+    
     public String Estado(String user, String password) {
         try {
             Connection sql = ControladorConexion.getConection();

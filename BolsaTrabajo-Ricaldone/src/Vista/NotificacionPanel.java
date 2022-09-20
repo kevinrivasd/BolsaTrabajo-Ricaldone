@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.Utils;
 import Controlador.ControladorNotificaciones;
 import Controlador.ControladorUsuario;
 import java.lang.System.Logger;
@@ -27,16 +28,17 @@ public class NotificacionPanel extends javax.swing.JPanel {
      */
     DefaultTableModel mod;
     ModeloUtils utils = new ModeloUtils();
+    Utils utilc = new Utils();
 
     public NotificacionPanel() throws SQLException, Exception {
         initComponents();
         String[] Encabezados = {"ID", "Postulante", "Fecha", "Descripción", "respuesta", "Información de la respuesta", "Usuario"};
         mod = new DefaultTableModel(null, Encabezados);
         dgvNoti.setModel(mod);
-        CargarTabla();
-//        DefaultTableModel jPost = new DefaultTableModel();
-//        jPost = Controlador.Utils.rtrnTqble("Moderations");
-//        dgvNoti.setModel(jPost);
+//        CargarTabla();
+        DefaultTableModel jPost = new DefaultTableModel();
+        jPost = utilc.rtrnTqble("Moderations");
+        dgvNoti.setModel(jPost);
 
     }
 

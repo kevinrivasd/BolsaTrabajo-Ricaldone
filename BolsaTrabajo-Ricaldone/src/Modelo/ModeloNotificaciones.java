@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * 
  * @author Jonathan
  */
 public class ModeloNotificaciones {
@@ -21,7 +21,7 @@ public class ModeloNotificaciones {
         PreparedStatement ps;
         try {
             con = ControladorConexion.getConection();
-            String query = "SELECT * FROM V_Mod";
+            String query = "SELECT * FROM Moderations";
             ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             return rs;

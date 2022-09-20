@@ -21,12 +21,13 @@ import java.util.logging.Logger;
  */
 public class Panels {
 
-    public void CrearPostulantes(String namePostulant, String Progress, JPanel panelcontenedor) {
+    public void CrearPostulantes(String namePostulant, String LastName, String Progress, JPanel panelcontenedor) {
                 
                 //Crear componentes
                 JPanel container = new JPanel();
 
-                JLabel lblnombre = new JLabel(namePostulant);
+                JLabel lblnombre = new JLabel(namePostulant +" "+ LastName);
+//                JLabel lblapellido = new JLabel(LastName);
                 JLabel lblestado = new JLabel(Progress);
                 JPanel colorestado = new JPanel();
 
@@ -34,16 +35,19 @@ public class Panels {
                 lblestado.setPreferredSize(new Dimension(150, 40));
                 container.setPreferredSize(new Dimension(1040, 40));
                 lblnombre.setPreferredSize(new Dimension(700, 40));
+//                lblapellido.setPreferredSize(new Dimension(600, 40));
                 colorestado.setPreferredSize(new Dimension(35, 35));
 
                 //Color y tipo de letra
                 container.setBackground(Color.white);
                 lblestado.setForeground(Color.black);
                 lblnombre.setForeground(Color.black);
+//                lblapellido.setForeground(Color.black);
                 lblestado.setHorizontalAlignment(JLabel.RIGHT);
 
                 //Añadir componentes al principal
                 container.add(lblnombre);
+//                container.add(lblapellido);
                 container.add(colorestado);
                 container.add(lblestado);
 

@@ -169,7 +169,7 @@ public class ModeloPostulante {
         Connection con;
         try {
             con = ControladorConexion.getConection();
-            String query = "SELECT Postulants.namePostulant, Progress.Progress FROM Postulants, Progress WHERE Postulants.Progress = Progress.idProgress and Progress.idProgress in(4,5)";
+            String query = "SELECT Postulants.namePostulant, Postulants.lastName ,Progress.Progress FROM Postulants, Progress WHERE Postulants.Progress = Progress.idProgress and Progress.idProgress in(4,5)";
             ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             return rs;

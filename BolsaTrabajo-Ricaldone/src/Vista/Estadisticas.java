@@ -40,7 +40,7 @@ public class Estadisticas extends javax.swing.JPanel {
 
         try {
             while (rs.next()) {
-                componente.CrearPostulantes(rs.getString(1), rs.getString(2), PostulantesPanel);
+                componente.CrearPostulantes(rs.getString(1),rs.getString(2) ,rs.getString(3), PostulantesPanel);
             }
         } catch (SQLException ex) {
 //            Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);

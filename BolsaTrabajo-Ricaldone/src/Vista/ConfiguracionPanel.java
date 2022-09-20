@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Vista;
+
 import Controlador.Utils;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -12,18 +13,29 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Controlador.Utils;
 import Vista.Menú;
+
 /**
+ * User configuration panel
  *
  * @author Jonathan
  */
 public class ConfiguracionPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ConfiguracionPanel
+     * List to obtain users
      */
     public static List<String> userName;
+    /**
+     * Object from Utils
+     */
     Utils utils = new Utils();
 //    Menú menu = new Menú();
+
+    /**
+     * Obtain user and e-mail of the user that enters the system.
+     *
+     * @param userParam
+     */
     public ConfiguracionPanel(List<String> userParam) {
         initComponents();
         userName = userParam;
@@ -54,6 +66,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(239, 245, 213));
         setPreferredSize(new java.awt.Dimension(1141, 717));
 
         jPanel2.setBackground(new java.awt.Color(239, 245, 213));
@@ -131,21 +144,25 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Update user information
+     *
+     * @param evt
+     */
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-        LinkedHashMap<String,String> data = CollectData();
+        LinkedHashMap<String, String> data = CollectData();
         int res;
         if (!Controlador.Utils.emptyFields(data)) {
             try {
-                res = utils.actualizar(data,userName.get(3),"UserSystems","idUser");
+                res = utils.actualizar(data, userName.get(3), "UserSystems", "idUser");
                 JOptionPane.showMessageDialog(null, "Te has actualizado con exito");
 //                userName = menu.cargarProps(userName.get(3));
 
             } catch (Exception ex) {
                 Logger.getLogger(ConfiguracionPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "No dejes campos sin llenar porfavor.");
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
@@ -166,15 +183,18 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
-
-    private LinkedHashMap<String,String> CollectData() {             
-        LinkedHashMap<String,String> data =  new LinkedHashMap<>();
+/**
+     * Linked map for capturing base fields
+     *
+     * @return
+     */
+    private LinkedHashMap<String, String> CollectData() {
+        LinkedHashMap<String, String> data = new LinkedHashMap<>();
 //        char[] pword = txtU.getPassword();
-       
-        data.put("nameUser", txtUser.getText());        
+
+        data.put("nameUser", txtUser.getText());
         data.put("mailUser", txtCorreo.getText());
 
-        
         return data;
     }
 }

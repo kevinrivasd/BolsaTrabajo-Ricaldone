@@ -41,6 +41,7 @@ import Controlador.Utils;
 import Controlador.ControladorPostulante;
 
 /**
+ * Form to manage applicants
  *
  * @author Jonathan
  */
@@ -72,6 +73,12 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     DefaultTableModel post;
     ControladorPostulante postcontroller = new ControladorPostulante();
     Utils utils = new Utils();
+
+    /**
+     * Load combo box and hide graphic objects
+     *
+     * @param add
+     */
     public PostulanteCRUD(int add) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -166,7 +173,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         }
 
 //        JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
-
         txtContraseñaPost.setTransferHandler(null);
     }
 
@@ -571,7 +577,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Method to load the table
+     */
     final void CargarTabla() {
         ControladorPostulante CargarPost = new ControladorPostulante();
         while (post.getRowCount() > 0) {
@@ -580,13 +588,17 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         try {
             ResultSet rs = CargarPost.TablaCRUD_VController();
             while (rs.next()) {
-                Object[] oValores = {rs.getInt("idPostulant"), rs.getString("namePostulant"), rs.getString("mailPostulant"), rs.getString("Pword"), rs.getString("photoPostulant"), rs.getString("resumePDF"), rs.getString("resumeDetails"), rs.getInt("mailverification"), rs.getString("Gender"),rs.getString("States"),rs.getInt("Alumni"),rs.getInt("IDepartment"),rs.getInt("RDepartment"),rs.getString("WorkSubject"),rs.getString("Progress"),rs.getString("Salary"),rs.getString("HighType"),rs.getString("WType"),rs.getString("WPreference"),rs.getString("studyLevel"),rs.getString("WorkState"),rs.getString("lastName")};
+                Object[] oValores = {rs.getInt("idPostulant"), rs.getString("namePostulant"), rs.getString("mailPostulant"), rs.getString("Pword"), rs.getString("photoPostulant"), rs.getString("resumePDF"), rs.getString("resumeDetails"), rs.getInt("mailverification"), rs.getString("Gender"), rs.getString("States"), rs.getInt("Alumni"), rs.getInt("IDepartment"), rs.getInt("RDepartment"), rs.getString("WorkSubject"), rs.getString("Progress"), rs.getString("Salary"), rs.getString("HighType"), rs.getString("WType"), rs.getString("WPreference"), rs.getString("studyLevel"), rs.getString("WorkState"), rs.getString("lastName")};
                 post.addRow(oValores);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
+
+    /**
+     * Method for clearing fields and resetting combo box
+     */
     public void LimpiarCampos() {
         lblPdf.setText("");
         txtNombrePost.setText("");
@@ -595,9 +607,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtContraseñaPost.setText("");
         txtCorreoPost.setText("");
     }
-
+    /**
+     * Variable for image
+     */
     private String S = "";
 
+    /**
+     * Method for inserting an image
+     *
+     * @param evt
+     */
     private void BtnImageAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImageAddActionPerformed
         // TODO add your handling code here:
         JFileChooser browseImageFile = new JFileChooser();        //Filter image extensions
@@ -639,7 +658,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_BtnImageAddActionPerformed
-
+    /**
+     * Add applicant
+     *
+     * @param evt
+     */
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
         LinkedHashMap<String, String> All = new LinkedHashMap<>();
@@ -669,8 +692,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnAgregarActionPerformed
-
+    /**
+     * Variable for PDF
+     */
     private String pdf = "";
+
+    /**
+     * Method to add PDF
+     *
+     * @param evt
+     */
     private void BtnAddPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddPDFActionPerformed
 //         TODO add your handling code here:
         JFileChooser browseImageFile = new JFileChooser();        //Filter image extensions
@@ -694,7 +725,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             lblPdf.setText(selectedImagePath);
         }
     }//GEN-LAST:event_BtnAddPDFActionPerformed
-
+    /**
+     * Method to decode PDF
+     *
+     * @throws IOException
+     */
     private void decodePdf() throws IOException {
         byte[] decoded = java.util.Base64.getDecoder().decode(pdf);
 
@@ -704,6 +739,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         fos.close();
     }
 
+    /**
+     * Event to select rows
+     *
+     * @param evt
+     */
     private void JTPostulantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPostulantesMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 1) {
@@ -735,9 +775,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             cmbGenero.setSelectedItem(genero + 1);
             String estado = txtestado.getText();
             cmbEstadoPost.setSelectedItem(estado + 1);
-            if(Table.getModel().getValueAt(Table.getSelectedRow(), 10).toString().equals("true")){
+            if (Table.getModel().getValueAt(Table.getSelectedRow(), 10).toString().equals("true")) {
                 CheckAlumni.setSelected(true);
-            }else{
+            } else {
                 CheckAlumni.setSelected(false);
             }
             String IDepartamento = txtIDepartment.getText();
@@ -770,7 +810,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_JTPostulantesMouseClicked
-
+    /**
+     * Method to update
+     *
+     * @param evt
+     */
     private void BtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnActualizarActionPerformed
         // TODO add your handling code here:
         LinkedHashMap<String, String> All = new LinkedHashMap<>();
@@ -801,7 +845,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnActualizarActionPerformed
-
+    /**
+     * Method to assign a limit to the number of characters in the password
+     *
+     * @param evt
+     */
     private void txtContraseñaPostKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaPostKeyPressed
         // TODO add your handling code here:
         char[] txt = txtContraseñaPost.getPassword();
@@ -811,7 +859,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtContraseñaPost.setText(String.valueOf(txt));
 //           JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraseñaPostKeyPressed
-
+    /**
+     * Method to assign a limit to the number of characters in the password
+     *
+     * @param evt
+     */
     private void txtContraseñaPostInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtContraseñaPostInputMethodTextChanged
         // TODO add your handling code here:
         char[] txt = txtContraseñaPost.getPassword();
@@ -823,7 +875,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, String.valueOf(txt));
     }//GEN-LAST:event_txtContraseñaPostInputMethodTextChanged
 
-
+    /**
+     * Button to enter the table of additional skills
+     *
+     * @param evt
+     */
     private void btnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAActionPerformed
         String idPos = txtID.getText();
         try {
@@ -834,7 +890,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAActionPerformed
-
+    /**
+     * Button to enter the table of branches
+     *
+     * @param evt
+     */
     private void btnGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGActionPerformed
         String idPos = txtID.getText();
         try {
@@ -846,6 +906,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGActionPerformed
 
+    /**
+     * Button to enter the table of general skills
+     *
+     * @param evt
+     */
     private void btnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBActionPerformed
         String idPos = txtID.getText();
         try {
@@ -871,7 +936,12 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_jLabel21MouseClicked
-
+    /**
+     * Validation of correct mail format
+     *
+     * @param correo
+     * @return
+     */
     public boolean verificar_email(String correo) {
         Pattern patron = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -879,6 +949,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         return mat.find();
     }
 
+    /**
+     * collect all the data to aggregate
+     *
+     * @return
+     */
     private LinkedHashMap<String, String> CollectAllAdd() {
         LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
@@ -908,6 +983,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         return data;
     }
 
+    /**
+     * collect all the data to update
+     *
+     * @return
+     */
     private LinkedHashMap<String, String> CollectAllUpdate() {
         LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
@@ -938,6 +1018,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         return data;
     }
 
+    /**
+     * Collect what is required to add
+     *
+     * @return
+     */
     private LinkedHashMap<String, String> CollectRequiredAdd() {
         LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContraseñaPost.getPassword();
@@ -964,6 +1049,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         return data;
     }
 
+    /**
+     * collect what is required to update
+     *
+     * @return
+     */
     private LinkedHashMap<String, String> CollectRequiredUptade() {
         LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContraseñaPost.getPassword();

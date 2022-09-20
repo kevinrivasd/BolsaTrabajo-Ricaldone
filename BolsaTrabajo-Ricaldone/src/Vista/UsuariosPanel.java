@@ -32,6 +32,7 @@ import Controlador.ControladorUsuario;
 import Controlador.Utils;
 
 /**
+ * Panel to manage users
  *
  * @author Jonathan
  */
@@ -47,6 +48,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
     public TableRowSorter<TableModel> sorter;
     DefaultTableModel user;
 
+    /**
+     * Load table and hide graphic components
+     */
     public UsuariosPanel() {
         initComponents();
         String[] Encabezados = {"ID", "Estado", "Usuario", "Contraseña", "Correo", "Numero", "Rol", "Verificacion de correo", "Genero"};
@@ -84,6 +88,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
         txtState.setVisible(false);
     }
 
+    /**
+     * Method to load back up table
+     */
     final void CargarTabla() {
         ControladorUsuario CargarUser = new ControladorUsuario();
         while (user.getRowCount() > 0) {
@@ -142,6 +149,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(239, 245, 213));
+        setPreferredSize(new java.awt.Dimension(1141, 850));
 
         jPanel3.setBackground(new java.awt.Color(239, 245, 213));
         jPanel3.setPreferredSize(new java.awt.Dimension(1105, 790));
@@ -483,7 +491,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Add user
+     *
+     * @param evt
+     */
     private void btnAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUsuarioActionPerformed
         //Initializing map to then collect data
         LinkedHashMap<String, String> datos = CollectData();
@@ -497,7 +509,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
 
             if (!Controlador.Utils.emptyFields(datos)) {
                 if (verificar_email(mail)) {
-                    if (us.ValidarUserController(txtUsuario.getText(), id ) == true && us.ValidarMailController(txtCorreo.getText(), id) == true) {
+                    if (us.ValidarUserController(txtUsuario.getText(), id) == true && us.ValidarMailController(txtCorreo.getText(), id) == true) {
                         res = utils.Agregar(datos, "UserSystems");
                         JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente Agregado" : "Hubo un error");
                         CargarTabla();
@@ -517,6 +529,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_btnAgregarUsuarioActionPerformed
+    /**
+     * Clear fields and reset combo box
+     */
     public void limpiarCampos() {
         txtUsuario.setText("");
         txtCorreo.setText("");
@@ -524,6 +539,12 @@ public class UsuariosPanel extends javax.swing.JPanel {
         txtContra.setText("");
     }
 
+    /**
+     * Validation of correct mail format
+     *
+     * @param correo
+     * @return
+     */
     public boolean verificar_email(String correo) {
         Pattern patron = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -531,6 +552,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
         return mat.find();
     }
 
+    /**
+     * Delete user
+     *
+     * @param evt
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
 
@@ -559,7 +585,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
     private void txtContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraMouseClicked
-
+    /**
+     * Method to assign a limit to the number of characters in the password
+     *
+     * @param evt
+     */
     private void txtContraInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtContraInputMethodTextChanged
         char[] txt = txtContra.getPassword();
         if (txt.length == 6) {
@@ -573,7 +603,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
     private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraKeyPressed
-
+    /**
+     * Method to assign a limit to the number of characters in the password
+     *
+     * @param evt
+     */
     private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
         // TODO add your handling code here:
         char[] txt = txtContra.getPassword();
@@ -582,7 +616,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
         }
         txtContra.setText(String.valueOf(txt));
     }//GEN-LAST:event_txtContraKeyTyped
-
+    /**
+     * Event to select rows
+     *
+     * @param evt
+     */
     private void dgvUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvUsersMouseClicked
         if (evt.getClickCount() == 1) {
             JTable Table = (JTable) evt.getSource();
@@ -600,7 +638,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
             cmbGenero.setSelectedItem(Genero + 1);
         }
     }//GEN-LAST:event_dgvUsersMouseClicked
-
+    /**
+     * Update user
+     *
+     * @param evt
+     */
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 
         LinkedHashMap<String, String> data = CollectData();
@@ -611,7 +653,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                         JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
 
             data.remove("Pword");
-            if (!Controlador.Utils.emptyFields(data)) {        
+            if (!Controlador.Utils.emptyFields(data)) {
                 if (verificar_email(mail)) {
                     String id = txtID.getText();
                     if (us.ValidarUserController(txtUsuario.getText(), id) == true && us.ValidarMailController(txtCorreo.getText(), id) == true) {
@@ -624,9 +666,8 @@ public class UsuariosPanel extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
                         CargarTabla();
                         limpiarCampos();
-                        }
-                    else {
-                            JOptionPane.showMessageDialog(null, "Compruebe que el usuario o el correo no se repitan .", "Error", 0);                     
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Compruebe que el usuario o el correo no se repitan .", "Error", 0);
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
@@ -672,7 +713,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
     private void txtFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFilterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFilterActionPerformed
-
+    /**
+     * Search filter
+     *
+     * @param evt
+     */
     private void txtFilterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFilterKeyTyped
         // TODO add your handling code here:
         String text = txtFilter.getText();
@@ -696,7 +741,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraActionPerformed
-
+    /**
+     * Collect data from the users table
+     *
+     * @return
+     */
     private LinkedHashMap<String, String> CollectData() {
         LinkedHashMap<String, String> data = new LinkedHashMap<>();
         char[] pword = txtContra.getPassword();

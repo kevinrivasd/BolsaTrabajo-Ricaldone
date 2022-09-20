@@ -12,23 +12,25 @@ import javax.swing.JOptionPane;
 import Controlador.ControladorRecu;
 
 /**
+ * Panel for the first steps to recover password
  *
  * @author Kevin Rivas
  */
 public class RecuperacionPWD extends javax.swing.JFrame {
-    public static String mailLocal = ""; 
+
+    public static String mailLocal = "";
     ControladorRecu recucontroller = new ControladorRecu();
-    
+
     /**
      * Creates new form RecuperacionPWD
      */
     public RecuperacionPWD() {
         initComponents();
-        
+
         Toolkit t = Toolkit.getDefaultToolkit();
-    
+
         Dimension h = t.getScreenSize();
-       
+
         setTitle("Recuperacion Contraseña");
         this.setLocationRelativeTo(null);
     }
@@ -186,50 +188,54 @@ public class RecuperacionPWD extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public void validacionUser (){
-    String user;
+/**
+     * Validate that the user exists and submit code
+     */
+    public void validacionUser() {
+        String user;
         user = txtuser.getText();
-            
+
         try {
 
             int num = recucontroller.RecuperacionPWD(user);
-            
-            if (num != 1) 
+
+            if (num != 1) {
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
-            else {                
-                 mailLocal = recucontroller.SentCode(user);
+            } else {
+                mailLocal = recucontroller.SentCode(user);
             }
-            
+
         } catch (Exception e) {
             //TODO: handle exception
             JOptionPane.showMessageDialog(null, "holi: " + e.getMessage());
         }
     }
-    
-    
+
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         validacionUser();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    
-    
-    
+    /**
+     * Validate code sent to email
+     *
+     * @param evt
+     */
     private void btnVerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerificarMouseClicked
 //      TODO add your handling code here:
         String code;
         code = txtcode.getText();
-        try{     
+        try {
             int num = Controlador.ControladorRecu.Verificacion(code);
-            if (num != 1) 
+            if (num != 1) {
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
-            else {                
-                  ActualizacionPWD newfrm = new ActualizacionPWD(mailLocal);
-                        newfrm.setVisible(true);
-                        this.dispose();
+            } else {
+                ActualizacionPWD newfrm = new ActualizacionPWD(mailLocal);
+                newfrm.setVisible(true);
+                this.dispose();
             }
-        }catch (Exception ex) {
-            
+        } catch (Exception ex) {
+
         }
     }//GEN-LAST:event_btnVerificarMouseClicked
 

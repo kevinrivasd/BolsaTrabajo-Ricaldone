@@ -150,4 +150,34 @@ public class ModeloPostulante {
 
     }
 
+    public ResultSet mostrarProgreso() {
+        Connection con;
+        try {
+            con = ControladorConexion.getConection();
+            String query = "SELECT * FROM Postulants";
+            ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            return rs;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+
+    }
+
+    public ResultSet ProgresoPostulants() {
+        Connection con;
+        try {
+            con = ControladorConexion.getConection();
+            String query = "SELECT Postulants.namePostulant, Progress.Progress FROM Postulants, Progress WHERE Postulants.Progress = Progress.idProgress and Progress.idProgress in(4,5)";
+            ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            return rs;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return null;
+        }
+
+    }
+
 }

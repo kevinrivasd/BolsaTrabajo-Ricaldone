@@ -4,8 +4,13 @@
  */
 package Vista;
 
+import Controlador.ControladorPostulante;
 import Customizar.Panels;
 import java.awt.BorderLayout;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -21,12 +26,27 @@ public class Estadisticas extends javax.swing.JPanel {
     Panels componente = new Panels();
     
     
+    
     public Estadisticas(String username){
         initComponents();
-        componente.CrearPostulantes("Kevin", "Disponible", PostulantesPanel);
+        CargarPostulantes();
         tblConsultas.setModel(Controlador.Utils.agruparPersona());
         graficar();
     }
+    
+    final void CargarPostulantes(){
+        ControladorPostulante post = new ControladorPostulante();
+        ResultSet rs = post.MostrarProgreso();
+        try {
+            while (rs.next()) {
+                componente.CrearPostulantes(rs.getString(1), rs.getString(2), panelHolder);
+            }
+        } catch (SQLException ex) {
+//            Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "No se rick ");
+        }
+    }
+    
     public void graficar() {
         DefaultPieDataset dtsc = new DefaultPieDataset();
             
@@ -62,7 +82,7 @@ public class Estadisticas extends javax.swing.JPanel {
         PostulantesPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(239, 245, 213));
-        setPreferredSize(new java.awt.Dimension(1141, 478));
+        setPreferredSize(new java.awt.Dimension(1141, 600));
 
         tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,22 +108,13 @@ public class Estadisticas extends javax.swing.JPanel {
             .addGap(0, 280, Short.MAX_VALUE)
         );
 
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setToolTipText("");
         jScrollPane2.setPreferredSize(new java.awt.Dimension(1099, 300));
 
         PostulantesPanel.setMinimumSize(new java.awt.Dimension(1099, 100));
-        PostulantesPanel.setPreferredSize(new java.awt.Dimension(1099, 300));
-
-        javax.swing.GroupLayout PostulantesPanelLayout = new javax.swing.GroupLayout(PostulantesPanel);
-        PostulantesPanel.setLayout(PostulantesPanelLayout);
-        PostulantesPanelLayout.setHorizontalGroup(
-            PostulantesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1099, Short.MAX_VALUE)
-        );
-        PostulantesPanelLayout.setVerticalGroup(
-            PostulantesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
+        PostulantesPanel.setPreferredSize(new java.awt.Dimension(1099, 1000));
+        PostulantesPanel.setLayout(new java.awt.GridLayout(20, 1, 5, 10));
         jScrollPane2.setViewportView(PostulantesPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

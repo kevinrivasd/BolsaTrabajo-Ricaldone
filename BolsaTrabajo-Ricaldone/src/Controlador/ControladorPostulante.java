@@ -64,5 +64,11 @@ public class ControladorPostulante {
     public ResultSet TablaCRUD_VController() {
         return modelpost.TablaCRUD_V();
     }
+    
+    public ResultSet MostrarProgreso(){
+        return modelpost.ProgresoPostulants();
+    }
+    
+    
 
 }

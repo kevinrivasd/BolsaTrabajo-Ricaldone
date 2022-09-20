@@ -21,7 +21,7 @@ public class ControladorUsuario {
     ModeloUsuarios modeluser = new ModeloUsuarios();
 
     /**
-     * method to load the table or view.
+     * Method to load the table or view.
      * @return 
      */
     public ResultSet CargarUsuariosController() {
@@ -66,7 +66,7 @@ public class ControladorUsuario {
     public String idGender;
 
     /**
-     * get IdUser.
+     * Get IdUser.
      * @return 
      */
     public int getIdUser() {
@@ -74,7 +74,7 @@ public class ControladorUsuario {
     }
 
     /**
-     * set IdUser.
+     * Set IdUser.
      * @param idUser 
      */
     public void setIdUser(int idUser) {
@@ -82,7 +82,7 @@ public class ControladorUsuario {
     }
 
     /**
-     * get IdState.
+     * Get IdState.
      * @return 
      */
     public String getIdState() {
@@ -90,7 +90,7 @@ public class ControladorUsuario {
     }
 
     /**
-     * set IdState.
+     * Set IdState.
      * @param idState 
      */
     public void setIdState(String idState) {

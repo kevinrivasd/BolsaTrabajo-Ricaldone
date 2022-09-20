@@ -38,6 +38,12 @@ public class ControladorLogin {
         return null;
     }
     
+    /**
+     * With this method we consult the base the state of the users to verify that they are not blocked
+     * @param user
+     * @param password
+     * @return 
+     */
     public String EstadoC(String user, char[] password) {
         try {
             String i = "";

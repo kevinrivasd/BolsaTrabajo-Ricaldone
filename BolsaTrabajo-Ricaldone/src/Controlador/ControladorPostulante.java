@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import Modelo.ModeloPostulante;
 
 /**
- * class to manage postulants
+ * Class to manage postulants
  *
  * @author Jonathan
  */
@@ -19,7 +19,7 @@ public class ControladorPostulante {
     ModeloPostulante modelpost = new ModeloPostulante();
 
     /**
-     * method to insert data to the table.
+     * Method to insert data to the table.
      *
      * @param dataMap
      * @return
@@ -29,7 +29,7 @@ public class ControladorPostulante {
     }
 
     /**
-     * method to update data to the table.
+     * Method to update data to the table.
      *
      * @param dataMap
      * @return

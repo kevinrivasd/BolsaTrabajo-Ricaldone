@@ -16,14 +16,14 @@ import Modelo.ModeloUtils;
 import Modelo.ModeloRecu;
 
 /**
- * class for password recovery methods.
+ * Class for password recovery methods.
  *
  * @author Kevin Rivas
  */
 public class ControladorRecu {
 
     /**
-     * variable for a random number.
+     * Variable for a random number.
      */
     public static int randomCode;
     /**
@@ -36,7 +36,7 @@ public class ControladorRecu {
     ModeloUtils utils = new ModeloUtils();
 
     /**
-     * method to validate same user.
+     * Method to validate same user.
      *
      * @param user
      * @return
@@ -48,7 +48,7 @@ public class ControladorRecu {
     }
 
     /**
-     * method to send a code by mail.
+     * Method to send a code by mail.
      *
      * @param nameUser
      * @return
@@ -80,7 +80,7 @@ public class ControladorRecu {
     }
 
     /**
-     * method to validate that the entered code is the same as the sent one.
+     * Method to validate that the entered code is the same as the sent one.
      *
      * @param code
      * @return
@@ -104,7 +104,7 @@ public class ControladorRecu {
     }
 
     /**
-     * method to update the password.
+     * Method to update the password.
      *
      * @param Pword
      * @param mailUser

@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
- * 
+ * This method consults the moderation of who they requested, when and who requested it
  * @author Jonathan
  */
 public class ModeloNotificaciones {

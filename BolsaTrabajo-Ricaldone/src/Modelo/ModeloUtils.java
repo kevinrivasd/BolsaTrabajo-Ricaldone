@@ -28,7 +28,12 @@ public class ModeloUtils {
 
     PreparedStatement consult;
 
-    //specific field
+    /**
+     * We use this method for combo box
+     * @param sqlTable
+     * @param campoString
+     * @return 
+     */
     public List<String> getData(String sqlTable, String campoString) {
         List<String> data;
         try {
@@ -47,7 +52,11 @@ public class ModeloUtils {
         }
     }
 
-    //specific field
+    /**
+     * this method is to select the records of a table filtered by id
+     * @param username
+     * @return 
+     */
     public List<String> getUserData(String username) {
         List<String> data;
         try {
@@ -75,6 +84,11 @@ public class ModeloUtils {
     }
 
     //whole table as RS
+    /**
+     * We use this method for combo box
+     * @param sqlTable
+     * @return 
+     */
     public ResultSet getTable(String sqlTable) {
 
         try {
@@ -92,6 +106,13 @@ public class ModeloUtils {
         }
     }
 
+    /**
+     * 
+     * @param sqlTable
+     * @param colStrings
+     * @param idString
+     * @return 
+     */
     public ResultSet getTable(String sqlTable, String[] colStrings, String idString) {
 
         try {
@@ -119,6 +140,11 @@ public class ModeloUtils {
     }
 
     //whole table as RS
+    /**
+     * We use this method for combo box
+     * @param sqlTable
+     * @return 
+     */
     public HashMap<Integer, String> getTableHM(String sqlTable) {
 
         try {
@@ -141,6 +167,13 @@ public class ModeloUtils {
 
     }
 
+    /**
+     * We use this method to delete users
+     * @param idUsuario
+     * @param table
+     * @param campo
+     * @return 
+     */
     public int Eliminar(String idUsuario, String table, String campo) {
         try {
             Connection sql = ControladorConexion.getConection();
@@ -162,6 +195,15 @@ public class ModeloUtils {
         }
     }
 
+    
+    /**
+     * We use this method to update users
+     * @param dataMap
+     * @param id
+     * @param tabla
+     * @param idCompare
+     * @return 
+     */
     public int Actualizar(LinkedHashMap<String, String> dataMap, String id, String tabla, String idCompare) {
         try {
             //Getting connection pool
@@ -214,6 +256,13 @@ public class ModeloUtils {
         }
     }
 
+    
+    /**
+     * We use this method to enter users
+     * @param dataMap
+     * @param tabla
+     * @return 
+     */
     public int Agregar(LinkedHashMap<String, String> dataMap, String tabla) {
         try {
             Connection sql = ControladorConexion.getConection();
@@ -261,6 +310,10 @@ public class ModeloUtils {
         }
     }
 
+    /**
+     * We use this method to consult the base about the processes carried out by the applicants.
+     * @return 
+     */
     public static DefaultTableModel agruparPersona() {
 
         DefaultTableModel miModelo = null;
@@ -286,6 +339,11 @@ public class ModeloUtils {
         return miModelo;
     }
 
+    /**
+     * We use this method to decode PDFs so that they can be viewed
+     * @param toString
+     * @return 
+     */
     public String getPDF(String toString) {
         try {
             String b64 = "";

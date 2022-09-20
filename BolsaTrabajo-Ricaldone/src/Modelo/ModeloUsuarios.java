@@ -18,6 +18,10 @@ public class ModeloUsuarios {
     
     PreparedStatement consult = null;
 
+    /**
+     * We use this method to load the data from the users table
+     * @return 
+     */
     public ResultSet CargarUsuarios() {
         Connection con;
         try {
@@ -32,6 +36,12 @@ public class ModeloUsuarios {
         }
     }
 
+    /**
+     * This method helps us to verify that the entered user is not repeated
+     * @param user
+     * @param id
+     * @return 
+     */
     public boolean ValidarUser(String user, String id) {
         Connection con = ControladorConexion.getConection();
         boolean resultado = false;
@@ -55,6 +65,12 @@ public class ModeloUsuarios {
         return resultado;
     }
     
+    /**
+     * This method helps us to verify that the user's email is not repeated
+     * @param mail
+     * @param id
+     * @return 
+     */
     public boolean ValidarMail(String mail, String id) {
         Connection con = ControladorConexion.getConection();
         boolean resultado = false;

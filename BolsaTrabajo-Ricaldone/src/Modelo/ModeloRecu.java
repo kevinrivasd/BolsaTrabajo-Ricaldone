@@ -14,13 +14,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ *This class is the one we use to recover passwords
  * @author Kevin Rivas
  */
 public class ModeloRecu {
 
     PreparedStatement consult;
 
+    /**
+     * this method queries the database that the user who wants to recover the password exists
+     * @param user
+     * @return 
+     */
     public int RecuperacionPWD(String user) {
         try {
             Connection sql = ControladorConexion.getConection();
@@ -35,6 +40,11 @@ public class ModeloRecu {
         }
     }
 
+    /** 
+     * This method sends a code to the verification email to know that it is the initiated person who wants to recover the password
+     * @param nameUser
+     * @return 
+     */
     public String sentCode(String nameUser) {
         try {
             Connection sql = ControladorConexion.getConection();
@@ -53,6 +63,12 @@ public class ModeloRecu {
         }
     }
 
+    /**
+     * This method updates the password of the user
+     * @param Pword
+     * @param mail
+     * @return 
+     */
     public int ActualizarPWD(String Pword, String mail) {
         try {
             Connection sql = ControladorConexion.getConection();

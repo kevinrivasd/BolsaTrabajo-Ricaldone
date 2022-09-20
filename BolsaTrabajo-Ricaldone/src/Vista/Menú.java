@@ -75,7 +75,7 @@ public class Menú extends javax.swing.JFrame {
         if (userLevel.get(2).equals("2")) {
             Color myGreen = new Color(50, 63, 27);
 
-            Icon icon = new ImageIcon("src/recursos/User menu.png");
+            Icon icon = new ImageIcon("src/ICONOS SCM/Persona-B-50.png");
             btnUsuarioGrafi.setDisabledIcon(icon);
             btnUsuarioGrafi.setIcon(icon);
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tipos de trabajos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1cd4c41-4d48-4c41-97bc-0ea122a67de4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM workSubjects]]>
+	</queryString>
+	<field name="idSubject" class="java.lang.Integer"/>
+	<field name="WorkSubject" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="94" height="88" uuid="8cc4229c-5126-44ce-91dd-4e42754dfb23"/>
+				<imageExpression><![CDATA["C:\\Users\\jonat\\OneDrive\\Documentos\\GitHub\\BolsaTrabajo-Ricaldone\\BolsaTrabajo-Ricaldone\\src\\Recursos\\MicrosoftTeams-image.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="194" y="29" width="188" height="26" uuid="52632eaa-7117-4551-8deb-61271b5731f6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Poppins ExtraBold" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipos de trabajos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="433" y="0" width="122" height="20" uuid="285848ee-084f-462a-967a-44ba0a5dcf37"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="34" width="34" height="20" uuid="6fb06c74-5d34-4b0c-9aa8-413b72dc1748"/>
+				<text><![CDATA[idSubject]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="34" width="100" height="20" uuid="fda7cb8b-d5ed-40df-ae25-aa5b73ff95c1"/>
+				<text><![CDATA[WorkSubject]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="12" width="34" height="20" uuid="083d5079-fc28-401d-a5eb-5b650f0a5ead"/>
+				<textFieldExpression><![CDATA[$F{idSubject}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="12" width="100" height="20" uuid="d58cad6e-e2de-4124-a22d-cf474f2058e1"/>
+				<textFieldExpression><![CDATA[$F{WorkSubject}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="32" width="555" height="1" uuid="9cc5ba53-b1a8-44d7-841c-cdbe6609faa9"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

@@ -75,9 +75,9 @@ public class Menú extends javax.swing.JFrame {
         if (userLevel.get(2).equals("2")) {
             Color myGreen = new Color(50, 63, 27);
 
-            Icon icon = new ImageIcon("src/recursos/User menu.png");
-            btnUsuarioGrafi.setDisabledIcon(icon);
-            btnUsuarioGrafi.setIcon(icon);
+//            Icon icon = new ImageIcon("src/ICONOS SCM/Persona-B-50.png");
+//            btnUsuarioGrafi.setDisabledIcon(icon);
+//            btnUsuarioGrafi.setIcon(icon);
 
             btnUsuarioGrafi.setBackground(myGreen);
             btnUsuarioGrafi.setEnabled(false);
@@ -187,7 +187,7 @@ public class Menú extends javax.swing.JFrame {
         btnUsuarioGrafi.setBackground(new java.awt.Color(133, 175, 75));
         btnUsuarioGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnUsuarioGrafi.setForeground(new java.awt.Color(255, 255, 255));
-        btnUsuarioGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User menu.png"))); // NOI18N
+        btnUsuarioGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Persona-B-50.png"))); // NOI18N
         btnUsuarioGrafi.setText("   Usuario");
         btnUsuarioGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 1, 80));
         btnUsuarioGrafi.setBorderPainted(false);
@@ -201,7 +201,7 @@ public class Menú extends javax.swing.JFrame {
         btnEstadisticasGrafi.setBackground(new java.awt.Color(133, 175, 75));
         btnEstadisticasGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnEstadisticasGrafi.setForeground(new java.awt.Color(255, 255, 255));
-        btnEstadisticasGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Estadisticas menu.png"))); // NOI18N
+        btnEstadisticasGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Estadistica-B-50.png"))); // NOI18N
         btnEstadisticasGrafi.setText("  Estadisticas");
         btnEstadisticasGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 25));
         btnEstadisticasGrafi.setBorderPainted(false);
@@ -214,7 +214,7 @@ public class Menú extends javax.swing.JFrame {
         btnPostulantesGrafi.setBackground(new java.awt.Color(133, 175, 75));
         btnPostulantesGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnPostulantesGrafi.setForeground(new java.awt.Color(255, 255, 255));
-        btnPostulantesGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/CV Menu.png"))); // NOI18N
+        btnPostulantesGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Postulantes-B-50.png"))); // NOI18N
         btnPostulantesGrafi.setText(" Postulantes");
         btnPostulantesGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 1, 35));
         btnPostulantesGrafi.setBorderPainted(false);
@@ -227,7 +227,7 @@ public class Menú extends javax.swing.JFrame {
         btnNotificacionesGrafi.setBackground(new java.awt.Color(133, 175, 75));
         btnNotificacionesGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnNotificacionesGrafi.setForeground(new java.awt.Color(255, 255, 255));
-        btnNotificacionesGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/NotificacionesMenu.png"))); // NOI18N
+        btnNotificacionesGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Campana-B-50.png"))); // NOI18N
         btnNotificacionesGrafi.setText("  Notificaciones");
         btnNotificacionesGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 1, 10));
         btnNotificacionesGrafi.setBorderPainted(false);
@@ -240,7 +240,7 @@ public class Menú extends javax.swing.JFrame {
         btnConfiguracionGrafi.setBackground(new java.awt.Color(133, 175, 75));
         btnConfiguracionGrafi.setFont(new java.awt.Font("Poppins", 1, 19)); // NOI18N
         btnConfiguracionGrafi.setForeground(new java.awt.Color(255, 255, 255));
-        btnConfiguracionGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Configuracion Menu.png"))); // NOI18N
+        btnConfiguracionGrafi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Configuracion-B-50.png"))); // NOI18N
         btnConfiguracionGrafi.setText("  Configuracion");
         btnConfiguracionGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 7, 1, 9));
         btnConfiguracionGrafi.setBorderPainted(false);
@@ -300,7 +300,7 @@ public class Menú extends javax.swing.JFrame {
         PanelHolder.setLayout(PanelHolderLayout);
         PanelHolderLayout.setHorizontalGroup(
             PanelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1145, Short.MAX_VALUE)
+            .addGap(0, 1134, Short.MAX_VALUE)
         );
         PanelHolderLayout.setVerticalGroup(
             PanelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

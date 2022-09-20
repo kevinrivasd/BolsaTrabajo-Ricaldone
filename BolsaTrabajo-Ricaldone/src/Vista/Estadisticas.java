@@ -18,51 +18,63 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
+ * Panel for graphical representation of applicants' progress
  *
  * @author hello
  */
 public class Estadisticas extends javax.swing.JPanel {
 
+    /**
+     * Panel variable
+     */
     Panels componente = new Panels();
-    
-    
-    
-    public Estadisticas(String username){
+
+    /**
+     * Upload charts and applicants
+     *
+     * @param username
+     */
+    public Estadisticas(String username) {
         initComponents();
         CargarPostulantes();
         tblConsultas.setModel(Controlador.Utils.agruparPersona());
         graficar();
     }
-    
-    final void CargarPostulantes(){
+
+    /**
+     * Upload applicants with their progress
+     */
+    final void CargarPostulantes() {
         ControladorPostulante post = new ControladorPostulante();
         ResultSet rs = post.MostrarProgreso();
 
         try {
             while (rs.next()) {
-                componente.CrearPostulantes(rs.getString(1),rs.getString(2) ,rs.getString(3), PostulantesPanel);
+                componente.CrearPostulantes(rs.getString(1), rs.getString(2), rs.getString(3), PostulantesPanel);
             }
         } catch (SQLException ex) {
 //            Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "No se rick ");
+            JOptionPane.showMessageDialog(null, "No se rick ");
         }
     }
-    
+
+    /**
+     * Load the graph counting the progress
+     */
     public void graficar() {
         DefaultPieDataset dtsc = new DefaultPieDataset();
-            
-        for(int i = 0; i < tblConsultas.getRowCount(); i++){
-                dtsc.setValue(tblConsultas.getValueAt(i, 0).toString(), Integer.parseInt(tblConsultas.getValueAt(i, 1).toString()));
+
+        for (int i = 0; i < tblConsultas.getRowCount(); i++) {
+            dtsc.setValue(tblConsultas.getValueAt(i, 0).toString(), Integer.parseInt(tblConsultas.getValueAt(i, 1).toString()));
         }
-            JFreeChart ch = ChartFactory.createPieChart3D("Estado de los Postulantes", dtsc,true, true, false);
-            ChartPanel cp = new ChartPanel(ch);
-            add(cp);
-            cp.setLocation(500, 500);
-            cp.setBounds(-500,40,200,100);
+        JFreeChart ch = ChartFactory.createPieChart3D("Estado de los Postulantes", dtsc, true, true, false);
+        ChartPanel cp = new ChartPanel(ch);
+        add(cp);
+        cp.setLocation(500, 500);
+        cp.setBounds(-500, 40, 200, 100);
 
         cp.setDomainZoomable(true);
-        
-        
+
         panelHolder.setLayout(new BorderLayout());
         panelHolder.add(cp, BorderLayout.NORTH);
     }

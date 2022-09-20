@@ -18,6 +18,7 @@ import Modelo.ModeloUtils;
 import javax.security.auth.callback.ConfirmationCallback;
 
 /**
+ * Form to manage moderations
  *
  * @author Jonathan
  */
@@ -26,10 +27,25 @@ public class NotificacionPanel extends javax.swing.JPanel {
     /**
      * Creates new form NotificacionPanel
      */
+    /**
+     * Default table
+     */
     DefaultTableModel mod;
+    /**
+     * Object from ModeloUtils
+     */
     ModeloUtils utils = new ModeloUtils();
+    /**
+     * Object from Utils
+     */
     Utils utilc = new Utils();
 
+    /**
+     * Load moderations
+     *
+     * @throws SQLException
+     * @throws Exception
+     */
     public NotificacionPanel() throws SQLException, Exception {
         initComponents();
         String[] Encabezados = {"ID", "Postulante", "Fecha", "Descripción", "respuesta", "Información de la respuesta", "Usuario"};
@@ -42,6 +58,9 @@ public class NotificacionPanel extends javax.swing.JPanel {
 
     }
 
+    /**
+     * Method to load a table as a back up
+     */
     final void CargarTabla() {
         ControladorNotificaciones Cargarnoti = new ControladorNotificaciones();
         while (mod.getRowCount() > 0) {
@@ -92,7 +111,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvNoti = new javax.swing.JTable();
 
-        setPreferredSize(new java.awt.Dimension(1075, 833));
+        setPreferredSize(new java.awt.Dimension(1141, 833));
 
         jPanel8.setBackground(new java.awt.Color(239, 245, 213));
         jPanel8.setPreferredSize(new java.awt.Dimension(1075, 833));
@@ -154,7 +173,11 @@ public class NotificacionPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Event to press rows and send pdf's
+     *
+     * @param evt
+     */
     private void dgvNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvNotiMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 1) {

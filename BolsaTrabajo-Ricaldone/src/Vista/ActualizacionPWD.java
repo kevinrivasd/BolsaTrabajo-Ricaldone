@@ -14,12 +14,19 @@ import javax.swing.JOptionPane;
 import Controlador.ControladorRecu;
 
 /**
+ * Form to insert new password credentials
  *
  * @author Kevin Rivas
  */
 public class ActualizacionPWD extends javax.swing.JFrame {
 
+    /**
+     * Mail variable.
+     */
     public static String mailLocal = "";
+    /**
+     * Object from ControladorRecu
+     */
     ControladorRecu recucontroller = new ControladorRecu();
 
     /**
@@ -155,7 +162,11 @@ public class ActualizacionPWD extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Password update button
+     *
+     * @param evt
+     */
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
         int num;

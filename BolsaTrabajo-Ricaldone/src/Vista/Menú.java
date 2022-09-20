@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import Controlador.Utils;
 
 /**
+ * Form to organize access to the panels
  *
  * @author Jonathan
  */
@@ -28,13 +29,36 @@ public class Menú extends javax.swing.JFrame {
     /**
      * Creates new form Menú
      */
+    /**
+     * Variable to move the bar
+     */
     Desface desplace;
+    /**
+     * Variable for sizing
+     */
     Dimension d = new Dimension(1141, 717);
+    /**
+     * Variable to load an empty panel
+     */
     public JPanel previo = new JPanel();
+    /**
+     * Variable to load the user
+     */
     public static String nameUser = "";
+    /**
+     * Variable to load the levels
+     */
     public static List<String> userLevel = new ArrayList<>();
+    /**
+     * Object from Utils
+     */
     Utils user = new Utils();
 
+    /**
+     * manage the empty panel and the user level
+     *
+     * @param user
+     */
     public Menú(String user) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -64,6 +88,12 @@ public class Menú extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    /**
+     * Tool loading
+     *
+     * @param nameUserLocal
+     * @return
+     */
     public List<String> cargarProps(String nameUserLocal) {
         try {
             userLevel = user.getUserData(nameUserLocal);
@@ -311,7 +341,11 @@ public class Menú extends javax.swing.JFrame {
     private void btnMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMenu1ActionPerformed
-
+    /**
+     * Access to the user panel
+     *
+     * @param evt
+     */
     private void btnUsuarioGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioGrafiActionPerformed
         try {
             PanelHolder.remove(previo);
@@ -325,7 +359,11 @@ public class Menú extends javax.swing.JFrame {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnUsuarioGrafiActionPerformed
-
+    /**
+     * Access to the statistics panel
+     *
+     * @param evt
+     */
     private void btnEstadisticasGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasGrafiActionPerformed
         // TODO add your handling code here:
         try {
@@ -340,7 +378,11 @@ public class Menú extends javax.swing.JFrame {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEstadisticasGrafiActionPerformed
-
+    /**
+     * Access to the applicant panel
+     *
+     * @param evt
+     */
     private void btnPostulantesGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostulantesGrafiActionPerformed
         try {
             PanelHolder.remove(previo);
@@ -353,7 +395,11 @@ public class Menú extends javax.swing.JFrame {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPostulantesGrafiActionPerformed
-
+    /**
+     * Access to the notification panel
+     *
+     * @param evt
+     */
     private void btnNotificacionesGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificacionesGrafiActionPerformed
         try {
             PanelHolder.remove(previo);
@@ -367,7 +413,11 @@ public class Menú extends javax.swing.JFrame {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNotificacionesGrafiActionPerformed
-
+    /**
+     * Access to the configuration panel
+     *
+     * @param evt
+     */
     private void btnConfiguracionGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionGrafiActionPerformed
         // TODO add your handling code here:
         try {
@@ -383,7 +433,11 @@ public class Menú extends javax.swing.JFrame {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnConfiguracionGrafiActionPerformed
-
+    /**
+     * Log off
+     *
+     * @param evt
+     */
     private void btnSalirPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirPostuActionPerformed
         // TODO add your handling code here:
         Login newFrm = new Login();

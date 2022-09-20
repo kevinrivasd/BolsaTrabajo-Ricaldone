@@ -37,6 +37,7 @@ import Controlador.Utils;
 import net.sf.jasperreports.engine.JRException;
 
 /**
+ * Panel to view applicants
  *
  * @author Jonathan
  */
@@ -60,7 +61,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
         JTPostulantes.setModel(jPost);
         sorter = new TableRowSorter<>(jPost);
         JTPostulantes.setRowSorter(sorter);
-        
+
     }
 
     /**
@@ -81,7 +82,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnGenerarReporte = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(1100, 700));
+        setPreferredSize(new java.awt.Dimension(1141, 700));
 
         jPanel3.setBackground(new java.awt.Color(239, 245, 213));
         jPanel3.setPreferredSize(new java.awt.Dimension(1100, 700));
@@ -190,11 +191,15 @@ public class PostulantesPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    /**
+     * Button to redirect you to the applicants' management
+     *
+     * @param evt
+     */
     private void BtnCrudPostuAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrudPostuAddActionPerformed
         try {
             //        try {
-            PostulanteCRUD next = new PostulanteCRUD(1);            
+            PostulanteCRUD next = new PostulanteCRUD(1);
             next.setVisible(true);
 //            PostulanteCRUD frm = new PostulanteCRUD(1);
 //        } catch (Exception ex) {
@@ -207,7 +212,11 @@ public class PostulantesPanel extends javax.swing.JPanel {
             Logger.getLogger(PostulantesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BtnCrudPostuAddActionPerformed
-
+    /**
+     * Search filter
+     *
+     * @param evt
+     */
     private void txtFiltroPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroPostKeyTyped
         // TODO add your handling code here:
         String text = txtFiltroPost.getText();
@@ -221,16 +230,20 @@ public class PostulantesPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_txtFiltroPostKeyTyped
-
+    /**
+     * Generate applicant report
+     *
+     * @param evt
+     */
     private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
         try {
 //               ControladorConexion con = new ControladorConexion();
             Connection con = ControladorConexion.getConection();
-             
+
             JasperReport reporte;
             String path = "src\\Reportes\\Postulantes.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            JasperPrint jprint = JasperFillManager.fillReport(reporte,null, con);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint);
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             view.setVisible(true);

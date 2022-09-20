@@ -21,23 +21,52 @@ import jdk.jshell.execution.Util;
 import Controlador.Utils;
 
 /**
+ * Skills management form
  *
  * @author hello
  */
 public class AbilitiesCRUD extends javax.swing.JFrame {
 
+    /**
+     * Object from Utils
+     */
     Utils utils = new Utils();
     /**
      * Creates new form AbilitiesCRUD
      */
+
+    /**
+     * Type of table for skills or branches
+     */
     private static int typeA = 0;
+
+    /**
+     * Postulant id
+     */
     private static String idPos = "";
 
+    /**
+     * column arrangement
+     */
     String[] arrAb = {"", "idLevel", ""};
 
+    /**
+     * table variable
+     */
     private static String table = "";
+    /**
+     * mapping of levels
+     */
     public HashMap<Integer, String> levelCMB;
 
+    /**
+     * Method to generate an array and a switch to choose the table depending on
+     * which one you select.
+     *
+     * @param abilitie
+     * @param id
+     * @throws Exception
+     */
     public AbilitiesCRUD(int abilitie, String id) throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -201,7 +230,11 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Add skills or branches
+     *
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
@@ -210,17 +243,21 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         try {
             int res = utils.Agregar(map, table);
             if (res == 1) {
-                JOptionPane.showMessageDialog(null, "Exito");
+                JOptionPane.showMessageDialog(null, "Agregado exitosamente");
                 dgvLol.setModel(utils.rtrnTqble(table, arrAb, idPos));
             } else {
-                JOptionPane.showMessageDialog(null, "Sin exito ");
+                JOptionPane.showMessageDialog(null, "No se pudo insertar el registro");
             }
         } catch (Exception ex) {
             Logger.getLogger(AbilitiesCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * Eliminate skills or branches
+     *
+     * @param evt
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         try {
@@ -243,7 +280,11 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    /**
+     * Upgrade skills or branches
+     *
+     * @param evt
+     */
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
         LinkedHashMap<String, String> data = collectMap();
@@ -264,7 +305,11 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor revisa que los campos estén correctamente llenos.");
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
-
+    /**
+     * Event to select table rows
+     *
+     * @param evt
+     */
     private void dgvLolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvLolMouseClicked
         // TODO add your handling code here:
 
@@ -276,7 +321,11 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_dgvLolMouseClicked
-
+    /**
+     * Icon to close the form and return to the previous one
+     *
+     * @param evt
+     */
     private void lblRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegresarMouseClicked
         // TODO add your handling code here:
         this.dispose();

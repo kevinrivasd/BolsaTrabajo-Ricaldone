@@ -14,15 +14,24 @@ import javax.swing.ImageIcon;
 import Controlador.ControladorLogin;
 
 /**
+ * Login Form
  *
  * @author hello
  */
 public class Login extends javax.swing.JFrame {
-ControladorLogin logincontroller = new ControladorLogin();
+
+    /**
+     * Object from ControladorLogin
+     */
+    ControladorLogin logincontroller = new ControladorLogin();
+
     /**
      * Creates new form Login
      */
 //    
+    /**
+     * assign titles and dimensions
+     */
     public Login() {
         initComponents();
 
@@ -134,12 +143,16 @@ ControladorLogin logincontroller = new ControladorLogin();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * button to log in with the correct credentials
+     *
+     * @param evt
+     */
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_btnIniciarSesionActionPerformed
 
         String user;
         char[] password;
-        
+
         try {
             user = txtUser.getText();
             password = txtpassword.getPassword();
@@ -161,7 +174,11 @@ ControladorLogin logincontroller = new ControladorLogin();
         }
 
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
-
+    /**
+     * Button to enter the password recovery form
+     *
+     * @param evt
+     */
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
         RecuperacionPWD frm = new RecuperacionPWD();

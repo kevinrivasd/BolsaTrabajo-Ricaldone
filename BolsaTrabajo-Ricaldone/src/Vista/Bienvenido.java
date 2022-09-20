@@ -5,6 +5,7 @@
 package Vista;
 
 /**
+ * Graphic panel showing a welcome panel
  *
  * @author Kevin Rivas
  */

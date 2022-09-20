@@ -56,11 +56,11 @@ public class Panels {
                 //        container.setRoundBottomRight(20);
                 //        container.setRoundBottomLeft(20);
                 switch (Progress) {
-                    case "4":
+                   case "Información Solicitada":
                         colorestado.setBackground(new Color(50, 63, 27));
                         break;
-                    case "5":
-                        colorestado.setBackground(new Color(132, 175, 75));
+                    case "Información Enviada":
+                        colorestado.setBackground(new Color(132, 175 ,75 ));
                         break;
                     default:
                         colorestado.setBackground(new Color(57, 83, 34));

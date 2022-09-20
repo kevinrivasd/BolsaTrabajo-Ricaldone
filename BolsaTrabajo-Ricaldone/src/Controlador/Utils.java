@@ -240,7 +240,7 @@ public class Utils {
      * @param mail
      * @return 
      */
-    public static String sendPDF(String b64, String mail) {
+    public String sendPDF(String b64, String mail) {
 
         try {
             Random rand = new Random();

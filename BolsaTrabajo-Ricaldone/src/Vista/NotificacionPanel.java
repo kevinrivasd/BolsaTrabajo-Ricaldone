@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Modelo.ModeloUtils;
 import javax.security.auth.callback.ConfirmationCallback;
+import Controlador.Utils;
 
 /**
  * Form to manage moderations
@@ -180,6 +181,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
      */
     private void dgvNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dgvNotiMouseClicked
         // TODO add your handling code here:
+        Utils util = new Utils();
         if (evt.getClickCount() == 1) {
             try {
                 var idPostulante = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 1);
@@ -190,7 +192,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
                     String b64 = utils.getPDF(idPostulante.toString());
                     if (!b64.equals("") || !mailUser.equals("") || !b64.isEmpty() || !b64.isBlank()) {
                         if (JOptionPane.showConfirmDialog(null, "¿Deseas enviar el pdf adjunto en un correo?", "Mensaje", JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
-                            Controlador.Utils.sendPDF(b64, mailUser);
+                            util.sendPDF(b64, mailUser);
 //                            JOptionPane.showMessageDialog(null, b64);
                         }
 

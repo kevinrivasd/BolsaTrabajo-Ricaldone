@@ -350,9 +350,9 @@ public class ModeloUtils {
 
             Connection sql = ControladorConexion.getConection();
 
-            String squery = "SELECT resumePDF FROM Postulants WHERE idPostulant = 2;";
+            String squery = "SELECT resumePDF FROM Postulants WHERE idPostulant = ?;";
             consult = sql.prepareStatement(squery);
-
+            consult.setString(1, toString);
             ResultSet res = consult.executeQuery();
 
             while (res.next()) {

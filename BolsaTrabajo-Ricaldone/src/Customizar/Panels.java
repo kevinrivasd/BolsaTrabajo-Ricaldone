@@ -31,15 +31,15 @@ public class Panels {
                 JPanel colorestado = new JPanel();
 
                 //Dimensiones
-                lblestado.setPreferredSize(new Dimension(100, 50));
-                container.setPreferredSize(new Dimension(500, 50));
-                lblnombre.setPreferredSize(new Dimension(490, 50));
-                colorestado.setPreferredSize(new Dimension(30, 30));
+                lblestado.setPreferredSize(new Dimension(150, 40));
+                container.setPreferredSize(new Dimension(1000, 40));
+                lblnombre.setPreferredSize(new Dimension(700, 40));
+                colorestado.setPreferredSize(new Dimension(35, 35));
 
                 //Color y tipo de letra
-                container.setBackground(new Color(32, 32, 32));
-                lblestado.setForeground(Color.white);
-                lblnombre.setForeground(Color.white);
+                container.setBackground(Color.white);
+                lblestado.setForeground(Color.black);
+                lblnombre.setForeground(Color.black);
                 lblestado.setHorizontalAlignment(JLabel.RIGHT);
 
                 //Añadir componentes al principal
@@ -51,29 +51,17 @@ public class Panels {
                 //        container.setRoundTopRight(20);
                 //        container.setRoundBottomRight(20);
                 //        container.setRoundBottomLeft(20);
-//                switch (Progress) {
-//                    case "1":
-//                        colorestado.setBackground(new Color(132, 175, 75));
-//                        break;
-//                    case "2":
-//                        colorestado.setBackground(new Color(132, 175, 75));
-//                        break;
-//                    case "3":
-//                        colorestado.setBackground(new Color(132, 175, 75));
-//                        break;
-//                    case "4":
-//                        colorestado.setBackground(new Color(132, 175, 75));
-//                        break;
-//                    case "5":
-//                        colorestado.setBackground(new Color(132, 175, 75));
-//                        break;
-//                    case "6":
-//                        colorestado.setBackground(new Color(132, 175, 75));
-//                        break;
-//                    default:
-//                        colorestado.setBackground(new Color(57, 83, 34));
-//                        break;
-//                }
+                switch (Progress) {
+                    case "4":
+                        colorestado.setBackground(new Color(50, 63, 27));
+                        break;
+                    case "5":
+                        colorestado.setBackground(new Color(132, 175, 75));
+                        break;
+                    default:
+                        colorestado.setBackground(new Color(57, 83, 34));
+                        break;
+                }
             
                 //Agregas a la interfaz
                 panelcontenedor.add(container);

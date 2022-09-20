@@ -37,9 +37,10 @@ public class Estadisticas extends javax.swing.JPanel {
     final void CargarPostulantes(){
         ControladorPostulante post = new ControladorPostulante();
         ResultSet rs = post.MostrarProgreso();
+
         try {
             while (rs.next()) {
-                componente.CrearPostulantes(rs.getString(1), rs.getString(2), panelHolder);
+                componente.CrearPostulantes(rs.getString(1), rs.getString(2), PostulantesPanel);
             }
         } catch (SQLException ex) {
 //            Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,7 +115,6 @@ public class Estadisticas extends javax.swing.JPanel {
 
         PostulantesPanel.setMinimumSize(new java.awt.Dimension(1099, 100));
         PostulantesPanel.setPreferredSize(new java.awt.Dimension(1099, 1000));
-        PostulantesPanel.setLayout(new java.awt.GridLayout(20, 1, 5, 10));
         jScrollPane2.setViewportView(PostulantesPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

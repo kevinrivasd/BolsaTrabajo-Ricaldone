@@ -37,4 +37,15 @@ public class ControladorLogin {
         }
         return null;
     }
+    
+    public String EstadoC(String user, char[] password) {
+        try {
+            String i = "";
+            String claveEncrypt = Utils.encrypt(password);
+            return login.Estado(user, claveEncrypt);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

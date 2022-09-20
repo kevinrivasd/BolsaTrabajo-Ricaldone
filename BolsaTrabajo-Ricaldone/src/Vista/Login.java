@@ -144,14 +144,15 @@ ControladorLogin logincontroller = new ControladorLogin();
             user = txtUser.getText();
             password = txtpassword.getPassword();
             String num = logincontroller.Login(user, password);
+            String State = logincontroller.EstadoC(user, password);
 
-            if ("".equals(num)) {
-                JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
-            } else {
+            if (!"".equals(num) && !"2".equals(State)) {
                 JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
                 Menú newfrm = new Menú(num);
                 newfrm.setVisible(true);
                 this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             }
 
         } catch (Exception e) {

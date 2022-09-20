@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Progresos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="060b3754-7f7b-4a49-a31a-31fdc5031a5e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM Progress]]>
+	</queryString>
+	<field name="idProgress" class="java.lang.Integer"/>
+	<field name="Progress" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="94" height="88" uuid="64d4f75b-cd7c-46da-b793-dc485432c7ca"/>
+				<imageExpression><![CDATA["C:\\Users\\jonat\\OneDrive\\Documentos\\GitHub\\BolsaTrabajo-Ricaldone\\BolsaTrabajo-Ricaldone\\src\\Recursos\\MicrosoftTeams-image.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="194" y="37" width="188" height="26" uuid="03b8114c-44b0-4bfa-bcdd-1e24bb16b8d5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Poppins ExtraBold" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipos de progresos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="433" y="15" width="122" height="20" uuid="5ead00d0-7b90-4a79-8dd0-7779e5c93318"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="57" height="20" uuid="bcc16f53-ccb7-4c4f-a6df-4f2b79da74dc"/>
+				<text><![CDATA[idProgress]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="41" width="100" height="20" uuid="1719353c-278e-4582-bdbc-4a68d10fdb4c"/>
+				<text><![CDATA[Progress]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="14" width="57" height="20" uuid="297cea00-1fba-42eb-9648-3f26496b1d37"/>
+				<textFieldExpression><![CDATA[$F{idProgress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="14" width="100" height="20" uuid="c1e80c7b-e192-4545-a024-bc6697436d65"/>
+				<textFieldExpression><![CDATA[$F{Progress}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="34" width="555" height="1" uuid="805747d2-5d57-4c19-a946-d2d147ff18d7"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="404" y="0" width="80" height="20" uuid="b1f95c52-03c4-4c85-98f8-5296b4c14aa5"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="484" y="0" width="49" height="20" uuid="a993af84-8d55-4625-9d80-782f51929e41"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -45,4 +45,24 @@ public class ModeloLogin {
             return null;
         }
     }
+    
+    public String Estado(String user, String password) {
+        try {
+            Connection sql = ControladorConexion.getConection();
+            String squery = "SELECT idState FROM UserSystems WHERE nameUser= ? AND Pword=?";
+            consult = sql.prepareStatement(squery);
+            consult.setString(1, user);
+            consult.setString(2, password);
+
+            ResultSet res = consult.executeQuery();
+            String id = "";
+            while (res.next()) {
+                id += res.getInt("idState");
+            }
+            return id;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloLogin.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }

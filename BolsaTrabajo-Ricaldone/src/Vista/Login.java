@@ -12,13 +12,16 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import Controlador.ControladorLogin;
+import java.sql.ResultSet;
 
 /**
  *
  * @author hello
  */
 public class Login extends javax.swing.JFrame {
-ControladorLogin logincontroller = new ControladorLogin();
+
+    ControladorLogin logincontroller = new ControladorLogin();
+
     /**
      * Creates new form Login
      */
@@ -139,19 +142,25 @@ ControladorLogin logincontroller = new ControladorLogin();
 
         String user;
         char[] password;
-        
+
         try {
             user = txtUser.getText();
             password = txtpassword.getPassword();
             String num = logincontroller.Login(user, password);
-
+            int Respuesta = logincontroller.EstadoBloqController();
             if ("".equals(num)) {
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             } else {
-                JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
-                Menú newfrm = new Menú(num);
-                newfrm.setVisible(true);
-                this.dispose();
+                if (Respuesta == 2) {
+                    JOptionPane.showMessageDialog(null, "Bloqueado");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
+                    JOptionPane.showMessageDialog(null, Respuesta);
+                    Menú newfrm = new Menú(num);
+                    newfrm.setVisible(true);
+                    this.dispose();
+                }
+
             }
 
         } catch (Exception e) {

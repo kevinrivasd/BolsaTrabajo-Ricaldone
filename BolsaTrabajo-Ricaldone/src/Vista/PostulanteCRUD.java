@@ -773,8 +773,10 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
             String genero = txtgenero.getText();
             cmbGenero.setSelectedItem(genero + 1);
+            cmbGenero.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString());
             String estado = txtestado.getText();
             cmbEstadoPost.setSelectedItem(estado + 1);
+            cmbEstadoPost.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 9).toString());
             if (Table.getModel().getValueAt(Table.getSelectedRow(), 10).toString().equals("true")) {
                 CheckAlumni.setSelected(true);
             } else {
@@ -782,24 +784,34 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
             String IDepartamento = txtIDepartment.getText();
             cmbDepartPreferencia.setSelectedItem(IDepartamento + 1);
+            cmbDepartPreferencia.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 11).toString());
             String RDepartamento = txtRDepartment.getText();
             cmbDepartReside.setSelectedItem(RDepartamento + 1);
+            cmbDepartReside.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 12).toString());
             String workType = txtworktype.getText();
             cmbTipoTrabajo.setSelectedItem(workType + 1);
+            cmbTipoTrabajo.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 13).toString());
             String Progress = txtprogress.getText();
             cmbProgreso.setSelectedItem(Progress + 1);
+            cmbProgreso.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 14).toString());
             String salario = txtsalary.getText();
             cmbSalario.setSelectedItem(salario + 1);
+            cmbSalario.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 15).toString());
             String hightype = txthigtType.getText();
             cmbHighType.setSelectedItem(hightype + 1);
+            cmbHighType.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 16).toString());
             String contractType = txtContractType.getText();
             cmbTipoContrato.setSelectedItem(contractType + 1);
+            cmbTipoTrabajo.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 17).toString());
             String preflaboral = txtworkPreference.getText();
             cmbPrefLaboral.setSelectedItem(preflaboral + 1);
+            cmbPrefLaboral.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 18).toString());
             String studylevel = txtstudylevel.getText();
             cmbNivelEstudio.setSelectedItem(studylevel + 1);
+            cmbNivelEstudio.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 19).toString());
             String workstatus = txtworkState.getText();
             cmbEstadoTrabajo.setSelectedItem(workstatus + 1);
+            cmbEstadoTrabajo.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 20).toString());
             txtApellidoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 21).toString());
             try {
                 GTable.setModel(utils.rtrnTqble("GeneralSkills", arrG, txtID.getText()));

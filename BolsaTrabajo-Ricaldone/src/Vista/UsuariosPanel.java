@@ -627,6 +627,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
             txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 0).toString());
             String idState = txtState.getText();
             cmbEstado.setSelectedItem(idState + 1);
+            cmbEstado.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 1).toString());
             txtUsuario.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 2).toString());
 
             //            txtContra.setText(Table.getModel().getValueAt(Table.getSelectedRow(),3).toString());
@@ -634,8 +635,10 @@ public class UsuariosPanel extends javax.swing.JPanel {
             txtNumero.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 5).toString());
             String rol = txtRol.getText();
             cmbRol.setSelectedItem(rol + 1);
+            cmbRol.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 6).toString());
             String Genero = txtGender.getText();
             cmbGenero.setSelectedItem(Genero + 1);
+            cmbGenero.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString());
         }
     }//GEN-LAST:event_dgvUsersMouseClicked
     /**

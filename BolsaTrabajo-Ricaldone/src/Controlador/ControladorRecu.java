@@ -91,10 +91,11 @@ public class ControladorRecu {
         try {
             int intcode;
             intcode = Integer.parseInt(code);
-            if (intcode == randomCode) {
+            if (intcode == randomCode && randomCode != 0) {
                 JOptionPane.showMessageDialog(null, "El codigo es correcto");
+                randomCode = 0;
             } else {
-                JOptionPane.showMessageDialog(null, "El codigo ingresado no es correcto");
+                JOptionPane.showMessageDialog(null, "El codigo ingresado no es correcto o ya esta utilizado");
                 retorno = retorno + 1;
             }
         } catch (Exception ex) {

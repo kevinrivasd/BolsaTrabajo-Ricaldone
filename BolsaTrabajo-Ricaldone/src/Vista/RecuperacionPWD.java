@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import Controlador.ControladorRecu;
+import Controlador.Utils;
 
 /**
  * Panel for the first steps to recover password
@@ -194,6 +195,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
     public void validacionUser() {
         String user;
         user = txtuser.getText();
+        Utils util = new Utils();
 
         try {
 
@@ -227,7 +229,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         code = txtcode.getText();
         try {
             int num = Controlador.ControladorRecu.Verificacion(code);
-            if (num != 1) {
+            if (num != 1 || code.equals("")) {
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             } else {
                 ActualizacionPWD newfrm = new ActualizacionPWD(mailLocal);

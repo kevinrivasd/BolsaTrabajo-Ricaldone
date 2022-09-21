@@ -243,11 +243,11 @@ public class PostulantesPanel extends javax.swing.JPanel {
             JasperReport reporte;
             String path = "src\\Reportes\\Postulantes.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+            JasperPrint jprint =   JasperFillManager.fillReport(reporte, null, con);
             JasperViewer view = new JasperViewer(jprint);
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             view.setVisible(true);
-        } catch (JRException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
             System.out.println(e.toString());
         }

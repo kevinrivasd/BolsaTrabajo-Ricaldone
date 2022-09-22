@@ -86,22 +86,21 @@ public class ModeloUtils {
 
 
 
-    public List<String> getMod(int id) {
-        List<String> data;
+    public String getMod(int id) {
+        String data;
         try {
             data = new ArrayList<>();
 
             Connection sql = ControladorConexion.getConection();
 
-            String squery = "SELECT mailUser, Context FROM Moderations WHERE idMod=?";
+            String squery = "SELECT mailUser FROM Moderations WHERE idMod=?";
             consult = sql.prepareStatement(squery);
             consult.setString(1, id);
 
             ResultSet res = consult.executeQuery();
 
             while (res.next()) {
-                data.add(res.getString("mailUser"));
-                data.add(res.getString("Context"));
+                data += res.getString("mailUser");
             }
             return data;
         } catch (SQLException ex) {

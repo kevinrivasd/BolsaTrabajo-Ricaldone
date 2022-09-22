@@ -266,14 +266,14 @@ public class Utils {
         return null;
     }
     //todo: test it lol
-    public int createCallback(List<String> data, String password, String username){
+    public int createCallback(String mail, String password, String username){
             
             LinkedHashMap<String, String> data_user = new LinkedHashMap<>();
             
             data.put("idState", "1");
             data.put("nameUser", username);
             data.put("Pword", Pword);
-            data.put("mailUser", lista.get("mailUser"));
+            data.put("mailUser", mail);
             data.put("numberUser", "000000");
             data.put("idRol", "2");
             data.put("mailVerification", String.valueOf(1));
@@ -295,12 +295,12 @@ public class Utils {
 
             Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
             
-            List<String> lista = ModeloUtils.getMod(idMod);
+            String mail = ModeloUtils.getMod(idMod);
             String userName = "testin123";
             BigInteger bigInt = BigInteger.valueOf(random);      
             bigInt.toByteArray();
             String Pword = encrypt(bigInt);
-            int callback = createCallback(lista, Pword, userName);
+            int callback = createCallback(mail, Pword, userName);
 
             
             if(callback == 1){

@@ -84,6 +84,32 @@ public class ModeloUtils {
         }
     }
 
+
+
+    public List<String> getMod(int id) {
+        List<String> data;
+        try {
+            data = new ArrayList<>();
+
+            Connection sql = ControladorConexion.getConection();
+
+            String squery = "SELECT mailUser, Context FROM Moderations WHERE idMod=?";
+            consult = sql.prepareStatement(squery);
+            consult.setString(1, id);
+
+            ResultSet res = consult.executeQuery();
+
+            while (res.next()) {
+                data.add(res.getString("mailUser"));
+                data.add(res.getString("Context"));
+            }
+            return data;
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeloUtils.class.getName()).log(Level.SEVERE, null, ex);
+            return data = new ArrayList<>();
+        }
+    }
+
     //whole table as RS
     /**
      * We use this method for combo box

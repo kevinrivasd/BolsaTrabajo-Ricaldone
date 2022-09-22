@@ -265,5 +265,68 @@ public class Utils {
         }
         return null;
     }
+    //todo: test it lol
+    public int createCallback(List<String> data, String password, String username){
+            
+            LinkedHashMap<String, String> data_user = new LinkedHashMap<>();
+            
+            data.put("idState", "1");
+            data.put("nameUser", username);
+            data.put("Pword", Pword);
+            data.put("mailUser", lista.get("mailUser"));
+            data.put("numberUser", "000000");
+            data.put("idRol", "2");
+            data.put("mailVerification", String.valueOf(1));
+            data.put("idGender", "1");
+            
+            return ModeloUtils.Agregar(data_user);
+    }
 
+    public int gen() {
+        Random r = new Random( System.currentTimeMillis() );
+        return 10000 + r.nextInt(20000);
+    }
+
+    public boolean sendConfirmation(int idMod) {
+
+        try {
+            Random rand = new Random();
+            int random = gen();
+
+            Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
+            
+            List<String> lista = ModeloUtils.getMod(idMod);
+            String userName = "testin123";
+            BigInteger bigInt = BigInteger.valueOf(random);      
+            bigInt.toByteArray();
+            String Pword = encrypt(bigInt);
+            int callback = createCallback(lista, Pword, userName);
+
+            
+            if(callback == 1){
+                request.form("email", emailString)
+                    .form("subject", "Tu cuenta ha sido creada")
+                    .form("text", "Tu cuenta ha sido creada con exito /n" +
+                                  "Usuario: "+userName+"/n"
+                                  "Contrasena: " +Pword);
+                    .form("base64", b64);
+
+                Response response = new HttpClient(request).execute();
+                if (response.getStatusCode() == 200) {
+                    JOptionPane.showMessageDialog(null, "Email enviado con exito, por favor verifica en SPAM.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Hubo un error");
+                }
+                JOptionPane.showMessageDialog("Cuenta creada con exito, se le ha notificado al usuario");
+                return true;
+            }else{
+                JOptionPane.showMessageDialog("Error al crear la cuenta");
+            }
+            
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return null;
+    }
 }

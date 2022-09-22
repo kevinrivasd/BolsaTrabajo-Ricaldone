@@ -114,6 +114,11 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(133, 175, 75));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Recu_regresar.png"))); // NOI18N
         jLabel11.setText("Volver a inicio de sesión");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         txtcode.setBackground(new java.awt.Color(218, 213, 212));
         txtcode.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
@@ -244,6 +249,11 @@ public class RecuperacionPWD extends javax.swing.JFrame {
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVerificarActionPerformed
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments

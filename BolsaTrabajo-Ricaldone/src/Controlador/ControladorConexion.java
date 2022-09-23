@@ -6,6 +6,8 @@ package Controlador;
 
 import java.sql.Connection;
 import Modelo.ModeloConexion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * class made for connection.
@@ -20,6 +22,11 @@ public class ControladorConexion {
      * @return
      */
     public static Connection getConection() {
-        return ModeloConexion.Conectar();
+        try {
+            return ModeloConexion.Conectar();
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorConexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

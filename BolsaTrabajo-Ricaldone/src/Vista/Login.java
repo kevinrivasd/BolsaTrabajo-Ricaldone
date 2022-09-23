@@ -12,6 +12,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import Controlador.ControladorLogin;
+import Controlador.Utils;
 
 /**
  * Login Form
@@ -152,13 +153,11 @@ public class Login extends javax.swing.JFrame {
 
         String user;
         char[] password;
-
         try {
             user = txtUser.getText();
             password = txtpassword.getPassword();
             String num = logincontroller.Login(user, password);
             String State = logincontroller.EstadoC(user, password);
-
             if (!"".equals(num) && !"2".equals(State)) {
                 JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
                 Menú newfrm = new Menú(num);

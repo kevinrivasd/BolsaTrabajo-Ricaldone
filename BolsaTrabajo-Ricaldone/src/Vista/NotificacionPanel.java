@@ -185,12 +185,14 @@ public class NotificacionPanel extends javax.swing.JPanel {
         if (evt.getClickCount() == 1) {
             try {
                 var idPostulante = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 1);
-
+                int idMod = Integer.valueOf(dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 0).toString());
                 String mailUser = dgvNoti.getModel().getValueAt(dgvNoti.getSelectedRow(), 3).toString();
 
                 if (idPostulante != null) {
                     String b64 = utils.getPDF(idPostulante.toString());
-                    if (!b64.equals("") || !mailUser.equals("") || !b64.isEmpty() || !b64.isBlank()) {
+                    
+                    if (!b64.equals("") || !mailUser.equals("") || !b64.isEmpty() || !b64.isBlank() ||
+                        b64!=null) {
                         if (JOptionPane.showConfirmDialog(null, "¿Deseas enviar el pdf adjunto en un correo?", "Mensaje", JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
                             util.sendPDF(b64, mailUser);
 //                            JOptionPane.showMessageDialog(null, b64);
@@ -200,7 +202,11 @@ public class NotificacionPanel extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null, "Este postulante no tiene pdf aun");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Debes crearle una cuenta a este usuario");
+                     if (JOptionPane.showConfirmDialog(null, "Seguro que le quieres crear una cuenta a esta persona?", "Mensaje",
+                        JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
+                         Utils obj = new Utils();
+                         obj.sendConfirmation(idMod);
+                    }
                 }
 
             } catch (Exception ex) {

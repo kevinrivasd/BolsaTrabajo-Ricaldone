@@ -131,7 +131,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         lblRegresar = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
 
         jPanel1.setBackground(new java.awt.Color(239, 245, 213));
@@ -175,7 +175,6 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jButton1.setText("Agregar habilidad");
-        jButton1.setActionCommand("Agregar habilidad");
         jButton1.setPreferredSize(new java.awt.Dimension(85, 25));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,9 +185,6 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
         btnActualizar.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         btnActualizar.setText("Modificar habilidad");
-        btnActualizar.setMaximumSize(new java.awt.Dimension(161, 28));
-        btnActualizar.setMinimumSize(new java.awt.Dimension(161, 28));
-        btnActualizar.setPreferredSize(new java.awt.Dimension(161, 28));
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);

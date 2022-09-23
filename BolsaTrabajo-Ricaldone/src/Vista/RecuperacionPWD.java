@@ -61,7 +61,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         btnVerificar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(244, 244, 244));
         jPanel2.setPreferredSize(new java.awt.Dimension(500, 300));

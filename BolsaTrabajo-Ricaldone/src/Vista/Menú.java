@@ -125,7 +125,7 @@ public class Menú extends javax.swing.JFrame {
         btnSalirPostu = new javax.swing.JButton();
         PanelHolder = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 

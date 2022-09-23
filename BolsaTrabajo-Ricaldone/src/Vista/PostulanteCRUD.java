@@ -259,7 +259,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtContractType = new javax.swing.JTextField();
         txtprogress = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
 
         lblTodo.setBackground(new java.awt.Color(239, 245, 213));

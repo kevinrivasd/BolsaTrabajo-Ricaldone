@@ -40,7 +40,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
      * Object from Utils
      */
     Utils utilc = new Utils();
-
+    DefaultTableModel jPost = new DefaultTableModel();
     /**
      * Load moderations
      *
@@ -53,7 +53,6 @@ public class NotificacionPanel extends javax.swing.JPanel {
         mod = new DefaultTableModel(null, Encabezados);
         dgvNoti.setModel(mod);
 //        CargarTabla();
-        DefaultTableModel jPost = new DefaultTableModel();
         jPost = utilc.rtrnTqble("Moderations");
         dgvNoti.setModel(jPost);
 
@@ -206,6 +205,10 @@ public class NotificacionPanel extends javax.swing.JPanel {
                         JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
                          Utils obj = new Utils();
                          obj.sendConfirmation(idMod);
+                         jPost = utilc.rtrnTqble("Moderations");
+                         dgvNoti.setModel(jPost);
+                         this.revalidate();
+                         this.repaint();
                     }
                 }
 

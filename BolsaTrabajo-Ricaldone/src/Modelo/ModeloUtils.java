@@ -27,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ModeloUtils {
 
+
     PreparedStatement consult;
 
     /**

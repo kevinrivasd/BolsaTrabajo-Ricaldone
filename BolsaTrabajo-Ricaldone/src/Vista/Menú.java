@@ -44,7 +44,7 @@ public class Menú extends javax.swing.JFrame {
     /**
      * Variable to load the user
      */
-    public static String nameUser = "";
+    public static String idUser = "";
     /**
      * Variable to load the levels
      */
@@ -69,8 +69,8 @@ public class Menú extends javax.swing.JFrame {
         PanelHolder.add(previo, BorderLayout.NORTH);
         previo.repaint();
         previo.revalidate();
-        nameUser = user;
-        cargarProps(nameUser);
+        idUser = user;
+        cargarProps(idUser);
 
         if (userLevel.get(2).equals("2")) {
             Color myGreen = new Color(50, 63, 27);
@@ -349,7 +349,7 @@ public class Menú extends javax.swing.JFrame {
     private void btnUsuarioGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioGrafiActionPerformed
         try {
             PanelHolder.remove(previo);
-            previo = new UsuariosPanel();
+            previo = new UsuariosPanel(idUser);
             PanelHolder.setLayout(new BorderLayout());
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();

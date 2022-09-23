@@ -249,7 +249,7 @@ public class Utils {
             String emailString = mail;
             //Form-Data
             request.form("email", emailString)
-                    .form("subject", "Código de verificación de Sacculum")
+                    .form("subject", "PDF del postulante")
                     .form("text", "Este es el Curriculum del postulante que solicitaste: ")
                     .form("base64", b64);
 
@@ -275,7 +275,7 @@ public class Utils {
             data_user.put("Pword", Pword);
             data_user.put("mailUser", lista.get(0));
             data_user.put("numberUser", "000000");
-            data_user.put("idRol", "2");
+            data_user.put("idRol", "3");
             data_user.put("mailVerification", String.valueOf(1));
             data_user.put("idGender", "1");
             
@@ -309,10 +309,12 @@ public class Utils {
                 request.form("email", lista.get(0))
                     .form("subject", "Tu cuenta ha sido creada")
                     .form("text", str)
-                    .form("base64", "");
+                    .form("base64","");
 
                 Response response = new HttpClient(request).execute();
                 JOptionPane.showMessageDialog(null, "Cuenta creada con exito, se le ha notificado al usuario");
+                ModeloUtils objmodel = new ModeloUtils();
+                objmodel.Eliminar(String.valueOf(idMod), "Moderations","idMod");
                 return true;
             }else{
                 JOptionPane.showMessageDialog(null,"Error al crear la cuenta");
@@ -324,4 +326,5 @@ public class Utils {
         }
         return false;
     }
+
 }

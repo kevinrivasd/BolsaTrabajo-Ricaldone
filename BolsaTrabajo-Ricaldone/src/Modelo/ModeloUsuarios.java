@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Class used to manage any user section 
  * @author Kevin Rivas
  */
 public class ModeloUsuarios {

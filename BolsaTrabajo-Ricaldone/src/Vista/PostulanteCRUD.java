@@ -973,7 +973,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
-        data.put("imgByte", S);
+        data.put("photoPostulant", S);
         data.put("resumePDF", pdf);
         data.put("resumeDetails", "");
         data.put("mailverification", "0");
@@ -1007,7 +1007,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
-        data.put("imgByte", S);
+        data.put("photoPostulant", S);
         data.put("resumePDF", pdf);
         data.put("resumeDetails", "");
         data.put("mailverification", "0");

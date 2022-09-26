@@ -158,11 +158,16 @@ public class Login extends javax.swing.JFrame {
             password = txtpassword.getPassword();
             String num = logincontroller.Login(user, password);
             String State = logincontroller.EstadoC(user, password);
-            if (!"".equals(num) && !"2".equals(State)) {
-                JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
-                Menú newfrm = new Menú(num);
-                newfrm.setVisible(true);
-                this.dispose();
+            if (!"".equals(num)) {
+                if (!"2".equals(State)) {
+                    JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
+                    Menú newfrm = new Menú(num);
+                    newfrm.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario bloqueado, pruebe con otros datos", "Error", 0);
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             }

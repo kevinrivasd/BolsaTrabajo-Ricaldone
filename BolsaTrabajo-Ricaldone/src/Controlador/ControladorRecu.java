@@ -95,11 +95,12 @@ public class ControladorRecu {
                 JOptionPane.showMessageDialog(null, "El codigo es correcto");
                 randomCode = 0;
             } else {
-                JOptionPane.showMessageDialog(null, "El codigo ingresado no es correcto o ya esta utilizado");
+                JOptionPane.showMessageDialog(null, "El codigo ingresado no es correcto o ya a sido utilizado","Error",0);
                 retorno = retorno + 1;
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, "No dejar espacios vacios","Error",0);
+            return retorno = 0;
         }
         return retorno;
     }

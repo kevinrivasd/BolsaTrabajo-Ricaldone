@@ -16,7 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *We use this class for maintenance and to consult some tables
+ * We use this class for maintenance and to consult some tables
+ *
  * @author Jonathan
  */
 import javax.swing.JOptionPane;
@@ -26,11 +27,11 @@ public class ModeloPostulante {
 
     PreparedStatement ps;
 
-    
     /**
      * This method is the one that helps us to insert data to the base
+     *
      * @param dataMap
-     * @return 
+     * @return
      */
     public int AgregarPostulante(LinkedHashMap<String, String> dataMap) {
         try {
@@ -72,8 +73,9 @@ public class ModeloPostulante {
 
     /**
      * This method is the one that helps us to update the data based on
+     *
      * @param dataMap
-     * @return 
+     * @return
      */
     public int ActualizarPostulante(LinkedHashMap<String, String> dataMap) {
         try {
@@ -116,9 +118,10 @@ public class ModeloPostulante {
 
     }
 
-    /** 
+    /**
      * This method helps us to load the table of applicants to consult data
-     * @return 
+     *
+     * @return
      */
     public ResultSet mostrarTabla() {
         Connection con;
@@ -137,7 +140,8 @@ public class ModeloPostulante {
 
     /**
      * Upload applicants for preview
-     * @return 
+     *
+     * @return
      */
     public ResultSet mostrarTablaV() {
         Connection con;
@@ -156,7 +160,8 @@ public class ModeloPostulante {
 
     /**
      * Upload all applicant data
-     * @return 
+     *
+     * @return
      */
     public ResultSet TablaCRUD_V() {
         Connection con;
@@ -174,8 +179,10 @@ public class ModeloPostulante {
     }
 
     /**
-     * This method helps us to give a preview of the processes carried out by applicants
-     * @return 
+     * This method helps us to give a preview of the processes carried out by
+     * applicants
+     *
+     * @return
      */
     public ResultSet ProgresoPostulants() {
         Connection con;

@@ -75,7 +75,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="4b" green="af" red="85" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xbf;Tines problemas para iniciar sesi&#xf3;n?"/>
+            <Property name="text" type="java.lang.String" value="&#xbf;Tienes problemas para iniciar sesi&#xf3;n?"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

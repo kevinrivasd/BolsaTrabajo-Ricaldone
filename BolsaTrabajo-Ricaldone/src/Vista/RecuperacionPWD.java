@@ -77,7 +77,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(133, 175, 75));
-        jLabel2.setText("¿Tines problemas para iniciar sesión?");
+        jLabel2.setText("¿Tienes problemas para iniciar sesión?");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 119, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -240,8 +240,8 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         code = txtcode.getText();
         try {
             int num = Controlador.ControladorRecu.Verificacion(code);
-            if (num != 1 || code.equals("")) {
-                JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
+            if (num != 1 && !code.equals(0-9)) {
+//                JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             } else {
                 ActualizacionPWD newfrm = new ActualizacionPWD(mailLocal);
                 newfrm.setVisible(true);

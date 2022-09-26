@@ -43,7 +43,7 @@ public class ModeloPostulante {
             consult.setString(1, dataMap.get("namePostulant"));
             consult.setString(2, dataMap.get("mailPostulant"));
             consult.setString(3, dataMap.get("Pword"));
-            consult.setString(4, dataMap.get("imgByte"));//Add image
+            consult.setString(4, dataMap.get("photoPostulant"));//Add image
             consult.setString(5, dataMap.get("resumePDF"));
             consult.setString(6, dataMap.get("resumeDetails"));
             consult.setInt(7, Integer.parseInt(dataMap.get("mailverification")));
@@ -88,7 +88,7 @@ public class ModeloPostulante {
             consult.setString(1, dataMap.get("namePostulant"));
             consult.setString(2, dataMap.get("mailPostulant"));
             consult.setString(3, dataMap.get("Pword"));
-            consult.setString(4, dataMap.get("imgByte"));//Add image
+            consult.setString(4, dataMap.get("photoPostulant"));//Add image
             consult.setString(5, dataMap.get("resumePDF"));
             consult.setString(6, dataMap.get("resumeDetails"));
             consult.setInt(7, Integer.parseInt(dataMap.get("mailverification")));

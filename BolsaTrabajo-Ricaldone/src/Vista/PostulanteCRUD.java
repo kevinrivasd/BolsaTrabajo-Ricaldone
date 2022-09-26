@@ -771,6 +771,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             } catch (IOException ex) {
 
             }
+            lblPdf.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 5).toString());
             String genero = txtgenero.getText();
             cmbGenero.setSelectedItem(genero + 1);
             cmbGenero.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString());
@@ -973,7 +974,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
-        data.put("imgByte", S);
+        data.put("photoPostulant", S);
         data.put("resumePDF", pdf);
         data.put("resumeDetails", "");
         data.put("mailverification", "0");
@@ -1007,7 +1008,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
-        data.put("imgByte", S);
+        data.put("photoPostulant", S);
         data.put("resumePDF", pdf);
         data.put("resumeDetails", "");
         data.put("mailverification", "0");
@@ -1042,7 +1043,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
-//        data.put("imgByte", S);        
+//        data.put("photoPostulant", S);        
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
         data.put("Alumni", CheckAlumni.isSelected() ? "1" : "0");
@@ -1073,7 +1074,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
-//        data.put("imgByte", S);        
+//        data.put("photoPostulant", S);        
         data.put("Gender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
         data.put("States", String.valueOf(cmbEstadoPost.getSelectedIndex() + 1));
         data.put("Alumni", CheckAlumni.isSelected() ? "1" : "0");

@@ -754,7 +754,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 0).toString());
             txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 1).toString());
             txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 2).toString());
-//            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 3).toString());
+            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 3).toString());
 //            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
             byte[] btDataFile;
             btDataFile = Base64.getDecoder().decode(Table.getModel().getValueAt(Table.getSelectedRow(), 4).toString());
@@ -973,7 +973,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
-        data.put("photoPostulant", S);
+        data.put("imgByte", S);
         data.put("resumePDF", pdf);
         data.put("resumeDetails", "");
         data.put("mailverification", "0");
@@ -1007,7 +1007,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("namePostulant", txtNombrePost.getText());
         data.put("mailPostulant", txtCorreoPost.getText());
         data.put("Pword", Utils.encrypt(pword));
-        data.put("photoPostulant", S);
+        data.put("imgByte", S);
         data.put("resumePDF", pdf);
         data.put("resumeDetails", "");
         data.put("mailverification", "0");

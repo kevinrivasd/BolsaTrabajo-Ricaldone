@@ -54,7 +54,7 @@ public class Estadisticas extends javax.swing.JPanel {
             }
         } catch (SQLException ex) {
 //            Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "No se rick ");
+            JOptionPane.showMessageDialog(null, "La estadistica no se pudo cargar");
         }
     }
 
@@ -67,7 +67,7 @@ public class Estadisticas extends javax.swing.JPanel {
         for (int i = 0; i < tblConsultas.getRowCount(); i++) {
             dtsc.setValue(tblConsultas.getValueAt(i, 0).toString(), Integer.parseInt(tblConsultas.getValueAt(i, 1).toString()));
         }
-        JFreeChart ch = ChartFactory.createPieChart3D("Estado de los Postulantes", dtsc, true, true, false);
+        JFreeChart ch = ChartFactory.createPieChart3D("Progreso de los Postulantes", dtsc, true, true, false);
         ChartPanel cp = new ChartPanel(ch);
         add(cp);
         cp.setLocation(500, 500);

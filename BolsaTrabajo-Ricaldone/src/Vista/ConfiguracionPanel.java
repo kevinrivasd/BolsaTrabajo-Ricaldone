@@ -60,10 +60,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jPasswordField1 = new javax.swing.JPasswordField();
         txtCorreo = new javax.swing.JTextField();
         txtUser = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(239, 245, 213));
@@ -104,23 +101,10 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         txtUser.setText("JuanRomero");
         jPanel2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 332, 46));
 
-        jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(50, 63, 27));
-        jLabel5.setText("Lenguaje de sistema");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, -1, -1));
-
         jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(50, 63, 27));
         jLabel7.setText("Contraseña");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 216, 31));
-
-        jLabel8.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(85, 119, 43));
-        jLabel8.setText("Historial de actividad");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
 
         btnActualizar.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -129,7 +113,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 610, 140, 48));
+        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 140, 48));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -170,14 +154,11 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField txtCorreo;

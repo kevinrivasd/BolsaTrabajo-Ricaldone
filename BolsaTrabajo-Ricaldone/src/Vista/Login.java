@@ -160,7 +160,7 @@ public class Login extends javax.swing.JFrame {
             String State = logincontroller.EstadoC(user, password);
             if (!"".equals(num)) {
                 if (!"2".equals(State)) {
-                    JOptionPane.showMessageDialog(null, "Bienvenido", "Hola!", 1);
+                    JOptionPane.showMessageDialog(null, "Bienvenido", "Acceso permitido", 1);
                     Menú newfrm = new Menú(num);
                     newfrm.setVisible(true);
                     this.dispose();

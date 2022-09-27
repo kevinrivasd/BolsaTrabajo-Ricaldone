@@ -241,10 +241,11 @@ public class PostulantesPanel extends javax.swing.JPanel {
             Connection con = ControladorConexion.getConection();
 
             JasperReport reporte;
-            String path = "src\\Reportes\\Postulantes.jasper";
+//            String ruta_local= System.getProperty("BolsaTrabajo-Ricaldone");
+            String path ="src\\Reportes\\Postulantes.jasper";
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint jprint =   JasperFillManager.fillReport(reporte, null, con);
-            JasperViewer view = new JasperViewer(jprint);
+            JasperViewer view = new JasperViewer(jprint,false);
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             view.setVisible(true);
         } catch (Exception e) {

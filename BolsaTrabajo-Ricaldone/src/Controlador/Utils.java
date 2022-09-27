@@ -29,19 +29,23 @@ import java.util.logging.Logger;
 
 /**
  * kind of utilities to streamline processes.
+ *
  * @author hello
  */
 public class Utils {
+
     /**
      * Object from ModeloUtils.
      */
     ModeloUtils modelUtils = new ModeloUtils();
+
     //retrieve data for the comboboxes based on the cmbString(table)
     //and the field that retrieves is campoString(tableField)
     /**
      * MD5 encryption method.
+     *
      * @param input
-     * @return 
+     * @return
      */
     public static String encryptMD5(String input) {
         try {
@@ -60,18 +64,20 @@ public class Utils {
 
     /**
      * Get data for combo box.
+     *
      * @param cmbString
      * @param campoString
-     * @return 
+     * @return
      */
-    public List<String> getDataCmb(String cmbString, String campoString){
+    public List<String> getDataCmb(String cmbString, String campoString) {
         return modelUtils.getData(cmbString, campoString);
     }
 
     /**
      * Get data for table.
+     *
      * @param cmbString
-     * @return 
+     * @return
      */
     public HashMap<Integer, String> getDataTable(String cmbString) {
         return modelUtils.getTableHM(cmbString);
@@ -81,8 +87,9 @@ public class Utils {
     //the hashmap comes as a parameter.
     /**
      * Check empty fields
+     *
      * @param fields
-     * @return 
+     * @return
      */
     public static boolean emptyFields(HashMap<String, String> fields) {
 
@@ -99,9 +106,10 @@ public class Utils {
     }
 
     /**
-     * Password encryption.
+     * Password encryption usin the value from table ASCII + 3.
+     *
      * @param password
-     * @return 
+     * @return
      */
     public static String encrypt(char[] password) {
         String baseString = "";
@@ -114,18 +122,20 @@ public class Utils {
     }
 
     /**
-     * Return table with fields from base.
+     * Table return with via with where condition using the values of "table,
+     * field and ID".
+     *
      * @param sqlTable
      * @param colStrings
      * @param idString
-     * @return 
+     * @return
      */
-    public DefaultTableModel rtrnTqble(String sqlTable, String[] colStrings, String idString){
+    public DefaultTableModel rtrnTqble(String sqlTable, String[] colStrings, String idString) {
 
         try {
             ResultSet rs = modelUtils.getTable(sqlTable, colStrings, idString);
             DefaultTableModel table = buildTableModel(rs);
-            
+
             return table;
         } catch (SQLException ex) {
             Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
@@ -135,7 +145,8 @@ public class Utils {
 
     /**
      * Method to gather the amount and count a data.
-     * @return 
+     *
+     * @return
      */
     public static DefaultTableModel agruparPersona() {
         return Modelo.ModeloUtils.agruparPersona();
@@ -143,15 +154,16 @@ public class Utils {
 
     /**
      * Return table from base.
+     *
      * @param sqlTable
-     * @return 
+     * @return
      */
-    public DefaultTableModel rtrnTqble(String sqlTable){
+    public DefaultTableModel rtrnTqble(String sqlTable) {
 
         try {
             ResultSet rs = modelUtils.getTable(sqlTable);
             DefaultTableModel table = buildTableModel(rs);
-            
+
             return table;
         } catch (SQLException ex) {
             Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
@@ -160,10 +172,11 @@ public class Utils {
     }
 
     /**
-     * rebuild table from meta data.
+     * Reconstruct the table from the metadata entered through LinkedHasMap.
+     *
      * @param rs
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
     public static DefaultTableModel buildTableModel(ResultSet rs)
             throws SQLException {
@@ -191,34 +204,38 @@ public class Utils {
     }
 
     /**
-     * Delete data.
+     * Delete data with the values of "ID, Table and field".
+     *
      * @param id
      * @param tabla
      * @param campo
-     * @return 
+     * @return
      */
     public int eliminar(String id, String tabla, String campo) {
         return modelUtils.Eliminar(id, tabla, campo);
     }
 
     /**
-     * Update data.
+     * Update data with the values of "LinkedHasMap from view, ID or question
+     * mark, table and comparation".
+     *
      * @param data
      * @param id
      * @param tabla
      * @param idCompare
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
     public int actualizar(LinkedHashMap<String, String> data, String id, String tabla, String idCompare) throws Exception {
         return modelUtils.Actualizar(data, id, tabla, idCompare);
     }
 
     /**
-     * Insert data.
+     * Insert data with the values of "LinkedHasMap and table".
+     *
      * @param datos
      * @param tabla
-     * @return 
+     * @return
      */
     public int Agregar(LinkedHashMap<String, String> datos, String tabla) {
         return modelUtils.Agregar(datos, tabla);
@@ -227,18 +244,20 @@ public class Utils {
 
     /**
      * Get user data.
+     *
      * @param nameUser
-     * @return 
+     * @return
      */
     public List<String> getUserData(String nameUser) {
         return modelUtils.getUserData(nameUser);
     }
 
     /**
-     * Send PDF for Email.
+     * Send PDF for Email with Base64.
+     *
      * @param b64
      * @param mail
-     * @return 
+     * @return
      */
     public String sendPDF(String b64, String mail) {
 
@@ -265,29 +284,34 @@ public class Utils {
         }
         return null;
     }
-    //todo: test it lol
-        public int createCallback(List<String> lista, String Pword, String username){
-            
-            LinkedHashMap<String, String> data_user = new LinkedHashMap<>();
-            
-            data_user.put("idState", "1");
-            data_user.put("nameUser", username);
-            data_user.put("Pword", Pword);
-            data_user.put("mailUser", lista.get(0));
-            data_user.put("numberUser", "000000");
-            data_user.put("idRol", "3");
-            data_user.put("mailVerification", String.valueOf(1));
-            data_user.put("idGender", "1");
-            
-            ModeloUtils obj = new ModeloUtils();
-            return obj.Agregar(data_user, "UserSystems");
+
+    //todo: test it
+    public int createCallback(List<String> lista, String Pword, String username) {
+
+        LinkedHashMap<String, String> data_user = new LinkedHashMap<>();
+
+        data_user.put("idState", "1");
+        data_user.put("nameUser", username);
+        data_user.put("Pword", Pword);
+        data_user.put("mailUser", lista.get(0));
+        data_user.put("numberUser", "000000");
+        data_user.put("idRol", "3");
+        data_user.put("mailVerification", String.valueOf(1));
+        data_user.put("idGender", "1");
+
+        ModeloUtils obj = new ModeloUtils();
+        return obj.Agregar(data_user, "UserSystems");
     }
 
     public int gen() {
-        Random r = new Random( System.currentTimeMillis() );
+        Random r = new Random(System.currentTimeMillis());
         return 10000 + r.nextInt(20000);
     }
-
+    /**
+     * Confirmation and mailing for users requesting an account on the portal
+     * @param idMod
+     * @return 
+     */
     public boolean sendConfirmation(int idMod) {
 
         try {
@@ -295,32 +319,31 @@ public class Utils {
             int random = gen();
 
             Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
-            
+
             List<String> lista = ModeloUtils.getMod(idMod);
-            String userName = "testin123";            
+            String userName = "testin123";
             String Pword = encrypt(String.valueOf(random).toCharArray());
             int callback = createCallback(lista, Pword, userName);
 
             StringBuilder str = new StringBuilder("Tu cuenta ha sido creada con exito ");
-            str.append("Usuario: "+userName+" ");
-            str.append("Contrasena: " +String.valueOf(random));
-            
-            if(callback == 1){
+            str.append("Usuario: " + userName + " ");
+            str.append("Contrasena: " + String.valueOf(random));
+
+            if (callback == 1) {
                 request.form("email", lista.get(0))
-                    .form("subject", "Tu cuenta ha sido creada")
-                    .form("text", str)
-                    .form("base64","");
+                        .form("subject", "Tu cuenta ha sido creada")
+                        .form("text", str)
+                        .form("base64", "");
 
                 Response response = new HttpClient(request).execute();
                 JOptionPane.showMessageDialog(null, "Cuenta creada con exito, se le ha notificado al usuario");
                 ModeloUtils objmodel = new ModeloUtils();
-                objmodel.Eliminar(String.valueOf(idMod), "Moderations","idMod");
+                objmodel.Eliminar(String.valueOf(idMod), "Moderations", "idMod");
                 return true;
-            }else{
-                JOptionPane.showMessageDialog(null,"Error al crear la cuenta");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al crear la cuenta");
             }
-            
-            
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }

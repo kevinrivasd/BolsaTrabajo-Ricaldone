@@ -100,7 +100,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtworkState.setVisible(false);
         txtworktype.setVisible(false);
 
-        String[] Encabezados = {"ID", "Nombre del postulante", "COrreo del postulante", "Contraseña", "Foto", "Resumen PDF", "Resumen detalles", "Verificacion de correo", "Genero", "Estado", "Ex-Alumno", "Departamento de preferencia", "Departamento de residencia", "Trabajo", "Progreso", "Salario", "Bachillerato", "Tipo de trabajo", "Preferencia laboral", "Nivel de estudio", "Estado del trabajo", "Apellido"};
+        String[] Encabezados = {"ID", "Nombre del postulante", "Correo del postulante", "Contraseña", "Foto", "Resumen PDF", "Resumen detalles", "Verificacion de correo", "Genero", "Estado", "Ex-Alumno", "Departamento de preferencia", "Departamento de residencia", "Trabajo", "Progreso", "Salario", "Bachillerato", "Tipo de trabajo", "Preferencia laboral", "Nivel de estudio", "Estado del trabajo", "Apellido"};
         post = new DefaultTableModel(null, Encabezados);
         JTPostulantes.setModel(post);
         CargarTabla();

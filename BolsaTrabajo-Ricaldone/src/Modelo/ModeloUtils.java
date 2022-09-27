@@ -22,19 +22,19 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * 
+ *
  * @author hello
  */
 public class ModeloUtils {
-
 
     PreparedStatement consult;
 
     /**
      * We use this method for combo box
+     *
      * @param sqlTable
      * @param campoString
-     * @return 
+     * @return
      */
     public List<String> getData(String sqlTable, String campoString) {
         List<String> data;
@@ -56,8 +56,9 @@ public class ModeloUtils {
 
     /**
      * this method is to select the records of a table filtered by id
+     *
      * @param username
-     * @return 
+     * @return
      */
     public List<String> getUserData(String username) {
         List<String> data;
@@ -84,8 +85,6 @@ public class ModeloUtils {
             return data = new ArrayList<>();
         }
     }
-
-
 
     public static List<String> getMod(int id) {
         List<String> data;
@@ -116,8 +115,9 @@ public class ModeloUtils {
     //whole table as RS
     /**
      * We use this method for combo box
+     *
      * @param sqlTable
-     * @return 
+     * @return
      */
     public ResultSet getTable(String sqlTable) {
 
@@ -137,11 +137,12 @@ public class ModeloUtils {
     }
 
     /**
-     * 
+     * Get table from select values from postulants
+     *
      * @param sqlTable
      * @param colStrings
      * @param idString
-     * @return 
+     * @return
      */
     public ResultSet getTable(String sqlTable, String[] colStrings, String idString) {
 
@@ -172,8 +173,9 @@ public class ModeloUtils {
     //whole table as RS
     /**
      * We use this method for combo box
+     *
      * @param sqlTable
-     * @return 
+     * @return
      */
     public HashMap<Integer, String> getTableHM(String sqlTable) {
 
@@ -198,11 +200,13 @@ public class ModeloUtils {
     }
 
     /**
-     * We use this method to delete users
+     * We use this method to delete users with "ID, table and field or
+     * comparation"
+     *
      * @param idUsuario
      * @param table
      * @param campo
-     * @return 
+     * @return
      */
     public int Eliminar(String idUsuario, String table, String campo) {
         try {
@@ -225,14 +229,15 @@ public class ModeloUtils {
         }
     }
 
-    
     /**
-     * We use this method to update users
+     * We use this method to update users with "LinkedHasMap, id or question
+     * mark, table and comparation"
+     *
      * @param dataMap
      * @param id
      * @param tabla
      * @param idCompare
-     * @return 
+     * @return
      */
     public int Actualizar(LinkedHashMap<String, String> dataMap, String id, String tabla, String idCompare) {
         try {
@@ -286,12 +291,12 @@ public class ModeloUtils {
         }
     }
 
-    
     /**
      * We use this method to enter users
+     *
      * @param dataMap
      * @param tabla
-     * @return 
+     * @return
      */
     public int Agregar(LinkedHashMap<String, String> dataMap, String tabla) {
         try {
@@ -341,8 +346,10 @@ public class ModeloUtils {
     }
 
     /**
-     * We use this method to consult the base about the processes carried out by the applicants.
-     * @return 
+     * We use this method to consult the base about the processes carried out by
+     * the applicants.
+     *
+     * @return
      */
     public static DefaultTableModel agruparPersona() {
 
@@ -371,8 +378,9 @@ public class ModeloUtils {
 
     /**
      * We use this method to decode PDFs so that they can be viewed
+     *
      * @param toString
-     * @return 
+     * @return
      */
     public String getPDF(String toString) {
         try {

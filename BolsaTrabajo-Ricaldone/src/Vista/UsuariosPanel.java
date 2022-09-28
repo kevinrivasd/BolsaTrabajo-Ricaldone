@@ -30,6 +30,8 @@ import javax.swing.table.TableRowSorter;
 import javax.swing.text.MaskFormatter;
 import Controlador.ControladorUsuario;
 import Controlador.Utils;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 /**
  * Panel to manage users
@@ -108,6 +110,21 @@ public class UsuariosPanel extends javax.swing.JPanel {
         }
     }
 
+    public int radius = 0;
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+    
+    protected void Components(Graphics graph){
+        Graphics2D g2 = (Graphics2D) graph;
+        g2.fillRoundRect(2, 2, getWidth() -4, getHeight() -4, radius, radius);
+        super.paintComponent(graph);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

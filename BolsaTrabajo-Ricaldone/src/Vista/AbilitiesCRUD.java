@@ -76,17 +76,17 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
             case 0:
                 table = "AditionalSkills";
                 arrAb[0] = "NameSkill";
-                arrAb[2] = "idAskills";
+                arrAb[2] = "idPostulant";
                 break;
             case 1:
                 table = "Branches";
                 arrAb[0] = "Branch";
-                arrAb[2] = "idBranch";
+                arrAb[2] = "idPostulant";
                 break;
             case 2:
                 table = "GeneralSkills";
                 arrAb[0] = "Skill";
-                arrAb[2] = "idGskill";
+                arrAb[2] = "idPostulant";
                 break;
 
             default:
@@ -101,11 +101,11 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
             cmbLevel.addItem(levelCMB.get(k));
         }
 
-        List<String> level = utils.getDataCmb("Levels", "Levels");
-
-        JComboBox combo = new JComboBox<>(level.toArray());
-        TableColumn col = dgvLol.getColumnModel().getColumn(1);
-        col.setCellEditor(new DefaultCellEditor(combo));
+//        List<String> level = utils.getDataCmb("Levels", "Levels");
+//
+//        JComboBox combo = new JComboBox<>(level.toArray());
+//        TableColumn col = dgvLol.getColumnModel().getColumn(1);
+//        col.setCellEditor(new DefaultCellEditor(combo));
     }
 
     /**

@@ -233,7 +233,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         code = txtcode.getText();
         try {
             int num = Controlador.ControladorRecu.Verificacion(code);
-            if (num != 1 && !code.equals(0-9)) {
+            if (num != 1 && !code.equals(0 - 9)) {
 //                JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             } else {
                 ActualizacionPWD newfrm = new ActualizacionPWD(mailLocal);

@@ -280,6 +280,12 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             }
         });
         lblTodo.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 140, 30));
+
+        txtNombrePost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombrePostKeyTyped(evt);
+            }
+        });
         lblTodo.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 176, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -342,11 +348,17 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel9.setText("Apellidos del postulante");
         lblTodo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        txtApellidoPost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoPostKeyTyped(evt);
+            }
+        });
         lblTodo.add(txtApellidoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 176, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel10.setText("Habilidad general");
-        lblTodo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, -1, -1));
+        lblTodo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
 
         lblTodo.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 180, -1));
 
@@ -380,11 +392,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel17.setText("Rama perteneciente");
-        lblTodo.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+        lblTodo.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel18.setText("Habilidad adicional");
-        lblTodo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, -1, -1));
+        lblTodo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, -1, -1));
 
         CheckAlumni.setText("Ex-alumno");
         lblTodo.add(CheckAlumni, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 110, 30));
@@ -446,7 +458,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTPostulantes);
 
-        lblTodo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 810, 150));
+        lblTodo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 810, 150));
         lblTodo.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, -1));
 
         lblID.setText("ID:");
@@ -458,7 +470,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 btnBActionPerformed(evt);
             }
         });
-        lblTodo.add(btnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 190, 34));
+        lblTodo.add(btnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 190, 34));
 
         btnA.setText("Gestionar Habilidad Adicional");
         btnA.addActionListener(new java.awt.event.ActionListener() {
@@ -466,7 +478,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 btnAActionPerformed(evt);
             }
         });
-        lblTodo.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, 190, 34));
+        lblTodo.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, 190, 34));
 
         btnG.setText("Gestionar Habilidad General");
         btnG.addActionListener(new java.awt.event.ActionListener() {
@@ -474,7 +486,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 btnGActionPerformed(evt);
             }
         });
-        lblTodo.add(btnG, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 560, 190, 34));
+        lblTodo.add(btnG, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 190, 34));
 
         BTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -491,7 +503,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         BTabla.setSelectionBackground(new java.awt.Color(193, 233, 118));
         jScrollPane2.setViewportView(BTabla);
 
-        lblTodo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 432, 190, 120));
+        lblTodo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 190, 120));
 
         GTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -508,7 +520,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         GTable.setSelectionBackground(new java.awt.Color(193, 233, 118));
         jScrollPane3.setViewportView(GTable);
 
-        lblTodo.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 190, 120));
+        lblTodo.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 190, 120));
 
         ATable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -525,7 +537,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         ATable.setSelectionBackground(new java.awt.Color(193, 233, 118));
         jScrollPane4.setViewportView(ATable);
 
-        lblTodo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 190, 120));
+        lblTodo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 190, 120));
         lblTodo.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 42, 124, 160));
 
         BtnLimpiarCampos.setText("Limpiar Campos");
@@ -572,7 +584,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
         );
 
         pack();
@@ -670,9 +682,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         All = CollectAllAdd();
         Required = CollectRequiredAdd();
         String mail = txtCorreoPost.getText();
+        String nombres = txtNombrePost.getText();
+        String apellidos = txtApellidoPost.getText();
         int res;
         try {
-            if (!Controlador.Utils.emptyFields(Required)) {
+            if (!Controlador.Utils.emptyFields(Required) && !pdf.equals("")) {
                 if (verificar_email(mail)) {
                     res = postcontroller.AgreparPostulante(All);
                     JOptionPane.showInternalMessageDialog(null, "Postulante registrado correctamente.", "Confirmacion", 1);
@@ -681,7 +695,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
             } else {
-                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos y el pdf este añadido.", "Error.", 0);
             }
 
         } catch (Exception ex) {
@@ -837,7 +851,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         String mail = txtCorreoPost.getText();
         int res;
         try {
-            if (!Controlador.Utils.emptyFields(Required)) {
+            if (!Controlador.Utils.emptyFields(Required) && !pdf.equals("")) {
                 if (verificar_email(mail)) {
                     res = postcontroller.ActualizarPostulante(All);
                     JOptionPane.showInternalMessageDialog(null, "Postulante actualizado exitosamente", "Confirmacion", 1);
@@ -846,7 +860,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
             } else {
-                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos y el pdf este añadido.", "Error.", 0);
             }
 
         } catch (Exception ex) {
@@ -949,6 +963,24 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void txtNombrePostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombrePostKeyTyped
+        char validar = evt.getKeyChar();
+        
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombrePostKeyTyped
+
+    private void txtApellidoPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPostKeyTyped
+        char validar = evt.getKeyChar();
+        
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtApellidoPostKeyTyped
     /**
      * Validation of correct mail format
      *

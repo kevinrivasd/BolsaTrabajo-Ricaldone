@@ -21,7 +21,7 @@ import jdk.jshell.execution.Util;
 import Controlador.Utils;
 
 /**
- * Skills management form
+ * Form to manage applicants' branches, general skills and additional skills.
  *
  * @author hello
  */
@@ -227,7 +227,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /**
-     * Add skills or branches
+     * Insert a record of either a branch, general skill or additional skill. Depending on which one you have previously chosen from the applicants.
      *
      * @param evt
      */
@@ -250,7 +250,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
     /**
-     * Eliminate skills or branches
+     * Delete a record from either a branch, general skill or additional skill. Depending on which one you have previously chosen from the applicants.
      *
      * @param evt
      */
@@ -277,7 +277,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
     /**
-     * Upgrade skills or branches
+     * Delete a record from either a branch, general skill or additional skill. Depending on which one you have previously chosen from the applicants.
      *
      * @param evt
      */
@@ -302,7 +302,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
     /**
-     * Event to select table rows
+     * Event to select the table rows and perform the update function.
      *
      * @param evt
      */

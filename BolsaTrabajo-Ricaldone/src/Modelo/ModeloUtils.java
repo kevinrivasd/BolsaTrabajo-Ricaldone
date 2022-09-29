@@ -22,6 +22,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Model class for adding all kinds of utilities concerning HashMaps or uncommon
+ * methods and for their use.
  *
  * @author hello
  */

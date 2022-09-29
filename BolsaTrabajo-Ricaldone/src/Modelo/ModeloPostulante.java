@@ -14,14 +14,14 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
- * We use this class for maintenance and to consult some tables
+ * Sample class to handle all inquiries regarding applicants.
  *
  * @author Jonathan
  */
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 public class ModeloPostulante {
 

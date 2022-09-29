@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import Controlador.ControladorRecu;
 
 /**
- * Form to insert new password credentials
+ * Form to insert new password credentials after entering the verification code.
  *
  * @author Kevin Rivas
  */

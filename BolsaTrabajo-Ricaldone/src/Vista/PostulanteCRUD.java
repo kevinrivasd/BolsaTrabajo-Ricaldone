@@ -104,6 +104,14 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         post = new DefaultTableModel(null, Encabezados);
         JTPostulantes.setModel(post);
         CargarTabla();
+        JTPostulantes.getColumnModel().getColumn(11).setMaxWidth(0);
+        JTPostulantes.getColumnModel().getColumn(11).setMinWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(11).setMaxWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(11).setMinWidth(0);
+        JTPostulantes.getColumnModel().getColumn(12).setMaxWidth(0);
+        JTPostulantes.getColumnModel().getColumn(12).setMinWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(12).setMaxWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(12).setMinWidth(0);
         inti = add;
         if (inti == 1) {
             BtnActualizar.setVisible(true);

@@ -321,7 +321,9 @@ public class Utils {
             Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
 
             List<String> lista = ModeloUtils.getMod(idMod);
-            String userName = "testin123";
+            
+            String us = lista.get(1).trim().toLowerCaser();
+            String userName = lista.get(1) + "123";
             String Pword = encrypt(String.valueOf(random).toCharArray());
             int callback = createCallback(lista, Pword, userName);
 

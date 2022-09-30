@@ -97,7 +97,7 @@ public class ModeloUtils {
 
             Connection sql = ControladorConexion.getConection();
 
-            String squery = "SELECT context FROM Moderations WHERE idMod=?";
+            String squery = "SELECT context,user FROM Moderations WHERE idMod=?";
             consulta = sql.prepareStatement(squery);
             consulta.setInt(1, id);
 
@@ -105,6 +105,7 @@ public class ModeloUtils {
 
             while (res.next()) {
                 data.add(res.getString("context"));
+                data.add(res.getString("user"));
             }
             return data;
 

@@ -322,7 +322,7 @@ public class Utils {
 
             List<String> lista = ModeloUtils.getMod(idMod);
             
-            String us = lista.get(1).trim().toLowerCaser();
+            String us = lista.get(1).trim().toLowerCase();
             String userName = lista.get(1) + "123";
             String Pword = encrypt(String.valueOf(random).toCharArray());
             int callback = createCallback(lista, Pword, userName);

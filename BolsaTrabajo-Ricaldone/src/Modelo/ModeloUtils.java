@@ -105,7 +105,7 @@ public class ModeloUtils {
 
             while (res.next()) {
                 data.add(res.getString("context"));
-                data.add(res.getString("user"));
+                data.add(res.getString("nameUser"));
             }
             return data;
 

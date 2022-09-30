@@ -61,9 +61,8 @@ public class ControladorRecu {
             String emailString = recumodel.sentCode(nameUser);
             //Form-Data
             request.form("email", emailString)
-                    .form("Codigo", randomCode)
                     .form("subject", "Código de verificación de Sacculum")
-                    .form("text", "Tu código de verificación es: ")
+                    .form("text", "Tu código de verificación es: " + String.valueOf(randomCode))
                     .form("base64", "");
 
             Response response = new HttpClient(request).execute();

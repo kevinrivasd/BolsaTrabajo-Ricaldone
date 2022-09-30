@@ -331,7 +331,7 @@ public class Utils {
 
             StringBuilder str = new StringBuilder("Tu cuenta ha sido creada con exito ");
             str.append("Usuario: " + userName + " ");
-            str.append("Contrasena: " + String.valueOf(random));
+            str.append("Contraseña: " + String.valueOf(random));
 
             if (callback == 1) {
                 request.form("email", lista.get(0))

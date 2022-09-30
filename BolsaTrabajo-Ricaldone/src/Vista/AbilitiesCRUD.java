@@ -164,6 +164,12 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel3.setText("Titulo");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 125, 23));
+
+        txtTitle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTitleKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 182, -1));
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
@@ -326,6 +332,12 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_lblRegresarMouseClicked
+
+    private void txtTitleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitleKeyTyped
+        if (txtTitle.getText().length() >= 50) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTitleKeyTyped
     private LinkedHashMap<String, String> collectMap() {
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
         map.put(arrAb[0], txtTitle.getText());

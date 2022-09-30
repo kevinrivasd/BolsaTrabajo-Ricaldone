@@ -95,10 +95,20 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
 
         txtCorreo.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         txtCorreo.setText("JuanRomero@gmail.com");
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 332, 46));
 
         txtUser.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         txtUser.setText("JuanRomero");
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUserKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 332, 46));
 
         jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
@@ -150,6 +160,18 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No dejes campos sin llenar porfavor.");
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+        if (txtUser.getText().length() >= 30) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtUserKeyTyped
+
+    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
+        if (txtCorreo.getText().length() >= 45) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCorreoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

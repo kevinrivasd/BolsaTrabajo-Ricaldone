@@ -90,6 +90,11 @@ public class Login extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtUser.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUserKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 183, 297, 37));
         txtUser.getAccessibleContext().setAccessibleName("txtUser");
 
@@ -122,6 +127,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 468, -1, -1));
+
+        txtpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtpasswordKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 290, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,6 +199,18 @@ public class Login extends javax.swing.JFrame {
         RecuperacionPWD frm = new RecuperacionPWD();
         frm.setVisible(true);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+        if (txtUser.getText().length() >= 30) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtUserKeyTyped
+
+    private void txtpasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpasswordKeyTyped
+        if (txtpassword.getText().length() >= 250) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtpasswordKeyTyped
 
     /**
      * @param args the command line arguments

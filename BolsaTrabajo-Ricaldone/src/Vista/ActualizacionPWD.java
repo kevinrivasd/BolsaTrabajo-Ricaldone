@@ -72,9 +72,21 @@ public class ActualizacionPWD extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 51, 0));
         jLabel1.setText("Ingresa la contraseña que sustituira la contraseña actual");
 
+        txtpwd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtpwdKeyTyped(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 51, 0));
         jLabel2.setText("Verifique su contraseña");
+
+        txtverpwd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtverpwdKeyTyped(evt);
+            }
+        });
 
         btnActualizar.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -185,6 +197,18 @@ public class ActualizacionPWD extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "holi: " + ex.getMessage());
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void txtpwdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpwdKeyTyped
+        if (txtpwd.getText().length() >= 250) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtpwdKeyTyped
+
+    private void txtverpwdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtverpwdKeyTyped
+        if (txtverpwd.getText().length() >= 250) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtverpwdKeyTyped
 
     /**
      * @param args the command line arguments

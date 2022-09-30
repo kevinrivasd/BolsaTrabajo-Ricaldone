@@ -89,6 +89,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
         txtRol.setVisible(false);
         txtGender.setVisible(false);
         txtState.setVisible(false);
+        btnAgregarUsuario.setEnabled(true);
+        btnEliminar.setEnabled(false);
+        jButton10.setEnabled(false);
     }
 
     /**
@@ -119,12 +122,13 @@ public class UsuariosPanel extends javax.swing.JPanel {
     public void setRadius(int radius) {
         this.radius = radius;
     }
-    
-    protected void Components(Graphics graph){
+
+    protected void Components(Graphics graph) {
         Graphics2D g2 = (Graphics2D) graph;
-        g2.fillRoundRect(2, 2, getWidth() -4, getHeight() -4, radius, radius);
+        g2.fillRoundRect(2, 2, getWidth() - 4, getHeight() - 4, radius, radius);
         super.paintComponent(graph);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -220,6 +224,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 txtUsuarioActionPerformed(evt);
             }
         });
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
 
         txtID.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
 
@@ -236,6 +245,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
         cmbRol.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
 
         txtCorreo.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -562,6 +576,12 @@ public class UsuariosPanel extends javax.swing.JPanel {
         txtCorreo.setText("");
         txtNumero.setText("");
         txtContra.setText("");
+        cmbEstado.setSelectedIndex(0);
+        cmbGenero.setSelectedIndex(0);
+        cmbRol.setSelectedIndex(0);
+        btnAgregarUsuario.setEnabled(true);
+        btnEliminar.setEnabled(false);
+        jButton10.setEnabled(false);
     }
 
     /**
@@ -648,6 +668,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
             txt = Arrays.copyOf(txt, txt.length - 1);
         }
         txtContra.setText(String.valueOf(txt));
+        if (txtContra.getText().length() >= 250) {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtContraKeyTyped
     /**
      * Event to select rows
@@ -672,6 +695,9 @@ public class UsuariosPanel extends javax.swing.JPanel {
             String Genero = txtGender.getText();
             cmbGenero.setSelectedItem(Genero + 1);
             cmbGenero.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString());
+            btnAgregarUsuario.setEnabled(false);
+            btnEliminar.setEnabled(true);
+            jButton10.setEnabled(true);
         }
     }//GEN-LAST:event_dgvUsersMouseClicked
     /**
@@ -777,6 +803,18 @@ public class UsuariosPanel extends javax.swing.JPanel {
     private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraActionPerformed
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        if (txtUsuario.getText().length() >= 30) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
+        if (txtCorreo.getText().length() >= 45) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCorreoKeyTyped
     /**
      * Collect data from the users table
      *

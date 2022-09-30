@@ -181,7 +181,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         }
 
 //        JTPostulantes.setModel(Controlador.Utils.rtrnTqble("Postulants"));
-        txtContraseñaPost.setTransferHandler(null);
+        txtContraseñaPost.setTransferHandler(null);        
+        BtnAgregar.setEnabled(true);
+        BtnActualizar.setEnabled(false);
     }
 
     /**
@@ -312,6 +314,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCorreoPostKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoPostKeyTyped(evt);
+            }
         });
         lblTodo.add(txtCorreoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 176, -1));
 
@@ -427,6 +432,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtContraseñaPost.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContraseñaPostKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraseñaPostKeyTyped(evt);
             }
         });
         lblTodo.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 180, -1));
@@ -626,6 +634,20 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         txtApellidoPost.setText("");
         txtContraseñaPost.setText("");
         txtCorreoPost.setText("");
+        cmbDepartPreferencia.setSelectedIndex(0);
+        cmbDepartReside.setSelectedIndex(0);
+        cmbEstadoPost.setSelectedIndex(0);
+        cmbEstadoTrabajo.setSelectedIndex(0);
+        cmbGenero.setSelectedIndex(0);
+        cmbHighType.setSelectedIndex(0);
+        cmbNivelEstudio.setSelectedIndex(0);
+        cmbPrefLaboral.setSelectedIndex(0);
+        cmbProgreso.setSelectedIndex(0);
+        cmbSalario.setSelectedIndex(0);
+        cmbTipoContrato.setSelectedIndex(0);
+        cmbTipoTrabajo.setSelectedIndex(0);
+        BtnAgregar.setEnabled(true);
+        BtnActualizar.setEnabled(false);
     }
     /**
      * Variable for image
@@ -843,6 +865,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(PostulanteCRUD.class.getName()).log(Level.SEVERE, null, ex);
             }
+            BtnAgregar.setEnabled(false);
+            BtnActualizar.setEnabled(true);
         }
     }//GEN-LAST:event_JTPostulantesMouseClicked
     /**
@@ -979,6 +1003,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             getToolkit().beep();
             evt.consume();
         }
+        if (txtNombrePost.getText().length() >= 30) {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtNombrePostKeyTyped
 
     private void txtApellidoPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPostKeyTyped
@@ -988,7 +1015,22 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             getToolkit().beep();
             evt.consume();
         }
+        if (txtApellidoPost.getText().length() >= 30) {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtApellidoPostKeyTyped
+
+    private void txtCorreoPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoPostKeyTyped
+       if (txtCorreoPost.getText().length() >= 45) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCorreoPostKeyTyped
+
+    private void txtContraseñaPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaPostKeyTyped
+        if (txtContraseñaPost.getText().length() >= 999) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtContraseñaPostKeyTyped
     /**
      * Validation of correct mail format
      *

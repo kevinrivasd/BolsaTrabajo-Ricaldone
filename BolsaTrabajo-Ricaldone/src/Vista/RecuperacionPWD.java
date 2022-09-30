@@ -86,6 +86,11 @@ public class RecuperacionPWD extends javax.swing.JFrame {
 
         txtuser.setBackground(new java.awt.Color(218, 213, 212));
         txtuser.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        txtuser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtuserKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 342, 45));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User Login.png"))); // NOI18N
@@ -253,6 +258,12 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void txtuserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtuserKeyTyped
+        if (txtuser.getText().length() >= 30) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtuserKeyTyped
 
     /**
      * @param args the command line arguments

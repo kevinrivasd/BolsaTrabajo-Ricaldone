@@ -218,7 +218,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
 
         } catch (Exception e) {
             //TODO: handle exception
-            JOptionPane.showMessageDialog(null, "holi: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }
 

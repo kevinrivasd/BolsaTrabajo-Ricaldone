@@ -157,7 +157,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
                 Logger.getLogger(ConfiguracionPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "No dejes campos sin llenar porfavor.");
+            JOptionPane.showMessageDialog(null, "No dejes campos sin llenar por favor.");
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
 

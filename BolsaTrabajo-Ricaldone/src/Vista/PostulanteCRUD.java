@@ -725,7 +725,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
             } else {
-                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos y el pdf este añadido.", "Error.", 0);
+                JOptionPane.showInternalMessageDialog(null,  "Por favor, revisa que todos los campos estén llenos y el pdf está añadido.", "Error.", 0);
             }
 
         } catch (Exception ex) {
@@ -892,7 +892,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
             } else {
-                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos y el pdf este añadido.", "Error.", 0);
+                JOptionPane.showInternalMessageDialog(null, "Por favor, revisa que todos los campos estén llenos y el pdf está añadido.", "Error.", 0);
             }
 
         } catch (Exception ex) {

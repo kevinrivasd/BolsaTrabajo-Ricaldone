@@ -188,10 +188,10 @@ public class ActualizacionPWD extends javax.swing.JFrame {
         try {
             if (String.valueOf(Pword).equals(String.valueOf(VERPWD))) {
                 num = recucontroller.ActualizarPWD(Utils.encrypt(Pword), mailLocal);
-                JOptionPane.showInternalMessageDialog(null, "Actualizacion de contraseña exitosa", "Confirmacion", 1);
+                JOptionPane.showInternalMessageDialog(null, "Actualización de contraseña exitosa", "Confirmacion", 1);
                 this.dispose();
             } else {
-                JOptionPane.showInternalMessageDialog(null, "Por Favor, revise que haya escrito correctamente la contraseña en la verificacion", "Error.", 0);
+                JOptionPane.showInternalMessageDialog(null, "Por favor, revise que haya escrito correctamente la contraseña en la verificación", "Error.", 0);
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "holi: " + ex.getMessage());

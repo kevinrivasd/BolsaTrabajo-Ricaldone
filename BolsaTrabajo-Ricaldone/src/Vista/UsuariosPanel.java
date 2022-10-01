@@ -560,7 +560,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Por favor introduzca un correo valido", "Error", 0);
                 }
             } else {
-                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos esten llenos.", "Error.", 0);
+                JOptionPane.showInternalMessageDialog(null, "Por Favor, revisa que todos los campos estén llenos.", "Error.", 0);
             }
 
         } catch (Exception ex) {
@@ -752,7 +752,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                             Logger.getLogger(UsuariosPanel.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Compruebe que el usuario o el correo no se repitan con otro registro.", "Error", 0);
+                        JOptionPane.showMessageDialog(null, "Compruebe que el usuario no se repita.", "Error", 0);
                     }
 
                 } else {

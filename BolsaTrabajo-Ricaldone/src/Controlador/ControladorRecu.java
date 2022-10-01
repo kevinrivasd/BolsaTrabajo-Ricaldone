@@ -91,14 +91,14 @@ public class ControladorRecu {
             int intcode;
             intcode = Integer.parseInt(code);
             if (intcode == randomCode && randomCode != 0) {
-                JOptionPane.showMessageDialog(null, "El codigo es correcto");
+                JOptionPane.showMessageDialog(null, "El código es correcto");
                 randomCode = 0;
             } else {
-                JOptionPane.showMessageDialog(null, "El codigo ingresado no es correcto o ya a sido utilizado","Error",0);
+                JOptionPane.showMessageDialog(null, "El código ingresado no es correcto o ya a sido utilizado","Error",0);
                 retorno = retorno + 1;
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "No dejar espacios vacios","Error",0);
+            JOptionPane.showMessageDialog(null, "No dejar espacios vacíos","Error",0);
             return retorno = 0;
         }
         return retorno;

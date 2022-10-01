@@ -248,7 +248,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Agregado exitosamente");
                 dgvLol.setModel(utils.rtrnTqble(table, arrAb, idPos));
             } else {
-                JOptionPane.showMessageDialog(null, "No se pudo insertar el registro");
+                JOptionPane.showMessageDialog(null, "No se pudo insertar el registro", "Error",0);
             }
         } catch (Exception ex) {
             Logger.getLogger(AbilitiesCRUD.class.getName()).log(Level.SEVERE, null, ex);

@@ -54,7 +54,7 @@ public class Estadisticas extends javax.swing.JPanel {
             }
         } catch (SQLException ex) {
 //            Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "La estadistica no se pudo cargar");
+            JOptionPane.showMessageDialog(null,  "La estadística no se pudo cargar");
         }
     }
 

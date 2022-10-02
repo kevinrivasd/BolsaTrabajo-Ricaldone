@@ -95,20 +95,20 @@ public class Login extends javax.swing.JFrame {
                 txtUserKeyTyped(evt);
             }
         });
-        jPanel3.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 183, 297, 37));
+        jPanel3.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 297, 37));
         txtUser.getAccessibleContext().setAccessibleName("txtUser");
 
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/User Login.png"))); // NOI18N
         jLabel2.setText("   Usuario");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 134, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 1, 24)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/key login.png"))); // NOI18N
         jLabel5.setText("   Contraseña");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 295, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
-        btnIniciarSesion.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        btnIniciarSesion.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         btnIniciarSesion.setText("Ingresar");
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +118,7 @@ public class Login extends javax.swing.JFrame {
         jPanel3.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 455, 126, 50));
 
         jLabel1.setBackground(new java.awt.Color(133, 175, 75));
-        jLabel1.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(133, 175, 75));
         jLabel1.setText("¿Olvidaste tu Contraseña?");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,12 +128,13 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 468, -1, -1));
 
+        txtpassword.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         txtpassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtpasswordKeyTyped(evt);
             }
         });
-        jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 290, 40));
+        jPanel3.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 297, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

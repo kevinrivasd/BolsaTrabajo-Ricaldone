@@ -130,6 +130,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         lblRegresar = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(239, 245, 213));
@@ -137,6 +138,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(239, 245, 213));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        dgvLol.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dgvLol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -154,32 +156,34 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(dgvLol);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 250, 600, 386));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 250, 620, 386));
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(50, 63, 27));
         jLabel4.setText("Habilidades Extras");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 240, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 240, -1));
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel3.setText("Titulo");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 125, 23));
 
+        txtTitle.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         txtTitle.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTitleKeyTyped(evt);
             }
         });
-        jPanel1.add(txtTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 182, -1));
+        jPanel1.add(txtTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 300, -1));
 
-        jLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel2.setText("Nivel De manejo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, 23));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, 23));
 
-        jPanel1.add(cmbLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 170, -1));
+        cmbLevel.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jPanel1.add(cmbLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 170, -1));
         jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         jButton1.setText("Agregar habilidad");
         jButton1.setPreferredSize(new java.awt.Dimension(85, 25));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -187,18 +191,18 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 170, 34));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 34));
 
-        btnActualizar.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        btnActualizar.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         btnActualizar.setText("Modificar habilidad");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 170, 34));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 200, 34));
 
-        btnEliminar.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         btnEliminar.setText("Eliminar habilidad");
         btnEliminar.setPreferredSize(new java.awt.Dimension(85, 25));
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -206,24 +210,32 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 170, 34));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 200, 34));
 
-        lblRegresar.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        lblRegresar.setFont(new java.awt.Font("Poppins Medium", 0, 19)); // NOI18N
         lblRegresar.setForeground(new java.awt.Color(133, 175, 75));
-        lblRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Recu_regresar.png"))); // NOI18N
+        lblRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Volver-C-30.png"))); // NOI18N
         lblRegresar.setText("Regresar");
         lblRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRegresarMouseClicked(evt);
             }
         });
-        jPanel1.add(lblRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 8, -1, -1));
+        jPanel1.add(lblRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, -1));
+
+        jLabel5.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(133, 175, 75));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Acciones-C-30.png"))); // NOI18N
+        jLabel5.setText("Acciones");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,6 +404,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblRegresar;

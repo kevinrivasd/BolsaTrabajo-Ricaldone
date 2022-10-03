@@ -45,6 +45,8 @@ public class Menú extends javax.swing.JFrame {
     //Configuracion 
     Icon IconConfiReset = new ImageIcon("src/ICONOS SCM/Configuracion-B-50.png");
     Icon IconConfiPress = new ImageIcon("src/ICONOS SCM/Configuracion-c-50.png");
+    //Candado
+    Icon IconCandado = new ImageIcon("src/ICONOS SCM/Candado-B-50.png");
     /**
      * Creates new form Menú
      */
@@ -92,10 +94,10 @@ public class Menú extends javax.swing.JFrame {
         cargarProps(idUser);
 
         if (userLevel.get(2).equals("2")) {
-            Color myGreen = new Color(239,245,213);
+            Color myGreen = new Color(50,63,27);
 
-            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
-            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setDisabledIcon(IconCandado);
+            btnUsuarioGrafi.setIcon(IconCandado);
 
             btnUsuarioGrafi.setBackground(myGreen);
             btnUsuarioGrafi.setEnabled(false);
@@ -400,6 +402,15 @@ public class Menú extends javax.swing.JFrame {
             btnUsuarioGrafi.setDisabledIcon(IconUsuarioReset);
             btnUsuarioGrafi.setIcon(IconUsuarioReset);
             btnUsuarioGrafi.setForeground(TextReset);
+            if (userLevel.get(2).equals("2")) {
+            Color myGreen = new Color(50,63,27);
+
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+
+            btnUsuarioGrafi.setBackground(myGreen);
+            btnUsuarioGrafi.setEnabled(false);
+        }
             //Notificaciones 
             btnNotificacionesGrafi.setBackground(BtnReset);
             btnNotificacionesGrafi.setDisabledIcon(IconNotiReset);
@@ -443,6 +454,15 @@ public class Menú extends javax.swing.JFrame {
             btnUsuarioGrafi.setDisabledIcon(IconUsuarioReset);
             btnUsuarioGrafi.setIcon(IconUsuarioReset);
             btnUsuarioGrafi.setForeground(TextReset);
+            if (userLevel.get(2).equals("2")) {
+            Color myGreen = new Color(50,63,27);
+
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+
+            btnUsuarioGrafi.setBackground(myGreen);
+            btnUsuarioGrafi.setEnabled(false);
+        }
             //Notificaciones 
             btnNotificacionesGrafi.setBackground(BtnReset);
             btnNotificacionesGrafi.setDisabledIcon(IconNotiReset);
@@ -487,6 +507,15 @@ public class Menú extends javax.swing.JFrame {
             btnUsuarioGrafi.setDisabledIcon(IconUsuarioReset);
             btnUsuarioGrafi.setIcon(IconUsuarioReset);
             btnUsuarioGrafi.setForeground(TextReset);
+            if (userLevel.get(2).equals("2")) {
+            Color myGreen = new Color(50,63,27);
+
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+
+            btnUsuarioGrafi.setBackground(myGreen);
+            btnUsuarioGrafi.setEnabled(false);
+        }
             //Notificaciones 
             btnNotificacionesGrafi.setBackground(BtnPress);
             btnNotificacionesGrafi.setDisabledIcon(IconNotiPress);
@@ -532,6 +561,15 @@ public class Menú extends javax.swing.JFrame {
             btnUsuarioGrafi.setDisabledIcon(IconUsuarioReset);
             btnUsuarioGrafi.setIcon(IconUsuarioReset);
             btnUsuarioGrafi.setForeground(TextReset);
+            if (userLevel.get(2).equals("2")) {
+            Color myGreen = new Color(50,63,27);
+
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+
+            btnUsuarioGrafi.setBackground(myGreen);
+            btnUsuarioGrafi.setEnabled(false);
+        }
             //Notificaciones 
             btnNotificacionesGrafi.setBackground(BtnReset);
             btnNotificacionesGrafi.setDisabledIcon(IconNotiReset);

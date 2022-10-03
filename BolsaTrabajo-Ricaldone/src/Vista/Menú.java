@@ -46,7 +46,7 @@ public class Menú extends javax.swing.JFrame {
     Icon IconConfiReset = new ImageIcon("src/ICONOS SCM/Configuracion-B-50.png");
     Icon IconConfiPress = new ImageIcon("src/ICONOS SCM/Configuracion-c-50.png");
     //Candado
-    Icon IconCandado = new ImageIcon("src/ICONOS SCM/Candado-B-50.png");
+    Icon IconCandado = new ImageIcon("src/ICONOS SCM/Candado-G-50.png");
     /**
      * Creates new form Menú
      */

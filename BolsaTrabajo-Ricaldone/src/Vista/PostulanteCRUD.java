@@ -104,14 +104,36 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         post = new DefaultTableModel(null, Encabezados);
         JTPostulantes.setModel(post);
         CargarTabla();
+        //IDepartment
         JTPostulantes.getColumnModel().getColumn(11).setMaxWidth(0);
         JTPostulantes.getColumnModel().getColumn(11).setMinWidth(0);
         JTPostulantes.getTableHeader().getColumnModel().getColumn(11).setMaxWidth(0);
         JTPostulantes.getTableHeader().getColumnModel().getColumn(11).setMinWidth(0);
+        //RDepartment
         JTPostulantes.getColumnModel().getColumn(12).setMaxWidth(0);
         JTPostulantes.getColumnModel().getColumn(12).setMinWidth(0);
         JTPostulantes.getTableHeader().getColumnModel().getColumn(12).setMaxWidth(0);
         JTPostulantes.getTableHeader().getColumnModel().getColumn(12).setMinWidth(0);
+        //photopostulant
+        JTPostulantes.getColumnModel().getColumn(4).setMaxWidth(0);
+        JTPostulantes.getColumnModel().getColumn(4).setMinWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(4).setMinWidth(0);
+        //resumePDF
+        JTPostulantes.getColumnModel().getColumn(5).setMaxWidth(0);
+        JTPostulantes.getColumnModel().getColumn(5).setMinWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(5).setMaxWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(5).setMinWidth(0);
+        //resumedetails
+        JTPostulantes.getColumnModel().getColumn(6).setMaxWidth(0);
+        JTPostulantes.getColumnModel().getColumn(6).setMinWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(6).setMaxWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(6).setMinWidth(0);
+        //mailverification
+        JTPostulantes.getColumnModel().getColumn(7).setMaxWidth(0);
+        JTPostulantes.getColumnModel().getColumn(7).setMinWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(7).setMaxWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(7).setMinWidth(0);
         inti = add;
         if (inti == 1) {
             BtnActualizar.setVisible(true);

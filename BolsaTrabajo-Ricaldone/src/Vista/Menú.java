@@ -26,6 +26,25 @@ import Controlador.Utils;
  */
 public class Menú extends javax.swing.JFrame {
 
+    Color BtnPress = new Color  (239,245,213);
+    Color BtnReset = new Color  (133,175,75);
+    Color TextPress = new Color  (133,175,75);
+    Color TextReset = new Color  (255,255,255);
+    //Usuarios
+    Icon IconUsuarioReset = new ImageIcon("src/ICONOS SCM/Persona-B-50.png");
+    Icon IconUsuarioPress = new ImageIcon("src/ICONOS SCM/Persona-c-50.png");
+    //Notificaciones
+    Icon IconNotiReset = new ImageIcon("src/ICONOS SCM/Campana-B-50.png");
+    Icon IconNotiPress = new ImageIcon("src/ICONOS SCM/Campana-c-50.png");
+    //Estadisticas
+    Icon IconEstadisticaReset = new ImageIcon("src/ICONOS SCM/Estadistica-B-50.png");
+    Icon IconEstadisticaPress = new ImageIcon("src/ICONOS SCM/Estadistica-c-50.png");
+    //Postulantes
+    Icon IconPostulantesReset = new ImageIcon("src/ICONOS SCM/Postulantes-B-50.png");
+    Icon IconPostulantesPress = new ImageIcon("src/ICONOS SCM/Postulantes-c-50.png");
+    //Configuracion 
+    Icon IconConfiReset = new ImageIcon("src/ICONOS SCM/Configuracion-B-50.png");
+    Icon IconConfiPress = new ImageIcon("src/ICONOS SCM/Configuracion-c-50.png");
     /**
      * Creates new form Menú
      */
@@ -73,15 +92,15 @@ public class Menú extends javax.swing.JFrame {
         cargarProps(idUser);
 
         if (userLevel.get(2).equals("2")) {
-            Color myGreen = new Color(50, 63, 27);
+            Color myGreen = new Color(239,245,213);
 
-//            Icon icon = new ImageIcon("src/ICONOS SCM/Persona-B-50.png");
-//            btnUsuarioGrafi.setDisabledIcon(icon);
-//            btnUsuarioGrafi.setIcon(icon);
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setIcon(IconUsuarioPress);
 
             btnUsuarioGrafi.setBackground(myGreen);
             btnUsuarioGrafi.setEnabled(false);
         }
+        
     }
 
     private Menú() {
@@ -115,7 +134,6 @@ public class Menú extends javax.swing.JFrame {
 
         PanelMenu = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        btnMenu = new javax.swing.JButton();
         btnMenu1 = new javax.swing.JButton();
         btnUsuarioGrafi = new javax.swing.JButton();
         btnEstadisticasGrafi = new javax.swing.JButton();
@@ -132,21 +150,6 @@ public class Menú extends javax.swing.JFrame {
         PanelMenu.setBackground(new java.awt.Color(133, 175, 75));
 
         jPanel5.setBackground(new java.awt.Color(133, 175, 75));
-
-        btnMenu.setBackground(new java.awt.Color(133, 175, 75));
-        btnMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Menu Menu.png"))); // NOI18N
-        btnMenu.setBorder(null);
-        btnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMenuMouseClicked(evt);
-            }
-        });
-        btnMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuActionPerformed(evt);
-            }
-        });
 
         btnMenu1.setBackground(new java.awt.Color(133, 175, 75));
         btnMenu1.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,20 +171,16 @@ public class Menú extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addComponent(btnMenu1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMenu)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(btnMenu1)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         btnUsuarioGrafi.setBackground(new java.awt.Color(133, 175, 75));
@@ -192,6 +191,11 @@ public class Menú extends javax.swing.JFrame {
         btnUsuarioGrafi.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 1, 80));
         btnUsuarioGrafi.setBorderPainted(false);
         btnUsuarioGrafi.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        btnUsuarioGrafi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUsuarioGrafiMouseEntered(evt);
+            }
+        });
         btnUsuarioGrafi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioGrafiActionPerformed(evt);
@@ -300,7 +304,7 @@ public class Menú extends javax.swing.JFrame {
         PanelHolder.setLayout(PanelHolderLayout);
         PanelHolderLayout.setHorizontalGroup(
             PanelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1134, Short.MAX_VALUE)
+            .addGap(0, 1132, Short.MAX_VALUE)
         );
         PanelHolderLayout.setVerticalGroup(
             PanelHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,14 +330,6 @@ public class Menú extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenuMouseClicked
-
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenuActionPerformed
-
     private void btnMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenu1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMenu1MouseClicked
@@ -353,8 +349,33 @@ public class Menú extends javax.swing.JFrame {
             PanelHolder.setLayout(new BorderLayout());
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();
-            previo.revalidate();
-
+            previo.revalidate(); 
+            //Usuario
+            btnUsuarioGrafi.setBackground(BtnPress);
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setForeground(TextPress);
+            //Notificaciones 
+            btnNotificacionesGrafi.setBackground(BtnReset);
+            btnNotificacionesGrafi.setDisabledIcon(IconNotiReset);
+            btnNotificacionesGrafi.setIcon(IconNotiReset);
+            btnNotificacionesGrafi.setForeground(TextReset);
+            //Estadisticas
+            btnEstadisticasGrafi.setBackground(BtnReset);
+            btnEstadisticasGrafi.setDisabledIcon(IconEstadisticaReset);
+            btnEstadisticasGrafi.setIcon(IconEstadisticaReset);
+            btnEstadisticasGrafi.setForeground(TextReset);
+            //Postulantes
+            btnPostulantesGrafi.setBackground(BtnReset);
+            btnPostulantesGrafi.setDisabledIcon(IconPostulantesReset);
+            btnPostulantesGrafi.setIcon(IconPostulantesReset);
+            btnPostulantesGrafi.setForeground(TextReset);
+            //Configuracion
+            btnConfiguracionGrafi.setBackground(BtnReset);
+            btnConfiguracionGrafi.setDisabledIcon(IconConfiReset);
+            btnConfiguracionGrafi.setIcon(IconConfiReset);
+            btnConfiguracionGrafi.setForeground(TextReset);
+     
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -374,6 +395,31 @@ public class Menú extends javax.swing.JFrame {
             previo.repaint();
             previo.revalidate();
 
+             //Usuario
+            btnUsuarioGrafi.setBackground(BtnReset);
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioReset);
+            btnUsuarioGrafi.setIcon(IconUsuarioReset);
+            btnUsuarioGrafi.setForeground(TextReset);
+            //Notificaciones 
+            btnNotificacionesGrafi.setBackground(BtnReset);
+            btnNotificacionesGrafi.setDisabledIcon(IconNotiReset);
+            btnNotificacionesGrafi.setIcon(IconNotiReset);
+            btnNotificacionesGrafi.setForeground(TextReset);
+            //Estadisticas
+            btnEstadisticasGrafi.setBackground(BtnPress);
+            btnEstadisticasGrafi.setDisabledIcon(IconEstadisticaPress);
+            btnEstadisticasGrafi.setIcon(IconEstadisticaPress);
+            btnEstadisticasGrafi.setForeground(TextPress);
+            //Postulantes
+            btnPostulantesGrafi.setBackground(BtnReset);
+            btnPostulantesGrafi.setDisabledIcon(IconPostulantesReset);
+            btnPostulantesGrafi.setIcon(IconPostulantesReset);
+            btnPostulantesGrafi.setForeground(TextReset);
+            //Configuracion
+            btnConfiguracionGrafi.setBackground(BtnReset);
+            btnConfiguracionGrafi.setDisabledIcon(IconConfiReset);
+            btnConfiguracionGrafi.setIcon(IconConfiReset);
+            btnConfiguracionGrafi.setForeground(TextReset);
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -391,6 +437,33 @@ public class Menú extends javax.swing.JFrame {
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();
             previo.revalidate();
+            
+             //Usuario
+            btnUsuarioGrafi.setBackground(BtnReset);
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioReset);
+            btnUsuarioGrafi.setIcon(IconUsuarioReset);
+            btnUsuarioGrafi.setForeground(TextReset);
+            //Notificaciones 
+            btnNotificacionesGrafi.setBackground(BtnReset);
+            btnNotificacionesGrafi.setDisabledIcon(IconNotiReset);
+            btnNotificacionesGrafi.setIcon(IconNotiReset);
+            btnNotificacionesGrafi.setForeground(TextReset);
+            //Estadisticas
+            btnEstadisticasGrafi.setBackground(BtnReset);
+            btnEstadisticasGrafi.setDisabledIcon(IconEstadisticaReset);
+            btnEstadisticasGrafi.setIcon(IconEstadisticaReset);
+            btnEstadisticasGrafi.setForeground(TextReset);
+            //Postulantes
+            btnPostulantesGrafi.setBackground(BtnPress);
+            btnPostulantesGrafi.setDisabledIcon(IconPostulantesPress);
+            btnPostulantesGrafi.setIcon(IconPostulantesPress);
+            btnPostulantesGrafi.setForeground(TextPress);
+            //Configuracion
+            btnConfiguracionGrafi.setBackground(BtnReset);
+            btnConfiguracionGrafi.setDisabledIcon(IconConfiReset);
+            btnConfiguracionGrafi.setIcon(IconConfiReset);
+            btnConfiguracionGrafi.setForeground(TextReset);
+            
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -408,6 +481,32 @@ public class Menú extends javax.swing.JFrame {
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();
             previo.revalidate();
+            
+             //Usuario
+            btnUsuarioGrafi.setBackground(BtnReset);
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioReset);
+            btnUsuarioGrafi.setIcon(IconUsuarioReset);
+            btnUsuarioGrafi.setForeground(TextReset);
+            //Notificaciones 
+            btnNotificacionesGrafi.setBackground(BtnPress);
+            btnNotificacionesGrafi.setDisabledIcon(IconNotiPress);
+            btnNotificacionesGrafi.setIcon(IconNotiPress);
+            btnNotificacionesGrafi.setForeground(TextPress);
+            //Estadisticas
+            btnEstadisticasGrafi.setBackground(BtnReset);
+            btnEstadisticasGrafi.setDisabledIcon(IconEstadisticaReset);
+            btnEstadisticasGrafi.setIcon(IconEstadisticaReset);
+            btnEstadisticasGrafi.setForeground(TextReset);
+            //Postulantes
+            btnPostulantesGrafi.setBackground(BtnReset);
+            btnPostulantesGrafi.setDisabledIcon(IconPostulantesReset);
+            btnPostulantesGrafi.setIcon(IconPostulantesReset);
+            btnPostulantesGrafi.setForeground(TextReset);
+            //Configuracion
+            btnConfiguracionGrafi.setBackground(BtnReset);
+            btnConfiguracionGrafi.setDisabledIcon(IconConfiReset);
+            btnConfiguracionGrafi.setIcon(IconConfiReset);
+            btnConfiguracionGrafi.setForeground(TextReset);
 
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
@@ -427,7 +526,36 @@ public class Menú extends javax.swing.JFrame {
             PanelHolder.add(previo, BorderLayout.NORTH);
             previo.repaint();
             previo.revalidate();
+            
+            //Usuario
+            btnUsuarioGrafi.setBackground(BtnReset);
+            btnUsuarioGrafi.setDisabledIcon(IconUsuarioReset);
+            btnUsuarioGrafi.setIcon(IconUsuarioReset);
+            btnUsuarioGrafi.setForeground(TextReset);
+            //Notificaciones 
+            btnNotificacionesGrafi.setBackground(BtnReset);
+            btnNotificacionesGrafi.setDisabledIcon(IconNotiReset);
+            btnNotificacionesGrafi.setIcon(IconNotiReset);
+            btnNotificacionesGrafi.setForeground(TextReset);
+            //Estadisticas
+            btnEstadisticasGrafi.setBackground(BtnReset);
+            btnEstadisticasGrafi.setDisabledIcon(IconEstadisticaReset);
+            btnEstadisticasGrafi.setIcon(IconEstadisticaReset);
+            btnEstadisticasGrafi.setForeground(TextReset);
+            //Postulantes
+            btnPostulantesGrafi.setBackground(BtnReset);
+            btnPostulantesGrafi.setDisabledIcon(IconPostulantesReset);
+            btnPostulantesGrafi.setIcon(IconPostulantesReset);
+            btnPostulantesGrafi.setForeground(TextReset);
+            //Configuracion
+            btnConfiguracionGrafi.setBackground(BtnPress);
+            btnConfiguracionGrafi.setDisabledIcon(IconConfiPress);
+            btnConfiguracionGrafi.setIcon(IconConfiPress);
+            btnConfiguracionGrafi.setForeground(TextPress);
 //            PanelHolder.setPreferredSize(d);
+
+            btnUsuarioGrafi.setBackground(BtnReset);
+            btnConfiguracionGrafi.setBackground(BtnPress);
 
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
@@ -444,6 +572,10 @@ public class Menú extends javax.swing.JFrame {
         newFrm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirPostuActionPerformed
+
+    private void btnUsuarioGrafiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioGrafiMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUsuarioGrafiMouseEntered
 
     /**
      * @param args the command line arguments
@@ -489,7 +621,6 @@ public class Menú extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMenu;
     private javax.swing.JButton btnConfiguracionGrafi;
     private javax.swing.JButton btnEstadisticasGrafi;
-    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnMenu1;
     private javax.swing.JButton btnNotificacionesGrafi;
     private javax.swing.JButton btnPostulantesGrafi;

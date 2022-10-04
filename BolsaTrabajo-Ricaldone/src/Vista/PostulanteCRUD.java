@@ -296,6 +296,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         setBackground(new java.awt.Color(239, 245, 213));
 
         lblTodo.setBackground(new java.awt.Color(239, 245, 213));
+        lblTodo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnAgregar.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         BtnAgregar.setText("Agregar");
@@ -304,6 +305,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAgregarActionPerformed(evt);
             }
         });
+        lblTodo.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 193, 32));
 
         BtnActualizar.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         BtnActualizar.setText("Actualizar");
@@ -312,6 +314,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnActualizarActionPerformed(evt);
             }
         });
+        lblTodo.add(BtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 340, 193, 30));
 
         txtNombrePost.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txtNombrePost.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -319,15 +322,19 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 txtNombrePostKeyTyped(evt);
             }
         });
+        lblTodo.add(txtNombrePost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 114, 200, -1));
 
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel1.setText("Nombres del postulante");
+        lblTodo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 89, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel2.setText("Correo del postulante");
+        lblTodo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 212, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel3.setText("Contraseña");
+        lblTodo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 100, -1));
 
         txtCorreoPost.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txtCorreoPost.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -338,6 +345,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 txtCorreoPostKeyTyped(evt);
             }
         });
+        lblTodo.add(txtCorreoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 243, 200, -1));
 
         BtnImageAdd.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         BtnImageAdd.setText("Agregar imagen");
@@ -346,34 +354,46 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnImageAddActionPerformed(evt);
             }
         });
+        lblTodo.add(BtnImageAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, 193, 30));
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel4.setText("Genero");
+        lblTodo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 89, -1, -1));
 
         cmbGenero.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 115, 150, -1));
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel5.setText("Estado");
+        lblTodo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 145, -1, -1));
 
         cmbEstadoPost.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbEstadoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 176, 150, -1));
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel6.setText("Dpt. de residencia");
+        lblTodo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 212, -1, -1));
 
         cmbDepartReside.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbDepartReside, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 244, 150, -1));
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel7.setText("Dpt. de preferencia");
+        lblTodo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 280, -1, -1));
 
         cmbDepartPreferencia.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbDepartPreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 312, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel8.setText("Progreso");
+        lblTodo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 280, -1, -1));
 
         cmbPrefLaboral.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbPrefLaboral, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 115, 190, -1));
 
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel9.setText("Apellidos del postulante");
+        lblTodo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 145, -1, -1));
 
         txtApellidoPost.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txtApellidoPost.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -381,14 +401,18 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 txtApellidoPostKeyTyped(evt);
             }
         });
+        lblTodo.add(txtApellidoPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 175, 200, -1));
 
         jLabel10.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel10.setText("Habilidad general");
+        lblTodo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 428, -1, -1));
 
         cmbSalario.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 176, 190, -1));
 
         jLabel12.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel12.setText("Estado de trabajo");
+        lblTodo.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 212, -1, -1));
 
         cmbTipoTrabajo.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
         cmbTipoTrabajo.addActionListener(new java.awt.event.ActionListener() {
@@ -396,30 +420,40 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 cmbTipoTrabajoActionPerformed(evt);
             }
         });
+        lblTodo.add(cmbTipoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 176, 250, -1));
 
         jLabel13.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel13.setText("Tipo de trabajo");
+        lblTodo.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 145, -1, -1));
 
         cmbEstadoTrabajo.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbEstadoTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 244, 250, -1));
 
         jLabel14.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel14.setText("Tipo de contrato");
+        lblTodo.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, -1, -1));
 
         cmbTipoContrato.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbTipoContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 312, 150, -1));
 
         jLabel15.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel15.setText("Preferencias laborales");
+        lblTodo.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 89, -1, -1));
 
         cmbProgreso.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 312, 250, -1));
 
         jLabel16.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel16.setText("Bachilerato:");
+        lblTodo.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 212, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel17.setText("Rama perteneciente");
+        lblTodo.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 428, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel18.setText("Habilidad adicional");
+        lblTodo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 428, -1, -1));
 
         CheckAlumni.setBackground(new java.awt.Color(239, 245, 213));
         CheckAlumni.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
@@ -429,11 +463,16 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 CheckAlumniActionPerformed(evt);
             }
         });
+        lblTodo.add(CheckAlumni, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 348, 140, 30));
+        CheckAlumni.setText("Ex-alumno");
+        lblTodo.add(lblPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(817, 622, 165, 30));
 
         jLabel19.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel19.setText("Salario");
+        lblTodo.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 145, -1, -1));
 
         cmbHighType.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbHighType, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 244, 150, -1));
 
         txtContraseñaPost.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txtContraseñaPost.addInputMethodListener(new java.awt.event.InputMethodListener() {
@@ -451,11 +490,14 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 txtContraseñaPostKeyTyped(evt);
             }
         });
+        lblTodo.add(txtContraseñaPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 311, 200, -1));
 
         jLabel11.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel11.setText("Nivel de estudio");
+        lblTodo.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 89, -1, -1));
 
         cmbNivelEstudio.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        lblTodo.add(cmbNivelEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 115, 250, -1));
 
         BtnAddPDF.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         BtnAddPDF.setText("Añadir PDF");
@@ -464,6 +506,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnAddPDFActionPerformed(evt);
             }
         });
+        lblTodo.add(BtnAddPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 193, 30));
+        lblTodo.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(811, 767, -1, -1));
 
         JTPostulantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -485,10 +529,14 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTPostulantes);
 
+        lblTodo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 668, 1150, 180));
+
         txtID.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
+        lblTodo.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(559, 379, 90, -1));
 
         lblID.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         lblID.setText("ID:");
+        lblTodo.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(559, 348, -1, -1));
 
         btnB.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnB.setText("Gestionar Rama");
@@ -497,6 +545,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 btnBActionPerformed(evt);
             }
         });
+        lblTodo.add(btnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 622, 190, 34));
 
         btnA.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnA.setText("Gestionar Habilidad Adicional");
@@ -505,6 +554,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 btnAActionPerformed(evt);
             }
         });
+        lblTodo.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 622, -1, 34));
 
         btnG.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnG.setText("Gestionar Habilidad General");
@@ -513,6 +563,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 btnGActionPerformed(evt);
             }
         });
+        lblTodo.add(btnG, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 622, -1, 34));
 
         BTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -529,6 +580,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         BTabla.setSelectionBackground(new java.awt.Color(193, 233, 118));
         jScrollPane2.setViewportView(BTabla);
 
+        lblTodo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 471, 182, 120));
+
         GTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -543,6 +596,8 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         GTable.setGridColor(new java.awt.Color(0, 0, 0));
         GTable.setSelectionBackground(new java.awt.Color(193, 233, 118));
         jScrollPane3.setViewportView(GTable);
+
+        lblTodo.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 471, 210, 120));
 
         ATable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -559,6 +614,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         ATable.setSelectionBackground(new java.awt.Color(193, 233, 118));
         jScrollPane4.setViewportView(ATable);
 
+        lblTodo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 471, 206, 120));
+        lblTodo.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 172, 173));
+
         BtnLimpiarCampos.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         BtnLimpiarCampos.setText("Limpiar Campos");
         BtnLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -566,6 +624,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 BtnLimpiarCamposActionPerformed(evt);
             }
         });
+        lblTodo.add(BtnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 380, 193, 30));
 
         jLabel21.setFont(new java.awt.Font("Poppins Medium", 0, 19)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(133, 175, 75));
@@ -576,288 +635,30 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 jLabel21MouseClicked(evt);
             }
         });
+        lblTodo.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(50, 63, 27));
         jLabel22.setText("Postulantes CRUD");
+        lblTodo.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        lblTodo.add(txtgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 96, 10, 10));
+        lblTodo.add(txtestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 152, 10, 10));
+        lblTodo.add(txtstudylevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(805, 96, 10, 10));
+        lblTodo.add(txtworktype, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 152, 10, 10));
+        lblTodo.add(txtsalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 152, 10, 10));
+        lblTodo.add(txtworkPreference, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 96, 10, 10));
+        lblTodo.add(txtworkState, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 219, 10, 10));
+        lblTodo.add(txtRDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 219, 10, 10));
+        lblTodo.add(txtIDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 287, 10, 10));
+        lblTodo.add(txtContractType, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 287, 10, 10));
+        lblTodo.add(txthigtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 219, 10, 10));
+        lblTodo.add(txtprogress, new org.netbeans.lib.awtextra.AbsoluteConstraints(737, 287, 10, 10));
 
         jLabel23.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(133, 175, 75));
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONOS SCM/Acciones-C-30.png"))); // NOI18N
         jLabel23.setText("Acciones");
-
-        javax.swing.GroupLayout lblTodoLayout = new javax.swing.GroupLayout(lblTodo);
-        lblTodo.setLayout(lblTodoLayout);
-        lblTodoLayout.setHorizontalGroup(
-            lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblTodoLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1)
-                                .addComponent(txtNombrePost, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                .addComponent(jLabel9)
-                                .addComponent(txtApellidoPost, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addComponent(txtCorreoPost, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtContraseñaPost))
-                            .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblID)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblTodoLayout.createSequentialGroup()
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(btnB, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                                .addGap(18, 18, 18))
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addGap(8, 8, 8)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnA)
-                            .addComponent(jLabel18)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(btnG))
-                            .addComponent(jLabel10)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(282, 282, 282)))
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnImageAdd)
-                    .addComponent(BtnAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnLimpiarCampos)
-                    .addComponent(BtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(lblTodoLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtgenero, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbEstadoPost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txthigtType, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtContractType, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbTipoContrato, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 32, Short.MAX_VALUE)
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtsalary, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbDepartReside, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbDepartPreferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtworkPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtstudylevel, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbNivelEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtworktype, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtworkState, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbEstadoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtprogress, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addComponent(jLabel23)
-                .addContainerGap(80, Short.MAX_VALUE))
-            .addGroup(lblTodoLayout.createSequentialGroup()
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addGap(817, 817, 817)
-                        .addComponent(lblPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addGap(679, 679, 679)
-                                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel21))
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addGap(791, 791, 791)
-                                .addComponent(jLabel20))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1095, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        lblTodoLayout.setVerticalGroup(
-            lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblTodoLayout.createSequentialGroup()
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel23)
-                        .addGap(18, 18, 18)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(BtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel21)
-                                .addGap(49, 49, 49)
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel11)
-                                    .addComponent(txtgenero, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtworkPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtstudylevel, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbNivelEstudio, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbPrefLaboral, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbGenero, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombrePost, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel5)
-                                    .addComponent(txtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19)
-                                    .addComponent(txtsalary, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13)
-                                    .addComponent(txtworktype, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(5, 5, 5)
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(cmbEstadoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtApellidoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel16)
-                                    .addComponent(txthigtType, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(txtRDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(txtworkState, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(txtCorreoPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbHighType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbDepartReside, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbEstadoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel14)
-                                    .addComponent(txtContractType, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(txtIDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(txtprogress, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(txtContraseñaPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbTipoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbDepartPreferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel22)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CheckAlumni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(lblTodoLayout.createSequentialGroup()
-                                .addComponent(lblID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(11, 11, 11)))
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnB, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnG, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnA, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addComponent(BtnImageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(BtnAddPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(122, 122, 122)))
-                .addGroup(lblTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jLabel20))
-                    .addGroup(lblTodoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-
-        CheckAlumni.setText("Ex-alumno");
+        lblTodo.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 240, -1, -1));
 
         jScrollPane5.setViewportView(lblTodo);
 

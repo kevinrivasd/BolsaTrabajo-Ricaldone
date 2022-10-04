@@ -54,4 +54,12 @@ public class ControladorLogin {
         }
         return null;
     }
+        
+    public int PrimerUsoController(String us){
+        return  login.PrimerUso(us);
+    }
+    
+    public int UpdatePrimerUsoCOntroller(String us){
+        return login.UpdateFirstUse(us);
+    }
 }

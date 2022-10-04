@@ -685,7 +685,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
      */
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 
-        LinkedHashMap<String, String> data = CollectData();
+        LinkedHashMap<String, String> data = CollectDataUpdate();
         String mail = txtCorreo.getText();
         ControladorUsuario us = new ControladorUsuario();
         if (data.get("Pword").trim().isEmpty()
@@ -810,10 +810,27 @@ public class UsuariosPanel extends javax.swing.JPanel {
         data.put("idRol", String.valueOf(cmbRol.getSelectedIndex() + 1));
         data.put("mailVerification", String.valueOf(1));
         data.put("idGender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        data.put("firstUse", "0");
 
         return data;
     }
+     private LinkedHashMap<String, String> CollectDataUpdate() {
+        LinkedHashMap<String, String> data = new LinkedHashMap<>();
+        char[] pword = txtContra.getPassword();
 
+        data.put("idState", String.valueOf(cmbEstado.getSelectedIndex() + 1));
+        data.put("nameUser", txtUsuario.getText());
+        data.put("Pword", Utils.encrypt(pword));
+        data.put("mailUser", txtCorreo.getText());
+        data.put("numberUser", txtNumero.getText());
+        data.put("idRol", String.valueOf(cmbRol.getSelectedIndex() + 1));
+        data.put("mailVerification", String.valueOf(1));
+        data.put("idGender", String.valueOf(cmbGenero.getSelectedIndex() + 1));
+        data.put("firstUse", "1");
+
+        return data;
+    
+     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarUsuario;
     private javax.swing.JButton btnEliminar;

@@ -170,16 +170,25 @@ public class Login extends javax.swing.JFrame {
             password = txtpassword.getPassword();
             String num = logincontroller.Login(user, password);
             String State = logincontroller.EstadoC(user, password);
+            int primeruso = logincontroller.PrimerUsoController(user);
             if (!"".equals(num)) {
-                if (!"2".equals(State)) {
-                    JOptionPane.showMessageDialog(null, "Bienvenido", "Acceso permitido", 1);
-                    Menú newfrm = new Menú(num);
-                    newfrm.setVisible(true);
+                if (primeruso == 0) {
+                    JOptionPane.showMessageDialog(null,"<html><center>"+"Acceso permitido"+"</html></center>", "Proceso completado", 1);
+                    PrimerUso frm = new PrimerUso(num);
+                    frm.setVisible(true);
+                    logincontroller.UpdatePrimerUsoCOntroller(user);
                     this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Usuario bloqueado, pruebe con otros datos", "Error", 0);
-                }
 
+                } else {
+                    if (!"2".equals(State)) {
+                        JOptionPane.showMessageDialog(null,"<html><center>"+"Acceso permitido"+"</html></center>", "Proceso completado", 1);
+                        Menú newfrm = new Menú(num);
+                        newfrm.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Usuario bloqueado, pruebe con otros datos", "Error", 0);
+                    }
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
             }

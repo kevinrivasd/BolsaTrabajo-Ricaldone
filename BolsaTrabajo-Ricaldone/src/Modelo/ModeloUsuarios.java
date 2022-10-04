@@ -93,5 +93,4 @@ public class ModeloUsuarios {
         }
         return resultado;
     }
-
 }

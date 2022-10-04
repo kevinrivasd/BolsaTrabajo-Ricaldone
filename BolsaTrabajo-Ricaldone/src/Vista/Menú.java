@@ -405,8 +405,8 @@ public class Menú extends javax.swing.JFrame {
             if (userLevel.get(2).equals("2")) {
             Color myGreen = new Color(50,63,27);
 
-            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
-            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setDisabledIcon(IconCandado);
+            btnUsuarioGrafi.setIcon(IconCandado);
 
             btnUsuarioGrafi.setBackground(myGreen);
             btnUsuarioGrafi.setEnabled(false);
@@ -457,8 +457,8 @@ public class Menú extends javax.swing.JFrame {
             if (userLevel.get(2).equals("2")) {
             Color myGreen = new Color(50,63,27);
 
-            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
-            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setDisabledIcon(IconCandado);
+            btnUsuarioGrafi.setIcon(IconCandado);
 
             btnUsuarioGrafi.setBackground(myGreen);
             btnUsuarioGrafi.setEnabled(false);
@@ -510,8 +510,8 @@ public class Menú extends javax.swing.JFrame {
             if (userLevel.get(2).equals("2")) {
             Color myGreen = new Color(50,63,27);
 
-            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
-            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setDisabledIcon(IconCandado);
+            btnUsuarioGrafi.setIcon(IconCandado);
 
             btnUsuarioGrafi.setBackground(myGreen);
             btnUsuarioGrafi.setEnabled(false);
@@ -541,11 +541,23 @@ public class Menú extends javax.swing.JFrame {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNotificacionesGrafiActionPerformed
-    /**
-     * Access to the configuration panel
+
+   /**
+     * Log off
      *
      * @param evt
      */
+    private void btnSalirPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirPostuActionPerformed
+        // TODO add your handling code here:
+        Login newFrm = new Login();
+        newFrm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSalirPostuActionPerformed
+
+    private void btnUsuarioGrafiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioGrafiMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUsuarioGrafiMouseEntered
+
     private void btnConfiguracionGrafiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionGrafiActionPerformed
         // TODO add your handling code here:
         try {
@@ -564,12 +576,12 @@ public class Menú extends javax.swing.JFrame {
             if (userLevel.get(2).equals("2")) {
             Color myGreen = new Color(50,63,27);
 
-            btnUsuarioGrafi.setDisabledIcon(IconUsuarioPress);
-            btnUsuarioGrafi.setIcon(IconUsuarioPress);
+            btnUsuarioGrafi.setDisabledIcon(IconCandado);
+            btnUsuarioGrafi.setIcon(IconCandado);
 
             btnUsuarioGrafi.setBackground(myGreen);
             btnUsuarioGrafi.setEnabled(false);
-        }
+            }
             //Notificaciones 
             btnNotificacionesGrafi.setBackground(BtnReset);
             btnNotificacionesGrafi.setDisabledIcon(IconNotiReset);
@@ -592,28 +604,12 @@ public class Menú extends javax.swing.JFrame {
             btnConfiguracionGrafi.setForeground(TextPress);
 //            PanelHolder.setPreferredSize(d);
 
-            btnUsuarioGrafi.setBackground(BtnReset);
-            btnConfiguracionGrafi.setBackground(BtnPress);
+            
 
         } catch (Exception ex) {
             Logger.getLogger(Menú.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnConfiguracionGrafiActionPerformed
-    /**
-     * Log off
-     *
-     * @param evt
-     */
-    private void btnSalirPostuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirPostuActionPerformed
-        // TODO add your handling code here:
-        Login newFrm = new Login();
-        newFrm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSalirPostuActionPerformed
-
-    private void btnUsuarioGrafiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioGrafiMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUsuarioGrafiMouseEntered
 
     /**
      * @param args the command line arguments

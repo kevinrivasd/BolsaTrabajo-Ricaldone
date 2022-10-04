@@ -7,6 +7,7 @@ package Vista;
 import Controlador.ControladorPostulante;
 import Customizar.Panels;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
@@ -68,6 +70,12 @@ public class Estadisticas extends javax.swing.JPanel {
             dtsc.setValue(tblConsultas.getValueAt(i, 0).toString(), Integer.parseInt(tblConsultas.getValueAt(i, 1).toString()));
         }
         JFreeChart ch = ChartFactory.createPieChart3D("Progreso de los Postulantes", dtsc, true, true, false);
+        PiePlot plot = (PiePlot) ch.getPlot();
+        plot.setSectionPaint("En espera de CV en pdf", new Color(239, 245, 213));
+        plot.setSectionPaint("En portal", new Color(215, 255, 107));
+        plot.setSectionPaint("Información Solicitada", new Color(50, 63, 27));
+        plot.setSectionPaint("Información Enviada", new Color(132, 175, 75));
+        plot.setSectionPaint("Contratado", new Color(193, 233, 118));
         ChartPanel cp = new ChartPanel(ch);
         add(cp);
         cp.setLocation(500, 500);

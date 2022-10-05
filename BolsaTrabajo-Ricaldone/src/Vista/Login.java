@@ -174,13 +174,13 @@ public class Login extends javax.swing.JFrame {
             if (!"".equals(num)) {
                 if (!"2".equals(State)) {
                     if (primeruso == 0) {
-                        JOptionPane.showMessageDialog(null, "<html><center>" + "Acceso permitido" + "</html></center>", "Proceso completado", 1);
+                        JOptionPane.showMessageDialog(null,"Acceso permitido", "Proceso completado", 1);
                         PrimerUso frm = new PrimerUso(num);
                         frm.setVisible(true);
                         logincontroller.UpdatePrimerUsoCOntroller(user);
                         this.dispose();
                     } else {
-                        JOptionPane.showMessageDialog(null, "<html><center>" + "Acceso permitido" + "</html></center>", "Proceso completado", 1);
+                        JOptionPane.showMessageDialog(null,"Acceso permitido", "Proceso completado", 1);
                         Menú newfrm = new Menú(num);
                         newfrm.setVisible(true);
                         this.dispose();

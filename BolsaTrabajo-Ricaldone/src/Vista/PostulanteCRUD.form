@@ -943,7 +943,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="1b" green="3f" red="32" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Postulantes CRUD"/>
+                <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de postulantes"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

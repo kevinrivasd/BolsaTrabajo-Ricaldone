@@ -639,7 +639,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(50, 63, 27));
-        jLabel22.setText("Postulantes CRUD");
+        jLabel22.setText("Gestión de postulantes");
         lblTodo.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
         lblTodo.add(txtgenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 96, 10, 10));
         lblTodo.add(txtestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 152, 10, 10));

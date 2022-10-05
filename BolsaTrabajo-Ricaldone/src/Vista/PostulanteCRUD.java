@@ -874,9 +874,9 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 //            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
             byte[] btDataFile;
             btDataFile = Base64.getDecoder().decode(Table.getModel().getValueAt(Table.getSelectedRow(), 4).toString());
-            BufferedImage image = null;
+//            BufferedImage image = null;
             try {
-                image = ImageIO.read(new ByteArrayInputStream(btDataFile));
+                BufferedImage image = ImageIO.read(new ByteArrayInputStream(btDataFile));
                 if (image != null) {
                     ImageIcon ii = new ImageIcon(image);
                     Image imagef = ii.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
@@ -888,6 +888,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
             }
             lblPdf.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 5).toString());
+            pdf = lblPdf.getText();
             String genero = txtgenero.getText();
             cmbGenero.setSelectedItem(genero + 1);
             cmbGenero.setSelectedItem(Table.getModel().getValueAt(Table.getSelectedRow(), 8).toString());

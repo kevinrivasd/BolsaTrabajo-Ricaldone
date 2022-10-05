@@ -193,7 +193,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         }
 
         progreso = utils.getDataTable("Progress");
-        for (int k = 1; k <= progreso.size(); k++) {
+        for (int k = 2; k <= progreso.size(); k++) {
             cmbProgreso.addItem(progreso.get(k));
         }
 

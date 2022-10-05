@@ -298,6 +298,7 @@ public class Utils {
         data_user.put("idRol", "3");
         data_user.put("mailVerification", String.valueOf(1));
         data_user.put("idGender", "1");
+        data_user.put("firstUse", "0");
 
         ModeloUtils obj = new ModeloUtils();
         return obj.Agregar(data_user, "UserSystems");

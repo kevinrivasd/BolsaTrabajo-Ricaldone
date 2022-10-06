@@ -870,7 +870,6 @@ public class PostulanteCRUD extends javax.swing.JFrame {
             txtID.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 0).toString());
             txtNombrePost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 1).toString());
             txtCorreoPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 2).toString());
-            txtContraseñaPost.setText(Table.getModel().getValueAt(Table.getSelectedRow(), 3).toString());
 //            lblImage.setText(Table.getModel().getValueAt(Table.getSelectedRow(),4).toString());
             byte[] btDataFile;
             btDataFile = Base64.getDecoder().decode(Table.getModel().getValueAt(Table.getSelectedRow(), 4).toString());
@@ -1146,7 +1145,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("RDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
         data.put("IDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
-        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 2));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
         data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
         data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
@@ -1180,7 +1179,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("RDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
         data.put("IDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
-        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 2));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
         data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
         data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
@@ -1212,7 +1211,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("RDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("IDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
-        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 2));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
         data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
         data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));
@@ -1243,7 +1242,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         data.put("RDepartment", String.valueOf(cmbDepartReside.getSelectedIndex() + 1));
         data.put("IDepartment", String.valueOf(cmbDepartPreferencia.getSelectedIndex() + 1));
         data.put("WSubject", String.valueOf(cmbTipoTrabajo.getSelectedIndex() + 1));
-        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 1));
+        data.put("Progress", String.valueOf(cmbProgreso.getSelectedIndex() + 2));
         data.put("Salary", String.valueOf(cmbSalario.getSelectedIndex() + 1));
         data.put("HighType", String.valueOf(cmbHighType.getSelectedIndex() + 1));
         data.put("ContractType", String.valueOf(cmbTipoContrato.getSelectedIndex() + 1));

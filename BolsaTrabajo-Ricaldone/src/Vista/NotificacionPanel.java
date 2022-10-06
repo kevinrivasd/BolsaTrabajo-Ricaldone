@@ -41,6 +41,7 @@ public class NotificacionPanel extends javax.swing.JPanel {
      */
     Utils utilc = new Utils();
     DefaultTableModel jPost = new DefaultTableModel();
+
     /**
      * Load moderations
      *
@@ -189,11 +190,15 @@ public class NotificacionPanel extends javax.swing.JPanel {
 
                 if (idPostulante != null) {
                     String b64 = utils.getPDF(idPostulante.toString());
-                    
-                    if (!b64.equals("") || !mailUser.equals("") || !b64.isEmpty() || !b64.isBlank() ||
-                        b64!=null) {
+
+                    if (!b64.equals("") || !mailUser.equals("") || !b64.isEmpty() || !b64.isBlank()
+                            || b64 != null) {
                         if (JOptionPane.showConfirmDialog(null, "¿Deseas enviar el pdf adjunto en un correo?", "Mensaje", JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
-                            util.sendPDF(b64, mailUser);
+                            util.sendPDF(b64, mailUser, idMod);
+                            jPost = utilc.rtrnTqble("Moderations");
+                            dgvNoti.setModel(jPost);
+                            this.revalidate();
+                            this.repaint();
 //                            JOptionPane.showMessageDialog(null, b64);
                         }
 
@@ -201,14 +206,14 @@ public class NotificacionPanel extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null, "Este postulante no tiene pdf aun");
                     }
                 } else {
-                     if (JOptionPane.showConfirmDialog(null, "Seguro que le quieres crear una cuenta a esta persona?", "Mensaje",
-                        JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
-                         Utils obj = new Utils();
-                         obj.sendConfirmation(idMod);
-                         jPost = utilc.rtrnTqble("Moderations");
-                         dgvNoti.setModel(jPost);
-                         this.revalidate();
-                         this.repaint();
+                    if (JOptionPane.showConfirmDialog(null, "Seguro que le quieres crear una cuenta a esta persona?", "Mensaje",
+                            JOptionPane.YES_NO_OPTION) == ConfirmationCallback.YES) {
+                        Utils obj = new Utils();
+                        obj.sendConfirmation(idMod);
+                        jPost = utilc.rtrnTqble("Moderations");
+                        dgvNoti.setModel(jPost);
+                        this.revalidate();
+                        this.repaint();
                     }
                 }
 

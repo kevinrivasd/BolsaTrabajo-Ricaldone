@@ -259,9 +259,10 @@ public class Utils {
      * @param mail
      * @return
      */
-    public String sendPDF(String b64, String mail) {
+    public String sendPDF(String b64, String mail, int idMod) {
 
         try {
+            List<String> lista = ModeloUtils.getMod(idMod);
             Random rand = new Random();
             int randomCode = rand.nextInt(999999);
             Request request = new Request("http://localhost:3000/api/email", RequestMethod.POST);
@@ -275,6 +276,7 @@ public class Utils {
             Response response = new HttpClient(request).execute();
             if (response.getStatusCode() == 200) {
                 JOptionPane.showMessageDialog(null, "Email enviado con exito, por favor verifica en SPAM.");
+                modelUtils.Eliminar(String.valueOf(idMod), "Moderations", "idMod");
             } else {
                 JOptionPane.showMessageDialog(null, "Hubo un error");
             }

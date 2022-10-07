@@ -19,6 +19,7 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import jdk.jshell.execution.Util;
 import Controlador.Utils;
+import Customizar.JTextField;
 
 /**
  * Form to manage applicants' branches, general skills and additional skills.
@@ -31,6 +32,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
      * Object from Utils
      */
     Utils utils = new Utils();
+    JTextField jtxt = new JTextField();
     /**
      * Creates new form AbilitiesCRUD
      */
@@ -349,6 +351,7 @@ public class AbilitiesCRUD extends javax.swing.JFrame {
         if (txtTitle.getText().length() >= 50) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres_tilde_espacio(evt);
     }//GEN-LAST:event_txtTitleKeyTyped
     private LinkedHashMap<String, String> collectMap() {
         LinkedHashMap<String, String> map = new LinkedHashMap<>();

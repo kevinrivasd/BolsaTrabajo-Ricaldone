@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Controlador.ControladorRecu;
+import Customizar.JTextField;
 
 /**
  * Form to insert new password credentials after entering the verification code.
@@ -28,6 +29,7 @@ public class ActualizacionPWD extends javax.swing.JFrame {
      * Object from ControladorRecu
      */
     ControladorRecu recucontroller = new ControladorRecu();
+    JTextField jtxt = new JTextField();
 
     /**
      * Creates new form ActualizacionPWD
@@ -202,12 +204,14 @@ public class ActualizacionPWD extends javax.swing.JFrame {
         if (txtpwd.getText().length() >= 250) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtpwdKeyTyped
 
     private void txtverpwdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtverpwdKeyTyped
         if (txtverpwd.getText().length() >= 250) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtverpwdKeyTyped
 
     /**

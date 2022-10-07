@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Controlador.Utils;
 import Vista.Menú;
+import Customizar.JTextField;
 
 /**
  * User configuration panel
@@ -29,6 +30,7 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
      * Object from Utils
      */
     Utils utils = new Utils();
+    JTextField jtxt = new JTextField();
 //    Menú menu = new Menú();
 
     /**
@@ -82,6 +84,11 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         jLabel6.setText("Correo");
 
         jPasswordField1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyTyped(evt);
+            }
+        });
 
         txtCorreo.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         txtCorreo.setText("JuanRomero@gmail.com");
@@ -184,13 +191,23 @@ public class ConfiguracionPanel extends javax.swing.JPanel {
         if (txtUser.getText().length() >= 30) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
         if (txtCorreo.getText().length() >= 45) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres_tilde_arroba(evt);
     }//GEN-LAST:event_txtCorreoKeyTyped
+
+    private void jPasswordField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyTyped
+        // TODO add your handling code here:
+        if (jPasswordField1.getText().length() >= 250) {
+            evt.consume();
+        }
+        jtxt.ValidacionCaracteres(evt);
+    }//GEN-LAST:event_jPasswordField1KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

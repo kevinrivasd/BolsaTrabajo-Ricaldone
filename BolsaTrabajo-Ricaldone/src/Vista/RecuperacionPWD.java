@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import Controlador.ControladorRecu;
 import Controlador.Utils;
 import javax.swing.text.MaskFormatter;
+import Customizar.JTextField;
 
 /**
  * Panel for the first steps to recover password
@@ -22,6 +23,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
 
     public static String mailLocal = "";
     ControladorRecu recucontroller = new ControladorRecu();
+    JTextField jtxt = new JTextField();
 
     /**
      * Creates new form RecuperacionPWD
@@ -250,6 +252,7 @@ public class RecuperacionPWD extends javax.swing.JFrame {
         if (txtuser.getText().length() >= 30) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtuserKeyTyped
 
     private void txtuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtuserActionPerformed

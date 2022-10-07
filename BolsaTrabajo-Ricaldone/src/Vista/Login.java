@@ -13,6 +13,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import Controlador.ControladorLogin;
 import Controlador.Utils;
+import Customizar.JTextField;
 
 /**
  * Login Form
@@ -25,7 +26,7 @@ public class Login extends javax.swing.JFrame {
      * Object from ControladorLogin
      */
     ControladorLogin logincontroller = new ControladorLogin();
-
+    JTextField jtxt = new JTextField();
     /**
      * Creates new form Login
      */
@@ -159,8 +160,10 @@ public class Login extends javax.swing.JFrame {
 /**
      * button to log in with the correct credentials
      *
+     * @param Evento
      * @param evt
      */
+    
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_btnIniciarSesionActionPerformed
 
         String user;
@@ -213,12 +216,14 @@ public class Login extends javax.swing.JFrame {
         if (txtUser.getText().length() >= 30) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtUserKeyTyped
 
     private void txtpasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpasswordKeyTyped
         if (txtpassword.getText().length() >= 250) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtpasswordKeyTyped
 
     /**

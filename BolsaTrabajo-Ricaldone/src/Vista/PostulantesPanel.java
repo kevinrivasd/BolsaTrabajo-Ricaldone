@@ -35,6 +35,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import Controlador.Utils;
 import net.sf.jasperreports.engine.JRException;
+import Customizar.JTextField;
 
 /**
  * Panel to view applicants
@@ -48,6 +49,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
      */
 //    DefaultTableModel Datos;
     TableRowSorter trsfiltro;
+    JTextField jtxt = new JTextField();
     Utils utils = new Utils();
     public TableRowSorter<TableModel> sorter;
 //    public Menú men = new Menú();
@@ -214,6 +216,7 @@ public class PostulantesPanel extends javax.swing.JPanel {
                 System.out.println("Mal Patron REGEX");
             }
         }
+        jtxt.ValidacionCaracteres_tilde_espacio_arroba(evt);
     }//GEN-LAST:event_txtFiltroPostKeyTyped
 
 

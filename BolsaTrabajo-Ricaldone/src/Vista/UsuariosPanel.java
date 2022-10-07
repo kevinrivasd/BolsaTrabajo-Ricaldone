@@ -32,6 +32,7 @@ import Controlador.ControladorUsuario;
 import Controlador.Utils;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import Customizar.JTextField;
 
 /**
  * Panel to manage users
@@ -41,6 +42,7 @@ import java.awt.Graphics2D;
 public class UsuariosPanel extends javax.swing.JPanel {
 
     Utils utils = new Utils();
+    JTextField jtxt = new JTextField();
     /**
      * Creates new form UsuariosPanel
      */
@@ -649,6 +651,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
         if (txtContra.getText().length() >= 250) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtContraKeyTyped
     /**
      * Event to select rows
@@ -770,7 +773,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                 System.out.println("Mal Patron REGEX");
             }
         }
-
+      jtxt.ValidacionCaracteres_tilde_espacio_arroba(evt);
     }//GEN-LAST:event_txtFilterKeyTyped
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -786,12 +789,14 @@ public class UsuariosPanel extends javax.swing.JPanel {
         if (txtUsuario.getText().length() >= 30) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
         if (txtCorreo.getText().length() >= 45) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres_tilde_arroba(evt);
     }//GEN-LAST:event_txtCorreoKeyTyped
     /**
      * Collect data from the users table

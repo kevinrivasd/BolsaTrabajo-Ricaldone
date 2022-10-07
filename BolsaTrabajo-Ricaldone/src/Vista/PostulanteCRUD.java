@@ -39,6 +39,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import Controlador.Utils;
 import Controlador.ControladorPostulante;
+import Customizar.JTextField;
 
 /**
  * Form to manage applicants
@@ -73,6 +74,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
     DefaultTableModel post;
     ControladorPostulante postcontroller = new ControladorPostulante();
     Utils utils = new Utils();
+    JTextField jtxt = new JTextField();
 
     /**
      * Load combo box and hide graphic objects
@@ -1080,6 +1082,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         if (txtNombrePost.getText().length() >= 30) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres_tilde_espacio(evt);
     }//GEN-LAST:event_txtNombrePostKeyTyped
 
     private void txtApellidoPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPostKeyTyped
@@ -1092,18 +1095,21 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         if (txtApellidoPost.getText().length() >= 30) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres_tilde_espacio(evt);
     }//GEN-LAST:event_txtApellidoPostKeyTyped
 
     private void txtCorreoPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoPostKeyTyped
        if (txtCorreoPost.getText().length() >= 45) {
             evt.consume();
         }
+       jtxt.ValidacionCaracteres_tilde_arroba(evt);
     }//GEN-LAST:event_txtCorreoPostKeyTyped
 
     private void txtContraseñaPostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaPostKeyTyped
         if (txtContraseñaPost.getText().length() >= 999) {
             evt.consume();
         }
+        jtxt.ValidacionCaracteres(evt);
     }//GEN-LAST:event_txtContraseñaPostKeyTyped
 
     private void CheckAlumniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckAlumniActionPerformed

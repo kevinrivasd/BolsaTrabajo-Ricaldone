@@ -64,6 +64,11 @@ public class PostulantesPanel extends javax.swing.JPanel {
         sorter = new TableRowSorter<>(jPost);
         JTPostulantes.setRowSorter(sorter);
 
+        //ID
+        JTPostulantes.getColumnModel().getColumn(0).setMaxWidth(0);
+        JTPostulantes.getColumnModel().getColumn(0).setMinWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
     }
 
     /**

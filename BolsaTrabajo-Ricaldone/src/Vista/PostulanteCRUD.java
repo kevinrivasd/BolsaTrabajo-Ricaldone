@@ -106,6 +106,11 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         post = new DefaultTableModel(null, Encabezados);
         JTPostulantes.setModel(post);
         CargarTabla();
+        //ID
+        JTPostulantes.getColumnModel().getColumn(0).setMaxWidth(0);
+        JTPostulantes.getColumnModel().getColumn(0).setMinWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        JTPostulantes.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
         //IDepartment
         JTPostulantes.getColumnModel().getColumn(11).setMaxWidth(0);
         JTPostulantes.getColumnModel().getColumn(11).setMinWidth(0);
@@ -455,7 +460,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         jLabel18.setText("Habilidad adicional");
-        lblTodo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 428, -1, -1));
+        lblTodo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
 
         CheckAlumni.setBackground(new java.awt.Color(239, 245, 213));
         CheckAlumni.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
@@ -547,7 +552,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 btnBActionPerformed(evt);
             }
         });
-        lblTodo.add(btnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 622, 190, 34));
+        lblTodo.add(btnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 190, 34));
 
         btnA.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnA.setText("Gestionar Habilidad Adicional");
@@ -556,7 +561,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
                 btnAActionPerformed(evt);
             }
         });
-        lblTodo.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 622, -1, 34));
+        lblTodo.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 620, -1, 34));
 
         btnG.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         btnG.setText("Gestionar Habilidad General");
@@ -616,7 +621,7 @@ public class PostulanteCRUD extends javax.swing.JFrame {
         ATable.setSelectionBackground(new java.awt.Color(193, 233, 118));
         jScrollPane4.setViewportView(ATable);
 
-        lblTodo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 471, 206, 120));
+        lblTodo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 206, 120));
         lblTodo.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 172, 173));
 
         BtnLimpiarCampos.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N

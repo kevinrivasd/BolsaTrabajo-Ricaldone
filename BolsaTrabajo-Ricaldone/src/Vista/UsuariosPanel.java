@@ -94,6 +94,10 @@ public class UsuariosPanel extends javax.swing.JPanel {
         btnAgregarUsuario.setEnabled(true);
         btnEliminar.setEnabled(false);
         jButton10.setEnabled(false);
+        dgvUsers.getColumnModel().getColumn(0).setMaxWidth(0);
+        dgvUsers.getColumnModel().getColumn(0).setMinWidth(0);
+        dgvUsers.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        dgvUsers.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
     }
 
     /**

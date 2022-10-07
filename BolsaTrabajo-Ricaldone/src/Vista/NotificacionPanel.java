@@ -57,6 +57,11 @@ public class NotificacionPanel extends javax.swing.JPanel {
         jPost = utilc.rtrnTqble("Moderations");
         dgvNoti.setModel(jPost);
 
+        //ID
+        dgvNoti.getColumnModel().getColumn(0).setMaxWidth(0);
+        dgvNoti.getColumnModel().getColumn(0).setMinWidth(0);
+        dgvNoti.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        dgvNoti.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
     }
 
     /**

@@ -98,6 +98,11 @@ public class UsuariosPanel extends javax.swing.JPanel {
         dgvUsers.getColumnModel().getColumn(0).setMinWidth(0);
         dgvUsers.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
         dgvUsers.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+        //mailverific
+        dgvUsers.getColumnModel().getColumn(7).setMaxWidth(0);
+        dgvUsers.getColumnModel().getColumn(7).setMinWidth(0);
+        dgvUsers.getTableHeader().getColumnModel().getColumn(7).setMaxWidth(0);
+        dgvUsers.getTableHeader().getColumnModel().getColumn(7).setMinWidth(0);
     }
 
     /**

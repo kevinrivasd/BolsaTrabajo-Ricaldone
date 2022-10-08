@@ -296,7 +296,7 @@ public class Utils {
         data_user.put("nameUser", username);
         data_user.put("Pword", Pword);
         data_user.put("mailUser", lista.get(0));
-        data_user.put("numberUser", "000000");
+        data_user.put("numberUser", "00000000");
         data_user.put("idRol", "3");
         data_user.put("mailVerification", String.valueOf(1));
         data_user.put("idGender", "1");

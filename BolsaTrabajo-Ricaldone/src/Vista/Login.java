@@ -14,6 +14,8 @@ import javax.swing.ImageIcon;
 import Controlador.ControladorLogin;
 import Controlador.Utils;
 import Customizar.JTextField;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Login Form
@@ -31,6 +33,9 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
 //    
+    
+    int intentos = 5;
+    int cntdwn = 30;
     /**
      * assign titles and dimensions
      */
@@ -42,6 +47,7 @@ public class Login extends javax.swing.JFrame {
         Dimension h = t.getScreenSize();
 
         setTitle("Login");
+        
         this.setLocationRelativeTo(null);  // *** this will center your app ***
     }
 
@@ -143,16 +149,14 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -193,9 +197,38 @@ public class Login extends javax.swing.JFrame {
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, verifica tus datos", "Hubo un error!", 0);
-            }
-
-        } catch (Exception e) {
+                intentos--;
+                
+//                        System.out.println(intentos);
+                        if (intentos == 2) {
+                            JOptionPane.showMessageDialog(null, "Espera 25 segundos para volver a intentarlo." );
+                            txtpassword.setEnabled(false);
+                            txtUser.setEnabled(false);
+                            jLabel1.setEnabled(false);
+                            btnIniciarSesion.setEnabled(false);
+                            Timer timer = new Timer();
+                            TimerTask task = new TimerTask() {
+                                @Override
+                                public void run() {
+                                    if (cntdwn > 0) {
+//                    System.err.println(cntdwn + " seconds");
+//                                        JOptionPane.showMessageDialog(null, "Espera 25 segundos para volver a intentarlo." );
+//                                        System.out.println("Tiempo" + cntdwn);
+//                                        cntdwn--;
+                                    } else {
+                                        txtpassword.setEnabled(true);
+                                        txtUser.setEnabled(true);
+                                        jLabel1.setEnabled(true);
+                                        btnIniciarSesion.setEnabled(true);
+                                        timer.cancel();
+                                    }
+                                }
+                            };
+                            //p1 = task - p2 = delay, p3 = intervalo
+                            timer.scheduleAtFixedRate(task, 0, 1000);
+                        }
+            } 
+        }catch (Exception e) {
             //TODO: handle exception
             JOptionPane.showMessageDialog(null, "e: " + e.getMessage());
         }

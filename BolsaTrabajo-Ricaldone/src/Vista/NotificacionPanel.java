@@ -202,6 +202,10 @@ public class NotificacionPanel extends javax.swing.JPanel {
                             util.sendPDF(b64, mailUser, idMod);
                             jPost = utilc.rtrnTqble("Moderations");
                             dgvNoti.setModel(jPost);
+                            dgvNoti.getColumnModel().getColumn(0).setMaxWidth(0);
+                            dgvNoti.getColumnModel().getColumn(0).setMinWidth(0);
+                            dgvNoti.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+                            dgvNoti.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
                             this.revalidate();
                             this.repaint();
 //                            JOptionPane.showMessageDialog(null, b64);
@@ -217,6 +221,10 @@ public class NotificacionPanel extends javax.swing.JPanel {
                         obj.sendConfirmation(idMod);
                         jPost = utilc.rtrnTqble("Moderations");
                         dgvNoti.setModel(jPost);
+                        dgvNoti.getColumnModel().getColumn(0).setMaxWidth(0);
+                        dgvNoti.getColumnModel().getColumn(0).setMinWidth(0);
+                        dgvNoti.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+                        dgvNoti.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
                         this.revalidate();
                         this.repaint();
                     }

@@ -201,7 +201,7 @@ public class Login extends javax.swing.JFrame {
                 
 //                        System.out.println(intentos);
                         if (intentos == 2) {
-                            JOptionPane.showMessageDialog(null, "Espera 25 segundos para volver a intentarlo." );
+                            JOptionPane.showMessageDialog(null, "Espera 30 segundos para volver a intentarlo." );
                             txtpassword.setEnabled(false);
                             txtUser.setEnabled(false);
                             jLabel1.setEnabled(false);
@@ -214,7 +214,7 @@ public class Login extends javax.swing.JFrame {
 //                    System.err.println(cntdwn + " seconds");
 //                                        JOptionPane.showMessageDialog(null, "Espera 25 segundos para volver a intentarlo." );
 //                                        System.out.println("Tiempo" + cntdwn);
-//                                        cntdwn--;
+                                        cntdwn--;
                                     } else {
                                         txtpassword.setEnabled(true);
                                         txtUser.setEnabled(true);

@@ -713,7 +713,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
                         CargarTabla();
                         limpiarCampos();
-                    } else {
+                    }else {
                         JOptionPane.showMessageDialog(null, "Compruebe que el usuario no se repita.", "Error", 0);
                     }
                 } else {
@@ -727,7 +727,7 @@ public class UsuariosPanel extends javax.swing.JPanel {
             String id = txtID.getText();
             if (!Controlador.Utils.emptyFields(data)) {
                 if (verificar_email(mail)) {
-                    if (us.ValidarUserController(txtUsuario.getText(), id) == true && us.ValidarMailController(txtCorreo.getText(), id) == true) {
+                    if (us.ValidarUserController(txtUsuario.getText(), id) == true) {
                         try {
                             int res = utils.actualizar(data, id, "UserSystems", "idUser");
                             JOptionPane.showMessageDialog(null, res == 1 ? "Usuario correctamente actualizado" : "Hubo un error");
